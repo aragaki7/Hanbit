@@ -1,0 +1,50 @@
+ @media only screen and (max-width:399px){
+                 /*mobile*/
+                .mgrid1{width: 8.3%;}
+                .mgrid2{width: 16.6%;}
+                .mgrid3{width: 24.9%;}
+                .mgrid4{width: 33.2%;}
+                .mgrid5{width: 41.5%;}
+                .mgrid6{width: 49.8%;}
+                .mgrid7{width: 58.1%;}
+                .mgrid8{width: 66.4%;}
+                .mgrid9{width: 74.7%;}
+                .mgrid10{width:83%;}
+                .mgrid11{width:91.3%;}
+                .mgrid12{width:100%;}
+            }
+            @media only screen and (min-width:400px){
+                 /*PC*/
+                .grid1{width: 8.3%;}
+                .grid2{width: 16.6%;}
+                .grid3{width: 24.9%;}
+                .grid4{width: 33.2%;}
+                .grid5{width: 41.5%;}
+                .grid6{width: 49.8%;}
+                .grid7{width: 58.1%;}
+                .grid8{width: 66.4%;}
+                .grid9{width: 74.7%;}
+                .grid10{width:83%;}
+                .grid11{width:91.3%;}        
+                .grid12{width:100%;}       
+            }
+            
+            *{
+                margin: 0px;
+                padding: 0px;
+            }
+            .container_12{
+                width: 100%;
+                margin: 0px auto;
+                overflow: hidden;
+            }
+            .clear{
+                clear: both;
+            }
+            .container_12>.grid1,.container_12>.grid2,.container_12>.grid3,.container_12>.grid4,
+            .container_12>.grid5,.container_12>.grid6,.container_12>.grid7,.container_12>.grid8,
+            .container_12>.grid9,.container_12>.grid10,.container_12>.grid11,.container_12>.grid12{
+                float: left;
+                box-sizing: border-box;
+                /* border: red 1px solid; */
+            }

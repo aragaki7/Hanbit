@@ -1,0 +1,194 @@
+ *{
+      margin: 0px;
+      padding: 0px;
+   }
+   .container_12{
+      width: 80%;
+   }
+   .table{
+      width: 70%;
+      margin: 20px;
+   }
+   label{
+      display: inline-block;
+      width: 100px;
+      text-align: center;
+      margin: 10px 0px;
+      color: white;
+      background-color: white;
+   }
+   .nav>ul>li a:hover{
+   		background-color: firebrick;
+   }
+   
+   /* nav css  */
+   .nav{
+      background-color: #333;
+      height: 50px;
+   }
+   .nav>ul{
+      margin: auto;
+   }
+   .nav>ul>li{
+      list-style: none;
+      width: 250px;
+      background-color:  #333;
+      float: left;
+	  margin: 12px 0px;
+      text-align: center;
+   }
+   .nav>ul>li>a{
+      color: white;
+      text-decoration: none;
+      padding: 12px 80px 20px 80px;
+   }
+
+   /* menu1 css  */
+   .nav2{
+      background-color: white;
+      width: 254px;
+      
+   }
+   .nav2>ul{
+   	  margin-top: 20px;
+   	  margin-bottom: 30px;
+      margin-left: 200px; 
+      text-align: center;
+   }
+   .nav2>ul>li{
+      list-style: none;
+      width: 200px;
+      background-color: white;
+      text-align: center;   
+      margin: 5px 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: -200px;
+      text-indent: 39px;
+   }
+   .nav2>ul>li>a{
+      color:#333;
+      text-decoration: none;
+   }
+   
+   /* menu2 css  */
+   .nav3{
+      background-color: white;
+      width: 253px;
+      height:213px;
+      margin-left: 0px;
+   }
+   .nav3>ul{
+   	  margin-top: 20px;
+   	  margin-bottom: 30px;
+   }
+   .nav3>ul>li{
+      list-style: none;
+      width: 200px;
+      margin-left:-100px;
+      background-color: white;
+      text-align: center;   
+      margin: 5px 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-indent: -9px;
+   }
+   .nav3>ul>li>a{
+      color: #333;
+      text-decoration: none;
+   }
+   
+   /* nav4 css  */
+   .nav4{
+      background-color: white;
+      width: 254px;
+      height:213px;
+      margin-left: 0px;
+   }
+   .nav4>ul{
+   	  margin-top: 20px;
+   	  margin-bottom: 30px;
+   }
+   .nav4>ul>li{
+      list-style: none;
+      width: 200px;
+      background-color: white;
+      text-align: center;   
+      margin: 5px 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-indent: -34px;
+   }
+   .nav4>ul>li>a{
+      color: #333;
+      text-decoration: none;
+   }
+   
+   /* nav5 css  */
+   .nav5{
+      background-color: white;
+      width: 253px;
+      height:213px;
+      margin-left: 0px;
+   }
+   .nav5>ul{
+   	  margin-top: 20px;
+   	  margin-bottom: 30px;
+   }
+   .nav5>ul>li{
+      list-style: none;
+      width: 200px;
+      background-color: white;
+      text-align: center;   
+      margin: 5px 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-indent: -62px;
+      
+   }
+   .nav5>ul>li>a{
+      color: #333;
+      text-decoration: none;
+   }
+   
+   /* nav6 css  */
+   .nav6{
+      background-color: white;
+      width: 250px;
+      height:213px;
+      margin-left: 0px;
+   }
+   .nav6>ul{
+   	  margin-top: 20px;
+   	  margin-bottom: 30px;
+   }
+   .nav6>ul>li{
+      list-style: none;
+      width: 200px;
+      background-color: white;
+      text-align: center;   
+      margin: 5px 10px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-indent: -88px;
+   }
+   .nav6>ul>li>a{
+      color: #333;
+      text-decoration: none;
+   }
+   
+   /*  footer */
+   .footer{
+      height: 30px;
+      background-color:  #333;
+      color: white;
+      text-align: center;
+      font-size: 13px;
+      padding-top: 5px;
+      margin-top: 20px;
+   }
+   .err{
+   font-size: 12px;
+   color:red;
+   text-decoration: underline;
+   }
