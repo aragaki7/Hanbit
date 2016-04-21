@@ -1,0 +1,10 @@
+.table{
+	width: 70%;
+	margin: 20px;
+}
+.table> div+div{
+	background-color: #ddd;
+}
+.table> div> span{
+	display: inline-block;
+}
