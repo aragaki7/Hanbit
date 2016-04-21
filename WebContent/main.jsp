@@ -12,7 +12,6 @@
 <link rel="stylesheet" type="text/css" href="css/nav.css"/>
 </head>
 <body>
-<!-- TEST -->
 	<div class="container_12">
 		<%@ include file="template/header.jsp" %>
 		<%@ include file="template/nav.jsp" %>
