@@ -177,7 +177,7 @@
     <servlet-name>customer.notice</servlet-name>
     <url-pattern>/customer/notice.naver</url-pattern>
   </servlet-mapping>  
-  
+
   
   
 </web-app>

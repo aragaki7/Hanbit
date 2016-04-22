@@ -54,8 +54,10 @@
 <script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="js/menuLoad.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
+		
 		$('.bxslider').bxSlider({
 			auto : true,
 			autoControls : true,

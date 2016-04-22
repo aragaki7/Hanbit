@@ -5,24 +5,18 @@
 				arr[idx]=$(item).val();
 			});
 			$.ajax({
-				"url":"/mvc04/login/ajaxlogin.naver",
-				"data":{"num":arr[0],"name":arr[1]},
+				"url":"/Hanbit/login.do",
+				"data":{"id":arr[0],"pw":arr[1]},
 				"method":"POST",
-				"dataType":"json", //json
+				"dataType":"json",
 				"success":function(data){
-					/*$(".grid4").html(data); //html*/
-					/*
-					var name =$(data).find("name").text();//xml
-					var result = $(data).find("result").text();
-					var st = "<div>"+name+"님 환영합니다.</div>";
-					st+= "<div><a href=\"/mvc04/login/logout.naver\"><span>logout</span></a></div>";
-					$(".grid4").html(st);
-					*/
-					var obj = JSON.parse(data);
-					if(obj.result){
-						var st = "<div>"+obj.name+"님 환영합니다.</div>";
-						st+= "<div><a href=\"/mvc04/login/logout.naver\"><span>logout</span></a></div>";
-						$(".grid4").html(st);
+					if(data.result=='success'){
+						alert('로그인 성공');
+						var st = "<div>"+data.name+"님 환영합니다.</div>";
+						st+= "<div><a href=\"/Hanbit/logout.do\"><span>logout</span></a></div>";
+						$(".login").html(st);
+					}else if(data.result=='fail'){
+						alert('아이디 비번 확인');
 					}
 				},
 				"error":function(){

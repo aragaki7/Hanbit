@@ -1,3 +1,4 @@
+<%@page import="net.sf.json.JSONObject"%>
 <%@page import="data.Dday"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -38,15 +39,18 @@ input {
 </style>
 <div class="grid3 aside">
 	<%
-		Boolean re = (Boolean) session.getAttribute("login");
+	JSONObject re = (JSONObject) session.getAttribute("jsonObj");
 		if (re != null) {
-			if (re) {
+			if (re.getString("result").equals("success")) {
 	%>
-	<div class="out"><%=session.getAttribute("id")%><span>님
-			환영합니다.</span>
-	</div>
-	<div>
-		<a href="/mvc04/login/logout.naver"><span>logout</span></a>
+	<div id="form">
+		<div class="login">
+			<div><%=re.getString("name")%>님 환영합니다.</div>
+		<div>
+			<a href="/Hanbit/logout.do"><span>logout</span></a>
+		</div>
+		</div>
+	
 	</div>
 	<%
 		} else {

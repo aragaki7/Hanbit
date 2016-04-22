@@ -23,8 +23,6 @@
 }
 </style>
 
-<script type="text/javascript" src="/mvc04/js/login.js"></script>
-
 <div class="grid12 header">
 	<a href="<%=request.getContextPath()%>/main.do"><img
 		src="<%=request.getContextPath()%>/imgs/logo.jpg" alt="logo" /></a>
