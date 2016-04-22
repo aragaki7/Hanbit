@@ -18,7 +18,7 @@
 		
 		<!-- content start -->
 		
-		<div class="grid10">
+		<div class="grid9">
 			<img alt="main banner" src="imgs/1.png">
 		</div>
 		<!-- content end -->

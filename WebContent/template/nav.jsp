@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div class="grid12 nav"><!-- main menu -->
+<div class="grid12 nav">
 	<ul>
 		<li><a href="<%= request.getContextPath() %>/index.naver">센터소개</a></li>
 		<li><a href="<%= request.getContextPath() %>/user/add.naver">교육과정</a></li>	
@@ -9,6 +9,7 @@
 		<li><a href="<%= request.getContextPath() %>/student/list.naver">고객센터</a></li>
 	</ul>
 </div>
+
 <div class="grid12 nav2">
 	<ul>
 		<li><a href="<%= request.getContextPath() %>/user/add.naver">개요</a></li>	
@@ -21,6 +22,7 @@
 		<li><a href="<%= request.getContextPath() %>/user/del.naver">찾아오는 길</a></li>
 	</ul>
 </div>
+
 <div class="grid12 nav3">
 	<ul>
 		<li><a href="<%= request.getContextPath() %>/student/add.naver">과정소개</a></li>	
