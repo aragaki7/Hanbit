@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<!-- main test -->
+<!-- main test 박지윤-->
 <script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="js/menuLoad.js"></script>
 <link rel="stylesheet" type="text/css" href="css/grid_design12.css"/>
