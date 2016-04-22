@@ -1,16 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-	id="WebApp_ID" version="3.0">
-	<display-name>Hanbit</display-name>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
-	</welcome-file-list>
-
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>tmp</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- main -->
+  <servlet>
+    <servlet-name>main.do</servlet-name>
+    <servlet-class>com.hb.controller.IndexController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>main.do</servlet-name>
+    <url-pattern>/main.naver</url-pattern>
+  </servlet-mapping>  
+  
+  <!-- menu1: intro/outline -->
+  <servlet>
+    <servlet-name>intro.outline</servlet-name>
+    <servlet-class>com.hb.controller.intro.IntroOutline</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>intro.outline</servlet-name>
+    <url-pattern>/intro/outline.naver</url-pattern>
+  </servlet-mapping>  
+  <!-- intro/ceo -->
+  <servlet>
+    <servlet-name>intro.ceo</servlet-name>
+    <servlet-class>com.hb.controller.intro.IntroCeo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>intro.ceo</servlet-name>
+    <url-pattern>/intro/ceo.naver</url-pattern>
+  </servlet-mapping> 
+  <!-- intro/history -->
+  <servlet>
+    <servlet-name>intro.history</servlet-name>
+    <servlet-class>com.hb.controller.intro.IntroHistory</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>intro.history</servlet-name>
+    <url-pattern>/intro/history.naver</url-pattern>
+  </servlet-mapping>  
+  <!-- intro/facility -->
+  <servlet>
+    <servlet-name>intro.facility</servlet-name>
+    <servlet-class>com.hb.controller.intro.IntroFacility</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>intro.facility</servlet-name>
+    <url-pattern>/intro/facility.naver</url-pattern>
+  </servlet-mapping>
+  <!-- intro/profess -->
+  <servlet>
+    <servlet-name>intro.profess</servlet-name>
+    <servlet-class>com.hb.controller.intro.IntroProfess</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>intro.profess</servlet-name>
+    <url-pattern>/intro/profess.naver</url-pattern>
+  </servlet-mapping>
+  <!-- intro/enter -->
+  <servlet>
+    <servlet-name>intro.enter</servlet-name>
+    <servlet-class>com.hb.controller.intro.IntroEnter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>intro.enter</servlet-name>
+    <url-pattern>/intro/enter.naver</url-pattern>
+  </servlet-mapping> 
+  <!-- intro/award -->
+  <servlet>
+    <servlet-name>intro.award</servlet-name>
+    <servlet-class>com.hb.controller.intro.IntroAward</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>intro.award</servlet-name>
+    <url-pattern>/intro/award.naver</url-pattern>
+  </servlet-mapping>  
+  <!-- intro/way -->
+  <servlet>
+    <servlet-name>intro.way</servlet-name>
+    <servlet-class>com.hb.controller.intro.IntroWay</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>intro.way</servlet-name>
+    <url-pattern>/intro/way.naver</url-pattern>
+  </servlet-mapping>   
+  
+  <!-- menu2: edu/curri -->
+  <servlet>
+    <servlet-name>edu.curri</servlet-name>
+    <servlet-class>com.hb.controller.edu.EduCurri</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>edu.curri</servlet-name>
+    <url-pattern>/edu/curri.naver</url-pattern>
+  </servlet-mapping>  
+  
+  <!-- menu3: service/company -->
+  <servlet>
+    <servlet-name>service.company</servlet-name>
+    <servlet-class>com.hb.controller.service.ServiceCompany</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>service.company</servlet-name>
+    <url-pattern>/service/company.naver</url-pattern>
+  </servlet-mapping>  
+  <!-- service/job -->
+  <servlet>
+    <servlet-name>service.job</servlet-name>
+    <servlet-class>com.hb.controller.service.ServiceJob</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>service.job</servlet-name>
+    <url-pattern>/service/job.naver</url-pattern>
+  </servlet-mapping>
+  <!-- service/Work -->
+  <servlet>
+    <servlet-name>service.work</servlet-name>
+    <servlet-class>com.hb.controller.service.ServiceWork</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>service.work</servlet-name>
+    <url-pattern>/service/work.naver</url-pattern>
+  </servlet-mapping>
+  
+  <!-- menu4: user/list -->
+  <servlet>
+    <servlet-name>user.list</servlet-name>
+    <servlet-class>com.hb.controller.user.ListUserController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>user.list</servlet-name>
+    <url-pattern>/user/list.naver</url-pattern>
+  </servlet-mapping> 
+  <!-- cnt/list -->
+  <servlet>
+    <servlet-name>cnt.list</servlet-name>
+    <servlet-class>com.hb.controller.cnt.ListCntController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cnt.list</servlet-name>
+    <url-pattern>/student/list.naver</url-pattern>
+  </servlet-mapping>  
+  
+  <!-- menu5: customer/Ask -->
+  <servlet>
+    <servlet-name>customer.ask</servlet-name>
+    <servlet-class>com.hb.controller.customer.CustomerAsk</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>customer.ask</servlet-name>
+    <url-pattern>/customer/ask.naver</url-pattern>
+  </servlet-mapping> 
+  <!-- customer/Qna -->
+  <servlet>
+    <servlet-name>customer.qna</servlet-name>
+    <servlet-class>com.hb.controller.customer.CustomerQna</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>customer.qna</servlet-name>
+    <url-pattern>/customer/qna.naver</url-pattern>
+  </servlet-mapping>
+  <!-- customer/Notice -->
+  <servlet>
+    <servlet-name>customer.notice</servlet-name>
+    <servlet-class>com.hb.controller.customer.CustomerNotice</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>customer.notice</servlet-name>
+    <url-pattern>/customer/notice.naver</url-pattern>
+  </servlet-mapping>  
+  
+  
+  
 </web-app>
