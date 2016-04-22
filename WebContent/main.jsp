@@ -10,8 +10,9 @@
 <link rel="stylesheet" type="text/css" href="css/nav.css" />
 <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
 <style type="text/css">
+
 .bxslider>li img {
-	width: 95%;
+	width: 80%;
 	margin: 20px auto;
 	border: 0px;
 }
