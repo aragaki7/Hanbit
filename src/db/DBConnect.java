@@ -10,6 +10,12 @@ public class DBConnect {
 	private static final String FORNAME = "com.mysql.jdbc.Driver";
 	private static Connection connection;
 
+	/**
+	 * DB Connect
+	 * 
+	 * @Connetion
+	 */
+
 	public static Connection get() {
 		try {
 			Class.forName(FORNAME);
@@ -19,6 +25,15 @@ public class DBConnect {
 		}
 
 		return connection;
+	}
+
+	/**
+	 * getid
+	 * 
+	 * @void
+	 */
+
+	public static void id() {
 	}
 
 }
