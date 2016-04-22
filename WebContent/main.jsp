@@ -6,18 +6,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메인페이지</title>
-<link rel="stylesheet" type="text/css" href="css/grid_design12.css"/>
-<link rel="stylesheet" type="text/css" href="css/nav.css"/>
-<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css"/>
+<link rel="stylesheet" type="text/css" href="css/grid_design12.css" />
+<link rel="stylesheet" type="text/css" href="css/nav.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
 <style type="text/css">
-.bxslider>li img{
-	width:95%;
+.bxslider>li img {
+	width: 95%;
 	margin: 20px auto;
 	border: 0px;
 }
+
 .bx-viewport {
 	border: 0px;
 }
+
 .bx-wrapper .bx-controls-auto .bx-stop {
 	display: block;
 	text-indent: -9999px;
@@ -47,19 +49,18 @@
 	right: 10px;
 	background: url(imgs/controls.png) no-repeat -43px -32px;
 }
-
 </style>
 <script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="js/menuLoad.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-	$('.bxslider').bxSlider({
-		  auto: true,
-		  autoControls: true,
-		  controls:true,
-		  pager:true
-		}); 
+	$(document).ready(function() {
+		$('.bxslider').bxSlider({
+			auto : true,
+			autoControls : true,
+			controls : true,
+			pager : true
+		});
 	});
 </script>
 </head>
