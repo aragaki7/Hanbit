@@ -85,7 +85,6 @@ input {
 		<%
 			Dday day = new Dday();
 			out.print(day.getMonth() + "월 1일 개강</br>");
-
 			out.print("D-DAY " + day.getDays());
 		%>
 	</div>
