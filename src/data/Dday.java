@@ -14,7 +14,7 @@ public class Dday {
 
 		int day = calendar.get(Calendar.DAY_OF_MONTH);
 		int maxday = calendar.getMaximum(Calendar.DAY_OF_MONTH);
-
+ 
 		return maxday - day;
 
 	}
