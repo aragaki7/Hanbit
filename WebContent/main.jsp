@@ -1,10 +1,11 @@
+<%@page import="data.Dday"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>메인페이지</title>
 <link rel="stylesheet" type="text/css" href="css/grid_design12.css"/>
 <link rel="stylesheet" type="text/css" href="css/nav.css"/>
 <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css"/>
@@ -22,22 +23,26 @@ $(document).ready(function(){
 </head>
 <body>
 	<div class="container_12">
-		<%@ include file="template/header.jsp" %>
-		<%@ include file="template/nav.jsp" %>
-		
+		<%@ include file="template/header.jsp"%>
+		<%@ include file="template/nav.jsp"%>
+
 		<!-- content start -->
-		
+
 		<div class="grid9">
 			<ul class="bxslider">
 				<li><img alt="main slideshow" src="imgs/slideshow1.gif"></li>
 				<li><img alt="main slideshow" src="imgs/slideshow2.gif"></li>
 				<li><img alt="main slideshow" src="imgs/slideshow3.gif"></li>
 			</ul>
+			<%
+				Dday day = new Dday();
+				out.print("D-DAY " + day.getDays());
+			%>
 		</div>
 		<!-- content end -->
-		
-		<%@ include file="template/aside.jsp" %>
-		<%@ include file="template/footer.jsp" %>
+
+		<%@ include file="template/aside.jsp"%>
+		<%@ include file="template/footer.jsp"%>
 	</div>
 </body>
 </html>
