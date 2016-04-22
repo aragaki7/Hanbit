@@ -56,7 +56,7 @@
 
 .bx-wrapper .bx-loading {
 	min-height: 50px;
-	background: url(images/bx_loader.gif) center center no-repeat #fff;
+	background: url(imgs/bx_loader.gif) center center no-repeat #fff;
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -101,16 +101,16 @@
 	background: #000;
 }
 
-/* DIRECTION CONTROLS (NEXT / PREV) */
+DIRECTION CONTROLS (NEXT / PREV)
 
 .bx-wrapper .bx-prev {
 	left: 10px;
-	background: url(images/controls.png) no-repeat 0 -32px;
+	background: url(imgs/controls.png) no-repeat 0 -32px;
 }
 
 .bx-wrapper .bx-next {
 	right: 10px;
-	background: url(images/controls.png) no-repeat -43px -32px;
+	background: url(imgs/controls.png) no-repeat -43px -32px;
 }
 
 .bx-wrapper .bx-prev:hover {
@@ -138,6 +138,7 @@
 
 /* AUTO CONTROLS (START / STOP) */
 
+
 .bx-wrapper .bx-controls-auto {
 	text-align: center;
 }
@@ -148,7 +149,7 @@
 	width: 10px;
 	height: 11px;
 	outline: 0;
-	background: url(images/controls.png) -86px -11px no-repeat;
+	background: url(imgs/controls.png) -86px -11px no-repeat;
 	margin: 0 3px;
 }
 
@@ -158,12 +159,12 @@
 }
 
 .bx-wrapper .bx-controls-auto .bx-stop {
-	display: block;
+	display: bloc	k;
 	text-indent: -9999px;
 	width: 9px;
 	height: 11px;
 	outline: 0;
-	background: url(images/controls.png) -86px -44px no-repeat;
+	background: url(imgs/controls.png) -86px -44px no-repeat;
 	margin: 0 3px;
 }
 

@@ -1,3 +1,4 @@
+<%@page import="data.Dday"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
    <style type="text/css">
@@ -22,6 +23,13 @@
    	#form{
    		width:400px;
    		background-color: #F6F6F6;
+   	}
+   	#dday{
+   		border: 1px solid black;
+   		width:100%;
+   		font-size: 20px;
+   		font-family: "a피오피동글";
+   		text-align: center;
    	}
    </style>
 <div class="grid3 aside">
@@ -54,5 +62,13 @@
 					<a href="/mvc04/login/login.naver"  id="log"><span>회원가입</span></a>
 					</div>
 			<%  } %>
+			
+			<!-- d-day값 불러오기 -->
+			<div id="dday">
+			<%
+				Dday day = new Dday();
+				out.print("D-DAY " + day.getDays());
+			%>
+			</div>
 </div>
 <div class="clear"></div>
