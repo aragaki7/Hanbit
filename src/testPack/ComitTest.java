@@ -3,8 +3,8 @@ package testPack;
 public class ComitTest {
 
 	public static void main(String[] args) {
-		System.out.println("±èÁÖÇüºé½Å");
-		
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		System.out.println("ë°©ê¸ˆ ì¶”ê°€í•¨");
 	}
 
 }
