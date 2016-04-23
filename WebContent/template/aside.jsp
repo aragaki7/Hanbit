@@ -3,38 +3,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <style type="text/css">
+
 button {
 	margin-top: -35px;
-	height: 80px;
-	width: 93px;
+	margin-left: 10px;
+	height: 78px;
+	width: 80px;
 	background-color: white;
 	color: black;
 	border: 1px solid black;
 	position: absolute;
 }
-
+#id {
+	margin-top:20px;
+}
 input {
 	margin-top: 10px;
+	margin-left:10px;
 	width: 50%;
 	height: 31px;
 	position: relative;
 }
-
 #log {
 	font-size: 10pt;
+	margin-top: 20px;
+	margin-left: 240px;
 }
-
 #form {
 	width: 400px;
 	background-color: #F6F6F6;
 }
-
 #dday {
 	border: 1px solid black;
-	width: 100%;
-	font-size: 20px;
-	font-family: "a피오피동글";
+	width: 98%;
+	height: 200px;
+	margin-top:10px;
+	margin-left:5px;
 	text-align: center;
+	box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.1);
+}
+#text1{
+	text-align: left;
+	margin-left: 10px;
+	font-size: 15px;
 }
 #tel>img{
 	width: 100%;
@@ -92,10 +103,11 @@ input {
 
 	<!-- d-day값 불러오기 -->
 	<div id="dday">
+	<div id="text1">개강일 안내</div>
 		<%
 			Dday day = new Dday();
-			out.print(day.getMonth() + "월 1일 개강</br>");
-			out.print("D-DAY " + day.getDays());
+			out.print(day.getMonth() + "월 개강</br>");
+			out.print("D-"+day.getDays());
 		%>
 	</div>
 	

@@ -134,7 +134,7 @@
 		</div>
 		<!-- content end -->
 		
-		<%@ include file="../template/aside.jsp" %>
+		<%@ include file="../template/asideIn.jsp" %>
 		<%@ include file="../template/footer.jsp" %>
 	</div>
 </body>

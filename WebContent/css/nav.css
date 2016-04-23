@@ -47,10 +47,12 @@
    .nav2{
       background-color: white;
       width: 240px;
+      height: 280px;
+      box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.1);
    }
    .nav2>ul{
-        margin-top: 10px;
-        margin-bottom: 20px;
+      margin-top: 10px;
+      margin-bottom: 20px;
       margin-left: 200px; 
       text-align: center;
    }
@@ -73,8 +75,9 @@
    .nav3{
       background-color: white;
       width: 240px;
-      height:213px;
+      height: 280px;
       margin-left: 0px;
+      box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.1);
    }
    .nav3>ul{
          margin-top: 10px;
@@ -100,8 +103,9 @@
    .nav4{
       background-color: white;
       width: 240px;
-      height:213px;
+      height: 280px;
       margin-left: 0px;
+      box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.1);
    }
    .nav4>ul{
         margin-top: 10px;
@@ -125,8 +129,9 @@
    .nav5{
       background-color: white;
       width: 240px;
-      height:213px;
+      height: 280px;
       margin-left: 0px;
+      box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.1);
    }
    .nav5>ul{
         margin-top: 10px;
@@ -150,8 +155,9 @@
    .nav6{
       background-color: white;
       width: 240px;
-      height:213px;
+      height: 280px;
       margin-left: 0px;
+      box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.1);
    }
    .nav6>ul{
         margin-top: 10px;

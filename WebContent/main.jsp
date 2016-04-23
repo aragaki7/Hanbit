@@ -57,7 +57,6 @@ span>a>img {
 	background: url(imgs/controls.png) no-repeat -43px -32px;
 }
 
-
 </style>
 <script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
