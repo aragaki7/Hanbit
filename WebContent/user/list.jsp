@@ -156,7 +156,9 @@ hr {
 .content {
 	height: 300px;
 }
-
+.data{
+	font-size: 14px;
+}
 .yes {
 	margin-top: 40px;
 	width: 110px;
@@ -221,7 +223,7 @@ hr {
 						<%
 							for (int i = 0; i < list.size(); i++) {
 						%>
-						<tr>
+						<tr class="data">
 							<td><%=list.get(i).getName()%></td>
 							<td><%=list.get(i).getSex()%></td>
 							<td><%=list.get(i).getPhone()%></td>
