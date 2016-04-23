@@ -65,7 +65,7 @@ input {
 				id="pw" name="pw" maxlength="16" title="비밀번호" placeholder="비밀번호">
 			<button>로그인</button>
 		</div>
-		<a href="/mvc04/login/login.naver" id="log"><span>회원가입</span></a>
+		<a href="/Hanbit/login/join.jsp" id="log"><span>회원가입</span></a>
 	</div>
 	<%
 		}
@@ -78,7 +78,7 @@ input {
 				id="pw" name="pw" maxlength="16" title="비밀번호" placeholder="비밀번호">
 			<button>로그인</button>
 		</div>
-		<a href="/mvc04/login/login.naver" id="log"><span>회원가입</span></a>
+		<a href="/Hanbit/login/join.jsp" id="log"><span>회원가입</span></a>
 	</div>
 	<%
 		}
