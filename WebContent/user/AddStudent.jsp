@@ -57,6 +57,10 @@
                 <div>비밀번호 * : <input type="password" name="pw"/>(6˜12 이내의 영문/숫자)</div><br/>
                 <div>비밀번호확인 * : <input type="password" name="pw"/>(위에 입력한 비밀번호를 다시 입력)</div><br/>
                 <div>이름 * : <input type="text" name="name" />반드시 실명으로 입력해주세요.</div><br/>
+                <div>성별 * : 
+                	<input type="radio" name="sex" value="male" checked>남자 
+                	<input type="radio" name="sex" value="female">여자	
+                </div><br/>          
                 <div>
                     전화번호 * : 
                     <select >
