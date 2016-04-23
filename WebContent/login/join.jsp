@@ -7,6 +7,7 @@
 <title>회원가입 창</title>
 <script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="../js/menuLoad.js"></script>
+<script type="text/javascript" src="../js/search.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css"/>
 <link rel="stylesheet" type="text/css" href="../css/nav.css"/>
 <style type="text/css">
@@ -93,6 +94,12 @@
 	text-align:center
 	}
 </style>
+<script type="text/javascript">
+ 	$(document).ready(function(){
+ 		$(function() { $("#postcodify_search_button").postcodifyPopUp(); });
+	});
+
+</script>
 </head>
 <body>
 	<div class="container_12">
@@ -186,15 +193,15 @@
 			<tr>
 			<th>주소</th>
 			<td colspan="3">
-			<input type="text" id="id" name="post" value="" size="10" class="inputText"/>
-			<a href="#"><img src="../imgs/post.JPG" alt="우편번호검색" /></a>
-			<br/><input type="text" id="id" name="main_address" value="" size="10" class="inputText" style="width: 200px;"/>
+			<input type="text" id="id" name="post" value="" size="10" class="inputText postcodify_postcode5"/>
+			<button id="postcodify_search_button"><img src="../imgs/post.JPG"  alt="우편번호검색" /></button>
+			<br/><input type="text" id="id" name="main_address" value="" size="10" class="inputText postcodify_address" style="width: 200px;"/>
 			<input type="text" id="id" name="sub_address" value="" size="10" class="inputText" style="width: 320px;"/>
 			</td>
 			</tr>
 			</table>
  				 <button type="submit" class="join" >가입</button>
- 				 <button type="submit" class="back" >취소</button>
+ 				 <button type="reset" class="back" >취소</button>
 		</div>
 		<!-- content end -->
 		
