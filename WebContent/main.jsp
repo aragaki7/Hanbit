@@ -1,6 +1,7 @@
 <%@page import="data.Dday"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +21,11 @@
 .bx-viewport {
 	border: 0px;
 }
+
+span>a>img {
+	width: 49%;
+	margin: 20px auto;
+}	
 
 .bx-wrapper .bx-controls-auto .bx-stop {
 	display: block;
@@ -50,6 +56,8 @@
 	right: 10px;
 	background: url(imgs/controls.png) no-repeat -43px -32px;
 }
+
+
 </style>
 <script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
@@ -80,7 +88,12 @@
 				<li><img alt="main slideshow" src="imgs/slideshow2.gif"></li>
 				<li><img alt="main slideshow" src="imgs/slideshow3.gif"></li>
 			</ul>
+			
+			<span><a href="http://hanbitsc.com/"><img alt="한빛 신촌점" src="imgs/center_hanbit.jpg"/></a></span>
+			<span><a href="http://hanbitgn.com/"><img alt="한빛 강남점" src="imgs/center_gangnam.jpg"/></a></span>
+		
 		</div>
+				
 		<!-- content end -->
 
 		<%@ include file="template/aside.jsp"%>

@@ -36,6 +36,12 @@ input {
 	font-family: "a피오피동글";
 	text-align: center;
 }
+#tel>img{
+	width: 100%;
+}
+#kakao>img{
+	width: 100%;
+}
 </style>
 <div class="grid3 aside">
 	<%
@@ -45,7 +51,7 @@ input {
 	%>
 	<div id="form">
 		<div class="login">
-			<div><%=re.getString("name")%>님 환영합니다.</div>
+			<div><h2><%=re.getString("name")%>님 환영합니다.</h2></div>
 		<div>
 			<a href="/Hanbit/logout.do"><span>logout</span></a>
 		</div>
@@ -65,7 +71,7 @@ input {
 				id="pw" name="pw" maxlength="16" title="비밀번호" placeholder="비밀번호">
 			<button>로그인</button>
 		</div>
-		<a href="/mvc04/login/login.naver" id="log"><span>회원가입</span></a>
+		<a href="/Hanbit/login/join.jsp" id="log"><span>회원가입</span></a>
 	</div>
 	<%
 		}
@@ -78,7 +84,7 @@ input {
 				id="pw" name="pw" maxlength="16" title="비밀번호" placeholder="비밀번호">
 			<button>로그인</button>
 		</div>
-		<a href="/mvc04/login/login.naver" id="log"><span>회원가입</span></a>
+		<a href="/Hanbit/login/join.jsp" id="log"><span>회원가입</span></a>
 	</div>
 	<%
 		}
@@ -92,5 +98,14 @@ input {
 			out.print("D-DAY " + day.getDays());
 		%>
 	</div>
+	
+	<div id="kakao">
+		<img alt="카카오톡 안내"  src="imgs/tel.gif"/>
+	</div>
+
+	<div id="tel">
+		<img alt="전화번호 안내" src="imgs/kakaotalk.gif"/>
+	</div>
+	
 </div>
 <div class="clear"></div>
