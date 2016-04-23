@@ -25,14 +25,16 @@ public class LoginToServlet extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 		System.out.println("id : "+id+"  pw : "+pw);
-//		req.setCharacterEncoding("application/x-json; charset=UTF-8");
+		
+		
 		JSONObject jsonObject = new JSONObject();
 		String query = "select id, name from TB_STU where id = ? and password=password(?)";
 		System.out.println(query);
-		PrintWriter out = resp.getWriter();
+//		PrintWriter out = resp.getWriter();
 		try {
 			pstmt = DBConnect.get().prepareStatement(query);
 			pstmt.setString(1, id);
@@ -42,11 +44,13 @@ public class LoginToServlet extends HttpServlet{
 			if(rs.next()){
 				System.out.println("아이디 비번 맞음");
 				System.out.println("id : "+rs.getString("id"));
-				System.out.println("name : "+rs.getString("name"));
+				
 				
 				jsonObject.put("id", rs.getString("id"));
 				jsonObject.put("name", rs.getString("name"));
 				jsonObject.put("result", "success");
+				jsonObject.put("pm", "1");//권한 설정. 1.학생 2.강사
+				
 			}else{
 				System.out.println("아이디 & 비번 매칭되는거 없음");
 				jsonObject.put("result", "fail");
@@ -58,15 +62,13 @@ public class LoginToServlet extends HttpServlet{
 					if(pstmt!=null)pstmt.close();
 				} catch (SQLException e) {e.printStackTrace();}
 		}
-//		req.getSession().setAttribute("login", true);
-		
 		req.getSession().setAttribute("jsonObj",jsonObject);
-		
+//		req.getSession().setAttribute("login", true);
 //		resp.setContentType("application/x-json; charset=UTF-8");
 //		req.getRequestDispatcher("/index.do").forward(req, resp);
-		
 //	    out.print(jsonObject.getString("name"));
-	    out.print(jsonObject);
+//	    out.print(jsonObject);
 //	    out.close();
+		resp.getWriter().print(jsonObject);
 	}
 }
