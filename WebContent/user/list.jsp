@@ -32,13 +32,12 @@
  	width: 800px;
  	border-top:3px solid #9C9C9C; 
  	border-bottom:3px solid #F6F6F6; 
- 	 box-shadow: 5px 5px 5px lightgray;
+ 	box-shadow: 5px 5px 5px lightgray;
  	}
  	.table {
 	margin:0px;
 	padding:0px;
 	width:800px;
-	box-shadow: 10px 10px 5px #888888;
 	border:1px solid #000000;
 	}
 	.table table{
@@ -90,7 +89,7 @@
 	.yes{
 	margin-top: 40px;
 	width: 110px;
-	height: 50px;
+	height: 30px;
 	margin-left: 690px;
 	font-size: 11pt;
 	font-weight: bold;

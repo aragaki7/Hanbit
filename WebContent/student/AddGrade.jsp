@@ -84,7 +84,7 @@
 .edit{
 	margin-top: 40px;
 	width: 110px;
-	height: 50px;
+	height:30px;
 	margin-left: 350px;
 	font-size: 11pt;
 	font-weight: bold;
