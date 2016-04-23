@@ -49,7 +49,7 @@
 	font-size: 11pt;
 	font-weight: bold;
 	color: white;
-	background-color: firebrick;
+	background-color: black;
 	border: none;
 	}
 	img {
@@ -198,7 +198,6 @@
 		</div>
 		<!-- content end -->
 		
-		<%@ include file="../template/asideIn.jsp" %>
 		<%@ include file="../template/footer.jsp" %>
 	</div>
 </body>
