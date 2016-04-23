@@ -135,7 +135,6 @@
 		<div class="grid9 content">
 			<p>STUDENT LIST</p>
 			<hr/><br/>
-			<form action="../user/AddStudent.jsp">
 			<div class="table" >
 				<table>
 					<tr>
@@ -166,8 +165,6 @@
 				%>
 			</table>
 		</div>
- 		<button type="submit" class="yes" >성적입력</button>
- 	</form>
 </div>
 
 		<!-- content end -->

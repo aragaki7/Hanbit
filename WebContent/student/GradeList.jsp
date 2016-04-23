@@ -26,7 +26,7 @@
  	width: 800px;
  	border-top:3px solid #9C9C9C; 
  	border-bottom:3px solid #F6F6F6; 
- 	 box-shadow: 5px 5px 5px lightgray;
+ 	box-shadow: 5px 5px 5px lightgray;
  	}
  	.table {
 	margin:0px;
@@ -43,11 +43,11 @@
 	margin:0px;
 	padding:0px;
 	}
-.table tr:hover td{
+	.table tr:hover td{
 	background-color : #d2d2d2;
 	color:black;
-}
-.table td{
+	}
+	.table td{
 	vertical-align:middle;
 	background-color:white;
 	border:1px solid #000000;
@@ -59,8 +59,8 @@
 	font-weight:normal;
 	color:#000000;
 	width:100px;
-}
-.table tr:first-child td{
+	}
+	.table tr:first-child td{
 	background:-o-linear-gradient(bottom, #4c4c4c 5%, #000000 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4c4c4c), color-stop(1, #000000) );
 	background:-moz-linear-gradient( center top, #4c4c4c 5%, #000000 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#4c4c4c", endColorstr="#000000");	background: -o-linear-gradient(top,#4c4c4c,000000);
@@ -73,15 +73,15 @@
 	font-family:Arial;
 	font-weight:bold;
 	color:#ffffff;
-}
-#row>td{
+	}
+	#row>td{
 	text-align: center;
 	font-size: 10pt;
-}
-.content{
+	}
+	.content{
 	height: 300px;
-}
-.yes{
+	}	
+	.yes{
 	margin-top: 40px;
 	width: 110px;
 	height: 30px;
@@ -91,8 +91,7 @@
 	color: white;
 	background-color: firebrick;
 	border: none;
-}
-
+	}
 </style>
 </head>
 <body>
