@@ -9,14 +9,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Cnt</title>
+<title>Student</title>
 <script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="js/menuLoad.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
 </head>
 <style type="text/css">
-<<<<<<< HEAD
+
  	*{
  		margin: 0px;
  		padding: 0px;
@@ -71,12 +71,12 @@
 	background:-o-linear-gradient(bottom, #4c4c4c 5%, #000000 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4c4c4c), color-stop(1, #000000) );
 	background:-moz-linear-gradient( center top, #4c4c4c 5%, #000000 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#4c4c4c", endColorstr="#000000");	background: -o-linear-gradient(top,#4c4c4c,000000);
-=======
+
 * {
 	margin: 0px;
 	padding: 0px;
 }
->>>>>>> branch 'master' of https://github.com/aragaki7/Hanbit.git
+
 
 p {
 	text-align: left;
@@ -237,7 +237,6 @@ hr {
 						%>
 					</table>
 				</div>
-				<button type="submit" class="yes">성적입력</button>
 			</form>
 		</div>
 
