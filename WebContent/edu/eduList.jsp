@@ -33,7 +33,7 @@ p{
  .yes{
 	margin-top: 40px;
 	width: 110px;
-	height: 50px;
+	height: 30px;
 	margin-left: 690px;
 	font-size: 11pt;
 	font-weight: bold;
@@ -111,7 +111,7 @@ margin:30px;
 <!-- 과정소개 첫 페이지 끝 -->
 		
 		<!-- content end -->	
-		<%@ include file="../template/aside.jsp" %>
+		<%@ include file="../template/asideIn.jsp" %>
 		<%@ include file="../template/footer.jsp" %>
 	</div>
 </body>

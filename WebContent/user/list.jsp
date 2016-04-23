@@ -39,6 +39,7 @@
 	padding:0px;
 	width:800px;
 	border:1px solid #000000;
+	box-shadow: 10px 10px 5px #888888;
 	}
 	.table table{
     border-collapse: collapse;
