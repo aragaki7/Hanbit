@@ -84,7 +84,7 @@
 .list{
 	margin-top: 40px;
 	width: 110px;
-	height: 50px;
+	height: 30px;
 	margin-left: 220px;
 	font-size: 11pt;
 	font-weight: bold;
@@ -107,7 +107,7 @@
 .delete{
 	margin-top: 40px;
 	width: 110px;
-	height: 50px;
+	height: 30px;
 	margin-left: 480px;
 	font-size: 11pt;
 	font-weight: bold;
@@ -155,7 +155,7 @@
 		</div>
 		<!-- content end -->
 		
-		<%@ include file="../template/asideIn.jsp" %>
+		<%@ include file="../template/aside.jsp" %>
 		<%@ include file="../template/footer.jsp" %>
 	</div>
 </body>
