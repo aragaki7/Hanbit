@@ -36,6 +36,12 @@ input {
 	font-family: "a피오피동글";
 	text-align: center;
 }
+#tel>img{
+	width: 100%;
+}
+#kakao>img{
+	width: 100%;
+}
 </style>
 <div class="grid3 aside">
 	<%
@@ -92,5 +98,14 @@ input {
 			out.print("D-DAY " + day.getDays());
 		%>
 	</div>
+	
+	<div id="kakao">
+		<img alt="카카오톡 안내"  src="imgs/tel.gif"/>
+	</div>
+
+	<div id="tel">
+		<img alt="전화번호 안내" src="imgs/kakaotalk.gif"/>
+	</div>
+	
 </div>
 <div class="clear"></div>
