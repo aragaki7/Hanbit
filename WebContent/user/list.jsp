@@ -187,7 +187,7 @@ hr {
 	ArrayList<UserData> list = new ArrayList<UserData>();%>
 <body>
 
-	<%
+	<% 
 		try {
 			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email from TB_USER";
 			statement = DBConnect.get().prepareStatement(sql);
