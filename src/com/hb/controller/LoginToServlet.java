@@ -27,7 +27,7 @@ public class LoginToServlet extends HttpServlet {
 
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
-		//		System.out.println("id : " + id + "  pw : " + pw);
+		// System.out.println("id : " + id + " pw : " + pw);
 
 		JSONObject jsonObject = new JSONObject();
 		String query = "select TB_USER.id, TB_USER.name, TB_PM.pm from TB_USER join TB_PM on TB_USER.pm_fk = TB_PM.num where id = ? and password=password(?)";
