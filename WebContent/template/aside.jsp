@@ -53,6 +53,9 @@ input {
 #kakao>img{
 	width: 100%;
 }
+.success{
+	margin-left: 10px;
+}
 </style>
 <div class="grid3 aside">
 	<%
@@ -60,12 +63,10 @@ input {
 		if (re != null) {
 			if (re.getString("result").equals("success")) {
 	%>
-	<div id="form">
+	<div class="success" id="form">
 		<div class="login">
-			<div><h2><%=re.getString("name")%>님 환영합니다.</h2></div>
-		<div>
-			<a href="/Hanbit/logout.do"><span>logout</span></a>
-		</div>
+			<div><h2><%=re.getString("id")%>님 환영합니다.</h2></div>
+			<div><a href="/Hanbit/logout.do"><span>logout</span></a></div>
 		</div>
 	
 	</div>
