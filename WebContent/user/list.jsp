@@ -69,7 +69,7 @@
 	color:#000000;
 	width:100px;
 	}
-	.table tr:first-child td {
+.table tr:first-child td {
 	background: -o-linear-gradient(bottom, #4c4c4c 5%, #000000 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #4c4c4c), color-stop(1, #000000));
 	background: -moz-linear-gradient(center top, #4c4c4c 5%, #000000 100%);
@@ -102,13 +102,12 @@
 	ArrayList<UserData> list = new ArrayList<UserData>();%>
 <body>
 
-	<%
-		list.clear();
+	<% 
 		try {
 			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email from TB_USER";
 			statement = DBConnect.get().prepareStatement(sql);
 			rs = statement.executeQuery();
-
+			list.clear();
 			while (rs.next()) {
 				list.add(new UserData(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9)));
