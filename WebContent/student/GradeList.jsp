@@ -132,12 +132,20 @@ hr {
 </style>
 </head>
 <body>
+
 	<div class="container_12">
 		<%@ include file="../template/header.jsp"%>
 		<%@ include file="../template/nav.jsp"%>
 
 		<!-- content start -->
+		<%
+			JSONObject jsonObject = new JSONObject();
 
+			jsonObject = (JSONObject) session.getAttribute("jsonObj");
+
+			if (jsonObject != null) {
+				if (jsonObject.getString("pm").equals("강사")) {
+		%>
 		<br />
 		<div class="grid9 content">
 			<p>STUDENT GRADE LIST</p>
@@ -173,6 +181,24 @@ hr {
 				<button type="submit" class="yes">성적입력</button>
 			</form>
 		</div>
+		<%
+			}
+			} else {
+		%>
+		<div align="center">
+
+			<%
+				out.print("권한이 없습니다.");
+			%>
+			<button type="submit">돌아가기</button>
+
+			<%
+				
+			%>
+		</div>
+		<%
+			}
+		%>
 		<!-- content end -->
 
 		<%@ include file="../template/asideIn.jsp"%>

@@ -187,7 +187,7 @@ hr {
 	ArrayList<UserData> list = new ArrayList<UserData>();%>
 <body>
 
-	<% 
+	<%
 		try {
 			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email from TB_USER";
 			statement = DBConnect.get().prepareStatement(sql);
@@ -212,7 +212,14 @@ hr {
 		<%@ include file="../template/nav.jsp"%>
 
 		<!-- content start -->
+		<%
+			JSONObject jsonObject = new JSONObject();
 
+			jsonObject = (JSONObject) session.getAttribute("jsonObj");
+
+			if (jsonObject != null) {
+				if (jsonObject.getString("pm").equals("강사")) {
+		%>
 		<div class="grid9 content">
 			<p>STUDENT LIST</p>
 			<hr />
@@ -238,7 +245,7 @@ hr {
 							<td><%=list.get(i).getPhone()%></td>
 							<td><%=list.get(i).getMobile()%></td>
 							<td><%=list.get(i).getMain_address() + " " + list.get(i).getSub_address() + "("
-						+ list.get(i).getPost() + ")"%></td>
+								+ list.get(i).getPost() + ")"%></td>
 							<td><%=list.get(i).getEmail()%></td>
 						</tr>
 
@@ -251,7 +258,24 @@ hr {
 				<button type="submit" class="yes">성적입력</button>
 			</form>
 		</div>
+		<%
+			}
+			} else {
+		%>
+		<div align="center">
 
+			<%
+				out.print("권한이 없습니다.");
+			%>
+			<button type="submit">돌아가기</button>
+
+			<%
+				
+			%>
+		</div>
+		<%
+			}
+		%>
 		<!-- content end -->
 		<%@ include file="../template/asideIn.jsp"%>
 		<%@ include file="../template/footer.jsp"%>
