@@ -110,6 +110,7 @@
 		<!-- content start -->
 		
 		<br/><div class="grid9 content">
+		<form action="" method="post">
 			<p id="p1">회원가입</p>
 			<hr/><br/>
 			<table class="join_tbl">
@@ -131,12 +132,12 @@
 			<th>비밀번호</th>
 			<td>
 			<input type="password" id="userId" name="userId" value="" size="10" class="inputText">
-			<span>6˜12 이내의 영문/숫자</span>
+			<span class="chkpw1">6˜12 이내의 영문/숫자</span>
 			</td>
 			<th>비밀번호확인</th>
 			<td>
-			<input type="password" maxlength="6" id="pwcheck" name="password" size="10" class="inputText" />
-			<span>입력한 비밀번호를 다시 입력</span>
+			<input type="password" id="pwcheck" name="password" size="10" class="inputText" />
+			<span class="chkpw2">입력한 비밀번호를 다시 입력</span>
 			</td>
 			</tr>
 			<tr>
@@ -209,6 +210,7 @@
 			</table>
  				 <button type="submit" class="join" >가입</button>
  				 <button type="reset" class="back" >취소</button>
+ 			</form>
 		</div>
 		<!-- content end -->
 		

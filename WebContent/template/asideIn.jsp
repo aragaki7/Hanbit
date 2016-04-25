@@ -4,31 +4,6 @@
 	pageEncoding="UTF-8"%>
 <style type="text/css">
 
-button {
-	margin-top: -35px;
-	margin-left: 10px;
-	height: 78px;
-	width: 80px;
-	background-color: white;
-	color: black;
-	border: 1px solid black;
-	position: absolute;
-}
-#id {
-	margin-top:20px;
-}
-input {
-	margin-top: 10px;
-	margin-left:10px;
-	width: 50%;
-	height: 31px;
-	position: relative;
-}
-#log {
-	font-size: 10pt;
-	margin-top: 20px;
-	margin-left: 240px;
-}
 #form {
 	width: 400px;
 	background-color: #F6F6F6;
