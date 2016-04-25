@@ -42,6 +42,7 @@
 							flag=true;
 							$('.chkid').css('color','blue');
 							$('.chkid').text("사용 가능합니다.");
+							
 						}else{
 							flag=false;
 							$('.chkid').css('color','red');
@@ -54,4 +55,54 @@
 				});
 			}
 		});
-	});
+		
+		$('input[type="password"]:eq(0)').on('keyup',function(){
+			var pw1 = $('input[type="password"]:eq(0)');
+			
+			
+			//조건1. 6~12 영문 대소문자
+			//조건2. 최소 1개의 숫자 혹은 특수 문자를 포함해야 함
+			var re_pw = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,12}$/;
+			
+			if(!(pw1.val().length>5 && pw1.val().length<13)){
+				$('.chkpw1').css('color','red');
+				$('.chkpw1').text("6˜12 이내의 영문/숫자조합");
+				flag=false;
+				return;
+			}
+			
+			if(re_pw.test(pw1.val())){
+				$('.chkpw1').css('color','blue');
+				$('.chkpw1').text("사용 가능합니다.");
+				flag=true;
+				return;
+			}else{
+				$('.chkpw1').css('color','red');
+				$('.chkpw1').text("6˜12 이내의 영문/숫자조합");
+				flag=false;
+				return;
+			}
+		});//비밀번호 정규식1 검사 끝
+		$('#pwcheck').on('keyup',function(){
+			var pw1 = $('input[type="password"]:eq(0)');
+			var pw2 = $('input[type="password"]:eq(1)');
+			
+			
+			
+			if(!(pw1.val()==pw2.val())){
+				$('.chkpw2').css('color','red');
+				$('.chkpw2').text("비밀번호가 같지 않습니다.");
+				flag=false;
+				return;
+			}else{
+				$('.chkpw2').css('color','blue');
+				$('.chkpw2').text("사용 가능합니다.");
+				flag=true;
+				return;
+			}
+			
+		});//비밀번호 유효성검사 2 끝
+		
+		
+		
+	});//ready 끝
