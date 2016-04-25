@@ -72,7 +72,7 @@ hr {
 	height: 20px;
 	color:black;
 	font-size: 10pt;
-	background-color:#e6e6e6
+	background-color:#e6e6e6;
 	}
 	.join_tbl td {
 	padding:5px 15px; 
@@ -158,13 +158,13 @@ span{
 			</td>
 			</tr>
 			<tr>
-			<th>전화번호</th>
+			<th>휴대폰번호</th>
 			<td colspan="3">
-			<input type="text" id="tel1" name="phone" value="" size="3" class="inputText">
+			<input type="text" id="tel1" name="mobile" value="" size="3" class="inputText">
 			-
-			<input type="text" id="tel2" name="phone" value="" size="3" class="inputText">
+			<input type="text" id="tel2" name="mobile" value="" size="3" class="inputText">
 			-
-			<input type="text" id="tel3" name="phone" value="" size="3" class="inputText">
+			<input type="text" id="tel3" name="mobile" value="" size="3" class="inputText">
 			</td>
 			</tr>
 			<tr>

@@ -72,7 +72,8 @@
 	padding:7px 4px; 
 	height: 20px;
 	color:black;
-	background-color:#e6e6e6
+	background-color:#e6e6e6;
+	font-size: 10pt;
 	}
 	.join_tbl td {
 	padding:5px 15px; 
@@ -93,6 +94,12 @@
 	 }
 	.btn {
 	text-align:center
+	}
+	span{
+		font-size: 9pt;
+	}
+	#ck{
+		width: 20px;
 	}
 </style>
 <script type="text/javascript">
@@ -145,7 +152,7 @@
 			<input type="password" id="userId" name="userId" value="" size="10" class="inputText">
 			<span class="chkpw1">6˜12 이내의 영문/숫자</span>
 			</td>
-			<th>비밀번호확인</th>
+			<th id="ck">비밀번호확인</th>
 			<td>
 			<input type="password" id="pwcheck" name="password" size="10" class="inputText" />
 			<span class="chkpw2">입력한 비밀번호를 다시 입력</span>
