@@ -4,7 +4,7 @@
 	pageEncoding="UTF-8"%>
 <style type="text/css">
 
-button {
+#loginbtn {
 	margin-top: -35px;
 	margin-left: 10px;
 	height: 78px;
@@ -81,7 +81,7 @@ input {
 			<input type="text" id="id" name="id" maxlength="41" title="아이디"
 				accesskey="L" placeholder="아이디"> <input type="password"
 				id="pw" name="pw" maxlength="16" title="비밀번호" placeholder="비밀번호">
-			<button>로그인</button>
+			<button id="loginbtn">로그인</button>
 		</div>
 		<a href="/Hanbit/login/join.jsp" id="log"><span>회원가입</span></a>
 	</div>
@@ -94,7 +94,7 @@ input {
 			<input type="text" id="id" name="id" maxlength="41" title="아이디"
 				accesskey="L" placeholder="아이디"> <input type="password"
 				id="pw" name="pw" maxlength="16" title="비밀번호" placeholder="비밀번호">
-			<button>로그인</button>
+			<button id="loginbtn">로그인</button>
 		</div>
 		<a href="/Hanbit/login/join.jsp" id="log"><span>회원가입</span></a>
 	</div>
