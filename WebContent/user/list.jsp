@@ -168,6 +168,21 @@
 						%>
 					</table>
 				</div>
+				<br/><br/><br/>
+			<p>TEACHER LIST</p>
+			<hr/><br/>
+				<div class="table">
+					<table>
+						<tr>
+							<td>이름</td>
+							<td>성별</td>
+							<td>전화번호</td>
+							<td>휴대폰번호</td>
+							<td>주소</td>
+							<td>이메일</td>
+						</tr>
+		</table>
+		</div>
 		</div>
 		<%
 			}
