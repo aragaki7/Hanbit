@@ -16,6 +16,23 @@
  		margin: 0px;
  		padding: 0px;
 }
+.size{
+	width: 300px;
+	height: 200px;
+}
+
+.submitbtn{ 
+ 	position: relative; 
+ 	left: -470px; 
+	top: -35px; 
+ 	height: 30px;
+}
+.detailbtn{ 
+ 	position: relative; 
+ 	left: -340px; 
+	top: -65px; 
+ 	height: 30px; 
+}	 
 p{
  	 text-align: left;
 	 display: block;
@@ -30,6 +47,7 @@ p{
  	border-bottom:3px solid #F6F6F6; 
  	 box-shadow: 5px 5px 5px lightgray;
  	}
+		 	
  .yes{
 	margin-top: 40px;
 	width: 110px;
@@ -51,7 +69,7 @@ p{
 	color:#4C4C4C;
 }
 #process table{
-margin:30px;
+  margin:30px; 
 }
 #process table tr td {
 	border-bottom: 1px solid lightgray;
@@ -59,8 +77,6 @@ margin:30px;
 	font-family:Arial;
 	font-weight:normal;
 }
- /* 겹치지않는부분시작 */
-<!-- 과정소개(edprocess)css 끝 -->
 </style>
 </head>
 <body>
@@ -74,37 +90,37 @@ margin:30px;
 			<hr/><br/>
 <div id="process"> 
 	<table>
-		<tr><th rowspan="4"><img src="../imgs/javaLogo.PNG" width="300" height="200"></th>
+		<tr><th rowspan="4"><img class="size" src="../imgs/javaLogo.PNG"/></th>
 			<td><a href="eduJava.jsp" id="a">교육과정 : 자바 프로그래밍</a></td></tr>
 		<tr><td>교육장소 : 한빛신촌교육센터</td></tr>
 		<tr><td>교육기간 : 2016.05.01 ~ 2016.05.31</td></tr>
 		<tr><td>모집인원 : 20명</td></tr>
-		<tr><td></td><td><div style="position:relative; left:-470px; top:-35px; height:30px;">
-						 <a href="eduApply.jsp"><input type="button" value="신청하기" class="yes"></a></div>
-						 <div style="position:relative; left:-340px; top:-65px; height:30px;">
-						 <a href="eduJava.jsp"><input type="button" value="상세보기" class="yes"></a></div></td></tr>
+		<tr><td></td><td><div class="submitbtn">
+						 <a href="eduApply.jsp"><input type="button" value="신청하기" class="yes"/></a></div>
+						 <div class="detailbtn">
+						 <a href="eduJava.jsp"><input type="button" value="상세보기" class="yes"/></a></div></td></tr>
 	</table>
 	<table> 
-		<tr><th rowspan="4"><img src="../imgs/AndroidLogo.png " width="300" height="200"></th>
+		<tr><th rowspan="4"><img class="size" src="../imgs/AndroidLogo.png"/></th>
 			<td><a href="eduAndroid.jsp" id="a">교육과정 : 안드로이드 프로그래밍</a></td></tr>
 		<tr><td>교육장소 : 한빛신촌교육센터</td></tr>
 		<tr><td>교육기간 : 2016.05.01 ~ 2016.05.31</td></tr>
 		<tr><td>모집인원 : 20명</td></tr>
-		<tr><td></td><td><div style="position:relative; left:-470px; top:-35px; height:30px;">
-						 <a href="eduApply.jsp"><input type="button" value="신청하기"  class="yes"></a></div>
-						 <div style="position:relative; left:-340px; top:-65px; height:30px;">
-						 <a href="eduAndroid.jsp"><input type="button" value="상세보기" class="yes"></a></div></td></tr>
+		<tr><td></td><td><div class="submitbtn">
+						 <a href="eduApply.jsp"><input type="button" value="신청하기"  class="yes"/></a></div>
+						 <div class="detailbtn">
+						 <a href="eduAndroid.jsp"><input type="button" value="상세보기" class="yes"/></a></div></td></tr>
 	</table>
 	<table>
-		<tr><th rowspan="4"><img src="../imgs/jspLogo.png" width="300" height="200"></th>
+		<tr><th rowspan="4"><img class="size" src="../imgs/jspLogo.png"/></th>
 			<td><a href="eduJsp.jsp" id="a">교육과정 : JSP 프로그래밍</a></td></tr>
 		<tr><td>교육장소 : 한빛신촌교육센터</td></tr>
 		<tr><td>교육기간 : 2016.05.01 ~ 2016.05.31</td></tr>
 		<tr><td>모집인원 : 20명</td></tr>
-		<tr><td></td><td><div style="position:relative; left:-470px; top:-35px; height:30px;">
-				         <a href="eduApply.jsp"><input type="button" value="신청하기" class="yes"></a></div>
-						 <div style="position:relative; left:-340px; top:-65px; height:30px;">
-						 <a href="eduJsp.jsp"><input type="button" value="상세보기" class="yes"></a></div></td></tr>
+		<tr><td></td><td><div  class="submitbtn">
+				         <a href="eduApply.jsp"><input type="button" value="신청하기" class="yes"/></a></div>
+						 <div class="detailbtn">
+						 <a href="eduJsp.jsp"><input type="button" value="상세보기" class="yes"/></a></div></td></tr>
 	</table>
 </div>
 </div>
