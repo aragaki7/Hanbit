@@ -160,7 +160,7 @@
           </table>
                       
          <div class="page">
-              <a href="#">◀</a>   
+              <a href="#">◀</a >   
               <a href="#">[1]</a>
               <a href="#">[2]</a>      
               <a href="#">[3]</a>
