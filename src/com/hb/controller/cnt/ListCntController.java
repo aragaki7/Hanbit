@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ListCntController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/student/list.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("/student/GradeList.jsp").forward(request, response);
 	}
 }

@@ -27,13 +27,4 @@ public class DBConnect {
 		return connection;
 	}
 
-	/**
-	 * getid
-	 * 
-	 * @void
-	 */
-
-	public static void id() {
-	}
-
 }

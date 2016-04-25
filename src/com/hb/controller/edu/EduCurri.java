@@ -9,6 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 public class EduCurri extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/edu/curri.jsp").forward(request, response);
+		request.getRequestDispatcher("/edu/eduList.jsp").forward(request, response);
 	}
 }
