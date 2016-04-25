@@ -136,7 +136,7 @@ span{
 			<p id="write">문의게시판 쓰기</p>
 			<hr />
 			<br />
-			<form action="" method="post">
+			<form action="../customer/notice.jsp" method="post">
 			<table class="join_tbl">
 			<colgroup>
 			<col width="10%" />
