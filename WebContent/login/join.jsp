@@ -144,7 +144,7 @@
 			<input type="text" id="id" name="name" value="" size="10" class="inputText">
 			<span>반드시 실명으로 입력해주세요</span>
 			</td>
-			<!-- 강사 학생 체크 -->
+			<!-- 강사 학생 체크   -->
 			<th>계정 선택</th>
 			<td>
 			<input type="radio" name="power" value="student" checked>학생 
