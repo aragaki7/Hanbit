@@ -104,17 +104,45 @@
 </style>
 <script type="text/javascript">
  	$(document).ready(function(){
- 		$(function() { $("#postcodify_search_button").postcodifyPopUp(); });
- 		
+		$(function() {
+			$("#postcodify_search_button").click(
+					function(e){e.preventDefault();
+					})});
+		$("#postcodify_search_button").postcodifyPopUp();
+		
  		$('select').on('change',function(){
- 			var idx = this.selectedIndex;
+  			var idx = this.selectedIndex;
  			if(idx==0){
-  				$('input[type="email"]:eq(1)').val('');
+  				$('input[name="email"]:eq(1)').val('');
  			}
  			else{
  				var str = "";
- 				$('input[type="email"]:eq(1)').val(this.options[this.selectedIndex].value);
+ 				$('input[name="email"]:eq(1)').val(this.options[this.selectedIndex].value);
  			}
+ 		});
+ 		
+ 		$('form').on('submit',function(){
+ 			var result=false;
+ 			if(flag1 && flag2 && flag3){
+//  				alert('flag만족 함');
+ 				for(var a=0;a<$('input[type!="radio"]').length;a++){
+	 				if($('input[type!="radio"]').eq(a).val()==""){
+						alert('비어있는 항목이 있습니다.');	 					
+	 					return false
+	 				}
+ 				}
+ 				for(var b=0;b<$('.isN').length;b++){
+ 					if(!($.isNumeric($('.isN').eq(b).val()))){
+ 						alert('연락처는 숫자만 입력 하세요');
+ 						return false;
+ 					}
+ 				}
+ 				
+				return true;
+ 			}else{
+ 				alert('ID 및 PassWord를 확인하세요');
+ 			}
+ 			return false;
  		});
 	});
 
@@ -128,9 +156,9 @@
 		<!-- content start -->
 		
 		<br/><div class="grid9 content">
+		<form action="#">
 			<p id="p1">회원가입</p>
 			<hr/><br/>
-		<form action="" method="post">
 			<table class="join_tbl">
 			<colgroup>
 			<col width="10%" />
@@ -139,6 +167,7 @@
 			<col width="40%" />
 			</colgroup>
 			<tr>
+			
 			<th>아이디</th>
 			<td colspan="3">
 			<input type="text" id="id" name="id" value="" size="10" class="inputText">
@@ -182,28 +211,28 @@
 			<tr>
 			<th>전화번호</th>
 			<td colspan="3">
-			<input type="text" id="tel1" name="phone" value="" size="3" class="inputText">
+			<input type="text" id="tel1" name="phone" value="" size="3" class="inputText isN">
 			-
-			<input type="text" id="tel2" name="phone" value="" size="3" class="inputText">
+			<input type="text" id="tel2" name="phone" value="" size="3" class="inputText isN">
 			-
-			<input type="text" id="tel3" name="phone" value="" size="3" class="inputText">
+			<input type="text" id="tel3" name="phone" value="" size="3" class="inputText isN">
 			</td>
 			</tr>
 			<tr>
 			<th>휴대폰</th>
 			<td colspan="3">
-			<input type="text" id="tel1" name="mobile" value="" size="3" class="inputText">
+			<input type="text" id="tel4" name="mobile" value="" size="3" class="inputText isN">
 			-
-			<input type="text" id="tel2" name="mobile" value="" size="3" class="inputText">
+			<input type="text" id="tel5" name="mobile" value="" size="3" class="inputText isN">
 			-
-			<input type="text" id="tel3" name="mobile" value="" size="3" class="inputText">
+			<input type="text" id="tel6" name="mobile" value="" size="3" class="inputText isN">
 			</td>
 			</tr>
 			<tr>
 			<th>이메일</th>
 			<td colspan="3">
-			<input type="email" name="email" value="" size="10" class="inputText">
-			<input type="email" name="email" value="" size="10" class="inputText">
+			<input type="text" name="email" value="" size="10" class="inputText">@
+			<input type="text" name="email" value="" size="10" class="inputText">
              <select >
                         <option value=""> 직접입력</option>
                         <option value="naver.com"> naver.com</option>
@@ -229,7 +258,7 @@
 			</table>
  				 <button type="submit" class="join" >가입</button>
  				 <button type="reset" class="back" >취소</button>
- 			</form>
+ 				 </form>
 		</div>
 		<!-- content end -->
 		
