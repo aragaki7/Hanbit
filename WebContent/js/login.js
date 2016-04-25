@@ -14,7 +14,7 @@
 					if(obj.result=='success'){
 						alert(obj.result);
 						var st = "";
-						st+= "<div id=\"form\"><div class=\"login\"><div><h3>"+obj.id+"님 환영합니다.</h3></div>"
+						st+= "<div style=\"margin-left:10px;\" id=\"form\"><div class=\"login\"><div style=\"font-size: 15px;\"><h3>"+obj.id+"님 환영합니다.</h3></div>"
 							+"<div><a href=\"/Hanbit/logout.do\"><span>logout</span></a>"
 							+"</div></div></div>";
 						$(".login").html(st);
