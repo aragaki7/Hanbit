@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="css/nav.css" />
 <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
 <style type="text/css">
-
+<!-- 441-->
 .bxslider>li img {
 	width: 80%;
 	margin: 20px auto;
