@@ -25,6 +25,12 @@
 		flag = true;
 		return;
 	};
+	Object.prototype.isNumeric = function(){
+	      var value = String(this);
+	      if(value.indexOf(" ") != -1 || value == "") return false;
+	      else if(isNaN(value)) return false;
+	      else return true;
+	   };
 	$(document).ready(function() {
 		$('#id').on('keyup', function(e) {
 			var uid = $('#id');
