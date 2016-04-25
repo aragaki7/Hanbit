@@ -98,6 +98,17 @@
 <script type="text/javascript">
  	$(document).ready(function(){
  		$(function() { $("#postcodify_search_button").postcodifyPopUp(); });
+ 		
+ 		$('select').on('change',function(){
+ 			var idx = this.selectedIndex;
+ 			if(idx==0){
+  				$('input[type="email"]:eq(1)').val('');
+ 			}
+ 			else{
+ 				var str = "";
+ 				$('input[type="email"]:eq(1)').val(this.options[this.selectedIndex].value);
+ 			}
+ 		});
 	});
 
 </script>
@@ -160,6 +171,7 @@
             <input type="radio" name="sex" value="female">여자	
 			</td>
 			</tr>
+			
 			<tr>
 			<th>전화번호</th>
 			<td colspan="3">
@@ -183,18 +195,18 @@
 			<tr>
 			<th>이메일</th>
 			<td colspan="3">
-			<input type="email" id="id" name="email" value="" size="10" class="inputText">@
-			<input type="email" id="id" name="email" value="" size="10" class="inputText">
+			<input type="email" name="email" value="" size="10" class="inputText">
+			<input type="email" name="email" value="" size="10" class="inputText">
              <select >
-                        <option value="1"> 직접입력</option>
-                        <option value="1"> naver.com</option>
-                        <option value="1"> gmail.com</option>
-                        <option value="1"> hamail.net</option>
-                        <option value="1"> nate.com</option>
+                        <option value=""> 직접입력</option>
+                        <option value="naver.com"> naver.com</option>
+                        <option value="gmail.com"> gmail.com</option>
+                        <option value="hamail.net"> hamail.net</option>
+                        <option value="nate.com"> nate.com</option>
              </select>    
              <span>이메일 수신동의
-                    <input type="radio"  value="y" checked> 예
-                    <input type="radio" value="n"> 아니오<br/>
+                    <input type="radio" name="emailchk" value="y" checked> 예
+                    <input type="radio" name="emailchk" value="n"> 아니오<br/>
               </span> 
 			</td>
 			</tr>
