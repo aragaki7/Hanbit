@@ -7,6 +7,7 @@
 <title>회원가입 창</title>
 <script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="../js/menuLoad.js"></script>
+<script type="text/javascript" src="../js/joinVaild.js"></script>
 <script type="text/javascript" src="../js/search.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css"/>
 <link rel="stylesheet" type="text/css" href="../css/nav.css"/>
@@ -123,18 +124,18 @@
 			<td colspan="3">
 			<input type="text" id="id" name="id" value="" size="10" class="inputText">
 			<a href="#"><img src="../imgs/check.JPG" alt="중복확인" /></a>
-			<span>띄어쓰기 없는 영문 숫자조합, 6~12글자</span>
+			<span class ="chkid">띄어쓰기 없는 영문 숫자조합, 6~12글자</span>
 			</td>
 			</tr>
 			<tr>
 			<th>비밀번호</th>
 			<td>
-			<input type="text" id="userId" name="userId" value="" size="10" class="inputText">
+			<input type="password" id="userId" name="userId" value="" size="10" class="inputText">
 			<span>6˜12 이내의 영문/숫자</span>
 			</td>
 			<th>비밀번호확인</th>
 			<td>
-			<input type="text" maxlength="6" id="pwcheck" name="password" size="10" class="inputText" />
+			<input type="password" maxlength="6" id="pwcheck" name="password" size="10" class="inputText" />
 			<span>입력한 비밀번호를 다시 입력</span>
 			</td>
 			</tr>
@@ -191,7 +192,7 @@
                         <option value="1"> nate.com</option>
              </select>    
              <span>이메일 수신동의
-                    <input type="radio" value="y" checked> 예
+                    <input type="radio"  value="y" checked> 예
                     <input type="radio" value="n"> 아니오<br/>
               </span> 
 			</td>
