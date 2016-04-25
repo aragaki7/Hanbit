@@ -11,7 +11,7 @@
         $(document).ready(function(){
             $('#btnBack').click(function(){
                 window.location.href = "/board/boardList.html";
-            });
+            });//
         });
     </script>
 <script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
