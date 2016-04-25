@@ -106,6 +106,9 @@ hr {
 	background-color: firebrick;
 	border: none;
 }
+ #d{
+ 	background-color: firebrick;
+ }
 </style>
 <%!PreparedStatement statement;
 	ResultSet rs;

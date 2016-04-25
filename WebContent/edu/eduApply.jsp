@@ -88,6 +88,10 @@ input[type=radio],input[type=checkbox] {
     width:15px;
     height:15px;
 }
+ #b{
+ 	background-color: firebrick;
+ 	}
+
 /* 겹치지않는부분시작 */
 </style>
 <!-- 신청페이지(eduApply)css 끝 -->
