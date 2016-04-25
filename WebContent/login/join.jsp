@@ -121,9 +121,9 @@
 		<!-- content start -->
 		
 		<br/><div class="grid9 content">
-		<form action="" method="post">
 			<p id="p1">회원가입</p>
 			<hr/><br/>
+		<form action="" method="post">
 			<table class="join_tbl">
 			<colgroup>
 			<col width="10%" />

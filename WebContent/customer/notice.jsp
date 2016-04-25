@@ -181,7 +181,7 @@
 		        <a href="#">▶</a>
 		    </div>
 		    <div id="gumsackjang">
-			<div id="write"><a href="#">
+			<div id="write"><a href="../ckeditor/board.jsp">
 		   <input type="button" value="글쓰기" class="yes"></a>
 		   </div>
 				<form action="#">
