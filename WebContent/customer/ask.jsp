@@ -44,8 +44,6 @@
 %>
 
 <body>
-
-
 	<div class="container_12">
 		<%@ include file="../template/header.jsp"%>
 		<%@ include file="../template/nav.jsp"%>
