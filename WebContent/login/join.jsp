@@ -72,7 +72,8 @@
 	padding:7px 4px; 
 	height: 20px;
 	color:black;
-	background-color:#e6e6e6
+	background-color:#e6e6e6;
+	font-size: 10pt;
 	}
 	.join_tbl td {
 	padding:5px 15px; 
@@ -94,10 +95,27 @@
 	.btn {
 	text-align:center
 	}
+	span{
+		font-size: 9pt;
+	}
+	#ck{
+		width: 20px;
+	}
 </style>
 <script type="text/javascript">
  	$(document).ready(function(){
  		$(function() { $("#postcodify_search_button").postcodifyPopUp(); });
+ 		
+ 		$('select').on('change',function(){
+ 			var idx = this.selectedIndex;
+ 			if(idx==0){
+  				$('input[type="email"]:eq(1)').val('');
+ 			}
+ 			else{
+ 				var str = "";
+ 				$('input[type="email"]:eq(1)').val(this.options[this.selectedIndex].value);
+ 			}
+ 		});
 	});
 
 </script>
@@ -110,9 +128,9 @@
 		<!-- content start -->
 		
 		<br/><div class="grid9 content">
-		<form action="" method="post">
 			<p id="p1">회원가입</p>
 			<hr/><br/>
+		<form action="" method="post">
 			<table class="join_tbl">
 			<colgroup>
 			<col width="10%" />
@@ -134,7 +152,7 @@
 			<input type="password" id="userId" name="userId" value="" size="10" class="inputText">
 			<span class="chkpw1">6˜12 이내의 영문/숫자</span>
 			</td>
-			<th>비밀번호확인</th>
+			<th id="ck">비밀번호확인</th>
 			<td>
 			<input type="password" id="pwcheck" name="password" size="10" class="inputText" />
 			<span class="chkpw2">입력한 비밀번호를 다시 입력</span>
@@ -160,6 +178,7 @@
             <input type="radio" name="sex" value="female">여자	
 			</td>
 			</tr>
+			
 			<tr>
 			<th>전화번호</th>
 			<td colspan="3">
@@ -183,18 +202,18 @@
 			<tr>
 			<th>이메일</th>
 			<td colspan="3">
-			<input type="email" id="id" name="email" value="" size="10" class="inputText">@
-			<input type="email" id="id" name="email" value="" size="10" class="inputText">
+			<input type="email" name="email" value="" size="10" class="inputText">
+			<input type="email" name="email" value="" size="10" class="inputText">
              <select >
-                        <option value="1"> 직접입력</option>
-                        <option value="1"> naver.com</option>
-                        <option value="1"> gmail.com</option>
-                        <option value="1"> hamail.net</option>
-                        <option value="1"> nate.com</option>
+                        <option value=""> 직접입력</option>
+                        <option value="naver.com"> naver.com</option>
+                        <option value="gmail.com"> gmail.com</option>
+                        <option value="hamail.net"> hamail.net</option>
+                        <option value="nate.com"> nate.com</option>
              </select>    
              <span>이메일 수신동의
-                    <input type="radio"  value="y" checked> 예
-                    <input type="radio" value="n"> 아니오<br/>
+                    <input type="radio" name="emailchk" value="y" checked> 예
+                    <input type="radio" name="emailchk" value="n"> 아니오<br/>
               </span> 
 			</td>
 			</tr>
