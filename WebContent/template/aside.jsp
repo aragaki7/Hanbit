@@ -67,7 +67,7 @@ input {
 		<div class="login">
 			<div><h2><%=re.getString("id")%>님 환영합니다.</h2></div>
 			<div><a href="/Hanbit/logout.do"><span>logout</span></a>
-					<a href="#"><span>회원정보수정</span></a></div>
+					<a href="/Hanbit/login/edituser.jsp"><span>회원정보수정</span></a></div>
 			</div>
 	
 	</div>
