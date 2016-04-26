@@ -106,51 +106,61 @@ hr {
 	background-color: firebrick;
 	border: none;
 }
- #d{
- 	background-color: firebrick;
- }
-  /*///////////////////////////////////////////////////////////////////////////////////////////*/
-/* 탭 선택 시 표시할 요소(div) 정의(1번 탭 선택 시 첫 번째 div 요소 표시) */
-#css_tabs input:nth-of-type(1), #css_tabs input:nth-of-type(1) ~ div:nth-of-type(1), #css_tabs input:nth-of-type(2), #css_tabs input:nth-of-type(2) ~ div:nth-of-type(2){
-    display:none;
+
+#d {
+	background-color: firebrick;
 }
-#css_tabs input:nth-of-type(1):checked ~ div:nth-of-type(1), #css_tabs input:nth-of-type(2):checked ~ div:nth-of-type(2) {
-    display:block;
+/*///////////////////////////////////////////////////////////////////////////////////////////*/
+/* 탭 선택 시 표시할 요소(div) 정의(1번 탭 선택 시 첫 번째 div 요소 표시) */
+#css_tabs input:nth-of-type(1), #css_tabs input:nth-of-type(1) ~ div:nth-of-type(1),
+	#css_tabs input:nth-of-type(2), #css_tabs input:nth-of-type(2) ~ div:nth-of-type(2)
+	{
+	display: none;
+}
+
+#css_tabs input:nth-of-type(1):checked ~ div:nth-of-type(1), #css_tabs input:nth-of-type(2):checked 
+	 ~ div:nth-of-type(2) {
+	display: block;
 }
 /* 라벨 기본 스타일 지정 */
-#css_tabs > label {
-    display:inline-block;
-    font-size:16px;
-    padding:5px;
-    text-align:center;
-    width:150px;
-    line-height:20pt;
-    font-weight:bold;
-    border-radius:3px 3px 0 0;
-    background:black;
-    color:white;
+#css_tabs>label {
+	display: inline-block;
+	font-size: 16px;
+	padding: 5px;
+	text-align: center;
+	width: 150px;
+	line-height: 20pt;
+	font-weight: bold;
+	border-radius: 3px 3px 0 0;
+	background: black;
+	color: white;
 }
-#css_tabs > label:hover {
-    cursor:pointer;
+
+#css_tabs>label:hover {
+	cursor: pointer;
 }
+
 #css_tabs label[for=tab1] {
-    margin-left:30pt;
-    margin-top:20pt;
+	margin-left: 30pt;
+	margin-top: 20pt;
 }
 /* 선택된 라벨, 커서를 올린 라벨 스타일 지정 */
-#css_tabs input:nth-of-type(1):checked ~ label:nth-of-type(1), #css_tabs > label[for=tab1]:hover {
-    background:firebrick;
-    color:white;
+#css_tabs input:nth-of-type(1):checked ~ label:nth-of-type(1), #css_tabs>label[for=tab1]:hover
+	{
+	background: firebrick;
+	color: white;
 }
-#css_tabs input:nth-of-type(2):checked ~ label:nth-of-type(2), #css_tabs > label[for=tab2]:hover {
-    background:firebrick;
-    color:white;
+
+#css_tabs input:nth-of-type(2):checked ~ label:nth-of-type(2), #css_tabs>label[for=tab2]:hover
+	{
+	background: firebrick;
+	color: white;
 }
 
 /* 실제 내용이 담긴 div 요소 스타일 지정 */
 #css_tabs .tab1_content, #css_tabs .tab2_content {
-    padding:2em;
-    height:100%;
+	padding: 2em;
+	height: 100%;
 }
 </style>
 <%!PreparedStatement statement;
@@ -212,114 +222,101 @@ hr {
 			jsonObject = (JSONObject) session.getAttribute("jsonObj");
 
 			if (jsonObject != null) {
-				if (jsonObject.getString("pm").equals("강사")) {
+				if (jsonObject.getString("pm").equals("관리자")) {
 		%>
 		<div class="grid9 content">
-		<p>
-	LIST<br/>
-	<h4>학생&강사</h4>
-</p>
-	<hr/><br/>
-	<div id="css_tabs">
-    <input id="tab1" type="radio" name="tab" checked="checked" />
-    <input id="tab2" type="radio" name="tab" />
-    <label for="tab1">학생</label>
-    <label for="tab2">강사</label>
-    <div class="tab1_content">
-			<div class="table">
-				<table>
-					<tr>
-						<td>이름</td>
-						<td>성별</td>
-						<td>전화번호</td>
-						<td>휴대폰번호</td>
-						<td>주소</td>
-						<td>이메일</td>
-						<td>강의실</td>
-					</tr>
+			<p>
+				LIST<br />
+			<h4>학생&강사</h4>
+			</p>
+			<hr />
+			<br />
+			<div id="css_tabs">
+				<input id="tab1" type="radio" name="tab" checked="checked" /> <input
+					id="tab2" type="radio" name="tab" /> <label for="tab1">학생</label>
+				<label for="tab2">강사</label>
+				<div class="tab1_content">
+					<div class="table">
+						<table>
+							<tr>
+								<td>이름</td>
+								<td>휴대폰번호</td>
+								<td>이메일</td>
+								<td>강의실</td>
+							</tr>
 
-					<%
-						for (int i = 0; i < list.size(); i++) {
-					%>
-					<tr>
-						<td><%=list.get(i).getName()%></td>
-						<td><%=list.get(i).getSex()%></td>
-						<td><%=list.get(i).getPhone()%></td>
-						<td><%=list.get(i).getMobile()%></td>
-						<td><%=list.get(i).getMain_address() + " " + list.get(i).getSub_address() + "("
-								+ list.get(i).getPost() + ")"%></td>
-						<td><%=list.get(i).getEmail()%></td>
+							<%
+								for (int i = 0; i < list.size(); i++) {
+							%>
+							<tr>
+								<td><%=list.get(i).getName()%></td>
+					
+								<td><%=list.get(i).getMobile()%></td>
+						
+								<td><%=list.get(i).getEmail()%></td>
 
-						<td><select>
-								<option value="1"
-									<%if (list.get(i).getClasss().equals("없음")) {%>
-									selected="selected" <%}%>>없음</option>
-								<option value="2"
-									<%if (list.get(i).getClasss().equals("1강의장")) {%>
-									selected="selected" <%}%>>1강의장</option>
-								<option value="3"
-									<%if (list.get(i).getClasss().equals("2강의장")) {%>
-									selected="selected" <%}%>>2강의장</option>
-								<option value="4"
-									<%if (list.get(i).getClasss().equals("3강의장")) {%>
-									selected="selected" <%}%>>3강의장</option>
-						</select>
-							<button>수정</button></td>
-					</tr>
+								<td><select>
+										<option value="1"
+											<%if (list.get(i).getClasss().equals("없음")) {%>
+											selected="selected" <%}%>>없음</option>
+										<option value="2"
+											<%if (list.get(i).getClasss().equals("1강의장")) {%>
+											selected="selected" <%}%>>1강의장</option>
+										<option value="3"
+											<%if (list.get(i).getClasss().equals("2강의장")) {%>
+											selected="selected" <%}%>>2강의장</option>
+										<option value="4"
+											<%if (list.get(i).getClasss().equals("3강의장")) {%>
+											selected="selected" <%}%>>3강의장</option>
+								</select></td>
+							</tr>
 
-					<%
-						}
-					%>
-				</table>
+							<%
+								}
+							%>
+						</table>
+					</div>
+				</div>
+				<div class="tab2_content">
+					<div class="table">
+						<table>
+							<tr>
+								<td>이름</td>		
+								<td>휴대폰번호</td>
+								<td>이메일</td>
+								<td>강의실</td>
+							</tr>
+							<%
+								for (int i = 0; i < list_teacher.size(); i++) {
+							%>
+							<tr>
+								<td><%=list_teacher.get(i).getName()%></td>	
+								<td><%=list_teacher.get(i).getMobile()%></td>
+								<td><%=list_teacher.get(i).getEmail()%></td>
+								<td><select>
+										<option value="1"
+											<%if (list_teacher.get(i).getClasss().equals("없음")) {%>
+											selected="selected" <%}%>>없음</option>
+										<option value="2"
+											<%if (list_teacher.get(i).getClasss().equals("1강의장")) {%>
+											selected="selected" <%}%>>1강의장</option>
+										<option value="3"
+											<%if (list_teacher.get(i).getClasss().equals("2강의장")) {%>
+											selected="selected" <%}%>>2강의장</option>
+										<option value="4"
+											<%if (list_teacher.get(i).getClasss().equals("3강의장")) {%>
+											selected="selected" <%}%>>3강의장</option>
+								</select></td>
+							</tr>
+
+
+							<%
+								}
+							%>
+						</table>
+					</div>
+				</div>
 			</div>
-			</div>
-			<div class="tab2_content">
-			<div class="table">
-				<table>
-					<tr>
-						<td>이름</td>
-						<td>성별</td>
-						<td>전화번호</td>
-						<td>휴대폰번호</td>
-						<td>주소</td>
-						<td>이메일</td>
-						<td>강의실</td>
-					</tr>
-					<%
-						for (int i = 0; i < list_teacher.size(); i++) {
-					%>
-					<tr>
-						<td><%=list_teacher.get(i).getName()%></td>
-						<td><%=list_teacher.get(i).getSex()%></td>
-						<td><%=list_teacher.get(i).getPhone()%></td>
-						<td><%=list_teacher.get(i).getMobile()%></td>
-						<td><%=list_teacher.get(i).getMain_address() + " " + list_teacher.get(i).getSub_address()
-								+ "(" + list.get(i).getPost() + ")"%></td>
-						<td><%=list_teacher.get(i).getEmail()%></td>
-						<td><select>
-								<option value="1"
-									<%if (list_teacher.get(i).getClasss().equals("없음")) {%>
-									selected="selected" <%}%>>없음</option>
-								<option value="2"
-									<%if (list_teacher.get(i).getClasss().equals("1강의장")) {%>
-									selected="selected" <%}%>>1강의장</option>
-								<option value="3"
-									<%if (list_teacher.get(i).getClasss().equals("2강의장")) {%>
-									selected="selected" <%}%>>2강의장</option>
-								<option value="4"
-									<%if (list_teacher.get(i).getClasss().equals("3강의장")) {%>
-									selected="selected" <%}%>>3강의장</option>
-						</select></td>
-					</tr>
-
-
-					<%
-						}
-					%>
-				</table>
-			</div>
-			</div>
-		</div>
 		</div>
 		<%
 			}
