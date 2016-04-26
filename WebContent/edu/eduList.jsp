@@ -26,7 +26,7 @@ table {
 	height: 200px;
 }
 
-#aa{
+#a{
 	display: block;
 	text-decoration: none;
 	font-weight:bold;
@@ -48,15 +48,15 @@ table {
 
 .submitbtn{ 
 	position: relative; 
- 	left: -470px; 
-	top: 5px; 
+ 	left: -50px; 
+	top: -86px; 
  	height: 30px;
 }
 
 .detailbtn{ 
  	position: relative;
- 	left: -340px; 
-	top: -65px; 
+ 	left: -185px; 
+	top: -156px; 
  	height: 30px; 
 }	 
 
@@ -79,19 +79,21 @@ p{
  /* 겹치는부분시작 */
  /* 겹치지않는부분시작 */
 
-#process table{
+#tab{
   margin:30px;
-  width: 70%;
+  width:778px;
+  height:100px;
 }
-#process table tr td {
+#tab tr td {
 	border-bottom: 1px solid lightgray;
 	font-size:15px;
 	font-family:Arial;
 	font-weight:normal;
 }
- #b{
- 	background-color: firebrick;
- }
+ #url-navi {
+    border-bottom: 1px solid lightgray;
+    width:809px;
+    }
 </style>
 </head>
 <body>
@@ -106,14 +108,13 @@ p{
 	<h4>정규교육과정</h4>
 </p>
 <hr/><br/>
-<div id="process"> 
-	<table>
+	<table id="tab">
 		<tr>
 			<th rowspan="4">
 				<img class="size" src="../imgs/javaLogo.PNG"/>
 			</th>
 			<td>
-				<a href="eduJava.jsp" id="aa">
+				<a href="eduJava.jsp" id="a">
 					교육과정 : 자바 프로그래밍</a>
 			</td>
 		</tr>
@@ -127,24 +128,23 @@ p{
 			<td>모집인원 : 20명</td>
 		</tr>
 		<tr>
-			<td></td>
-			<td>
+		 </tr>
+	</table>
+	<br/>
+		 <div id="url-navi"></div>		
 <!-- 				<div> -->
 					<a href="eduApply.jsp"><input type="button" value="신청하기" class="yes submitbtn"/></a>
 <!-- 				</div> -->
 <!-- 				 <div class="detailbtn"> -->
 					 <a href="eduJava.jsp"><input type="button" value="상세보기" class="yes detailbtn"/></a>
 <!-- 				 </div> -->
-			 </td>
-		 </tr>
-	</table>
-	<table> 
+	<table id="tab"> 
 		<tr>
 			<th rowspan="4">
 				<img class="size" src="../imgs/AndroidLogo.png"/>
 			</th>
 			<td>
-				<a href="eduAndroid.jsp" id="aa">
+				<a href="eduAndroid.jsp" id="a">
 				교육과정 : 안드로이드 프로그래밍</a>
 			</td>
 		</tr>
@@ -157,41 +157,38 @@ p{
 		<tr>
 			<td>모집인원 : 20명</td>
 		</tr>
-		<tr>
-			<td></td>
-			<td>
+	</table>
+		<br/>
+		 <div id="url-navi"></div>
 <!-- 			<div class="submitbtn"> -->
 				 <a href="eduApply.jsp"><input type="button" value="신청하기"  class="yes submitbtn"/></a>
 <!-- 				 </div> -->
 <!-- 				 <div class="detailbtn"> -->
 				 <a href="eduAndroid.jsp"><input type="button" value="상세보기" class="yes detailbtn"/></a>
 <!-- 				 </div> -->
-			 </td>
-		 </tr>
-	</table>
-	<table>
+		
+	<table id="tab">
 		<tr><th rowspan="4"><img class="size" src="../imgs/jspLogo.png"/></th>
-			<td><a href="eduJsp.jsp" id="aa">교육과정 : JSP 프로그래밍</a></td></tr>
+			<td><a href="eduJsp.jsp" id="a">교육과정 : JSP 프로그래밍</a></td></tr>
 		<tr><td>교육장소 : 한빛신촌교육센터</td></tr>
 		<tr><td>교육기간 : 2016.05.01 ~ 2016.05.31</td></tr>
 		<tr><td>모집인원 : 20명</td></tr>
-		<tr><td></td><td>
+	</table>
+		<br/>
+		 <div id="url-navi"></div>
 <!-- 		<div  class="submitbtn"> -->
 				         <a href="eduApply.jsp"><input type="button" value="신청하기" class="yes submitbtn"/></a>
 <!-- 				         </div> -->
 <!-- 						 <div class="detailbtn"> -->
 						 <a href="eduJsp.jsp"><input type="button" value="상세보기" class="yes detailbtn"/></a>
 <!-- 						 </div> -->
-						 </td></tr>
-	</table>
-</div>
+						
 </div>
 <!-- 과정소개 첫 페이지 끝 -->
-		
 		<!-- content end -->	
 		<%@ include file="../template/asideIn.jsp" %>
+</div>
 		<%@ include file="../template/footer.jsp" %>
-	</div>
 </body>
 </html>
 
