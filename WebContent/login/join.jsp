@@ -156,7 +156,7 @@
 		<!-- content start -->
 		
 		<br/><div class="grid9 content">
-		<form action="#">
+		<form action="join.do" method="post">
 			<p id="p1">회원가입</p>
 			<hr/><br/>
 			<table class="join_tbl">
@@ -178,12 +178,12 @@
 			<tr>
 			<th>비밀번호</th>
 			<td>
-			<input type="password" id="userId" name="userId" value="" size="10" class="inputText">
+			<input type="password" name="password1" value="" size="10" class="inputText">
 			<span class="chkpw1">6˜12 이내의 영문/숫자</span>
 			</td>
 			<th id="ck">비밀번호확인</th>
 			<td>
-			<input type="password" id="pwcheck" name="password" size="10" class="inputText" />
+			<input type="password" id="pwcheck" name="password2" size="10" class="inputText" />
 			<span class="chkpw2">입력한 비밀번호를 다시 입력</span>
 			</td>
 			</tr>
@@ -211,28 +211,28 @@
 			<tr>
 			<th>전화번호</th>
 			<td colspan="3">
-			<input type="text" id="tel1" name="phone" value="" size="3" class="inputText isN">
+			<input type="text" id="tel1" name="phone1" value="" size="3" class="inputText isN">
 			-
-			<input type="text" id="tel2" name="phone" value="" size="3" class="inputText isN">
+			<input type="text" id="tel2" name="phone2" value="" size="3" class="inputText isN">
 			-
-			<input type="text" id="tel3" name="phone" value="" size="3" class="inputText isN">
+			<input type="text" id="tel3" name="phone3" value="" size="3" class="inputText isN">
 			</td>
 			</tr>
 			<tr>
 			<th>휴대폰</th>
 			<td colspan="3">
-			<input type="text" id="tel4" name="mobile" value="" size="3" class="inputText isN">
+			<input type="text" id="tel4" name="mobile1" value="" size="3" class="inputText isN">
 			-
-			<input type="text" id="tel5" name="mobile" value="" size="3" class="inputText isN">
+			<input type="text" id="tel5" name="mobile2" value="" size="3" class="inputText isN">
 			-
-			<input type="text" id="tel6" name="mobile" value="" size="3" class="inputText isN">
+			<input type="text" id="tel6" name="mobile3" value="" size="3" class="inputText isN">
 			</td>
 			</tr>
 			<tr>
 			<th>이메일</th>
 			<td colspan="3">
 			<input type="text" name="email" value="" size="10" class="inputText">@
-			<input type="text" name="email" value="" size="10" class="inputText">
+			<input type="text" name="domain" value="" size="10" class="inputText">
              <select >
                         <option value=""> 직접입력</option>
                         <option value="naver.com"> naver.com</option>
