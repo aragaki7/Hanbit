@@ -1,3 +1,7 @@
+<%@page import="db.DBConnect"%>
+<%@page import="bean.BoardData"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -152,12 +156,31 @@ input[type=submit] {
 	margin-left: -95px;
 	margin-top: 30px;
 }
- #e{
- 	background-color: firebrick;
- }
+
+#e {
+	background-color: firebrick;
+}
 </style>
 </head>
 
+<%!PreparedStatement statement;
+	String sql;
+	ResultSet rs;
+	ArrayList<BoardData> list = new ArrayList<BoardData>();%>
+
+<%
+	sql = "select index, TB_USER.id, title, content, days, times, count from TB_NOTICE join TB_USER on TB_NOTICE.id_fk = TB_USER.id";
+	try {
+		statement = DBConnect.get().prepareStatement(sql);
+		list.clear();
+		while (rs.next()) {
+			list.add(new BoardData(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+					rs.getDate(5), rs.getDate(6), rs.getInt(7)));
+		}
+	} catch (Exception e) {
+
+	}
+%>
 <body>
 	<div class="container_12">
 		<%@ include file="../template/header.jsp"%>
@@ -184,21 +207,22 @@ input[type=submit] {
 						<td>조회 수</td>
 					</tr>
 
-
+					<%
+						for (int i = 0; i < list.size(); i++) {
+					%>
 					<tr id="row" style="cursor: hand;" onclick="location.href='#'">
-						<td>index</td>
-						<td>ID</td>
+						<td><%=list.get(i).getNum()%></td>
+						<td><%=list.get(i).getId()%></td>
 						<!--아이디-->
-						<td>제목</td>
-						<td><a href="askDetail.jsp">내용</a></td>
-						<td>2011.11.15</td>
-						<!--날짜-->
-						<td>10:26</td>
-						<!--시간-->
-						<td>0000</td>
+						<td><%=list.get(i).getTitle()%></td>
+						<td><a href="askDetail.jsp"><%=list.get(i).getContent()%></a></td>
+						<td><%=list.get(i).getData()%></td>
+						<td><%=list.get(i).getCount()%></td>
 						<!--조회 수-->
 					</tr>
-
+					<%
+						}
+					%>
 				</table>
 			</div>
 			<div class="page">
