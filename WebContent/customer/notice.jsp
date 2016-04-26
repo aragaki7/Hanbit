@@ -226,7 +226,7 @@ input[type=submit] {
 						<td><%=list.get(i).getId()%></td>
 						<!--아이디-->
 						<td><%=list.get(i).getTitle()%></td>
-						<td><a href="askDetail.jsp"><%=list.get(i).getContent()%></a></td>
+						<td><a href="noticeDetail.jsp"><%=list.get(i).getContent()%></a></td>
 						<%
 							if (list.get(i).getData().toString().equals(new Date(System.currentTimeMillis()).toString())) {
 
