@@ -249,7 +249,7 @@ hr {
 								for (int i = 0; i < list.size(); i++) {
 							%>
 							<tr id="row" style="cursor: hand;"
-							onclick="location.href='../student/EditGrade.jsp'"	>
+							onclick="location.href='../user/stuDetail.jsp'"	>
 								<td><%=list.get(i).getName()%></td>
 					
 								<td><%=list.get(i).getMobile()%></td>
@@ -278,7 +278,7 @@ hr {
 								for (int i = 0; i < list_teacher.size(); i++) {
 							%>
 							<tr id="row" style="cursor: hand;"
-							onclick="location.href='../student/EditGrade.jsp'"	>
+							onclick="location.href='../user/teaDetail.jsp'"	>
 								<td><%=list_teacher.get(i).getName()%></td>	
 								<td><%=list_teacher.get(i).getMobile()%></td>
 								<td><%=list_teacher.get(i).getEmail()%></td>

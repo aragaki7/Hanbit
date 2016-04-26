@@ -132,7 +132,8 @@ hr {
 
 #ip {
 	text-align: center;
-	margin-left: 50px;
+	margin-left: 40px;
+	width:100px;
 }
  #d{
  	background-color: firebrick;
@@ -178,7 +179,7 @@ hr {
 		</div>
 		<!-- content end -->
 
-		<%@ include file="../template/aside.jsp"%>
+		<%@ include file="../template/asideIn.jsp"%>
 		<%@ include file="../template/footer.jsp"%>
 	</div>
 
