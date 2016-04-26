@@ -5,6 +5,15 @@ $(document).ready(function(){
 	$('.nav5').css('display','none');
 	$('.nav6').css('display','none');
 	
+	$('.header').on('mouseover',function(){
+		$('.nav2').css('display','none'); 
+		$('.nav3').css('display','none');
+		$('.nav4').css('display','none');
+		$('.nav5').css('display','none');
+		$('.nav6').css('display','none');
+		return false;
+	});
+	
 	//no1
 	$('.nav>ul>li>a:eq(0)').on('mouseover',function(){
 		$('.nav2').css('display',''); 
