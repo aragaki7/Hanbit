@@ -6,16 +6,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>게시판 등록</title>
+	<script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
+	<script type="text/javascript" src="../js/menuLoad.js"></script>
     <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('#btnBack').click(function(){
                 window.location.href = "/board/boardList.html";
             });//
+        
         });
     </script>
-<script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
-<script type="text/javascript" src="../js/menuLoad.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css"/>
 <link rel="stylesheet" type="text/css" href="../css/nav.css"/>
 <style type="text/css">
@@ -133,7 +134,7 @@ span{
 		
 		<div class="grid9">
 		<p>BOARD</p>
-			<p id="write">문의게시판 쓰기</p>
+			<p id="write">자유게시판 쓰기</p>
 			<hr />
 			<br />
 			<form action="../customer/notice.jsp" method="post">
@@ -144,7 +145,7 @@ span{
 			<col width="10%" />
 			<col width="40%" />
 			</colgroup>
-			<tr>
+<!--		<tr>
 			<th>아이디</th>
 			<td colspan="3">
 			<input type="text" name="id" value="" size="10" class="inputText">
@@ -180,8 +181,8 @@ span{
                         <option value="nate.com"> nate.com</option>
              </select>    
 			</td>
-			</tr>
-			<tr>
+			</tr>  -->
+			<tr> 
 			<th>제목</th>
 			<td>
 			<input type="text" id="id" name="name" value="" size="10" class="inputText">
