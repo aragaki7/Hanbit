@@ -97,7 +97,7 @@ hr {
 .list {
 	margin-top: 40px;
 	width: 110px;
-	height: 30px;
+	height: 30px; 
 	margin-left: 220px;
 	font-size: 11pt;
 	font-weight: bold;
@@ -108,7 +108,7 @@ hr {
 
 .edit {
 	margin-top: 40px;
-	width: 110px;
+	width: 110px; 
 	height: 30px;
 	margin-left: 20px;
 	font-size: 11pt;
@@ -120,8 +120,8 @@ hr {
 
 .delete {
 	margin-top: 40px;
-	width: 110px;
-	height: 30px;
+	width: 110px; 
+	height: 30px; 
 	margin-left: 20px;
 	font-size: 11pt;
 	font-weight: bold;

@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
 
-<%!PreparedStatement statement;
+<%!PreparedStatement statement;  
 	ResultSet rs;
 	String sql;
 	ArrayList<GreadeData> list = new ArrayList<GreadeData>();%>
