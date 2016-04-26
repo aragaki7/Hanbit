@@ -21,7 +21,7 @@
 <link rel="stylesheet" type="text/css" href="../css/nav.css"/>
 <style type="text/css">
 * {
-	margin: 0px;
+	margin: 0px; 
 	padding: 0px;
 }
 
