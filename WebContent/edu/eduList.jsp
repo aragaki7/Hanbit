@@ -26,7 +26,7 @@ table {
 	height: 200px;
 }
 
-#a{
+#aa{
 	display: block;
 	text-decoration: none;
 	font-weight:bold;
@@ -94,6 +94,9 @@ p{
     border-bottom: 1px solid lightgray;
     width:809px;
     }
+    #b{
+    background-color: firebrick;
+    }
 </style>
 </head>
 <body>
@@ -114,7 +117,7 @@ p{
 				<img class="size" src="../imgs/javaLogo.PNG"/>
 			</th>
 			<td>
-				<a href="eduJava.jsp" id="a">
+				<a href="eduJava.jsp" id="aa">
 					교육과정 : 자바 프로그래밍</a>
 			</td>
 		</tr>
@@ -144,7 +147,7 @@ p{
 				<img class="size" src="../imgs/AndroidLogo.png"/>
 			</th>
 			<td>
-				<a href="eduAndroid.jsp" id="a">
+				<a href="eduAndroid.jsp" id="aa">
 				교육과정 : 안드로이드 프로그래밍</a>
 			</td>
 		</tr>
@@ -169,7 +172,7 @@ p{
 		
 	<table id="tab">
 		<tr><th rowspan="4"><img class="size" src="../imgs/jspLogo.png"/></th>
-			<td><a href="eduJsp.jsp" id="a">교육과정 : JSP 프로그래밍</a></td></tr>
+			<td><a href="eduJsp.jsp" id="aa">교육과정 : JSP 프로그래밍</a></td></tr>
 		<tr><td>교육장소 : 한빛신촌교육센터</td></tr>
 		<tr><td>교육기간 : 2016.05.01 ~ 2016.05.31</td></tr>
 		<tr><td>모집인원 : 20명</td></tr>
