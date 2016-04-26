@@ -8,6 +8,10 @@
 	// config.uiColor = '#AADC6E';
 	
 	// 게시판 툴바 수정 
+	
+
+	//
+	//게시판 툴바 작성
 	CKEDITOR.editorConfig = function( config ) {
 		config.uiColor = '#D5D5D5';
 		config.language = 'ko';
@@ -23,4 +27,4 @@
 		          		{ name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
 		          		{ name: 'colors', items: [ 'TextColor', 'BGColor' ] },
 		          	];
-}; 
+	}; 
