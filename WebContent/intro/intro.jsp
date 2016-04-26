@@ -33,6 +33,7 @@ p{
  }
   #a{
  	background-color: firebrick;
+ 	height: 10px;
  }
 </style>
 </head>

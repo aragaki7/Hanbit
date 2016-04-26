@@ -7,7 +7,7 @@
 		<li><a href="<%=request.getContextPath()%>/edu/curri.do" id="b">교육과정</a></li>
 		<li><a href="<%=request.getContextPath()%>/service/job.do" id="c">교육서비스</a></li>
 		<li><a href="<%=request.getContextPath()%>/user/list.do" id="d">회원관리</a></li>
-		<li><a href="<%=request.getContextPath()%>/customer/notice.do/" id="e">고객센터</a></li>
+		<li><a href="<%=request.getContextPath()%>/customer/notice.do" id="e">고객센터</a></li>
 	</ul>
 </div>
 <div class="grid12 nav2">

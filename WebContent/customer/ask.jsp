@@ -17,9 +17,9 @@
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
 <style type="text/css">
- #e{
- 	background-color: firebrick;
- }
+#e {
+	background-color: firebrick;
+}
 </style>
 </head>
 
@@ -35,7 +35,7 @@
 		list.clear();
 		while (rs.next()) {
 			list.add(new BoardData(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
-					rs.getDate(5), rs.getDate(6), rs.getInt(7)));
+					rs.getDate(5), rs.getTimestamp(6), rs.getInt(7)));
 		}
 	} catch (Exception e) {
 
@@ -56,7 +56,7 @@
 		<!-- content start -->
 
 		<div class="grid9">
-			<h1>문의게시판</h1>
+			<h1>1:1 문의</h1>
 
 			<Table border="1" width="100%">
 

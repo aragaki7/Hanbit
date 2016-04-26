@@ -192,6 +192,7 @@ input[type=submit] {
 	}
 %>
 <body>
+	<<<<<<< HEAD
 	<div class="container_12">
 		<%@ include file="../template/header.jsp"%>
 		<%@ include file="../template/nav.jsp"%>
@@ -288,5 +289,76 @@ input[type=submit] {
 		<%@ include file="../template/asideIn.jsp"%>
 		<%@ include file="../template/footer.jsp"%>
 	</div>
+	=======
+	<div class="container_12">
+		<%@ include file="../template/header.jsp"%>
+		<%@ include file="../template/nav.jsp"%>
+
+		<!-- content start -->
+
+		<div class="grid9">
+			<!--  게시판 내용 시작-->
+			<p>CUSTOMER CENTER
+			<h4>공지사항</h4>
+			</p>
+			<hr />
+			<br />
+			<div class="table">
+				<table>
+					<tr>
+						<td>index</td>
+						<td>아이디</td>
+						<td>제목</td>
+						<td>내용</td>
+						<td>날짜</td>
+						<td>시간</td>
+						<td>조회 수</td>
+					</tr>
+
+
+					<tr id="row" style="cursor: hand;" onclick="location.href='#'">
+						<td>index</td>
+						<td>ID</td>
+						<!--아이디-->
+						<td>제목</td>
+						<td><a href="noticeDetail.jsp">내용</a></td>
+						<td>2011.11.15</td>
+						<!--날짜-->
+						<td>10:26</td>
+						<!--시간-->
+						<td>0000</td>
+						<!--조회 수-->
+					</tr>
+
+				</table>
+			</div>
+			<div class="page">
+				<a href="#">◀</a> <a href="#">[1]</a> <a href="#">[2]</a> <a
+					href="#">[3]</a> <a href="#">[4]</a> <a href="#">[5]</a> <a
+					href="#">▶</a>
+			</div>
+			<div id="gumsackjang">
+				<div id="write">
+					<a href="../ckeditor/board.jsp"> <input type="button"
+						value="글쓰기" class="yes"></a>
+				</div>
+				<form action="#">
+					<select id="keyword">
+						<option value="title">제목</option>
+						<option value="content">내용</option>
+						<option value="name">글쓴이</option>
+					</select> <input type="text" name="search"> <input type="submit"
+						value="검색">
+				</form>
+			</div>
+
+			<!--  게시판 내용 끝 -->
+		</div>
+
+		<!-- content end -->
+		<%@ include file="../template/asideIn.jsp"%>
+		<%@ include file="../template/footer.jsp"%>
+	</div>
+	>>>>>>> branch 'master' of https://github.com/aragaki7/Hanbit.git
 </body>
 </html>
