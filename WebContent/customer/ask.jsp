@@ -56,7 +56,7 @@
 		<!-- content start -->
 
 		<div class="grid9">
-			<h1>문의게시판</h1>
+			<h1>1:1 문의</h1>
 
 			<Table border="1" width="100%">
 

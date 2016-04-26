@@ -4,7 +4,7 @@
 <html> 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>게시판 detail_comment</title>
+<title>문의게시판 detail_comment</title>
 <style>
    *{
       margin: 0px;
@@ -273,7 +273,7 @@
          <table class="table table-condensed tablemain">
             <thead>
                <tr align="center">
-                  <th colspan="2" id="boardtitle">게시판 제목 입니다.</th>
+                  <th colspan="2" id="boardtitle">자유게시판 제목 입니다.</th>
                </tr>
             </thead>
             <tbody>

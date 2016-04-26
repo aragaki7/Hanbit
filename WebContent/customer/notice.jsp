@@ -164,7 +164,7 @@
                <td>index</td>
               <td>ID</td> <!--아이디-->
               <td>제목</td>
-              <td><a href="askDetail.jsp">내용</a></td>
+              <td><a href="noticeDetail.jsp">내용</a></td>
               <td>2011.11.15</td> <!--날짜-->
               <td>10:26</td><!--시간-->
               <td>0000</td> <!--조회 수-->
