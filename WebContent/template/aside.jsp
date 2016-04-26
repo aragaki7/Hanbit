@@ -61,6 +61,9 @@ input {
 	width: 100%;
 }
 
+#online>a>img {
+	width: 100%;
+}
 .success {
 	margin-left: 10px;
 }
@@ -133,6 +136,10 @@ input {
 
 <div id="tel">
 	<img alt="전화번호 안내" src="imgs/kakaotalk.gif" />
+</div>
+
+<div id="online">
+	<a href="/Hanbit/customer/ask.jsp"><img alt="온라인 문의" src="imgs/online.gif" /></a>
 </div>
 
 </div>
