@@ -177,6 +177,15 @@
     <servlet-name>customer.notice</servlet-name>
     <url-pattern>/customer/notice.do</url-pattern>
   </servlet-mapping>  
+  <!-- customer/Board -->
+  <servlet>
+    <servlet-name>customer.board</servlet-name>
+    <servlet-class>com.hb.controller.customer.CustomerBoard</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>customer.board</servlet-name>
+    <url-pattern>/customer/board.do</url-pattern>
+  </servlet-mapping> 
 
   
   

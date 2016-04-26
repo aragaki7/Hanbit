@@ -1,6 +1,7 @@
 package bean;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class BoardData {
 
@@ -9,10 +10,10 @@ public class BoardData {
 	private String title;
 	private String content;
 	private Date data;
-	private Date time;
+	private Timestamp time;
 	private int count;
 
-	public BoardData(int num, String id, String title, String content, Date data, Date time, int count) {
+	public BoardData(int num, String id, String title, String content, Date data, Timestamp time, int count) {
 		this.num = num;
 		this.id = id;
 		this.title = title;
@@ -50,7 +51,7 @@ public class BoardData {
 	 * @Date
 	 */
 
-	public Date getTime() {
+	public Timestamp getTime() {
 		return time;
 	}
 

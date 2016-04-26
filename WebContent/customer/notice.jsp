@@ -1,3 +1,5 @@
+<%@page import="java.sql.Date"%>
+<%@page import="javax.xml.crypto.Data"%>
 <%@page import="db.DBConnect"%>
 <%@page import="bean.BoardData"%>
 <%@page import="java.util.ArrayList"%>
@@ -10,10 +12,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Notice</title>
-<script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
-<script type="text/javascript" src="js/menuLoad.js"></script>
+
+<script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="../js/menuLoad.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
+
 <style type="text/css">
 * {
 	margin: 0px;
@@ -169,16 +173,22 @@ input[type=submit] {
 	ArrayList<BoardData> list = new ArrayList<BoardData>();%>
 
 <%
-	sql = "select index, TB_USER.id, title, content, days, times, count from TB_NOTICE join TB_USER on TB_NOTICE.id_fk = TB_USER.id";
+	sql = "select idx, TB_USER.id, title, content, days, times, count from TB_NOTICE join TB_USER on TB_NOTICE.id_fk = TB_USER.id order by idx desc";
 	try {
 		statement = DBConnect.get().prepareStatement(sql);
+		rs = statement.executeQuery();
 		list.clear();
 		while (rs.next()) {
-			list.add(new BoardData(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
-					rs.getDate(5), rs.getDate(6), rs.getInt(7)));
+			list.add(new BoardData(rs.getInt("idx"), rs.getString("TB_USER.id"), rs.getString("title"),
+					rs.getString("content"), rs.getDate("days"), rs.getTimestamp("times"), rs.getInt("count")));
 		}
 	} catch (Exception e) {
 
+	} finally {
+		if (rs != null)
+			rs.close();
+		if (statement != null)
+			statement.close();
 	}
 %>
 <body>
@@ -203,7 +213,6 @@ input[type=submit] {
 						<td>제목</td>
 						<td>내용</td>
 						<td>날짜</td>
-						<td>시간</td>
 						<td>조회 수</td>
 					</tr>
 
@@ -216,9 +225,23 @@ input[type=submit] {
 						<!--아이디-->
 						<td><%=list.get(i).getTitle()%></td>
 						<td><a href="askDetail.jsp"><%=list.get(i).getContent()%></a></td>
+						<%
+							if (list.get(i).getData().toString().equals(new Date(System.currentTimeMillis()).toString())) {
+
+									String[] time = list.get(i).getTime().toString().split(" ");
+						%>
+
+						<td><%=time[1]%></td>
+
+						<%
+							} else {
+						%>
 						<td><%=list.get(i).getData()%></td>
+						<%
+							}
+						%>
 						<td><%=list.get(i).getCount()%></td>
-						<!--조회 수-->
+
 					</tr>
 					<%
 						}
