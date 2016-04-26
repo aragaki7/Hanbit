@@ -21,9 +21,10 @@ public class Dday {
 
 	/**
 	 * Get Month
+	 * 
 	 * @int
 	 */
-	
+
 	public int getMonth() {
 		Calendar calendar = Calendar.getInstance();
 		int month = calendar.get(Calendar.MONTH) + 2;

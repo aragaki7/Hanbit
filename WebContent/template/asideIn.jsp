@@ -37,7 +37,7 @@
 		<%
 			Dday day = new Dday();
 			out.print(day.getMonth() + "월 개강</br>");
-			out.print("D-"+day.getDays());
+			out.print("D-" + day.getDays());
 		%>
 	</div>
 	
