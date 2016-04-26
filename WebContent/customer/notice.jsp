@@ -151,7 +151,7 @@ input[type=submit] {
 
 #write {
 	position: relative;
-	height: 30px;
+	height: 30px; 
 	margin-top: -50px;
 }
 
