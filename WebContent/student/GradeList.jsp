@@ -14,25 +14,6 @@
 <script type="text/javascript" src="../js/menuLoad.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
-
-<%!PreparedStatement statement;  
-	ResultSet rs;
-	String sql;
-	ArrayList<GreadeData> list = new ArrayList<GreadeData>();%>
-
-<%
-	try {
-		sql = "select id, java, web, fw from TB_GRADE order by id desc";
-		statement = DBConnect.get().prepareStatement(sql);
-		rs = statement.executeQuery();
-		list.clear();
-		while (rs.next()) {
-			list.add(new GreadeData(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getInt(4)));
-		}
-	} catch (Exception e) {
-
-	}
-%>
 <style type="text/css">
 * {
 	margin: 0px;
@@ -133,6 +114,14 @@ hr {
  	background-color: firebrick;
  }
 </style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#row').on('click',function(){
+			var id=$('#row>td:eq(0)').text();
+			location.href="EditGrade.do?id="+id;
+		});
+	});
+</script>
 </head>
 <body>
 
@@ -163,21 +152,24 @@ hr {
 							<td>웹</td>
 							<td>프레임워크</td>
 						</tr>
-						<tr id="row" style="cursor: hand;"
-							onclick="location.href='../student/EditGrade.jsp'">
 							<%
-								for (int i = 0; i < list.size(); i++) {
+							ArrayList<GreadeData> list = (ArrayList<GreadeData>)request.getAttribute("list");
+							for (int i = 0; i < list.size(); i++) {
 							%>
+							<tr id="row" style="cursor: hand;"><!--  onclick="location.href='EditGrade.do'"> -->
+<!-- 							onclick="location.href='../student/EditGrade.jsp'"> -->
+							
 
 							<td><%=list.get(i).getId()%></td>
 							<td><%=list.get(i).getJava()%></td>
 							<td><%=list.get(i).getWeb()%></td>
 							<td><%=list.get(i).getFw()%></td>
 
-							<%
-								}
-							%>
-						</tr>
+							
+							</tr>
+							<%}%>
+							
+						
 
 					</table>
 				</div>

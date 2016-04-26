@@ -162,8 +162,11 @@ hr {
 						<td>웹</td>
 						<td>프레임워크</td>
 					</tr>
+					<%
+					String id = (String)request.getAttribute("id");
+					%>
 					<tr>
-						<td><input type="text" name="id" value="row1" id="ip" /></td>
+						<td><input type="text" name="id" value="<%=id %>" id="ip" readonly="readonly"/></td>
 						<td><input type="text" name="id" value="row1" id="ip" /></td>
 						<td><input type="text" name="id" value="row1" id="ip" /></td>
 						<td><input type="text" name="id" value="row1" id="ip" /></td>
