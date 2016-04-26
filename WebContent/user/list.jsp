@@ -109,6 +109,49 @@ hr {
  #d{
  	background-color: firebrick;
  }
+  /*///////////////////////////////////////////////////////////////////////////////////////////*/
+/* 탭 선택 시 표시할 요소(div) 정의(1번 탭 선택 시 첫 번째 div 요소 표시) */
+#css_tabs input:nth-of-type(1), #css_tabs input:nth-of-type(1) ~ div:nth-of-type(1), #css_tabs input:nth-of-type(2), #css_tabs input:nth-of-type(2) ~ div:nth-of-type(2){
+    display:none;
+}
+#css_tabs input:nth-of-type(1):checked ~ div:nth-of-type(1), #css_tabs input:nth-of-type(2):checked ~ div:nth-of-type(2) {
+    display:block;
+}
+/* 라벨 기본 스타일 지정 */
+#css_tabs > label {
+    display:inline-block;
+    font-size:16px;
+    padding:5px;
+    text-align:center;
+    width:150px;
+    line-height:20pt;
+    font-weight:bold;
+    border-radius:3px 3px 0 0;
+    background:black;
+    color:white;
+}
+#css_tabs > label:hover {
+    cursor:pointer;
+}
+#css_tabs label[for=tab1] {
+    margin-left:30pt;
+    margin-top:20pt;
+}
+/* 선택된 라벨, 커서를 올린 라벨 스타일 지정 */
+#css_tabs input:nth-of-type(1):checked ~ label:nth-of-type(1), #css_tabs > label[for=tab1]:hover {
+    background:firebrick;
+    color:white;
+}
+#css_tabs input:nth-of-type(2):checked ~ label:nth-of-type(2), #css_tabs > label[for=tab2]:hover {
+    background:firebrick;
+    color:white;
+}
+
+/* 실제 내용이 담긴 div 요소 스타일 지정 */
+#css_tabs .tab1_content, #css_tabs .tab2_content {
+    padding:2em;
+    height:100%;
+}
 </style>
 <%!PreparedStatement statement;
 	ResultSet rs;
@@ -172,9 +215,17 @@ hr {
 				if (jsonObject.getString("pm").equals("강사")) {
 		%>
 		<div class="grid9 content">
-			<p>STUDENT LIST</p>
-			<hr />
-			<br />
+		<p>
+	LIST<br/>
+	<h4>학생&강사</h4>
+</p>
+	<hr/><br/>
+	<div id="css_tabs">
+    <input id="tab1" type="radio" name="tab" checked="checked" />
+    <input id="tab2" type="radio" name="tab" />
+    <label for="tab1">학생</label>
+    <label for="tab2">강사</label>
+    <div class="tab1_content">
 			<div class="table">
 				<table>
 					<tr>
@@ -221,10 +272,8 @@ hr {
 					%>
 				</table>
 			</div>
-			<br /> <br /> <br />
-			<p>TEACHER LIST</p>
-			<hr />
-			<br />
+			</div>
+			<div class="tab2_content">
 			<div class="table">
 				<table>
 					<tr>
@@ -269,6 +318,8 @@ hr {
 					%>
 				</table>
 			</div>
+			</div>
+		</div>
 		</div>
 		<%
 			}
