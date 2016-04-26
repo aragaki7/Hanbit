@@ -95,7 +95,8 @@
 }
 #ip{
 	text-align: center;
-	margin-left: 50px;
+	width:150px;
+	margin-left: 15px;
 }
  #d{
  	background-color: firebrick;

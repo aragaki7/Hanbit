@@ -110,7 +110,7 @@ hr {
 	margin-top: 40px;
 	width: 110px;
 	height: 30px;
-	margin-left: 350px;
+	margin-left: 20px;
 	font-size: 11pt;
 	font-weight: bold;
 	color: white;
@@ -122,7 +122,7 @@ hr {
 	margin-top: 40px;
 	width: 110px;
 	height: 30px;
-	margin-left: 480px;
+	margin-left: 20px;
 	font-size: 11pt;
 	font-weight: bold;
 	color: white;
