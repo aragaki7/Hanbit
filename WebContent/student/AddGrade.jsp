@@ -29,7 +29,7 @@
  	 box-shadow: 5px 5px 5px lightgray;
  	}
  	.table {
-	margin:0px;
+	margin:0px;  
 	padding:0px;
 	width:800px;
 	box-shadow: 10px 10px 5px #888888;
@@ -95,7 +95,8 @@
 }
 #ip{
 	text-align: center;
-	margin-left: 50px;
+	width:150px;
+	margin-left: 15px;
 }
  #d{
  	background-color: firebrick;

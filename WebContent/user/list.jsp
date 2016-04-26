@@ -20,7 +20,6 @@
 	margin: 0px;
 	padding: 0px;
 }
-
 p {
 	text-align: left;
 	display: block;
@@ -42,7 +41,7 @@ hr {
 }
 
 .table {
-	margin: 0px;
+	margin: -30px;
 	padding: 0px;
 	width: 800px;
 	border: 1px solid #000000;
@@ -75,6 +74,7 @@ hr {
 	font-weight: normal;
 	color: #000000;
 	width: 100px;
+	text-align: center;
 }
 
 .table tr:first-child td {
@@ -244,36 +244,24 @@ hr {
 								<td>이메일</td>
 								<td>강의실</td>
 							</tr>
-
+							
 							<%
 								for (int i = 0; i < list.size(); i++) {
 							%>
-							<tr>
+							<tr id="row" style="cursor: hand;"
+							onclick="location.href='../student/EditGrade.jsp'"	>
 								<td><%=list.get(i).getName()%></td>
 					
 								<td><%=list.get(i).getMobile()%></td>
 						
 								<td><%=list.get(i).getEmail()%></td>
 
-								<td><select>
-										<option value="1"
-											<%if (list.get(i).getClasss().equals("없음")) {%>
-											selected="selected" <%}%>>없음</option>
-										<option value="2"
-											<%if (list.get(i).getClasss().equals("1강의장")) {%>
-											selected="selected" <%}%>>1강의장</option>
-										<option value="3"
-											<%if (list.get(i).getClasss().equals("2강의장")) {%>
-											selected="selected" <%}%>>2강의장</option>
-										<option value="4"
-											<%if (list.get(i).getClasss().equals("3강의장")) {%>
-											selected="selected" <%}%>>3강의장</option>
-								</select></td>
-							</tr>
-
+								<td><%=list.get(i).getClasss() %></td>
+								</tr>
 							<%
 								}
 							%>
+							
 						</table>
 					</div>
 				</div>
@@ -289,30 +277,17 @@ hr {
 							<%
 								for (int i = 0; i < list_teacher.size(); i++) {
 							%>
-							<tr>
+							<tr id="row" style="cursor: hand;"
+							onclick="location.href='../student/EditGrade.jsp'"	>
 								<td><%=list_teacher.get(i).getName()%></td>	
 								<td><%=list_teacher.get(i).getMobile()%></td>
 								<td><%=list_teacher.get(i).getEmail()%></td>
-								<td><select>
-										<option value="1"
-											<%if (list_teacher.get(i).getClasss().equals("없음")) {%>
-											selected="selected" <%}%>>없음</option>
-										<option value="2"
-											<%if (list_teacher.get(i).getClasss().equals("1강의장")) {%>
-											selected="selected" <%}%>>1강의장</option>
-										<option value="3"
-											<%if (list_teacher.get(i).getClasss().equals("2강의장")) {%>
-											selected="selected" <%}%>>2강의장</option>
-										<option value="4"
-											<%if (list_teacher.get(i).getClasss().equals("3강의장")) {%>
-											selected="selected" <%}%>>3강의장</option>
-								</select></td>
-							</tr>
-
-
+								<td><%=list.get(i).getClasss() %></td>
+								</tr>
 							<%
 								}
 							%>
+							
 						</table>
 					</div>
 				</div>

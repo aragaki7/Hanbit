@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
 
-<%!PreparedStatement statement;
+<%!PreparedStatement statement;  
 	ResultSet rs;
 	String sql;
 	ArrayList<GreadeData> list = new ArrayList<GreadeData>();%>
@@ -138,7 +138,7 @@ hr {
 
 	<div class="container_12">
 		<%@ include file="../template/header.jsp"%>
-		<%@ include file="../template/nav.jsp"%>
+		<%@ include file="../template/nav.jsp"%>	<br />
 
 		<!-- content start -->
 		<%
@@ -149,7 +149,7 @@ hr {
 			if (jsonObject != null) {
 				if (jsonObject.getString("pm").equals("관리자")) {
 		%>
-		<br />
+	
 		<div class="grid9 content">
 			<p>STUDENT GRADE LIST</p>
 			<hr />
