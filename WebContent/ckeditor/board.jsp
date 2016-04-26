@@ -104,13 +104,14 @@ hr {
 	color: white;
 	background-color: firebrick;
 	border: none;
-	margin-top: 100px;
+	margin-top: 270px;
 	
 	}
 	.back{
 	width: 80px;
 	height: 30px;
 	margin-left: 0px;
+	margin-top: 270px;
 	font-size: 11pt;
 	font-weight: bold;
 	color: white;

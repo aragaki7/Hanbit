@@ -11,6 +11,7 @@
 	CKEDITOR.editorConfig = function( config ) {
 		config.uiColor = '#D5D5D5';
 		config.language = 'ko';
+		config.height = '400px';
 		config.toolbar = [
 		          		{ name: 'clipboard', items: ['Undo', 'Redo'] },
 		          		{ name: 'editing', items: [ 'Find', 'Replace','SelectAll' ] },
