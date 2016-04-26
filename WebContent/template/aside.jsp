@@ -74,7 +74,7 @@ input {
 	<div class="success" id="form">
 		<div class="login">
 		<div>
-			<h2><%=re.getString("id")%>님 환영합니다.
+			<h2><%=re.getString("name")%>님 환영합니다.
 			</h2>
 		</div>
 		<div>

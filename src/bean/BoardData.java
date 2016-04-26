@@ -6,16 +6,16 @@ import java.sql.Timestamp;
 public class BoardData {
 
 	private int num;
-	private String id;
+	private String name;
 	private String title;
 	private String content;
 	private Date data;
 	private Timestamp time;
 	private int count;
 
-	public BoardData(int num, String id, String title, String content, Date data, Timestamp time, int count) {
+	public BoardData(int num, String name, String title, String content, Date data, Timestamp time, int count) {
 		this.num = num;
-		this.id = id;
+		this.name = name;
 		this.title = title;
 		this.content = content;
 		this.data = data;
@@ -42,7 +42,7 @@ public class BoardData {
 	 */
 
 	public String getId() {
-		return id;
+		return name;
 	}
 
 	/**

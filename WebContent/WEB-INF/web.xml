@@ -9,8 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
-  <!-- main -->
   <servlet>
     <servlet-name>main.do</servlet-name>
     <servlet-class>com.hb.controller.IndexController</servlet-class>
@@ -18,9 +16,7 @@
   <servlet-mapping>
     <servlet-name>main.do</servlet-name>
     <url-pattern>/main.do</url-pattern>
-  </servlet-mapping>  
-  
-  <!-- menu1: intro/outline -->
+  </servlet-mapping>
   <servlet>
     <servlet-name>intro.outline</servlet-name>
     <servlet-class>com.hb.controller.intro.IntroOutline</servlet-class>
@@ -28,8 +24,7 @@
   <servlet-mapping>
     <servlet-name>intro.outline</servlet-name>
     <url-pattern>/intro/outline.do</url-pattern>
-  </servlet-mapping>  
-  <!-- intro/ceo -->
+  </servlet-mapping>
   <servlet>
     <servlet-name>intro.ceo</servlet-name>
     <servlet-class>com.hb.controller.intro.IntroCeo</servlet-class>
@@ -37,8 +32,7 @@
   <servlet-mapping>
     <servlet-name>intro.ceo</servlet-name>
     <url-pattern>/intro/ceo.do</url-pattern>
-  </servlet-mapping> 
-  <!-- intro/history -->
+  </servlet-mapping>
   <servlet>
     <servlet-name>intro.history</servlet-name>
     <servlet-class>com.hb.controller.intro.IntroHistory</servlet-class>
@@ -46,8 +40,7 @@
   <servlet-mapping>
     <servlet-name>intro.history</servlet-name>
     <url-pattern>/intro/history.do</url-pattern>
-  </servlet-mapping>  
-  <!-- intro/facility -->
+  </servlet-mapping>
   <servlet>
     <servlet-name>intro.facility</servlet-name>
     <servlet-class>com.hb.controller.intro.IntroFacility</servlet-class>
@@ -56,7 +49,6 @@
     <servlet-name>intro.facility</servlet-name>
     <url-pattern>/intro/facility.do</url-pattern>
   </servlet-mapping>
-  <!-- intro/profess -->
   <servlet>
     <servlet-name>intro.profess</servlet-name>
     <servlet-class>com.hb.controller.intro.IntroProfess</servlet-class>
@@ -65,7 +57,6 @@
     <servlet-name>intro.profess</servlet-name>
     <url-pattern>/intro/profess.do</url-pattern>
   </servlet-mapping>
-  <!-- intro/enter -->
   <servlet>
     <servlet-name>intro.enter</servlet-name>
     <servlet-class>com.hb.controller.intro.IntroEnter</servlet-class>
@@ -73,8 +64,7 @@
   <servlet-mapping>
     <servlet-name>intro.enter</servlet-name>
     <url-pattern>/intro/enter.do</url-pattern>
-  </servlet-mapping> 
-  <!-- intro/award -->
+  </servlet-mapping>
   <servlet>
     <servlet-name>intro.award</servlet-name>
     <servlet-class>com.hb.controller.intro.IntroAward</servlet-class>
@@ -82,8 +72,7 @@
   <servlet-mapping>
     <servlet-name>intro.award</servlet-name>
     <url-pattern>/intro/award.do</url-pattern>
-  </servlet-mapping>  
-  <!-- intro/way -->
+  </servlet-mapping>
   <servlet>
     <servlet-name>intro.way</servlet-name>
     <servlet-class>com.hb.controller.intro.IntroWay</servlet-class>
@@ -91,9 +80,7 @@
   <servlet-mapping>
     <servlet-name>intro.way</servlet-name>
     <url-pattern>/intro/way.do</url-pattern>
-  </servlet-mapping>   
-  
-  <!-- menu2: edu/curri -->
+  </servlet-mapping>
   <servlet>
     <servlet-name>edu.curri</servlet-name>
     <servlet-class>com.hb.controller.edu.EduCurri</servlet-class>
@@ -101,9 +88,7 @@
   <servlet-mapping>
     <servlet-name>edu.curri</servlet-name>
     <url-pattern>/edu/curri.do</url-pattern>
-  </servlet-mapping>  
-  
-  <!-- menu3: service/company -->
+  </servlet-mapping>
   <servlet>
     <servlet-name>service.company</servlet-name>
     <servlet-class>com.hb.controller.service.ServiceCompany</servlet-class>
@@ -111,8 +96,7 @@
   <servlet-mapping>
     <servlet-name>service.company</servlet-name>
     <url-pattern>/service/company.do</url-pattern>
-  </servlet-mapping>  
-  <!-- service/job -->
+  </servlet-mapping>
   <servlet>
     <servlet-name>service.job</servlet-name>
     <servlet-class>com.hb.controller.service.ServiceJob</servlet-class>
@@ -121,7 +105,6 @@
     <servlet-name>service.job</servlet-name>
     <url-pattern>/service/job.do</url-pattern>
   </servlet-mapping>
-  <!-- service/Work -->
   <servlet>
     <servlet-name>service.work</servlet-name>
     <servlet-class>com.hb.controller.service.ServiceWork</servlet-class>
@@ -130,8 +113,6 @@
     <servlet-name>service.work</servlet-name>
     <url-pattern>/service/work.do</url-pattern>
   </servlet-mapping>
-  
-  <!-- menu4: user/list -->
   <servlet>
     <servlet-name>user.list</servlet-name>
     <servlet-class>com.hb.controller.user.ListUserController</servlet-class>
@@ -139,8 +120,7 @@
   <servlet-mapping>
     <servlet-name>user.list</servlet-name>
     <url-pattern>/user/list.do</url-pattern>
-  </servlet-mapping> 
-  <!-- cnt/list -->
+  </servlet-mapping>
   <servlet>
     <servlet-name>cnt.list</servlet-name>
     <servlet-class>com.hb.controller.cnt.ListCntController</servlet-class>
@@ -148,9 +128,7 @@
   <servlet-mapping>
     <servlet-name>cnt.list</servlet-name>
     <url-pattern>/student/list.do</url-pattern>
-  </servlet-mapping>  
-  
-  <!-- menu5: customer/Ask -->
+  </servlet-mapping>
   <servlet>
     <servlet-name>customer.ask</servlet-name>
     <servlet-class>com.hb.controller.customer.CustomerAsk</servlet-class>
@@ -158,8 +136,7 @@
   <servlet-mapping>
     <servlet-name>customer.ask</servlet-name>
     <url-pattern>/customer/ask.do</url-pattern>
-  </servlet-mapping> 
-  <!-- customer/Qna -->
+  </servlet-mapping>
   <servlet>
     <servlet-name>customer.qna</servlet-name>
     <servlet-class>com.hb.controller.customer.CustomerQna</servlet-class>
@@ -168,7 +145,6 @@
     <servlet-name>customer.qna</servlet-name>
     <url-pattern>/customer/qna.do</url-pattern>
   </servlet-mapping>
-  <!-- customer/Notice -->
   <servlet>
     <servlet-name>customer.notice</servlet-name>
     <servlet-class>com.hb.controller.customer.CustomerNotice</servlet-class>
@@ -176,8 +152,7 @@
   <servlet-mapping>
     <servlet-name>customer.notice</servlet-name>
     <url-pattern>/customer/notice.do</url-pattern>
-  </servlet-mapping>  
-  <!-- customer/Board -->
+  </servlet-mapping>
   <servlet>
     <servlet-name>customer.board</servlet-name>
     <servlet-class>com.hb.controller.customer.CustomerBoard</servlet-class>
@@ -185,8 +160,5 @@
   <servlet-mapping>
     <servlet-name>customer.board</servlet-name>
     <url-pattern>/customer/board.do</url-pattern>
-  </servlet-mapping> 
-
-  
-  
+  </servlet-mapping>
 </web-app>
