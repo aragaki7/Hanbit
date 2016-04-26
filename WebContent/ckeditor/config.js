@@ -16,6 +16,12 @@
 		config.uiColor = '#D5D5D5';
 		config.language = 'ko';
 		config.height = '400px';
+		config.resize_enabled = false;
+		config.enterMode = CKEDITOR.ENTER_BR;
+		config.shiftEnterMode = CKEDITOR.ENTER_P;
+		config.font_defaultLabel = 'Gulim';
+		config.fontSize_defaultLabel = '12px';
+		config.startupFocus = true;
 		config.toolbar = [
 		          		{ name: 'clipboard', items: ['Undo', 'Redo'] },
 		          		{ name: 'editing', items: [ 'Find', 'Replace','SelectAll' ] },
