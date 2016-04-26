@@ -1,3 +1,4 @@
+<%@page import="bean.GreadeData"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -130,7 +131,7 @@ hr {
 	border: none;
 }
 
-#ip {
+.ip {
 	text-align: center;
 	margin-left: 40px;
 	width:100px;
@@ -163,13 +164,13 @@ hr {
 						<td>프레임워크</td>
 					</tr>
 					<%
-					String id = (String)request.getAttribute("id");
+					GreadeData dto = (GreadeData)request.getAttribute("gradeDto");
 					%>
-					<tr>
-						<td><input type="text" name="id" value="<%=id %>" id="ip" readonly="readonly"/></td>
-						<td><input type="text" name="id" value="row1" id="ip" /></td>
-						<td><input type="text" name="id" value="row1" id="ip" /></td>
-						<td><input type="text" name="id" value="row1" id="ip" /></td>
+					<tr id="grade">
+						<td><input type="text" name="id" value="<%=dto.getId() %>" class="ip" readonly="readonly"/></td>
+						<td><input type="text" name="id" value="<%=dto.getJava() %>"class="ip" /></td>
+						<td><input type="text" name="id" value=<%=dto.getWeb() %> class="ip" /></td>
+						<td><input type="text" name="id" value=<%=dto.getFw() %> class="ip" /></td>
 					</tr>
 				</table>
 			</div>

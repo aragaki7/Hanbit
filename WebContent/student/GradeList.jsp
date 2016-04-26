@@ -118,7 +118,10 @@ hr {
 	$(document).ready(function(){
 		$('#row').on('click',function(){
 			var id=$('#row>td:eq(0)').text();
-			location.href="EditGrade.do?id="+id;
+			var java=$('#row>td:eq(1)').text();
+			var web=$('#row>td:eq(2)').text();
+			var fw=$('#row>td:eq(3)').text();
+			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
 		});
 	});
 </script>
@@ -157,7 +160,7 @@ hr {
 							for (int i = 0; i < list.size(); i++) {
 							%>
 							<tr id="row" style="cursor: hand;"><!--  onclick="location.href='EditGrade.do'"> -->
-<!-- 							onclick="location.href='../student/EditGrade.jsp'"> -->
+<!-- 							onclick="location.href='../student/EditGrade.jsp'"> 클릭 이벤트 jquery로 뺌-->
 							
 
 							<td><%=list.get(i).getId()%></td>
