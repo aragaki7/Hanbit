@@ -144,7 +144,7 @@ hr {
 			jsonObject = (JSONObject) session.getAttribute("jsonObj");
 
 			if (jsonObject != null) {
-				if (jsonObject.getString("pm").equals("강사")) {
+				if (jsonObject.getString("pm").equals("관리자")) {
 		%>
 		<br />
 		<div class="grid9 content">

@@ -209,9 +209,10 @@ hr {
 								<option value="4"
 									<%if (list.get(i).getClasss().equals("3강의장")) {%>
 									selected="selected" <%}%>>3강의장</option>
-						</select></td>
+						</select>
+							<button>수정</button></td>
 					</tr>
-  
+
 					<%
 						}
 					%>
@@ -243,7 +244,20 @@ hr {
 						<td><%=list_teacher.get(i).getMain_address() + " " + list_teacher.get(i).getSub_address()
 								+ "(" + list.get(i).getPost() + ")"%></td>
 						<td><%=list_teacher.get(i).getEmail()%></td>
-						<td><%=list_teacher.get(i).getClasss()%></td>
+						<td><select>
+								<option value="1"
+									<%if (list_teacher.get(i).getClasss().equals("없음")) {%>
+									selected="selected" <%}%>>없음</option>
+								<option value="2"
+									<%if (list_teacher.get(i).getClasss().equals("1강의장")) {%>
+									selected="selected" <%}%>>1강의장</option>
+								<option value="3"
+									<%if (list_teacher.get(i).getClasss().equals("2강의장")) {%>
+									selected="selected" <%}%>>2강의장</option>
+								<option value="4"
+									<%if (list_teacher.get(i).getClasss().equals("3강의장")) {%>
+									selected="selected" <%}%>>3강의장</option>
+						</select></td>
 					</tr>
 
 
