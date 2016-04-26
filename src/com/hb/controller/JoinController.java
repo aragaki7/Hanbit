@@ -31,13 +31,17 @@ public class JoinController extends HttpServlet {
 		String power = req.getParameter("power");
 		int numpower=1;
 		System.out.println("권한 : "+power);
-		if(power.equals("student"))
+		if("student".equals(power))
 			numpower=1;
-		else if(power.equals("profe"))
+		else if("profe".equals(power))
 			numpower=2;
 		
 		String sex = req.getParameter("sex");
 		
+		if("male".equals(sex))
+			sex="남자";
+		else if("female".equals(sex))
+			sex="여자";
 		String phone = req.getParameter("phone1");
 		phone += "-"+req.getParameter("phone2");
 		phone += "-"+req.getParameter("phone3");
