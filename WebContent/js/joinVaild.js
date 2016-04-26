@@ -85,7 +85,7 @@
 				return;
 			}
 		});//비밀번호 정규식1 검사 끝
-		$('#pwcheck').on('keyup',function(){
+		$('input[type="password"]').on('keyup',function(){
 			var pw1 = $('input[type="password"]:eq(0)');
 			var pw2 = $('input[type="password"]:eq(1)');
 			

@@ -30,10 +30,10 @@ public class JoinController extends HttpServlet {
 		String name = req.getParameter("name");
 		String power = req.getParameter("power");
 		int numpower=1;
-		
-		if(power=="student")
+		System.out.println("권한 : "+power);
+		if(power.equals("student"))
 			numpower=1;
-		else if(power=="profe")
+		else if(power.equals("profe"))
 			numpower=2;
 		
 		String sex = req.getParameter("sex");
@@ -93,8 +93,9 @@ public class JoinController extends HttpServlet {
 		}
 		if(result>0){
 			System.out.println("가입 성공");
-			req.setAttribute("joinresult", "success");
-			req.getRequestDispatcher("/main.do").forward(req, resp);
+//			req.setAttribute("joinresult", "success");
+//			req.getRequestDispatcher("/main.do").forward(req, resp);
+			resp.sendRedirect("/Hanbit/main.jsp?joinresult=success");
 		}
 		else{
 			req.setAttribute("joinresult", "fail");

@@ -113,7 +113,7 @@ span>a>img {
 		});
 		
 		<%
-			String joinResult = (String)request.getAttribute("joinresult");
+			String joinResult = (String)request.getParameter("joinresult");
 			if(joinResult!=null)
 				if("success".equals(joinResult)){%>
 					alert('가입을 축하드립니다.');
