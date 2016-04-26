@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Q&A</title>
+<title>Board</title>
 <script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="../js/menuLoad.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css"/>
@@ -23,7 +23,7 @@
 		<!-- content start -->
 		
 		<div class="grid9">
-			edu_Q&A
+			자유게시판
 		</div>
 		
 		<!-- content end -->

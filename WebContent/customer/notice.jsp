@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Notice</title>
-<script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
-<script type="text/javascript" src="js/menuLoad.js"></script>
+<script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="../js/menuLoad.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css"/>
 <link rel="stylesheet" type="text/css" href="../css/nav.css"/>
 <style type="text/css">
