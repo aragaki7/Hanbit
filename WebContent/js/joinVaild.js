@@ -32,7 +32,7 @@
 			var uid = $('#id');
 			login_ck(uid);
 
-			if(flag){
+			if(flag1){
 	 			$.ajax({
 	 				"url":"/Hanbit/chkid.do",
 					"data":{"id":uid.val()},

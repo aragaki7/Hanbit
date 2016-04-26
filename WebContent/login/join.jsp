@@ -113,11 +113,11 @@
  		$('select').on('change',function(){
   			var idx = this.selectedIndex;
  			if(idx==0){
-  				$('input[name="email"]:eq(1)').val('');
+  				$('input[name="domain"]').val('');
  			}
  			else{
  				var str = "";
- 				$('input[name="email"]:eq(1)').val(this.options[this.selectedIndex].value);
+ 				$('input[name="domain"]').val(this.options[this.selectedIndex].value);
  			}
  		});
  		

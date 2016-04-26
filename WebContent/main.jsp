@@ -111,6 +111,15 @@ span>a>img {
 			controls : true,
 			pager : true
 		});
+		
+		<%
+			String joinResult = (String)request.getAttribute("joinresult");
+			if(joinResult!=null)
+				if("success".equals(joinResult)){%>
+					alert('가입을 축하드립니다.');
+				<%}%>
+			
+		
 	});
 </script>
 </head>
