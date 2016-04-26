@@ -113,6 +113,9 @@ hr {
 	background-color: firebrick;
 	border: none;	
 }
+ #b{
+ 	background-color: firebrick;
+ 	}
 /* 겹치는부분시작(+eduAndroid와 겹치는것도 넣음) */
 </style>
 <!-- eduJava상세보기css 끝 -->

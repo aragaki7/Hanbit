@@ -129,6 +129,9 @@ hr {
 	background-color: firebrick;
 	border: none;
 }
+ #d{
+ 	background-color: firebrick;
+ }
 </style>
 </head>
 <body>

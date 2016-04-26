@@ -1,36 +1,32 @@
-	var flag=false;//최종 회원가입 승인때 쓸꺼. false면 회원가입 안됨
+	var flag1=false;//아이디 검사
+	var flag2=false;//비밀번호 첫번째꺼 검사
+	var flag3=false;//비밀번호 두번째꺼 검사
 	function login_ck(uid) {
 		if (uid.val().length == 0) {
 			$('.chkid').css('color','red');
 			$('.chkid').text('아이디를 입력하세요');
-			flag=false;
+			flag1=false;
 			return;
 		}
 		if (uid.val().length < 6 || uid.val().length > 12) {
 
 			$('.chkid').css('color','red');
 			$('.chkid').text('띄어쓰기 없는 영문 숫자조합, 6~12글자');
-			flag=false;
+			flag1=false;
 			return;
 		}
 		var NO_SPECIAL = /[^a-zA-Z0-9_]/i;
 		if (NO_SPECIAL.test(uid.val())) {
 			$('.chkid').css('color','red');
 			$('.chkid').text("ID에 특수문자 및 공백,한글사용이 불가합니다.");
-			flag=false;
+			flag1=false;
 			return;
 		}
 		$('.chkid').css('color','blue');
 		$('.chkid').text("사용 가능합니다.");
-		flag = true;
+		flag1 = true;
 		return;
 	};
-	Object.prototype.isNumeric = function(){
-	      var value = String(this);
-	      if(value.indexOf(" ") != -1 || value == "") return false;
-	      else if(isNaN(value)) return false;
-	      else return true;
-	   };
 	$(document).ready(function() {
 		$('#id').on('keyup', function(e) {
 			var uid = $('#id');
@@ -45,12 +41,12 @@
 					"success":function(data){
 						var result = data;
 						if(result=='true'){
-							flag=true;
+							flag1=true;
 							$('.chkid').css('color','blue');
 							$('.chkid').text("사용 가능합니다.");
 							
 						}else{
-							flag=false;
+							flag1=false;
 							$('.chkid').css('color','red');
 							$('.chkid').text("아이디가 이미 존재합니다.");
 						}
@@ -73,19 +69,19 @@
 			if(!(pw1.val().length>5 && pw1.val().length<13)){
 				$('.chkpw1').css('color','red');
 				$('.chkpw1').text("6˜12 이내의 영문/숫자조합");
-				flag=false;
+				flag2=false;
 				return;
 			}
 			
 			if(re_pw.test(pw1.val())){
 				$('.chkpw1').css('color','blue');
 				$('.chkpw1').text("사용 가능합니다.");
-				flag=true;
+				flag2=true;
 				return;
 			}else{
 				$('.chkpw1').css('color','red');
 				$('.chkpw1').text("6˜12 이내의 영문/숫자조합");
-				flag=false;
+				flag2=false;
 				return;
 			}
 		});//비밀번호 정규식1 검사 끝
@@ -98,12 +94,12 @@
 			if(!(pw1.val()==pw2.val())){
 				$('.chkpw2').css('color','red');
 				$('.chkpw2').text("비밀번호가 같지 않습니다.");
-				flag=false;
+				flag3=false;
 				return;
 			}else{
 				$('.chkpw2').css('color','blue');
 				$('.chkpw2').text("사용 가능합니다.");
-				flag=true;
+				flag3=true;
 				return;
 			}
 			

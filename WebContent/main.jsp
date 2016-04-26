@@ -11,7 +11,6 @@
 <link rel="stylesheet" type="text/css" href="css/nav.css" />
 <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
 <style type="text/css">
-<!-- 441-->
 .bxslider>li img {
 	width: 80%;
 	margin: 20px auto;
@@ -55,6 +54,47 @@ span>a>img {
 .bx-wrapper .bx-next {
 	right: 10px;
 	background: url(imgs/controls.png) no-repeat -43px -32px;
+}
+/*
+.nav2{
+  	position:absolute;
+    z-index: 1;
+	margin-top:150px;
+}
+.nav3{
+  	position:absolute;
+    z-index: 1;
+	margin-left:240px;
+	margin-top:150px;
+}
+.nav4{
+  	 position:absolute;
+     z-index: 1;
+	 margin-left:480px;
+	 margin-top:150px;
+}
+.nav5{
+  	 position:absolute;
+     z-index: 1;
+  	 margin-left:720px;
+	 margin-top:150px;
+}
+.nav6{
+  	 z-index: 1;
+	 position:absolute;
+	 margin-left:960px;
+	 margin-top:150px;
+}
+*/
+
+.bx-prev{
+	position:absolute;
+	z-index:-1;
+}
+
+.bx-next{
+	position:absolute;
+	z-index:-1;
 }
 
 </style>
