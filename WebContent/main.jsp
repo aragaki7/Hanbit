@@ -1,30 +1,142 @@
+<%@page import="data.Dday"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>메인페이지</title>
+<link rel="stylesheet" type="text/css" href="css/grid_design12.css" />
+<link rel="stylesheet" type="text/css" href="css/nav.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
+<style type="text/css">
+.bxslider>li img {
+	width: 80%;
+	margin: 20px auto;
+	border: 0px;
+}
 
+.bx-viewport {
+	border: 0px;
+}
+
+span>a>img {
+	width: 49%;
+	margin: 20px auto;
+}	
+
+.bx-wrapper .bx-controls-auto .bx-stop {
+	display: block;
+	text-indent: -9999px;
+	width: 9px;
+	height: 11px;
+	outline: 0;
+	background: url(imgs/controls.png) -86px -44px no-repeat;
+	margin: 0 3px;
+}
+
+.bx-wrapper .bx-controls-auto .bx-start {
+	display: block;
+	text-indent: -9999px;
+	width: 10px;
+	height: 11px;
+	outline: 0;
+	background: url(imgs/controls.png) -86px -11px no-repeat;
+	margin: 0 3px;
+}
+
+.bx-wrapper .bx-prev {
+	left: 10px;
+	background: url(imgs/controls.png) no-repeat 0 -32px;
+}
+
+.bx-wrapper .bx-next {
+	right: 10px;
+	background: url(imgs/controls.png) no-repeat -43px -32px;
+}
+/*
+.nav2{
+  	position:absolute;
+    z-index: 1;
+	margin-top:150px;
+}
+.nav3{
+  	position:absolute;
+    z-index: 1;
+	margin-left:240px;
+	margin-top:150px;
+}
+.nav4{
+  	 position:absolute;
+     z-index: 1;
+	 margin-left:480px;
+	 margin-top:150px;
+}
+.nav5{
+  	 position:absolute;
+     z-index: 1;
+  	 margin-left:720px;
+	 margin-top:150px;
+}
+.nav6{
+  	 z-index: 1;
+	 position:absolute;
+	 margin-left:960px;
+	 margin-top:150px;
+}
+*/
+
+.bx-prev{
+	position:absolute;
+	z-index:-1;
+}
+
+.bx-next{
+	position:absolute;
+	z-index:-1;
+}
+
+</style>
 <script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
 <script type="text/javascript" src="js/menuLoad.js"></script>
-<link rel="stylesheet" type="text/css" href="css/grid_design12.css"/>
-<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		$('.bxslider').bxSlider({
+			auto : true,
+			autoControls : true,
+			controls : true,
+			pager : true
+		});
+	});
+</script>
 </head>
 <body>
 	<div class="container_12">
-		<%@ include file="template/header.jsp" %>
-		<%@ include file="template/nav.jsp" %>
-		
+		<%@ include file="template/header.jsp"%>
+		<%@ include file="template/nav.jsp"%>
+
 		<!-- content start -->
+
+		<div class="grid9">
+			<ul class="bxslider">
+				<li><img alt="main slideshow" src="imgs/slideshow1.gif"></li>
+				<li><img alt="main slideshow" src="imgs/slideshow2.gif"></li>
+				<li><img alt="main slideshow" src="imgs/slideshow3.gif"></li>
+			</ul>
+			
+			<span><a href="http://hanbitsc.com/"><img alt="한빛 신촌점" src="imgs/center_hanbit.jpg"/></a></span>
+			<span><a href="http://hanbitgn.com/"><img alt="한빛 강남점" src="imgs/center_gangnam.jpg"/></a></span>
 		
-		<div class="grid10">
-			<img alt="main banner" src="imgs/1.png">
 		</div>
+				
 		<!-- content end -->
-		
-		<%@ include file="template/aside.jsp" %>
-		<%@ include file="template/footer.jsp" %>
+
+		<%@ include file="template/aside.jsp"%>
+		<%@ include file="template/footer.jsp"%>
 	</div>
 </body>
 </html>

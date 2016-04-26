@@ -3,7 +3,7 @@
       padding: 0px;
    }
    .container_12{
-      width: 80%;
+      width: 1200px;
    }
    .table{
       width: 70%;
@@ -18,7 +18,7 @@
       background-color: white;
    }
    .nav>ul>li a:hover{
-   		background-color: firebrick;
+         background-color: firebrick;
    }
    
    /* nav css  */
@@ -31,10 +31,10 @@
    }
    .nav>ul>li{
       list-style: none;
-      width: 250px;
+      width: 240px;
       background-color:  #333;
       float: left;
-	  margin: 12px 0px;
+      margin: 12px 0px;
       text-align: center;
    }
    .nav>ul>li>a{
@@ -46,26 +46,31 @@
    /* menu1 css  */
    .nav2{
       background-color: white;
-      width: 254px;
-      
+      width: 240px;
+      height: 280px;
+      box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.1);
+	  position:absolute;
+      z-index: 1;
+	  margin-top:150px;
    }
    .nav2>ul{
-   	  margin-top: 20px;
-   	  margin-bottom: 30px;
+      margin-top: 10px;
+      margin-bottom: 20px;
       margin-left: 200px; 
       text-align: center;
    }
    .nav2>ul>li{
       list-style: none;
-      width: 200px;
+      width: 240px;
       background-color: white;
-      text-align: center;   
-      margin: 5px 10px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      margin-left: -200px;
-      text-indent: 39px;
+      text-align: center;
+      margin-left: -220px;
+      text-indent: 25px;
+      padding: 5px;
+   
    }
+   .nav2>ul>li:hover {background-color: #f1f1f1}
+   
    .nav2>ul>li>a{
       color:#333;
       text-decoration: none;
@@ -74,25 +79,30 @@
    /* menu2 css  */
    .nav3{
       background-color: white;
-      width: 253px;
-      height:213px;
+      width: 240px;
+      height: 280px;
       margin-left: 0px;
+      box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.1);
+  	  position:absolute;
+      z-index: 1;
+	  margin-left:240px;
+	  margin-top:150px;
    }
    .nav3>ul{
-   	  margin-top: 20px;
-   	  margin-bottom: 30px;
+      margin-top: 10px;
+      margin-bottom: 20px;
    }
    .nav3>ul>li{
       list-style: none;
-      width: 200px;
-      margin-left:-100px;
+      width: 240px;
+      margin-left:-80px;
       background-color: white;
       text-align: center;   
       margin: 5px 10px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      text-indent: -9px;
+      padding: 5px;
+      text-indent: -30px;
    }
+   .nav3>ul>li:hover {background-color: #f1f1f1}
    .nav3>ul>li>a{
       color: #333;
       text-decoration: none;
@@ -101,24 +111,28 @@
    /* nav4 css  */
    .nav4{
       background-color: white;
-      width: 254px;
-      height:213px;
+      width: 240px;
+      height: 280px;
       margin-left: 0px;
+      box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.1);
+	  position:absolute;
+      z-index: 1;
+	  margin-left:480px;
+	  margin-top:150px;
    }
    .nav4>ul{
-   	  margin-top: 20px;
-   	  margin-bottom: 30px;
+        margin-top: 10px;
+        margin-bottom: 20px;
    }
    .nav4>ul>li{
       list-style: none;
-      width: 200px;
+      width: 240px;
       background-color: white;
       text-align: center;   
-      margin: 5px 10px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      text-indent: -34px;
+      padding: 5px;
+      text-indent: -20px;
    }
+   .nav4>ul>li:hover {background-color: #f1f1f1}
    .nav4>ul>li>a{
       color: #333;
       text-decoration: none;
@@ -127,25 +141,28 @@
    /* nav5 css  */
    .nav5{
       background-color: white;
-      width: 253px;
-      height:213px;
+      width: 240px;
+      height: 280px;
       margin-left: 0px;
+      box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.1);
+	  position:absolute;
+      z-index: 1;
+  	  margin-left:720px;
+	  margin-top:150px;
    }
    .nav5>ul{
-   	  margin-top: 20px;
-   	  margin-bottom: 30px;
+        margin-top: 10px;
+        margin-bottom: 20px;
    }
    .nav5>ul>li{
       list-style: none;
-      width: 200px;
+      width: 240px;
       background-color: white;
       text-align: center;   
-      margin: 5px 10px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      text-indent: -62px;
-      
+      padding: 5px;
+      text-indent: -15px;
    }
+   .nav5>ul>li:hover {background-color: #f1f1f1}
    .nav5>ul>li>a{
       color: #333;
       text-decoration: none;
@@ -154,24 +171,28 @@
    /* nav6 css  */
    .nav6{
       background-color: white;
-      width: 250px;
-      height:213px;
+      width: 240px;
+      height: 280px;
       margin-left: 0px;
+      box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.1);
+	  z-index: 1;
+	  position:absolute;
+	  margin-left:960px;
+	  margin-top:150px;
    }
    .nav6>ul{
-   	  margin-top: 20px;
-   	  margin-bottom: 30px;
+        margin-top: 10px;
+        margin-bottom: 20px;
    }
    .nav6>ul>li{
       list-style: none;
-      width: 200px;
+      width: 240px;
       background-color: white;
-      text-align: center;   
-      margin: 5px 10px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      text-indent: -88px;
+      text-align: center;  
+      padding: 5px;
+      text-indent: -15px;
    }
+   .nav6>ul>li:hover {background-color: #f1f1f1}
    .nav6>ul>li>a{
       color: #333;
       text-decoration: none;
