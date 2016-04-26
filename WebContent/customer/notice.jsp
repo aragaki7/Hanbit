@@ -163,6 +163,7 @@ input[type=submit] {
 
 #e {
 	background-color: firebrick;
+	height: 50px;
 }
 </style>
 </head>
@@ -192,7 +193,7 @@ input[type=submit] {
 	}
 %>
 <body>
-	<<<<<<< HEAD
+
 	<div class="container_12">
 		<%@ include file="../template/header.jsp"%>
 		<%@ include file="../template/nav.jsp"%>

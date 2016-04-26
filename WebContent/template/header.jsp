@@ -38,6 +38,6 @@
 </div>
 	<div class="grid3 header"><div id="hh">
     <a href="#" >개인정보</a>
-	/<a href="#" > 로그아웃</a></div>
+	<a href="#" >/ 로그아웃</a></div>
 	</div>
 
