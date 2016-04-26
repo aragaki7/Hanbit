@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);
 #loginbtn {
 	margin-top: -35px;
 	margin-left: 10px;
@@ -38,13 +39,20 @@ input {
 }
 
 #dday {
-	border: 1px solid black;
-	width: 98%;
-	height: 200px;
-	margin-top: 10px;
-	margin-left: 5px;
-	text-align: center;
-	box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.1);
+/* 	border: 1px solid black; */
+/* 	width: 98%; */
+/* 	height: 200px; */
+/* 	margin-top: 10px; */
+/* 	margin-left: 5px; */
+/* 	text-align: center; */
+/* 	box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.1); */
+	height: 150px;
+	margin-top:50px;
+	font-size:45px; 
+	text-align:center; 
+	color: #50AF49;
+	font-family: 'Jeju Hallasan', serif;
+ 	font-weight: bold;
 }
 
 #text1 {
@@ -122,7 +130,7 @@ input {
 
 <!-- d-day값 불러오기 -->
 <div id="dday">
-	<div id="text1">개강일 안내</div>
+	<div id="text1"></div><!-- 개강일 안내 태그 -->
 	<%
 		Dday day = new Dday();
 		out.print(day.getMonth() + "월 개강</br>");
