@@ -48,15 +48,15 @@ table {
 
 .submitbtn{ 
 	position: relative; 
- 	left: -50px; 
-	top: -86px; 
+ 	left: -70px; 
+	top: -8px; 
  	height: 30px;
 }
 
 .detailbtn{ 
  	position: relative;
- 	left: -185px; 
-	top: -156px; 
+ 	left: -197px; 
+	top: -78px; 
  	height: 30px; 
 }	 
 
@@ -80,7 +80,7 @@ p{
  /* 겹치지않는부분시작 */
 
 #tab{
-  margin:30px;
+  margin:-40px;
   width:778px;
   height:100px;
 }
@@ -90,10 +90,6 @@ p{
 	font-family:Arial;
 	font-weight:normal;
 }
- #url-navi {
-    border-bottom: 1px solid lightgray;
-    width:809px;
-    }
     #b{
     background-color: firebrick;
     }
@@ -110,7 +106,7 @@ p{
 	REGULAR CURRICULUM<br/>
 	<h4>정규교육과정</h4>
 </p>
-<hr/><br/>
+<hr/><br/><br/><br/>
 	<table id="tab">
 		<tr>
 			<th rowspan="4">
@@ -134,7 +130,6 @@ p{
 		 </tr>
 	</table>
 	<br/>
-		 <div id="url-navi"></div>		
 <!-- 				<div> -->
 					<a href="eduApply.jsp"><input type="button" value="신청하기" class="yes submitbtn"/></a>
 <!-- 				</div> -->
@@ -162,7 +157,7 @@ p{
 		</tr>
 	</table>
 		<br/>
-		 <div id="url-navi"></div>
+		
 <!-- 			<div class="submitbtn"> -->
 				 <a href="eduApply.jsp"><input type="button" value="신청하기"  class="yes submitbtn"/></a>
 <!-- 				 </div> -->
@@ -178,14 +173,13 @@ p{
 		<tr><td>모집인원 : 20명</td></tr>
 	</table>
 		<br/>
-		 <div id="url-navi"></div>
+						
 <!-- 		<div  class="submitbtn"> -->
 				         <a href="eduApply.jsp"><input type="button" value="신청하기" class="yes submitbtn"/></a>
 <!-- 				         </div> -->
 <!-- 						 <div class="detailbtn"> -->
 						 <a href="eduJsp.jsp"><input type="button" value="상세보기" class="yes detailbtn"/></a>
 <!-- 						 </div> -->
-						
 </div>
 <!-- 과정소개 첫 페이지 끝 -->
 		<!-- content end -->	
