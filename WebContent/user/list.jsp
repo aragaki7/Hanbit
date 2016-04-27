@@ -180,7 +180,7 @@ hr {
 			if (jsonObject != null) {
 				if (jsonObject.getString("pm").equals("관리자")) {
 		%>
-		<div class="grid9 content">
+		<div class="grid9 content"> 
 			<p>
 				LIST<br/>
 			<h4>학생&강사</h4>
