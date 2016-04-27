@@ -37,7 +37,7 @@
 <div class="grid12 nav5">
 	<ul>
 		<li><a href="<%=request.getContextPath()%>/user/list.do">학생 관리</a></li>
-		<li><a href="<%=request.getContextPath()%>/user/list.do">출결 관리</a></li>
+		<li><a href="<%=request.getContextPath()%>/attend/list.do">출결 관리</a></li>
 		<li><a href="<%=request.getContextPath()%>/student/list.do">성적 관리</a></li>
 	</ul>
 </div>
