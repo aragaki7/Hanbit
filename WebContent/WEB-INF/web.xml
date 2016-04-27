@@ -161,6 +161,15 @@
     <servlet-name>customer.board</servlet-name>
     <url-pattern>/customer/board.do</url-pattern>
   </servlet-mapping>
+     <!-- attend/list -->
+  <servlet>
+    <servlet-name>attend.list</servlet-name>
+    <servlet-class>com.hb.controller.attend.ListAttendController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>attend.list</servlet-name>
+    <url-pattern>/attend/list.do</url-pattern>
+  </servlet-mapping> 
   
   <!-- CKFINDER start-->
 <servlet>
