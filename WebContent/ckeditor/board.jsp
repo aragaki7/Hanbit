@@ -14,9 +14,11 @@
             $('#btnBack').click(function(){
                 window.location.href = "/board/boardList.html";
             });//
-        
         });
-    </script>
+        
+        
+       
+  </script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css"/>
 <link rel="stylesheet" type="text/css" href="../css/nav.css"/>
 <style type="text/css">
@@ -191,9 +193,14 @@ span{
 			</tr>
 			</table>
 	        <li  id="li1" ><textarea cols="80" id="contents" name="contents" rows="10" ></textarea>
-	            <script type="text/javascript">
-	                CKEDITOR.replace( 'contents' );
-	            </script>
+<!-- 	       <script type="text/javascript"> 
+         	      CKEDITOR.replace( 'contents' );
+ 	           </script> -->
+ 	           <script type="text/javascript">
+ 	           		window.onload=function(){
+              		CKEDITOR.replace('contents',{enterMode:'2',shiftEnterMode:'3'});
+        		};
+        		</script>
 	     	</li><br/>
 	     	<button type="submit" class="join" >작성</button>
  			 <button type="reset" class="back" >취소</button>

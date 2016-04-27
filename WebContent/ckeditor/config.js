@@ -22,6 +22,14 @@
 		config.font_defaultLabel = 'Gulim';
 		config.fontSize_defaultLabel = '12px';
 		config.startupFocus = true;
+		
+		config.filebrowserBrowseUrl = '../ckfinder/ckfinder.html';
+		config.filebrowserImageBrowseUrl = '../ckfinder/ckfinder.html?type=Images';
+		config.filebrowserFlashBrowseUrl = '../ckfinder/ckfinder.html?type=Flash';
+		config.filebrowserUploadUrl = '/Hanbit/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Files';
+		config.filebrowserImageUploadUrl = '/Hanbit/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Images';
+		config.filebrowserFlashUploadUrl = '/Hanbit/ckfinder/core/connector/java/connector.java?command=QuickUpload&type=Flash';
+		
 		config.toolbar = [
 		          		{ name: 'clipboard', items: ['Undo', 'Redo'] },
 		          		{ name: 'editing', items: [ 'Find', 'Replace','SelectAll' ] },
