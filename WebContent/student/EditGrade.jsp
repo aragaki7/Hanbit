@@ -140,6 +140,15 @@ hr {
  	background-color: firebrick;
  	}
 </style>
+<script type="text/javascript">
+	$(document).ready(function(){
+// 		$('.list').on('click',function(){
+// 			alert('클릭됨');
+// 			location.href("/student/list.do");
+// 			history.go(-1);
+// 		});
+	});
+</script>
 </head>
 <body>
 
@@ -152,6 +161,7 @@ hr {
 
 		<br />
 		<div class="grid9 content">
+		<form action="">
 			<p>GRADE EDIT</p>
 			<hr />
 			<br />
@@ -174,12 +184,10 @@ hr {
 					</tr>
 				</table>
 			</div>
-			<button type="submit" class="list"
-				onClick="location.href='../student/GradeList.jsp'">목록</button>
-			<button type="submit" class="edit"
-				onClick="location.href='../student/GradeList.jsp'">수정</button>
-			<button type="submit" class="delete"
-				onClick="location.href='../student/GradeList.jsp'">삭제</button>
+			<button class="list">목록</button>
+			<button type="submit" class="edit">수정</button>
+			<button type="submit" class="delete">삭제</button>
+		</form>
 		</div>
 		<!-- content end -->
 

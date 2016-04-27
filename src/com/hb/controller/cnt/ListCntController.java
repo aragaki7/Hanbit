@@ -19,7 +19,6 @@ public class ListCntController extends HttpServlet {
 		PreparedStatement statement = null;  
 		ResultSet rs = null;
 		String sql;
-		
 		ArrayList<GreadeData> list = new ArrayList<GreadeData>();
 		
 		try {
@@ -39,6 +38,7 @@ public class ListCntController extends HttpServlet {
 				} catch (SQLException e) {e.printStackTrace();}
 		}
 		request.setAttribute("list", list);
+		System.out.println("실행");
 		request.getRequestDispatcher("/student/GradeList.jsp").forward(request, response);
 	}
 }

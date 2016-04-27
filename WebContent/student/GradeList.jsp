@@ -90,7 +90,7 @@ hr {
 	color: #ffffff;
 }
 
-#row>td {
+.row>td {
 	text-align: center;
 	font-size: 10pt;
 }
@@ -115,13 +115,20 @@ hr {
  }
 </style>
 <script type="text/javascript">
-	$(document).ready(function(){
-		$('#row').on('click',function(){
-			var id=$('#row>td:eq(0)').text();
-			var java=$('#row>td:eq(1)').text();
-			var web=$('#row>td:eq(2)').text();
-			var fw=$('#row>td:eq(3)').text();
-			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
+	function getRow(rowValue) {
+		var rowIndex = rowValue.rowIndex;
+		return rowIndex;
+	}
+	$(document).ready(function() {
+		$('.row').on('click', function() {
+
+			alert(getRow(this));
+
+			// 			var id=$('#row>td:eq(0)').text();
+			// 			var java=$('#row>td:eq(1)').text();
+			// 			var web=$('#row>td:eq(2)').text();
+			// 			var fw=$('#row>td:eq(3)').text();
+			// 			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
 		});
 	});
 </script>
@@ -159,7 +166,7 @@ hr {
 							ArrayList<GreadeData> list = (ArrayList<GreadeData>)request.getAttribute("list");
 							for (int i = 0; i < list.size(); i++) {
 							%>
-							<tr id="row" style="cursor: hand;"><!--  onclick="location.href='EditGrade.do'"> -->
+							<tr class="row" style="cursor: hand;"><!--  onclick="location.href='EditGrade.do'"> -->
 <!-- 							onclick="location.href='../student/EditGrade.jsp'"> 클릭 이벤트 jquery로 뺌-->
 							
 
