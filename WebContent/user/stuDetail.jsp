@@ -178,6 +178,7 @@
                         <option value="1">1강의실</option>
                         <option value="2">2강의실</option>
                         <option value="3">3강의실</option>
+                         <option value="4">없음</option>
              </select>
              <button type="reset" class="back" >수정</button>
              </td>
