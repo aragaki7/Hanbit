@@ -83,9 +83,7 @@ public class JoinController extends HttpServlet {
 			pstmt.setString(9, mobile);
 			pstmt.setString(10, email);
 			pstmt.setInt(11, numpower);
-			System.out.println("셋팅 끝");
 			result = pstmt.executeUpdate();
-			System.out.println("쿼리 실행");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

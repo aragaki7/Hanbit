@@ -143,8 +143,6 @@ hr {
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.list').on('click',function(){
-// 			alert('click');
-// 			document.location.href("/Hanbit/student/list.do");
 			var url = "list.do";    
 			$(location).attr('href',url);
 		});
@@ -162,7 +160,7 @@ hr {
 
 		<br />
 		<div class="grid9 content">
-		<form action="#">
+		<form action="${pageContext.request.contextPath}/student/updateGrade.do" method="post">
 			<p>GRADE EDIT</p>
 			<hr />
 			<br />
@@ -186,7 +184,7 @@ hr {
 				</table>
 			</div>
 			<button type="button" class="list">목록</button>
-			<button type="button" class="edit">수정</button>
+			<button type="submit" class="edit">수정</button>
 			<button class="delete">삭제</button>
 		</form>
 		</div>
