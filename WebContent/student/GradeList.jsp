@@ -136,7 +136,6 @@ hr {
 			var web=$('.row:eq('+(ridx-1)+')>td:eq(2)').text();
 			var fw=$('.row:eq('+(ridx-1)+')>td:eq(3)').text();
 			
-			alert('id:'+id+', java:'+java+', web:'+web+', fw:'+fw);
 			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
 		});
 	});

@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.hb.model.UserDao;
+
 import db.DBConnect;
 
-@WebServlet("/chkid.do")//기억하고 있다가 바꿀께요
+@WebServlet("/chkid.do")//이거 xml로 하면 안됨 ㅜㅜ 누가 구해줘
 public class ChkId extends HttpServlet{
 	private PreparedStatement pstmt;
 	private ResultSet rs;
@@ -28,31 +30,8 @@ public class ChkId extends HttpServlet{
 		resp.setCharacterEncoding("utf-8");
 		PrintWriter out = resp.getWriter();
 		
-		String query = "select count(*) from TB_USER where id = ?";
-		System.out.println(query);
-		try {
-			pstmt = DBConnect.get().prepareStatement(query);
-			pstmt.setString(1, id);
-			rs = pstmt.executeQuery();
-
-			if (rs.next()) {
-				int cnt = rs.getInt("count(*)");
-				if(cnt==1){
-					result=false;
-				}
-				else{
-					result=true;
-				}
-				System.out.println("result : "+result);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (rs != null) rs.close();
-				if (pstmt != null) pstmt.close();
-			} catch (SQLException e) {e.printStackTrace();}
-		}//finally 끝
+		UserDao dao = new UserDao();
+		result = dao.chkIdVali(id);
 		
 		out.print(result);
 		out.close();

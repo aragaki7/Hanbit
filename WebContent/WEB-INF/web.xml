@@ -170,8 +170,8 @@
     <servlet-name>updateGrade</servlet-name>
     <url-pattern>/student/updateGrade.do</url-pattern>
   </servlet-mapping>
-  
-     <!-- attend/list -->
+  <!-- end grade -->
+  <!-- attend/list -->
   <servlet>
     <servlet-name>attend.list</servlet-name>
     <servlet-class>com.hb.controller.attend.ListAttendController</servlet-class>

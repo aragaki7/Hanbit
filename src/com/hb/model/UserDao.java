@@ -49,4 +49,37 @@ public class UserDao {
 		}
 		return stulist;
 	}
+
+	public boolean chkIdVali(String id) {
+		boolean result = false;
+		
+		String query = "select count(*) from TB_USER where id = ?";
+		System.out.println(query);
+		try {
+			pstmt = DBConnect.get().prepareStatement(query);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				int cnt = rs.getInt("count(*)");
+				if(cnt==1){
+					result=false;
+				}
+				else{
+					result=true;
+				}
+				System.out.println("result : "+result);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) rs.close();
+				if (pstmt != null) pstmt.close();
+			} catch (SQLException e) {e.printStackTrace();}
+		}//finally 끝
+		
+		return result;
+	}
+
 }
