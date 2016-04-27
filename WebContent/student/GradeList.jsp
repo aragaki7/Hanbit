@@ -121,14 +121,14 @@ hr {
 	}
 	$(document).ready(function() {
 		$('.row').on('click', function() {
-
-			alert(getRow(this));
-
-			// 			var id=$('#row>td:eq(0)').text();
-			// 			var java=$('#row>td:eq(1)').text();
-			// 			var web=$('#row>td:eq(2)').text();
-			// 			var fw=$('#row>td:eq(3)').text();
-			// 			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
+			var ridx=getRow(this);
+			var id=$('.row:eq('+(ridx-1)+')>td:eq(0)').text();
+			var java=$('.row:eq('+(ridx-1)+')>td:eq(1)').text();
+			var web=$('.row:eq('+(ridx-1)+')>td:eq(2)').text();
+			var fw=$('.row:eq('+(ridx-1)+')>td:eq(3)').text();
+			
+			alert('id:'+id+', java:'+java+', web:'+web+', fw:'+fw);
+			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
 		});
 	});
 </script>
