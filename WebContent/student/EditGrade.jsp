@@ -142,11 +142,12 @@ hr {
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
-// 		$('.list').on('click',function(){
-// 			alert('클릭됨');
-// 			location.href("/student/list.do");
-// 			history.go(-1);
-// 		});
+		$('.list').on('click',function(){
+// 			alert('click');
+// 			document.location.href("/Hanbit/student/list.do");
+			var url = "list.do";    
+			$(location).attr('href',url);
+		});
 	});
 </script>
 </head>
@@ -161,7 +162,7 @@ hr {
 
 		<br />
 		<div class="grid9 content">
-		<form action="">
+		<form action="#">
 			<p>GRADE EDIT</p>
 			<hr />
 			<br />
@@ -178,15 +179,15 @@ hr {
 					%>
 					<tr id="grade">
 						<td><input type="text" name="id" value="<%=dto.getId() %>" class="ip" readonly="readonly"/></td>
-						<td><input type="text" name="id" value="<%=dto.getJava() %>"class="ip" /></td>
-						<td><input type="text" name="id" value=<%=dto.getWeb() %> class="ip" /></td>
-						<td><input type="text" name="id" value=<%=dto.getFw() %> class="ip" /></td>
+						<td><input type="text" name="java" value="<%=dto.getJava() %>"class="ip" /></td>
+						<td><input type="text" name="web" value=<%=dto.getWeb() %> class="ip" /></td>
+						<td><input type="text" name="fw" value=<%=dto.getFw() %> class="ip" /></td>
 					</tr>
 				</table>
 			</div>
-			<button class="list">목록</button>
-			<button type="submit" class="edit">수정</button>
-			<button type="submit" class="delete">삭제</button>
+			<button type="button" class="list">목록</button>
+			<button type="button" class="edit">수정</button>
+			<button class="delete">삭제</button>
 		</form>
 		</div>
 		<!-- content end -->
