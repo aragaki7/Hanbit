@@ -52,7 +52,7 @@ input {
 	color: #50AF49;
 /* 	font-family: 'Jeju Hallasan', serif; */
 /*  	font-weight: bold; */
-}
+} 
 
 #dday1{
 	font-weight: bold;
