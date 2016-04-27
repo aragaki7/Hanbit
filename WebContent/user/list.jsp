@@ -299,10 +299,15 @@ hr {
 		%>
 		<div align="center">
 
-			<%
-				out.print("권한이 없습니다.");
-			%>
-			<button type="submit">돌아가기</button>
+			<script language="javascript">
+				$(document).ready(function auth(){
+				alert("권한이 없습니다.");
+				document.location.href = "../main.jsp";
+			});
+			</script>
+			 
+			
+
 
 			<%
 				
