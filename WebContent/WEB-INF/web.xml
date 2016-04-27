@@ -161,6 +161,16 @@
     <servlet-name>customer.board</servlet-name>
     <url-pattern>/customer/board.do</url-pattern>
   </servlet-mapping>
+  <!-- grade -->
+  <servlet>
+    <servlet-name>updateGrade</servlet-name>
+    <servlet-class>com.hb.controller.cnt.UpdateGradeController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updateGrade</servlet-name>
+    <url-pattern>/student/updateGrade.do</url-pattern>
+  </servlet-mapping>
+  
      <!-- attend/list -->
   <servlet>
     <servlet-name>attend.list</servlet-name>
