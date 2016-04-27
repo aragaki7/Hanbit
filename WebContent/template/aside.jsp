@@ -47,12 +47,32 @@ input {
 /* 	text-align: center; */
 /* 	box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.1); */
 	height: 150px;
-	margin-top:50px;
-	font-size:45px; 
+ 	margin-top:20px; 
 	text-align:center; 
 	color: #50AF49;
-	font-family: 'Jeju Hallasan', serif;
- 	font-weight: bold;
+/* 	font-family: 'Jeju Hallasan', serif; */
+/*  	font-weight: bold; */
+}
+
+#dday1{
+	font-weight: bold;
+	color: #50AF49;
+	font-size:15pt;
+}
+.dday2{
+	color: #50AF49;
+	font-size: 40pt;
+	font-weight: bold;
+}
+
+#dday3{
+	font-size:20pt;
+	font-weight: bold;
+}
+
+.dday4{
+	font-size:20pt;
+	font-weight: bold;
 }
 
 #text1 {
@@ -133,8 +153,9 @@ input {
 	<div id="text1"></div><!-- 개강일 안내 태그 -->
 	<%
 		Dday day = new Dday();
-		out.print(day.getMonth() + "월 개강</br>");
-		out.print("D-" + day.getDays());
+		out.print("<span id=\"dday1\">"+ day.getMonth() + "월 개강 일정</span><p/>");
+		out.print("<span class=\"dday2\">"+day.getMonth()+"</span>&nbsp;<span class=\"dday4\">월</span><span class=\"dday2\">&nbsp;1</span>&nbsp;<span class=\"dday4\">일</span><p/>");
+		out.print("<span id=\"dday3\"> D - "+ day.getDays()+"</span>");
 	%>
 </div>
 
