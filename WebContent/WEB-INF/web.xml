@@ -171,6 +171,36 @@
     <url-pattern>/student/updateGrade.do</url-pattern>
   </servlet-mapping>
   <!-- end grade -->
+  <!-- join -->
+  <servlet>
+    <servlet-name>join.do</servlet-name>
+    <servlet-class>com.hb.controller.JoinController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>join.do</servlet-name>
+    <url-pattern>/login/join.do</url-pattern>
+  </servlet-mapping>
+  <!-- end join -->
+  <!-- login -->
+  <servlet>
+    <servlet-name>log.do</servlet-name>
+    <servlet-class>com.hb.controller.LoginToServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>log.do</servlet-name>
+    <url-pattern>/login.do</url-pattern>
+  </servlet-mapping>
+  <!-- end login -->
+  <!-- logout -->
+  <servlet>
+    <servlet-name>logout.joohyung</servlet-name>
+    <servlet-class>com.hb.controller.LogoutToServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logout.joohyung</servlet-name>
+    <url-pattern>/logout.do</url-pattern>
+  </servlet-mapping>
+  <!-- end logout -->
   <!-- attend/list -->
   <servlet>
     <servlet-name>attend.list</servlet-name>
