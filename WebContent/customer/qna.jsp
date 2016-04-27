@@ -66,7 +66,7 @@
 /* 실제 내용이 담긴 div 요소 스타일 지정 */
 #css_tabs2 .tb1_content, #css_tabs2 .tb2_content, #css_tabs2 .tb3_content, #css_tabs2 .tb4_content, #css_tabs2 .tb5_content{
     padding:2em;
-    border:1px solid #ddd;
+    border:1px solid #333;
     width:80%;
     height:100%;
     margin-top:-10px;
@@ -93,13 +93,15 @@ p{
     text-align:center;
 }
 #toggle1,#toggle2,#toggle3,#toggle4,#toggle5{
-	width: 700px;
+	width: 795px;
 	height: 30px;
 	font-size: 12pt;
 	font-weight: bold;
 	color: black;
 	background-color: #eee;
 	border: none;
+	margin-left:-40px;
+	
 } 	
 </style>
 <script type="text/javascript">
