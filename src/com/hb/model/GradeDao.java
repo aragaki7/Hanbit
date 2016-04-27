@@ -1,9 +1,6 @@
 package com.hb.model;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 import bean.GreadeData;
@@ -44,9 +41,10 @@ public class GradeDao {
 	public int updateGrade(String id, int java, int web, int fw) {
 		int result = 0;
 		
-		String sql="update TB_GRADE set java=?, web=? fw=? where id=?";
+		String sql="update TB_GRADE set java=?, web=?, fw=? where id=?";
 		try {
 			System.out.println(sql);
+			
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, java);
@@ -55,6 +53,7 @@ public class GradeDao {
 			pstmt.setString(4, id);
 			
 			result = pstmt.executeUpdate();
+			System.out.println("executeUpdate");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally{

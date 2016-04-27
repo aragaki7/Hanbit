@@ -28,14 +28,12 @@ public class LoginToServlet extends HttpServlet {
 		String id = req.getParameter("id");
 		String pw = req.getParameter("pw");
 
-		System.out.println("id : " + id + "  pw : " + pw);
 
 		// System.out.println("id : " + id + " pw : " + pw);
 
 
 		JSONObject jsonObject = new JSONObject();
 		String query = "select TB_USER.id, TB_USER.name, TB_PM.pm from TB_USER join TB_PM on TB_USER.pm_fk = TB_PM.num where id = ? and password=password(?)";
-		System.out.println(query);
 		// System.out.println(query);
 		// PrintWriter out = resp.getWriter();
 		try {
@@ -45,8 +43,6 @@ public class LoginToServlet extends HttpServlet {
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				System.out.println("아이디 비번 맞음");
-				System.out.println("id : " + rs.getString("id"));
 				// System.out.println("아이디 비번 맞음");
 				// System.out.println("id : " + rs.getString("id"));
 

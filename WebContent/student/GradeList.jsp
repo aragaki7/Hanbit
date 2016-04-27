@@ -120,6 +120,15 @@ hr {
 		return rowIndex;
 	}
 	$(document).ready(function() {
+		
+		var result = <%=request.getAttribute("result") %>
+			if(result!=null){
+				if(result){
+					alert('입력 성공');
+				}else{
+					alert('입력 실패');
+				}
+			}
 		$('.row').on('click', function() {
 			var ridx=getRow(this);
 			var id=$('.row:eq('+(ridx-1)+')>td:eq(0)').text();
