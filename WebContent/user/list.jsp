@@ -1,8 +1,5 @@
 <%@page import="bean.UserData"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="db.DBConnect"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.PreparedStatement"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -163,53 +160,12 @@ hr {
 	height: 100%;
 }
 </style>
-<%!PreparedStatement statement;
-	ResultSet rs;
-	String sql;
-	ArrayList<UserData> list = new ArrayList<UserData>();
-	ArrayList<UserData> list_teacher = new ArrayList<UserData>();%>
 <body>
 
 	<%
-		try {
-			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room from TB_USER join TB_CLASS on class_fk = class_pk where pm_fk = 1";
-			statement = DBConnect.get().prepareStatement(sql);
-			rs = statement.executeQuery();
-			list.clear();
-			while (rs.next()) {
-				list.add(new UserData(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
-						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
-						rs.getString(10)));
-			}
-		} catch (Exception e) {
-
-		} finally {
-			if (rs != null)
-				rs.close();
-			if (statement != null)
-				statement.close();
-		}
-	%>
-
-	<%
-		try {
-			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email, TB_CLASS.class_room from TB_USER join TB_CLASS on class_fk = class_pk where pm_fk = 2";
-			statement = DBConnect.get().prepareStatement(sql);
-			rs = statement.executeQuery();
-			list_teacher.clear();
-			while (rs.next()) {
-				list_teacher.add(new UserData(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
-						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
-						rs.getString(10)));
-			}
-		} catch (Exception e) {
-
-		} finally {
-			if (rs != null)
-				rs.close();
-			if (statement != null)
-				statement.close();
-		}
+		ArrayList<UserData> stulist = (ArrayList<UserData>)request.getAttribute("stulist");
+		ArrayList<UserData> tealist = (ArrayList<UserData>)request.getAttribute("tealist");
+		
 	%>
 	<div class="container_12">
 		<%@ include file="../template/header.jsp"%>
@@ -226,7 +182,7 @@ hr {
 		%>
 		<div class="grid9 content">
 			<p>
-				LIST<br />
+				LIST<br/>
 			<h4>학생&강사</h4>
 			</p>
 			<hr />
@@ -246,17 +202,17 @@ hr {
 							</tr>
 							
 							<%
-								for (int i = 0; i < list.size(); i++) {
+								for (int i = 0; i < stulist.size(); i++) {
 							%>
 							<tr id="row" style="cursor: hand;"
 							onclick="location.href='../user/stuDetail.jsp'"	>
-								<td><%=list.get(i).getName()%></td>
+								<td><%=stulist.get(i).getName()%></td>
 					
-								<td><%=list.get(i).getMobile()%></td>
+								<td><%=stulist.get(i).getMobile()%></td>
 						
-								<td><%=list.get(i).getEmail()%></td>
+								<td><%=stulist.get(i).getEmail()%></td>
 
-								<td><%=list.get(i).getClasss() %></td>
+								<td><%=stulist.get(i).getClasss() %></td>
 								</tr>
 							<%
 								}
@@ -274,27 +230,27 @@ hr {
 								<td>이메일</td>
 								<td>강의실</td>
 							</tr>
-							<%
-								for (int i = 0; i < list_teacher.size(); i++) {
-							%>
-							<tr id="row" style="cursor: hand;"
-							onclick="location.href='../user/teaDetail.jsp'"	>
-								<td><%=list_teacher.get(i).getName()%></td>	
-								<td><%=list_teacher.get(i).getMobile()%></td>
-								<td><%=list_teacher.get(i).getEmail()%></td>
-								<td><%=list.get(i).getClasss() %></td>
-								</tr>
-							<%
-								}
-							%>
-							
+					 <%
+                        for (int i = 0; i < tealist.size(); i++) {
+                     %>
+                     <tr id="row" style="cursor: hand;"
+                     onclick="location.href='../user/stuDetail.jsp'"   >
+                        <td><%=tealist.get(i).getName()%></td>
+               
+                        <td><%=tealist.get(i).getMobile()%></td>
+                  
+                        <td><%=tealist.get(i).getEmail()%></td>
+
+                        <td><%=tealist.get(i).getClasss()%></td>
+					<%
+						}
+					%>		
 						</table>
 					</div>
 				</div>
 			</div>
 		</div>
-		<%
-			}
+		<%	}
 			} else {
 		%>
 		<div align="center">
