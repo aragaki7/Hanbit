@@ -173,7 +173,7 @@ hr {
 <!-- eduJava 상세보기 끝-->
 		
 		<!-- content end -->	
-		<%@ include file="../template/aside.jsp" %>
+		<%@ include file="../template/asideIn.jsp" %>
 		<%@ include file="../template/footer.jsp" %>
 	</div>
 </body>
