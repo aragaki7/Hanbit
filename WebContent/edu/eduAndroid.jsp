@@ -41,7 +41,7 @@ hr {
  	}
  .table table{
     border-collapse: collapse;
-    border-spacing: 0;
+    border-spacing: 0; 
 	width:100%;
 	height:100%;
 	margin:0px;
@@ -74,9 +74,9 @@ hr {
 	color:#ffffff;
 }	
 .yes{
-	margin-top: 40px;
+	margin-top: 50px;
 	width: 110px;
-	height: 50px;
+	height: 30px;
 	margin-left: 690px;
 	font-size: 11pt;
 	font-weight: bold;
