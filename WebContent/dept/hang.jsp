@@ -207,7 +207,6 @@ hr {
 		<div class="grid9 content"> 
 			<p>
 				ADMINISTRATION<br/>
-			<h4>LIST</h4>
 			</p>
 			<hr />
 			<br />
