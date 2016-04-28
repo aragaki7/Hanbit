@@ -32,7 +32,7 @@
 		<li><a href="<%=request.getContextPath()%>/service/job.do">취업 교육</a></li>
 		<li><a href="<%=request.getContextPath()%>/service/work.do">재직자 교육</a></li>
 		<li><a href="<%=request.getContextPath()%>/service/company.do">기업맞춤 교육</a></li>
-	</ul>
+	</ul> 
 </div>
 <div class="grid12 nav5">
 	<ul>
