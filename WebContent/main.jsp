@@ -19,8 +19,7 @@
 
 .bx-viewport {
 	border: 0px;
-}
-
+} 
 span>a>img {
 	width: 49%;
 	margin: 20px auto;
