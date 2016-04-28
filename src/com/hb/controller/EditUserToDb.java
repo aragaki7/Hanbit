@@ -3,6 +3,7 @@ package com.hb.controller;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,11 +12,12 @@ import com.hb.model.UserDao;
 
 import bean.UserData;
 
-
-//@WebServlet("/login/join.do")//xml로 옮김 일단 남겨둠
-public class JoinController extends HttpServlet {
-	
+@WebServlet("/memberedit.do")
+public class EditUserToDb extends HttpServlet{
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		System.out.println("db접근하는 edit 접근함");
 		int result=0;
 		req.setCharacterEncoding("utf-8");
 		//emailchk는 회원가입에 필요없어서 일단 안받음(여기로 req타고 오긴 함)
@@ -52,11 +54,13 @@ public class JoinController extends HttpServlet {
 		
 		UserData bean = new UserData(id, name, Integer.toString(post), main_address, sub_address, sex, phone, mobile, email, "1");
 		UserDao dao = new UserDao();
-		result = dao.Join(bean,pw, numpower);
+		
+//		result = dao.Join(bean,pw, numpower);
+		result = dao.EditMember(bean,pw,numpower);
 		
 		
 		if(result>0){
-			System.out.println("가입 성공");
+			System.out.println("수정 성공");
 			resp.sendRedirect("/Hanbit/main.jsp?joinresult=success");
 		}
 		else{
@@ -64,7 +68,5 @@ public class JoinController extends HttpServlet {
 			req.getRequestDispatcher("login.do").forward(req, resp);
 		}
 		
-		
 	}
-
 }

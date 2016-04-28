@@ -110,7 +110,8 @@ input {
 		</div>
 		<div>
 			<a href="/Hanbit/logout.do"><span>logout</span></a> 
-			<a href="/Hanbit/login/edituser.jsp"><span>회원정보수정</span></a>
+			<a href="/Hanbit/useredit.do"><span>회원정보수정</span></a>
+<!-- 			<a href="/Hanbit/login/edituser.jsp"><span>회원정보수정</span></a> -->
 		</div>
 	</div>
 
