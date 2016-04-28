@@ -13,7 +13,7 @@
 <style type="text/css">
 .bxslider>li img {
 	width: 80%;
-	margin: 20px auto;
+	margin: 20px auto; 
 	border: 0px;
 }
 
