@@ -29,13 +29,13 @@ hr {
  	width: 800px;
  	border-top:3px solid #9C9C9C; 
  	border-bottom:3px solid #F6F6F6; 
- 	 box-shadow: 5px 5px 5px lightgray;
- 	}
+ 	box-shadow: 5px 5px 5px lightgray;
+}
  .yes{
-	margin-top: 40px;
+	margin-top: 20px;
 	width: 110px;
-	height: 50px;
-	margin-left: 690px;
+	height: 30px;
+	margin-left: 250px;
 	font-size: 11pt;
 	font-weight: bold;
 	color: white;
@@ -88,9 +88,9 @@ input[type=radio],input[type=checkbox] {
     width:15px;
     height:15px;
 }
- #b{
+#b{
  	background-color: firebrick;
- 	}
+}
 
 /* 겹치지않는부분시작 */
 </style>
@@ -107,9 +107,9 @@ input[type=radio],input[type=checkbox] {
 			<hr/><br/>
 <div>
 <table class="Apply">
-<tr><td id="td">지원과정</td><td id="td2">자바 프로그래밍</td></tr>
-<tr><td id="td">이름</td><td id="td2"><input type="text"></td></tr>
-<tr><td id="td">이메일</td><td id="td2"><input type="email" name="em">@
+<tr><td id="td">지원과정 </td><td id="td2">자바 프로그래밍</td></tr>
+<tr><td id="td">이름 </td><td id="td2"><input type="text"></td></tr>
+<tr><td id="td">이메일 </td><td id="td2"><input type="email" name="em">@
                 		<input type="email" name="em">
                 		<select name="urlad">
 	               	    <option value="직접입력">직접입력</option>
@@ -118,7 +118,7 @@ input[type=radio],input[type=checkbox] {
 	                    <option value="gmail">gmail.com</option>
 	                    <option value="nate">nate.com</option>
 	                    <option value="daum">hanmail.net</option>s</select></td></tr>
-<tr><td id="td">연락처</td><td id="td2"><select name="tele">
+<tr><td id="td">연락처 </td><td id="td2"><select name="tele">
 	                	<option value="010">010</option>
 	                    <option value="011">011</option>
 	                    <option value="016">016</option>
@@ -126,8 +126,7 @@ input[type=radio],input[type=checkbox] {
 	                    <option value="018">018</option>
 	                    <option value="019">019</option>
 	                    <option value="070">070</option>
-	                    </select>-<input type="text" name="tel">-<input type="text" name="tel"></td></tr>
-	                    
+	                    </select>-<input type="text" name="tel">-<input type="text" name="tel"></td></tr>                   
 <tr><td><br/></td><td><br/></td></tr>
 <tr><td colspan="2"><h4>개인정보보호를 위한 이용자 동의사항</h4>
 <textarea name="content" rows="17" cols="109">
@@ -152,17 +151,16 @@ input[type=radio],input[type=checkbox] {
 	- 소비자의 불만 또는 분쟁처리에 관한 기록 : 3년
 	② 귀하의 동의를 받아 보유하고 있는 거래정보 등을 귀하께서 열람을 요구하는 경우 지체없이 그 열람,확인 할 수 있도록 조치합니다.</textarea></td></tr>
 <tr><td></td><td id="td3"><input type="checkbox"name="check"value="sev">위 개인정보취급방침에 동의합니다.</td></tr>
-<tr><td></td><td><div style="position:relative; left:-505px; top:-26px; height:30px;">
-				 <input type="submit" value="확인" class="yes"></div>
-				 <div style="position:relative; left:-355px; top:-56px; height:30px;">
-				 <input type="reset" value="취소" class="yes"></div></td></tr>
+<tr><td></td><td>
+	<div><input type="submit" value="확인" class="yes"></div>
+	<!-- <div><input type="reset" value="취소" class="yes1"></div> --></td></tr>
 </table>
 </div>
 		</div>
 <!-- 신청 페이지 끝-->
 		
 		<!-- content end -->	
-		<%@ include file="../template/aside.jsp" %>
+		<%@ include file="../template/asideIn.jsp" %>
 		<%@ include file="../template/footer.jsp" %>
 	</div>
 </body>
