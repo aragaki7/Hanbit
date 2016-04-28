@@ -128,7 +128,7 @@ hr {
 	font-size: 16px;
 	padding: 5px;
 	text-align: center;
-	width: 100px;
+	width: 130px;
 	line-height: 20pt;
 	font-weight: bold;
 	border-radius: 3px 3px 0 0;
@@ -136,28 +136,24 @@ hr {
 	color: white;
 }
 
+
 #css_tabs>label:hover {
 	cursor: pointer;
 }
 
 #css_tabs label[for=tab1] {
-	margin-left: 10pt;
 	margin-top: 20pt;
 }
 #css_tabs label[for=tab2] {
-	margin-left: 10pt;
 	margin-top: 20pt;
 }
 #css_tabs label[for=tab3] {
-	margin-left: 10pt;
 	margin-top: 20pt;
 }
 #css_tabs label[for=tab4] {
-	margin-left: 10pt;
 	margin-top: 20pt;
 }
 #css_tabs label[for=tab5] {
-	margin-left: 10pt;
 	margin-top: 20pt;
 }
 /* 선택된 라벨, 커서를 올린 라벨 스타일 지정 */
@@ -200,7 +196,7 @@ hr {
 		<!-- content start -->
 		
 		<div class="grid9 content"> 
-			<p>USER LIST<br/></p>
+			<p>USER LIST<br/><h4>LIST</h4></p>
 			<hr/><br/>
 			<div id="css_tabs">
 				<input id="tab1" type="radio" name="tab" checked="checked" /> 

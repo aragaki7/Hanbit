@@ -13,7 +13,7 @@ var loginfuc=function(){
 				if(obj.result=='success'){
 					var st = "";
 					st+= "<div style=\"margin-left:10px;\" id=\"form\"><div class=\"login\"><div style=\"font-size: 15px;\"><h3>"+obj.id+"님 환영합니다.</h3></div>"
-						+"<div><a href=\"/Hanbit/logout.do\"><span>logout</span></a><a href=\"/Hanbit/login/edituser.jsp\"><span>회원정보수정</span></a>"
+						+"<div><a href=\"/Hanbit/logout.do\"><span>logout</span></a><a href=\"/Hanbit/useredit.do\"><span>회원정보수정</span></a>"
 						+"</div></div></div>";
 					$(".login").html(st);
 					$('#log').remove();

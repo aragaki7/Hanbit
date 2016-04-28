@@ -128,7 +128,7 @@ background-color:firebrick;
 	font-size: 16px;
 	padding: 5px;
 	text-align: center;
-	width: 150px;
+	width: 130px;
 	line-height: 20pt;
 	font-weight: bold;
 	border-radius: 3px 3px 0 0;
@@ -141,11 +141,9 @@ background-color:firebrick;
 }
 
 #css_tabs label[for=tab1] {
-	margin-left: 2pt;
 	margin-top: 20pt;
 }
 #css_tabs label[for=tab2] {
-	margin-left: 2pt;
 	margin-top: 20pt;
 }
 #css_tabs label[for=tab3] {
@@ -184,9 +182,7 @@ background-color:firebrick;
 
 		<!-- content start -->
 		<div class="grid9 content"> 
-			<p>
-				EDUCATION<br/>
-			</p>
+			<p>EDUCATION<br/><h4>LIST</h4></p>
 			<hr />
 			<br />
 			<div id="css_tabs">

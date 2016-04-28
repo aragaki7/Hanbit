@@ -116,7 +116,7 @@ hr {
 		<!-- content start -->
 		
 		<div class="grid9 content"> 
-			<p>APPLY LIST<br/></p>
+			<p>APPLY LIST<br/><h4>LIST</h4></p>
 			<hr/><br/>
 			<div>
 				<div class="table">
