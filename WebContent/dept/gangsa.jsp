@@ -221,7 +221,7 @@ background-color:firebrick;
 					</div>
 				</div>
 				<div class="tab2_content"> <!-- 성적관리 -->
-				<form action="../student/AddGrade.jsp">
+				<form action="../gangsa/AddGrade.jsp">
 					<div class="table">
 						<table>
 						<tr>
