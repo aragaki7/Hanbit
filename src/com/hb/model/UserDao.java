@@ -20,12 +20,12 @@ public class UserDao {
 	private String sql;
 	
 	public UserDao() {
+		conn = DBConnect.get();
 	}
 
 	public ArrayList<UserData> Userlist(int pm) {
 
 		ArrayList<UserData> stulist = new ArrayList<UserData>();
-		conn = DBConnect.get();
 		try {
 			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room from TB_USER join TB_CLASS on class_fk = class_pk where pm_fk = ?";
 			
@@ -158,6 +158,78 @@ public class UserDao {
 			}
 		}
 		return jsonObject;
+	}
+
+	public UserData selectOne(String id) {
+		UserData bean = new UserData();
+		
+		try {
+			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email from TB_USER where id=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				bean.setId(rs.getString(1));
+				bean.setName(rs.getNString(2));
+				bean.setPost(rs.getString(3));
+				bean.setMain_address(rs.getString(4));
+				bean.setSub_address(rs.getString(5));
+				bean.setSex(rs.getString(6));
+				bean.setPhone(rs.getString(7));
+				bean.setMobile(rs.getString(8));
+				bean.setEmail(rs.getString(9));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+		
+		return bean;
+	}
+
+	public int EditMember(UserData bean, String pw, int numpower) {
+		int result = 0;
+		
+		String query = "update TB_USER password=password(?), name=?, post=?, main_address=?, sub_address=?, sex=?, phone=?, mobile=?, email=?, pm_fk=?, class_fk=1 where id=?";//1은 강의실. 강의실 없음을 의미
+		
+		System.out.println(query);
+		try {
+			
+			
+			pstmt = DBConnect.get().prepareStatement(query);
+			
+			System.out.println("password : "+pw);
+			
+			pstmt.setString(1, pw);
+			pstmt.setString(2, bean.getName());
+			pstmt.setInt(3, Integer.parseInt(bean.getPost()));
+			pstmt.setString(4, bean.getMain_address());
+			pstmt.setString(5, bean.getSub_address());
+			pstmt.setString(6, bean.getSex());
+			pstmt.setString(7, bean.getPhone());
+			pstmt.setString(8, bean.getMobile());
+			pstmt.setString(9, bean.getEmail());
+			pstmt.setInt(10, numpower);
+			pstmt.setString(11, bean.getId());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
 	}
 
 }

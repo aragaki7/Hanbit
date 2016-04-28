@@ -13,6 +13,10 @@ public class UserData {
 	private String email;
 	private String classs;
 
+	
+	public UserData(){
+		
+	}
 	public UserData(String id, String name, String post, String main_address, String sub_address, String sex,
 			String phone, String mobile, String email, String classs) {
 		this.id = id;
@@ -116,5 +120,35 @@ public class UserData {
 	 */
 	public String getClasss() {
 		return classs;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setPost(String post) {
+		this.post = post;
+	}
+	public void setMain_address(String main_address) {
+		this.main_address = main_address;
+	}
+	public void setSub_address(String sub_address) {
+		this.sub_address = sub_address;
+	}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public void setClasss(String classs) {
+		this.classs = classs;
 	}
 }

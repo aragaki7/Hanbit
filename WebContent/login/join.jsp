@@ -171,7 +171,6 @@
 			<th>아이디</th>
 			<td colspan="3">
 			<input type="text" id="id" name="id" value="" size="10" class="inputText">
-			<a href="#"><img src="../imgs/check.JPG" alt="중복확인" /></a>
 			<span class ="chkid">띄어쓰기 없는 영문 숫자조합, 6~12글자</span>
 			</td>
 			</tr>
