@@ -103,4 +103,12 @@ $(document).ready(function(){
 		$('.nav6').css('display','none');
 		return false;
 	});
+	$('.header').on('mouseover',function(){
+		$('.nav2').css('display','none');
+		$('.nav3').css('display','none');
+		$('.nav4').css('display','none');
+		$('.nav5').css('display','none');
+		$('.nav6').css('display','none');
+		return false;
+	});
 });
