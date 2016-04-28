@@ -185,7 +185,7 @@ background-color:firebrick;
 		<!-- content start -->
 		<div class="grid9 content"> 
 			<p>
-				교육부<br/>
+				EDUCATION<br/>
 			</p>
 			<hr />
 			<br />
