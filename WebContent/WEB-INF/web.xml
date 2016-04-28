@@ -113,24 +113,42 @@
     <servlet-name>service.work</servlet-name>
     <url-pattern>/service/work.do</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>user.list</servlet-name>
-    <servlet-class>com.hb.controller.user.ListUserController</servlet-class>
+
+ <servlet>
+  <servlet-name>dept.sales</servlet-name>
+    <servlet-class>com.hb.controller.dept.DeptSales</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>user.list</servlet-name>
-    <url-pattern>/user/list.do</url-pattern>
+    <servlet-name>dept.sales</servlet-name>
+    <url-pattern>/dept/sales.do</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>cnt.list</servlet-name>
-    <servlet-class>com.hb.controller.cnt.ListCntController</servlet-class>
+    <servlet>
+  <servlet-name>dept.hang</servlet-name>
+    <servlet-class>com.hb.controller.dept.DeptHang</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>cnt.list</servlet-name>
-    <url-pattern>/student/list.do</url-pattern>
+    <servlet-name>dept.hang</servlet-name>
+    <url-pattern>/dept/hang.do</url-pattern>
   </servlet-mapping>
+    <servlet>
+  <servlet-name>dept.gangsa</servlet-name>
+    <servlet-class>com.hb.controller.dept.DeptGangsa</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dept.gangsa</servlet-name>
+    <url-pattern>/dept/gangsa.do</url-pattern>
+  </servlet-mapping>
+    <servlet>
+  <servlet-name>dept.admin</servlet-name>
+    <servlet-class>com.hb.controller.dept.DeptAdmin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dept.admin</servlet-name>
+    <url-pattern>/dept/admin.do</url-pattern>
+  </servlet-mapping>
+  
   <servlet>
-    <servlet-name>customer.ask</servlet-name>
+  <servlet-name>customer.ask</servlet-name>
     <servlet-class>com.hb.controller.customer.CustomerAsk</servlet-class>
   </servlet>
   <servlet-mapping>
