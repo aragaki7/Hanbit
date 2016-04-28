@@ -117,6 +117,12 @@ span>a>img {
 				if("success".equals(joinResult)){%>
 					alert('가입을 축하드립니다.');
 				<%}%>
+		<%
+			String editResult = (String)request.getParameter("editresult");
+			if(editResult!=null)
+				if("success".equals(editResult)){%>
+					alert('수정이 완료되었습니다.');
+				<%}%>
 			
 		
 	});

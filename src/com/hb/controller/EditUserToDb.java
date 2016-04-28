@@ -31,12 +31,12 @@ public class EditUserToDb extends HttpServlet{
 		else if("profe".equals(power))
 			numpower=2;
 		
-		String sex = req.getParameter("sex");
+//		String sex = req.getParameter("sex");
 		
-		if("male".equals(sex))
-			sex="남자";
-		else if("female".equals(sex))
-			sex="여자";
+//		if("male".equals(sex))
+//			sex="남자";
+//		else if("female".equals(sex))
+//			sex="여자";
 		String phone = req.getParameter("phone1");
 		phone += "-"+req.getParameter("phone2");
 		phone += "-"+req.getParameter("phone3");
@@ -52,7 +52,7 @@ public class EditUserToDb extends HttpServlet{
 		String main_address=req.getParameter("main_address");
 		String sub_address=req.getParameter("sub_address");
 		
-		UserData bean = new UserData(id, name, Integer.toString(post), main_address, sub_address, sex, phone, mobile, email, "1");
+		UserData bean = new UserData(id, name, Integer.toString(post), main_address, sub_address, null, phone, mobile, email, "1");
 		UserDao dao = new UserDao();
 		
 //		result = dao.Join(bean,pw, numpower);
@@ -61,7 +61,7 @@ public class EditUserToDb extends HttpServlet{
 		
 		if(result>0){
 			System.out.println("수정 성공");
-			resp.sendRedirect("/Hanbit/main.jsp?joinresult=success");
+			resp.sendRedirect("/Hanbit/main.jsp?editresult=success");
 		}
 		else{
 			req.setAttribute("joinresult", "fail");

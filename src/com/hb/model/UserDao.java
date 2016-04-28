@@ -197,8 +197,7 @@ public class UserDao {
 	public int EditMember(UserData bean, String pw, int numpower) {
 		int result = 0;
 		
-		String query = "update TB_USER password=password(?), name=?, post=?, main_address=?, sub_address=?, sex=?, phone=?, mobile=?, email=?, pm_fk=?, class_fk=1 where id=?";//1은 강의실. 강의실 없음을 의미
-		
+		String query = "update TB_USER set password=password(?), name=?, post=?, main_address=?, sub_address=?, phone=?, mobile=?, email=?, pm_fk=?, class_fk=1 where id=?";//1은 강의실. 강의실 없음을 의미
 		System.out.println(query);
 		try {
 			
@@ -212,12 +211,11 @@ public class UserDao {
 			pstmt.setInt(3, Integer.parseInt(bean.getPost()));
 			pstmt.setString(4, bean.getMain_address());
 			pstmt.setString(5, bean.getSub_address());
-			pstmt.setString(6, bean.getSex());
-			pstmt.setString(7, bean.getPhone());
-			pstmt.setString(8, bean.getMobile());
-			pstmt.setString(9, bean.getEmail());
-			pstmt.setInt(10, numpower);
-			pstmt.setString(11, bean.getId());
+			pstmt.setString(6, bean.getPhone());
+			pstmt.setString(7, bean.getMobile());
+			pstmt.setString(8, bean.getEmail());
+			pstmt.setInt(9, numpower);
+			pstmt.setString(10, bean.getId());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
