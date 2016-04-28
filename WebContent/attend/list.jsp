@@ -170,9 +170,7 @@ hr {
 
 		<!-- content start -->
 		<div class="grid9 content">
-			<p>
-				
-				ATTENDANCE LIST<br />
+			<p>ATTENDANCE LIST<br />
 			<h4>학생&강사</h4>
 			</p>
 			<hr />
@@ -212,10 +210,7 @@ hr {
 			</div>
 		</div>
 		<div align="center">
-
-		
 			<button type="submit">돌아가기</button>
-
 		</div>
 		
 		<!-- content end -->

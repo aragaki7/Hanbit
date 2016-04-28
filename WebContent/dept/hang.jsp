@@ -142,7 +142,6 @@ hr {
 }
 
 #css_tabs label[for=tab1] {
-	margin-left: 30pt;
 	margin-top: 20pt;
 }
 /* 선택된 라벨, 커서를 올린 라벨 스타일 지정 */

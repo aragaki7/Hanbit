@@ -142,7 +142,6 @@ hr {
 }
 
 #css_tabs label[for=tab1] {
-	margin-left: 30pt;
 	margin-top: 20pt;
 }
 #css_tabs label[for=tab2] {
