@@ -103,7 +103,7 @@ hr {
   	 color:#222;
  }
 .yes{
-	margin-top: 40px;
+	margin-top: 50px; 
 	width: 110px;
 	height: 30px;
 	margin-left: 690px;
