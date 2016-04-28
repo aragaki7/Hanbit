@@ -206,6 +206,7 @@ hr {
 							%>
 							<tr id="row" style="cursor: hand;"
 							onclick="location.href='../user/stuDetail.jsp'"	>
+								<input type="hidden" id="id" value="<%=stulist.get(i).getId()%>"/>
 								<td><%=stulist.get(i).getName()%></td>
 					
 								<td><%=stulist.get(i).getMobile()%></td>
