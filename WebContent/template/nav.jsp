@@ -6,7 +6,7 @@
 		<li><a href="<%=request.getContextPath()%>/intro/outline.do" id="a">센터소개</a></li>
 		<li><a href="<%=request.getContextPath()%>/edu/curri.do" id="b">교육과정</a></li>
 		<li><a href="<%=request.getContextPath()%>/service/job.do" id="c">교육서비스</a></li>
-		<li><a href="<%=request.getContextPath()%>/user/list.do" id="d">부서관리</a></li>
+		<li><a href="<%=request.getContextPath()%>/dept/sales.do" id="d">부서관리</a></li>
 		<li><a href="<%=request.getContextPath()%>/customer/notice.do" id="e">고객센터</a></li>
 	</ul>
 </div>
@@ -36,10 +36,10 @@
 </div>
 <div class="grid12 nav5">
 	<ul>
-		<li><a href="<%=request.getContextPath()%>/user/sales.do">영업부</a></li>
-		<li><a href="<%=request.getContextPath()%>/user/hang.do">행정부</a></li>
-		<li><a href="<%=request.getContextPath()%>/attend/gangsa.do">교육진</a></li>
-		<li><a href="<%=request.getContextPath()%>/student/admin.do">관리자</a></li>
+		<li><a href="<%=request.getContextPath()%>/dept/sales.do">영업부</a></li>
+		<li><a href="<%=request.getContextPath()%>/dept/hang.do">행정부</a></li>
+		<li><a href="<%=request.getContextPath()%>/dept/gangsa.do">교육진</a></li>
+		<li><a href="<%=request.getContextPath()%>/dept/admin.do">관리자</a></li>
 	</ul>
 </div>
 <div class="grid12 nav6">
