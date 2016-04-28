@@ -107,7 +107,6 @@ input[type=radio],input[type=checkbox] {
 			<hr/><br/>
 <div>
 <table class="Apply">
-<tr><td id="td">지원과정 </td><td id="td2">자바 프로그래밍</td></tr>
 <tr><td id="td">이름 </td><td id="td2"><input type="text"></td></tr>
 <tr><td id="td">이메일 </td><td id="td2"><input type="email" name="em">@
                 		<input type="email" name="em">
