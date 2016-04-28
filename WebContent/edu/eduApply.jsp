@@ -103,7 +103,7 @@ input[type=radio],input[type=checkbox] {
 		<!-- content start -->
 <!-- 신청 페이지 시작-->
 <br/><div class="grid9 content" >
-<p>정규교육신청 쓰기</p>
+<p>정규교육신청</p>
 			<hr/><br/>
 <div>
 <table class="Apply">
@@ -127,30 +127,7 @@ input[type=radio],input[type=checkbox] {
 	                    <option value="019">019</option>
 	                    <option value="070">070</option>
 	                    </select>-<input type="text" name="tel">-<input type="text" name="tel"></td></tr>
-<tr><td id="td">구분</td><td id="td2"><input type="radio" name="or" value="one">대학생,일반
-                	 <input type="radio" name="or" value="two">회사에서 교육비납부
-                	 <input type="radio" name="or" value="two">개인이 교육비납부(재직자)</td></tr>
-<tr><td id="td">회사명</td><td id="td2"><input type="text" size="100"></td></tr>
-<tr><td id="td">관련항목</td><td id="td2"><input type="checkbox" name="check" value="one"> 회사직원수가 300명 미만<br/>
-						<input type="checkbox" name="check" value="two"> 우선지원대상기업에 근무하는 재직자<br/>
-						<input type="checkbox" name="check" value="thr"> 파견근로자<br/>
-						<input type="checkbox" name="check" value="fou"> 만 40세 이상인자(재직중)<br/>
-						<input type="checkbox" name="check" value="fiv"> 회사직원수가 300명 이상<br/>
-						<input type="checkbox" name="check" value="six"> 1년이하 계약직<br/></td></tr>
-<tr><td id="td">교육시간</td><td id="td2"><select name="edutime">
-	                	<option value="09">09:30~12:30</option>
-	                    <option value="14">14:00~17:00</option>
-	                    <option value="19">19:30~22:30</option>
-	                    <option value="weekend">주말반(토,일)</option>
-	                    </select></td></tr>
-<tr><td id="td">결제방법</td><td id="td2"><select name="pay">
-	                	<option value="card1">신용카드</option>
-	                    <option value="card2">능력카드</option>
-	                    <option value="cash">현금</option>
-	                    </select></td></tr>
-<tr><td id="td">내용</td><td id="td2"><textarea name="content" rows="17" cols="100"></textarea></td></tr>
-<tr><td id="td">비밀번호</td><td id="td2"><input type="password"></td></tr>
-<tr><td id="td">파일첨부</td><td id="td2"><input type="file" name="file1" /></td></tr>
+	                    
 <tr><td><br/></td><td><br/></td></tr>
 <tr><td colspan="2"><h4>개인정보보호를 위한 이용자 동의사항</h4>
 <textarea name="content" rows="17" cols="109">
