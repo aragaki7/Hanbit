@@ -174,6 +174,31 @@ background-color:firebrick;
 	height: 100%;
 }
 </style>
+<script type="text/javascript">
+	function getRow(rowValue) {
+		var rowIndex = rowValue.rowIndex;
+		return rowIndex;
+	}
+	$(document).ready(function() {
+		
+		var result = <%=request.getAttribute("result") %>
+			if(result!=null){
+				if(result){
+					alert('입력 성공');
+				}else{
+					alert('입력 실패');
+				}
+			}
+		$('.row').on('click', function() {
+			var ridx=getRow(this);
+			var id=$('.row:eq('+(ridx-1)+')>td:eq(0)').text();
+			var java=$('.row:eq('+(ridx-1)+')>td:eq(1)').text();
+			var web=$('.row:eq('+(ridx-1)+')>td:eq(2)').text();
+			var fw=$('.row:eq('+(ridx-1)+')>td:eq(3)').text();
+			
+			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
+		});
+	});
 </script>
 <body>
 	<div class="container_12">
@@ -181,6 +206,14 @@ background-color:firebrick;
 		<%@ include file="../template/nav.jsp"%>
 
 		<!-- content start -->
+		<%
+			JSONObject jsonObject = new JSONObject();
+
+			jsonObject = (JSONObject) session.getAttribute("jsonObj");
+
+			if (jsonObject != null) {
+				if (jsonObject.getString("pm").equals("관리자")) {
+		%>
 		<div class="grid9 content"> 
 			<p>EDUCATION<br/><h4>LIST</h4></p>
 			<hr />
@@ -226,7 +259,19 @@ background-color:firebrick;
 							<td>웹</td>
 							<td>프레임워크</td>
 						</tr>
-							
+							<%
+							ArrayList<GreadeData> list = (ArrayList<GreadeData>)request.getAttribute("list");
+							for (int i = 0; i < list.size(); i++) {
+							%>
+							<tr class="row" style="cursor: hand;"><!--  onclick="location.href='EditGrade.do'"> -->
+<!-- 							onclick="location.href='../student/EditGrade.jsp'"> 클릭 이벤트 jquery로 뺌-->
+
+							<td><%=list.get(i).getId()%></td>
+							<td><%=list.get(i).getJava()%></td>
+							<td><%=list.get(i).getWeb()%></td>
+							<td><%=list.get(i).getFw()%></td>
+							</tr>
+							<%}%>
 					</table>
 				</div>
 				<button type="submit" class="yes">성적입력</button>
@@ -234,7 +279,22 @@ background-color:firebrick;
 		</div>
 			</div>
 		</div>
-	
+	   <%
+			}
+			} else {
+		%>
+		<div align="center">
+
+			<script language="javascript">
+				$(document).ready(function auth(){
+				alert("권한이 없습니다.");
+				document.location.href = "../main.jsp";
+			});
+			</script>
+		</div>
+		<%
+			}
+		%>
 		<!-- content end -->
 		<%@ include file="../template/asideIn.jsp"%>
 		<%@ include file="../template/footer.jsp"%>

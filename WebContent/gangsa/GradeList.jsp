@@ -161,7 +161,7 @@ hr {
 			<p>STUDENT GRADE LIST</p>
 			<hr />
 			<br />
-			<form action="../student/AddGrade.jsp">
+			<form action="../gangsa/AddGrade.jsp">
 				<div class="table">
 					<table>
 						<tr>
@@ -176,19 +176,13 @@ hr {
 							%>
 							<tr class="row" style="cursor: hand;"><!--  onclick="location.href='EditGrade.do'"> -->
 <!-- 							onclick="location.href='../student/EditGrade.jsp'"> 클릭 이벤트 jquery로 뺌-->
-							
 
 							<td><%=list.get(i).getId()%></td>
 							<td><%=list.get(i).getJava()%></td>
 							<td><%=list.get(i).getWeb()%></td>
 							<td><%=list.get(i).getFw()%></td>
-
-							
 							</tr>
 							<%}%>
-							
-						
-
 					</table>
 				</div>
 				<button type="submit" class="yes">성적입력</button>

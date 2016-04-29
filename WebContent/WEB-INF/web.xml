@@ -180,14 +180,22 @@
     <url-pattern>/customer/board.do</url-pattern>
   </servlet-mapping>
   <!-- grade -->
-  <servlet>
+   <servlet>
+    <servlet-name>gradeList</servlet-name>
+    <servlet-class>com.hb.controller.cnt.ListCntController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>gradeList</servlet-name>
+    <url-pattern>/gangsa/GradeList.do</url-pattern>
+  </servlet-mapping>
+  <!-- <servlet>
     <servlet-name>updateGrade</servlet-name>
     <servlet-class>com.hb.controller.cnt.UpdateGradeController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>updateGrade</servlet-name>
     <url-pattern>/student/updateGrade.do</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
   <!-- end grade -->
   <!-- join -->
   <servlet>

@@ -12,7 +12,7 @@ import bean.GreadeData;
 /**
  * Servlet implementation class EditGradeController
  */
-@WebServlet("/student/EditGrade.do")
+@WebServlet("/gangsa/EditGrade.do")
 public class EditGradeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -25,7 +25,7 @@ public class EditGradeController extends HttpServlet {
 		GreadeData gd = new GreadeData(id, java, web, fw);
 		
 		request.setAttribute("gradeDto", gd);
-		request.getRequestDispatcher("/student/EditGrade.jsp").forward(request, response);
+		request.getRequestDispatcher("/gangsa/EditGrade.jsp").forward(request, response);
 	}
 
 }

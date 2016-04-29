@@ -17,13 +17,14 @@ import bean.GreadeData;
 import db.DBConnect;
 
 public class ListCntController extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		GradeDao dao = new GradeDao();
 		ArrayList<GreadeData> list = dao.gradeList();
-		
+
 		request.setAttribute("list", list);
-		request.getRequestDispatcher("/student/GradeList.jsp").forward(request, response);
+		request.getRequestDispatcher("/gangsa/GradeList.jsp").forward(request, response);
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
