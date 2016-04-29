@@ -4,7 +4,6 @@ import java.sql.*;
 import java.util.ArrayList;
 
 import bean.BoardData;
-import bean.GreadeData;
 
 import db.DBConnect;
 public class BoardDao {
@@ -19,14 +18,14 @@ public class BoardDao {
 
 	public ArrayList<BoardData> BoardList() {
 		ArrayList<BoardData> list=new ArrayList<BoardData>();
-		String sql="select idx, TB_USER.name, title, days, times, count from TB_NOTICE join TB_USER on TB_NOTICE.id_fk = TB_USER.id order by idx desc";
+		String sql="select index, TB_USER.name, title, days, time, count from TB_BBS join TB_USER on TB_BBS.id_fk = TB_USER.id order by index desc";
 	try {
 		pstmt = DBConnect.get().prepareStatement(sql);
 		rs = pstmt.executeQuery();
 		list.clear();
 		while (rs.next()) {
-			list.add(new BoardData(rs.getInt("idx"), rs.getString("TB_USER.name"), rs.getString("title"),
-					rs.getDate("days"), rs.getTimestamp("times"), rs.getInt("count")));
+			list.add(new BoardData(rs.getInt("index"), rs.getString("TB_USER.name"), rs.getString("title"),
+					rs.getDate("days"), rs.getTimestamp("time"), rs.getInt("count")));
 		}
 	} catch (Exception e) {} finally {
 			try {
