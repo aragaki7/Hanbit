@@ -1,3 +1,4 @@
+<%@page import="bean.NoticeData"%>
 <%@page import="java.sql.Date"%>
 <%@page import="javax.xml.crypto.Data"%>
 <%@page import="db.DBConnect"%>
@@ -175,7 +176,7 @@ input[type=submit] {
 
       <!-- content start -->
 <%
-      ArrayList<BoardData> list= (ArrayList<BoardData>)request.getAttribute("list");
+      ArrayList<NoticeData> list= (ArrayList<NoticeData>)request.getAttribute("list");
 %>
       <div class="grid9">
          <!--  게시판 내용 시작-->
@@ -186,18 +187,18 @@ input[type=submit] {
          <br />
          <div class="table">
             <table style="width: 100%">
-           	 	<col style="width:5%">
-       	 		<col style="width:15%">
-        		<col style="width:55%">
-        		<col style="width:15%">
-       	 		<col style="width:10%">
-	               <tr>
-	                  <td>index</td>
-	                  <td>작성자</td>
-	                  <td>제목</td>
-	                  <td>날짜</td>
-	                  <td>조회 수</td>
-	               </tr>
+                  <col style="width:5%">
+                 <col style="width:15%">
+              <col style="width:55%">
+              <col style="width:15%">
+                 <col style="width:10%">
+                  <tr>
+                     <td>index</td>
+                     <td>작성자</td>
+                     <td>제목</td>
+                     <td>날짜</td>
+                     <td>조회 수</td>
+                  </tr>
 
                <%
                   for (int i = 0; i < list.size(); i++) {
