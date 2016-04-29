@@ -138,6 +138,16 @@ function getRow(rowValue) {
 }
 
 	$(document).ready(function(){
+		<%
+		String applResult = (String)request.getParameter("result");
+		if(applResult!=null){
+			if("y".equals(applResult)){%>
+				alert('승인 되었습니다.');
+			<%}else if("n".equals(applResult)){%>
+				alert('거절 되었습니다.');
+			<%}
+			}%>
+	
 		$('.rownum').on('click', function() {
 			var ridx=getRow(this);
 // 			alert("ridx : "+ridx);

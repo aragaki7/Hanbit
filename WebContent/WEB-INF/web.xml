@@ -237,6 +237,26 @@
     <url-pattern>/useredit.do</url-pattern>
   </servlet-mapping>
   <!-- end editUser -->
+  <!-- start SalesAppl yes  -->
+  <servlet>
+    <servlet-name>saly.do</servlet-name>
+    <servlet-class>com.hb.controller.dept.DeptApplY</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>saly.do</servlet-name>
+    <url-pattern>/dept/salesy.do</url-pattern>
+  </servlet-mapping>
+  <!-- end SalesAppl yes -->
+  <!-- start SalesAppl del -->
+  <servlet>
+    <servlet-name>salen.do</servlet-name>
+    <servlet-class>com.hb.controller.dept.DeptApplN</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>salen.do</servlet-name>
+    <url-pattern>/dept/salesn.do</url-pattern>
+  </servlet-mapping>
+  <!-- end SalesAppl del -->
   <!-- editUserDB start -->
   <servlet>
     <servlet-name>editmember.joo</servlet-name>

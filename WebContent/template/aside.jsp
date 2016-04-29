@@ -143,7 +143,7 @@ input {
 			id="pw" name="pw" maxlength="16" title="비밀번호" placeholder="비밀번호">
 		<button id="loginbtn">로그인</button>
 	</div>
-	<a href="/Hanbit/login/join.jsp" id="log"><span>회원가입</span></a>
+<!-- 	<a href="/Hanbit/login/join.jsp" id="log"><span>회원가입</span></a> 없애기로 결정 -->
 </div>
 <%
 	}

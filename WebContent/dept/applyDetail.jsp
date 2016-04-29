@@ -1,3 +1,4 @@
+<%@page import="bean.UserData"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -115,7 +116,14 @@ if (jsonObject2 != null) {%>
 <%}%>
 
 	$(document).ready(function(){
-		
+		$('.yes').on('click',function(){
+			var id = $('#id').text();
+			location.href="salesy.do?id="+id;
+		});
+		$('.delete').on('click',function(){
+			var id = $('#id').text();
+			location.href="salesn.do?id="+id;
+		});
 	});
 </script>
 </head>
@@ -125,7 +133,9 @@ if (jsonObject2 != null) {%>
 		<%@ include file="../template/nav.jsp" %>
 		
 		<!-- content start -->
-		
+		<%
+			UserData dto = (UserData)request.getAttribute("userDto");
+		%>
 		<br/><div class="grid9 content">
 		<form action="#">
 			<p id="p1">신청학생 상세페이지</p>
@@ -138,44 +148,61 @@ if (jsonObject2 != null) {%>
 						<col width="40%" />
 					</colgroup>
 					<tr>
-						<th>아이디</th><td colspan="3"><span id="id" name="id" >aa</span></td>
+						<th>아이디</th><td colspan="3"><span id="id" name="id" ><%=dto.getId() %></span></td>
 					</tr>
 					<tr>
-						<th>이름</th><td colspan="3"><span id="name" name="name" >aa</span></td>
+						<th>이름</th><td colspan="3"><span id="name" name="name" ><%=dto.getName() %></span></td>
 					</tr>
 					<tr>
-						<th>성별</th><td colspan="3"><span id="sex" name="sex" >남자</span></td>
+						<th>성별</th><td colspan="3"><span id="sex" name="sex" ><%=dto.getSex() %></span></td>
 					</tr>
+					<%
+						String phoneNum = dto.getPhone();
+						String p1 = phoneNum.split("-")[0];
+						String p2 = phoneNum.split("-")[1];
+						String p3 = phoneNum.split("-")[2];
+					%>
 					<tr>
 						<th>전화번호</th><td colspan="3">
-						<span id="tel1" name="phone" size="3" >010</span>-
-						<span id="tel2" name="phone" size="3" >3333</span>-
-						<span id="tel3" name="phone" size="3" >5555</span></td>
+						<span id="tel1" name="phone" size="3" ><%=p1 %></span> -
+						<span id="tel2" name="phone" size="3" ><%=p2 %></span> -
+						<span id="tel3" name="phone" size="3" ><%=p3 %></span></td>
 					</tr>
+					<%
+					String mobileNum = dto.getMobile();
+					String m1 = mobileNum.split("-")[0];
+					String m2 = mobileNum.split("-")[1];
+					String m3 = mobileNum.split("-")[2];
+					%>
 					<tr>
 						<th>휴대폰</th><td colspan="3">
-						<span id="tel4" name="mobile" size="3" >02</span>-
-						<span id="tel5" name="mobile" size="3" >3333</span>-
-						<span id="tel6" name="mobile" size="3" >5555</span></td>
+						<span id="tel4" name="mobile" size="3" ><%=m1 %></span> -
+						<span id="tel5" name="mobile" size="3" ><%=m2 %></span> -
+						<span id="tel6" name="mobile" size="3" ><%=m3 %></span></td>
 					</tr>
+					<%
+					String emailaddr = dto.getEmail();
+					String email = emailaddr.split("@")[0];
+					String domain = emailaddr.split("@")[1];
+					%>
 					<tr>
 						<th>이메일</th><td colspan="3">
-						<span name="email" size="3" >jiyoo_n</span>@
-						<span name="email" size="3" >naver.com</span></td>
+						<span name="email" size="3" ><%=email %></span>@
+						<span name="email" size="3" ><%=domain %></span></td>
 					</tr>
 					<tr>
 						<th>주소</th><td colspan="3">
-						<span name="post" size="3" >(157-788)</span>
+						<span name="post" size="3" ><%=dto.getPost() %></span>
 						<div>
-							<span name="main_address" size="3" >서울시 강서구 방화3동</span>
-							<span name="sub_address" size="3" >개화아파트 104동 702호</span>
+							<span name="main_address" size="3" ><%=dto.getMain_address() %></span>
+							<span name="sub_address" size="3" ><%=dto.getSub_address() %></span>
 						</div></td>
 					</tr>
 			</table>
 			<div>
 				<div>
-					<input type="submit" value="승인" class="yes">
-					<input type="submit" value="삭제" class="delete">
+					<input type="button" value="승인" class="yes">
+					<input type="button" value="삭제" class="delete">
 				</div>
 			</div>
  		</form>

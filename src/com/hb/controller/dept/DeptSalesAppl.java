@@ -18,7 +18,7 @@ public class DeptSalesAppl extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String id = req.getParameter("id");
-		System.out.println("id넘어옴"+id);
+//		System.out.println("id넘어옴"+id);
 		
 		UserDao dao = new UserDao();
 		

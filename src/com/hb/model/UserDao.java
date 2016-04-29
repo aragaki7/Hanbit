@@ -259,4 +259,28 @@ public class UserDao {
 		return list;
 	}
 
+	public int editPM(int i, String id) {
+		int result = 0;
+		
+		String query = "update TB_USER set pm_fk=? where id=?";
+		System.out.println(query);
+		try {
+			pstmt = DBConnect.get().prepareStatement(query);
+			pstmt.setInt(1, i);
+			pstmt.setString(2, id);
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
+
 }
