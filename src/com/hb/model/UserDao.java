@@ -27,7 +27,7 @@ public class UserDao {
 
 		ArrayList<UserData> stulist = new ArrayList<UserData>();
 		try {
-			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room from TB_USER join TB_CLASS on class_fk = class_pk where pm_fk = ?";
+			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room from TB_USER join TB_CLASS on class_fk = class_pk where pm_fk = ? order by name desc";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, pm);
@@ -228,6 +228,35 @@ public class UserDao {
 		}
 		
 		return result;
+	}
+
+	public ArrayList<UserData> selectList(int pm, int class_pk) {
+		ArrayList<UserData> list = new ArrayList<UserData>();
+		try {
+			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room from TB_USER join TB_CLASS on class_fk = class_pk where pm_fk = ? and class_pk=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, pm);
+			pstmt.setInt(2, class_pk);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				list.add(new UserData(rs.getString(1), rs.getString(2), 
+						rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8), 
+						rs.getString(9), rs.getString(10)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			
+		}
+		return list;
 	}
 
 }

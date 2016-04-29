@@ -1,3 +1,4 @@
+<%@page import="net.sf.json.JSONObject"%>
 <%@page import="bean.UserData"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -109,28 +110,33 @@ hr {
 }
 </style>
 <script type="text/javascript">
-	
+<%
+JSONObject jsonObject2 = new JSONObject();
+
+jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
+
+if (jsonObject2 != null) {%>
+	var pm = <%=jsonObject2.getString("pm")%>
+	if (!("관리자".equals(pm) || "영업부".equals(pm))) {
+		alert('권한이 부족합니다.');
+		history.go(-1);
+	}else{
+		//권한이 맞음
+		System.out.println("권한 맞음");
+	}
+<%}else{%>
+	alert('권한이 부족합니다.');
+	history.go(-1);
+<%}%>
 	$(document).ready(function(){
-		<%
-		JSONObject jsonObject2 = new JSONObject();
 		
-		jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
 		
-		if (jsonObject2 != null) {
-			String pm = jsonObject2.getString("pm");	
-			if (!("관리자".equals(pm) || "영업부".equals(pm))) {
-				response.sendRedirect("/Hanbit/main.do");	
-			}else{
-				//권한이 맞음
-				System.out.println("권한 맞음");
-			}
-		}else{
-			response.sendRedirect("/Hanbit/main.do");
-		}
-		%>
 	});
 </script>
 <body>
+<%
+	ArrayList<UserData> appl= (ArrayList<UserData>)request.getAttribute("userList");
+%>
 	<div class="container_12">
 		<%@ include file="../template/header.jsp"%>
 		<%@ include file="../template/nav.jsp"%>
@@ -149,13 +155,14 @@ hr {
 							<td>연락처</td>
 							<td>강의실</td>
 						</tr>
-						 
+						 <%for(int i=0;i<appl.size();i++) {%>
 		                 <tr id="row" style="cursor: hand;" onclick="location.href='../dept/applyDetail.jsp'">
-                 			<td>111</td>
-	               			<td>222</td>
-                  			<td>333</td>
-							<td>444</td>
+                 			<td><%=appl.get(i).getName() %></td>
+	               			<td><%=appl.get(i).getEmail() %></td>
+                  			<td><%=appl.get(i).getPhone() %></td>
+							<td><%=appl.get(i).getClasss() %></td>
 						</tr>
+						<%} %>
 					</table>
 				</div>
 			</div>
