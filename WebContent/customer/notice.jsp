@@ -185,15 +185,19 @@ input[type=submit] {
          <hr />
          <br />
          <div class="table">
-            <table>
-               <tr>
-                  <td>index</td>
-                  <td>작성자</td>
-                  <td>제목</td>
-               
-                  <td>날짜</td>
-                  <td>조회 수</td>
-               </tr>
+            <table style="width: 100%">
+           	 	<col style="width:5%">
+       	 		<col style="width:15%">
+        		<col style="width:55%">
+        		<col style="width:15%">
+       	 		<col style="width:10%">
+	               <tr>
+	                  <td>index</td>
+	                  <td>작성자</td>
+	                  <td>제목</td>
+	                  <td>날짜</td>
+	                  <td>조회 수</td>
+	               </tr>
 
                <%
                   for (int i = 0; i < list.size(); i++) {
@@ -218,7 +222,7 @@ input[type=submit] {
                   <%
                      }
                   %>
-                  <td><%=list.get(i).getData()%></td>
+                  <td><%=list.get(i).getCount()%></td>
 
                </tr>
                <%

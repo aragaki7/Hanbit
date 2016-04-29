@@ -148,14 +148,17 @@
       <p>BOARD<h4>문의게시판</h4></p>
          <hr/><br/>
          <div class="table">
-          <table>
+         <table style="width: 100%">
+           	 	<col style="width:5%">
+       	 		<col style="width:15%">
+        		<col style="width:55%">
+        		<col style="width:15%">
+       	 		<col style="width:10%">
           <tr>
-             <td>index</td>
-              <td>아이디</td>
+              <td>index</td>
+              <td>작성자</td>
               <td>제목</td>
-              <td>내용</td>
               <td>날짜</td>
-              <td>시간</td>
               <td>조회 수</td>
           </tr>
           
@@ -164,9 +167,7 @@
                <td>index</td>
               <td>ID</td> <!--아이디-->
               <td>제목</td>
-              <td><a href="boardDetail.jsp">내용</a></td>
-              <td>2011.11.15</td> <!--날짜-->
-              <td>10:26</td><!--시간-->
+              <td>2011.11.15 10:26</td> <!--날짜-->
               <td>0000</td> <!--조회 수-->
           </tr>
                       
