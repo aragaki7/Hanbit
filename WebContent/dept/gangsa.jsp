@@ -9,9 +9,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>교육진페이지</title>
 <script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="../js/menuLoad.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
+<link rel="stylesheet" type="text/css" href="../css/jquery-ui.css"/>
 </head>
 <style type="text/css">
 * {
@@ -39,7 +41,7 @@ hr {
 }
 
 .table {
-	margin: -30px;
+	margin: -20px;
 	padding: 0px;
 	width: 800px;
 	border: 1px solid #000000;
@@ -173,6 +175,12 @@ background-color:firebrick;
 	padding: 2em;
 	height: 100%;
 }
+
+.ui-datepicker-trigger {
+	text-align:right;
+	width:30px;
+	height: 25px;
+}
 </style>
 <script type="text/javascript">
 	function getRow(rowValue) {
@@ -198,6 +206,13 @@ background-color:firebrick;
 			
 			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
 		});
+		
+		$( "#datepicker" ).datepicker({
+			showOn: "button",
+			buttonImage: "../imgs/calendar.png",
+			buttonImageOnly: true,
+			buttonText: "Select date"
+		 });
 	});
 </script>
 <body>
@@ -268,6 +283,22 @@ background-color:firebrick;
 								<td>휴대폰번호</td>
 								<td>이메일</td>
 								<td>강의실</td>
+								<td><input type="text" id="datepicker"/></td>
+							</tr>
+							
+							<tr>
+								<td>진연성</td>
+								<td>01039152102</td>
+								<td>rootguy@nate.com</td>
+								<td>1강의실</td>
+								<td>
+									<select>
+										<option value="0" selected="selected">출석</option>
+										<option value="1">지각</option>
+										<option value="2">조퇴</option>
+										<option value="3">결석</option>
+									</select>
+								</td>
 							</tr>							
 						</table>
 					</div>
