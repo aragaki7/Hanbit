@@ -205,14 +205,20 @@ background-color:firebrick;
 		<%@ include file="../template/header.jsp"%>
 		<%@ include file="../template/nav.jsp"%>
 
+	<%
+		ArrayList<UserData> stulist = (ArrayList<UserData>)request.getAttribute("stulist"); 
+		ArrayList<UserData> tealist = (ArrayList<UserData>)request.getAttribute("tealist");
+		
+	%>
+
 		<!-- content start -->
 		<%
-			JSONObject jsonObject = new JSONObject();
+			JSONObject jsonObject1 = new JSONObject();
 
-			jsonObject = (JSONObject) session.getAttribute("jsonObj");
+			jsonObject1 = (JSONObject) session.getAttribute("jsonObj");
 
-			if (jsonObject != null) {
-				if (jsonObject.getString("pm").equals("관리자")) {
+			if (jsonObject1 != null) {
+				if (jsonObject1.getString("pm").equals("관리자")) {
 		%>
 		<div class="grid9 content"> 
 			<p>EDUCATION<br/><h4>LIST</h4></p>
@@ -233,6 +239,23 @@ background-color:firebrick;
 								<td>휴대폰번호</td>
 								<td>이메일</td>
 								<td>강의실</td>
+								</tr>
+								<%
+								for (int i = 0; i < stulist.size(); i++) {
+							%>
+							<tr id="row" style="cursor: hand;"
+							onclick="location.href='../user/stuDetail.jsp'"	>
+								<td><%=stulist.get(i).getName()%></td>
+					
+								<td><%=stulist.get(i).getMobile()%></td>
+						
+								<td><%=stulist.get(i).getEmail()%></td>
+
+								<td><%=stulist.get(i).getClasss() %></td>
+								</tr>
+							<%
+								}
+							%>	
 							</table>
 					</div>
 				</div>
