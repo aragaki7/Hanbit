@@ -13,11 +13,10 @@ public class BoardData {
 	private Timestamp time;
 	private int count;
 
-	public BoardData(int num, String name, String title, String content, Date data, Timestamp time, int count) {
+	public BoardData(int num, String name, String title, Date data, Timestamp time, int count) {
 		this.num = num;
 		this.name = name;
 		this.title = title;
-		this.content = content;
 		this.data = data;
 		this.time = time;
 		this.count = count;

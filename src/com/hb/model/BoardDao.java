@@ -19,14 +19,14 @@ public class BoardDao {
 
 	public ArrayList<BoardData> BoardList() {
 		ArrayList<BoardData> list=new ArrayList<BoardData>();
-		String sql="select idx, TB_USER.name, title, content, days, times, count from TB_NOTICE join TB_USER on TB_NOTICE.id_fk = TB_USER.id order by idx desc";
+		String sql="select idx, TB_USER.name, title, days, times, count from TB_NOTICE join TB_USER on TB_NOTICE.id_fk = TB_USER.id order by idx desc";
 	try {
 		pstmt = DBConnect.get().prepareStatement(sql);
 		rs = pstmt.executeQuery();
 		list.clear();
 		while (rs.next()) {
 			list.add(new BoardData(rs.getInt("idx"), rs.getString("TB_USER.name"), rs.getString("title"),
-					rs.getString("content"), rs.getDate("days"), rs.getTimestamp("times"), rs.getInt("count")));
+					rs.getDate("days"), rs.getTimestamp("times"), rs.getInt("count")));
 		}
 	} catch (Exception e) {} finally {
 			try {
