@@ -96,6 +96,28 @@
 		border: none;	
 	}
 </style>
+<script type="text/javascript">
+<%
+JSONObject jsonObject2 = new JSONObject();
+jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
+
+if (jsonObject2 != null) {%>
+	var pm = "<%=jsonObject2.getString("pm")%>";
+	if (!("관리자" == pm || "영업부"==pm)) {
+		alert('권한이 부족합니다.');
+		location.href="/Hanbit/main.do";
+	}else{
+		//권한이 맞음
+	}
+<%}else{%>
+	alert('권한이 부족합니다.');
+	location.href="/Hanbit/main.do";
+<%}%>
+
+	$(document).ready(function(){
+		
+	});
+</script>
 </head>
 <body>
 	<div class="container_12">
