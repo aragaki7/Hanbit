@@ -277,20 +277,22 @@ background-color:firebrick;
 
 				<div class="tab1_content"> <!-- 출결관리 -->
 					<div class="table">
+						<form action="">
 						<table>
 							<tr>
 								<td>이름</td>
 								<td>휴대폰번호</td>
 								<td>이메일</td>
 								<td>강의실</td>
-								<td><input type="text" id="datepicker"/></td>
+								<td><input type="hidden" id="datepicker"/></td>
 							</tr>
 							
+							<% for(int i=0; i<stulist.size();i++){ %>
 							<tr>
-								<td>진연성</td>
-								<td>01039152102</td>
-								<td>rootguy@nate.com</td>
-								<td>1강의실</td>
+								<td><%=stulist.get(i).getName()%></td>
+								<td><%=stulist.get(i).getMobile()%></td>
+								<td><%=stulist.get(i).getEmail()%></td>
+								<td><%=stulist.get(i).getClasss() %></td>
 								<td>
 									<select>
 										<option value="0" selected="selected">출석</option>
@@ -299,9 +301,12 @@ background-color:firebrick;
 										<option value="3">결석</option>
 									</select>
 								</td>
-							</tr>							
+							</tr>
+							<%}%>							
 						</table>
 					</div>
+						<button type="submit" class="yes">출석 입력</button>
+						</form>
 				</div>
 				<div class="tab2_content"> <!-- 성적관리 -->
 				<form action="../gangsa/AddGrade.jsp">
@@ -328,7 +333,7 @@ background-color:firebrick;
 							<%}%>
 					</table>
 				</div>
-				<button type="submit" class="yes">성적입력</button>
+				<button type="submit" class="yes">성적 입력</button>
 			</form>
 		</div>
 			</div>
