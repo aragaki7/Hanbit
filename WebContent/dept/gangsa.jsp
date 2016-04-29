@@ -287,7 +287,7 @@ background-color:firebrick;
 								<td><input type="hidden" id="datepicker"/></td>
 							</tr>
 							
-							<% for(int i=0; i<stulist.size();i++){ %>
+							<% for(int i=0; i<stulist.size();i++){ %> 
 							<tr>
 								<td><%=stulist.get(i).getName()%></td>
 								<td><%=stulist.get(i).getMobile()%></td>
