@@ -199,7 +199,7 @@ hr {
 
 			jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
 
-			if (jsonObject != null) {
+			if (jsonObject2 != null) {
 				if (jsonObject2.getString("pm").equals("관리자")) {
 		%>
 
@@ -277,7 +277,7 @@ hr {
                         for (int i = 0; i < tealist.size(); i++) {
                      %>
                      <tr id="row" style="cursor: hand;"
-                     onclick="location.href='../user/stuDetail.jsp'"   >
+                     onclick="location.href='../user/stuDetail.jsp'"  >
                         <td><%=tealist.get(i).getName()%></td>
                
                         <td><%=tealist.get(i).getMobile()%></td>
@@ -285,6 +285,7 @@ hr {
                         <td><%=tealist.get(i).getEmail()%></td>
 
                         <td><%=tealist.get(i).getClasss()%></td>
+                        </tr>
 					<%
 						}
 					%>	
@@ -310,7 +311,7 @@ hr {
 				<div class="tab5_content">
 					<div class="table">
 						<table>
-							<tr>
+							<tr> 
 								<td>이름</td>		
 								<td>휴대폰번호</td>
 								<td>이메일</td>
@@ -327,7 +328,7 @@ hr {
 		<%	}
 			} else {
 		%>
-<%--
+
 		<div align="center">
 
 			<script language="javascript">
@@ -336,7 +337,7 @@ hr {
 				document.location.href = "../main.jsp";
 			});
 			</script>
---%>			 
+			 
 			
 
 
