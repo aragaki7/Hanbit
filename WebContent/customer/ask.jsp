@@ -125,7 +125,7 @@
 		rs = statement.executeQuery();
 		list.clear();
 		while (rs.next()) {
-			list.add(new BoardData(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+			list.add(new BoardData(rs.getInt(1), rs.getString(2), rs.getString(3),
 					rs.getDate(5), rs.getTimestamp(6), rs.getInt(7)));
 		}
 	} catch (Exception e) {
