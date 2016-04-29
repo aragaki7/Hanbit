@@ -181,28 +181,28 @@ hr {
 </style>
 <body>
 
-<%--    
+    
 	<%
-		ArrayList<UserData> stulist = (ArrayList<UserData>)request.getAttribute("stulist");
+		ArrayList<UserData> stulist = (ArrayList<UserData>)request.getAttribute("stulist"); 
 		ArrayList<UserData> tealist = (ArrayList<UserData>)request.getAttribute("tealist");
 		
 	%>
---%>
+
 	<div class="container_12">
 		<%@ include file="../template/header.jsp"%>
 		<%@ include file="../template/nav.jsp"%>
 
 		<!-- content start -->
-<%--		
+		
 		<%
-			JSONObject jsonObject = new JSONObject();
+			JSONObject jsonObject2 = new JSONObject();
 
-			jsonObject = (JSONObject) session.getAttribute("jsonObj");
+			jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
 
 			if (jsonObject != null) {
-				if (jsonObject.getString("pm").equals("관리자")) {
+				if (jsonObject2.getString("pm").equals("관리자")) {
 		%>
---%>
+
 		<div class="grid9 content"> 
 			<p>
 				ADMINISTRATION<br/>
@@ -242,7 +242,7 @@ hr {
 								<td>이메일</td>
 								<td>강의실</td>
 							</tr>
-<%--							
+							
 							<%
 								for (int i = 0; i < stulist.size(); i++) {
 							%>
@@ -258,8 +258,7 @@ hr {
 								</tr>
 							<%
 								}
-							%>
---%>							
+							%>						
 						</table>
 					</div>
 				</div>
@@ -273,7 +272,7 @@ hr {
 								<td>이메일</td>
 								<td>강의실</td>
 							</tr>
-<%--
+
 					 <%
                         for (int i = 0; i < tealist.size(); i++) {
                      %>
@@ -289,7 +288,7 @@ hr {
 					<%
 						}
 					%>	
---%>	
+
 						</table>
 					</div>
 				</div>
@@ -324,10 +323,11 @@ hr {
 				
 			</div>
 		</div>
-<%--
+
 		<%	}
 			} else {
 		%>
+<%--
 		<div align="center">
 
 			<script language="javascript">
@@ -336,20 +336,20 @@ hr {
 				document.location.href = "../main.jsp";
 			});
 			</script>
-			 
+--%>			 
 			
 
 
 			<%
 				
 			%>
---%>	
+	
 		<!-- </div> -->
-<%--
+
 		<%
 			}
 		%>
---%>
+
 		<!-- content end -->
 		<%@ include file="../template/asideIn.jsp"%>
 		<%@ include file="../template/footer.jsp"%>
