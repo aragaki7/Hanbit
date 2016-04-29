@@ -108,6 +108,28 @@ hr {
 	background-color: firebrick;
 }
 </style>
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		<%
+		JSONObject jsonObject2 = new JSONObject();
+		
+		jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
+		
+		if (jsonObject2 != null) {
+			String pm = jsonObject2.getString("pm");	
+			if (!("관리자".equals(pm) || "영업부".equals(pm))) {
+				response.sendRedirect("/Hanbit/main.do");	
+			}else{
+				//권한이 맞음
+				System.out.println("권한 맞음");
+			}
+		}else{
+			response.sendRedirect("/Hanbit/main.do");
+		}
+		%>
+	});
+</script>
 <body>
 	<div class="container_12">
 		<%@ include file="../template/header.jsp"%>

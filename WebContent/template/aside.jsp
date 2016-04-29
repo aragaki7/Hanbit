@@ -109,8 +109,8 @@ input {
 			</h2>
 		</div>
 		<div>
-			<a href="/Hanbit/logout.do"><span>logout</span></a> 
-			<a href="/Hanbit/useredit.do"><span>회원정보수정</span></a>
+<!-- 			<a href="/Hanbit/logout.do"><span>logout</span></a>  -->
+<!-- 			<a href="/Hanbit/useredit.do"><span>회원정보수정</span></a> -->
 <!-- 			<a href="/Hanbit/login/edituser.jsp"><span>회원정보수정</span></a> -->
 		</div>
 	</div>
@@ -130,7 +130,7 @@ input {
 			id="pw" name="pw" maxlength="16" title="비밀번호" placeholder="비밀번호">
 		<button id="loginbtn">로그인</button>
 	</div>
-	<a href="/Hanbit/login/join.jsp" id="log"><span>회원가입</span></a>
+<!-- 	<a href="/Hanbit/login/join.jsp" id="log"><span>회원가입</span></a> -->
 </div>
 <%
 	}

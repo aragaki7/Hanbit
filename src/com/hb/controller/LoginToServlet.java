@@ -32,7 +32,7 @@ public class LoginToServlet extends HttpServlet {
 		
 		UserDao dao = new UserDao();
 		JSONObject jsonObject = dao.loginJson(id, pw);
-		
+		resp.setCharacterEncoding("UTF-8");
 		req.getSession().setAttribute("jsonObj", jsonObject);
 		// req.getSession().setAttribute("login", true);
 		// resp.setContentType("application/x-json; charset=UTF-8");
