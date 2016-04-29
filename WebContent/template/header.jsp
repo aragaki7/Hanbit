@@ -1,3 +1,4 @@
+<%@page import="net.sf.json.JSONObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <style type="text/css">
@@ -37,7 +38,19 @@
 		src="<%=request.getContextPath()%>/imgs/logo.jpg" alt="logo" /></a>
 </div>
 	<div class="grid3 header"><div id="hh">
-    <a href="#" >개인정보</a>
-	<a href="#" >/ 로그아웃</a></div>
+	<%
+		JSONObject loginre = (JSONObject) session.getAttribute("jsonObj");
+		if (loginre != null) {
+			if (loginre.getString("result").equals("success")) {
+	%>
+    <a href="/Hanbit/useredit.do" >개인정보</a>
+	<a href="/Hanbit/logout.do" >/ 로그아웃</a></div>
+	<%}else{%>
+	<a href="#" >로그인</a>
+	<a href="/Hanbit/login/join.jsp" >/ 회원가입</a></div>
+	<%}}else{%>
+		<a href="#" >로그인</a>
+	<a href="/Hanbit/login/join.jsp" >/ 회원가입</a></div>	
+	<%}%>
 	</div>
 

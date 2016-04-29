@@ -17,6 +17,7 @@ var loginfuc=function(){
 						+"</div></div></div>";
 					$(".login").html(st);
 					$('#log').remove();
+					$('#hh').html("<a href=\"/Hanbit/useredit.do\" >개인정보</a><a href=\"/Hanbit/logout.do\" >/ 로그아웃</a></div>");
 				}else{
 					alert('아이디 비번 확인');
 				}
