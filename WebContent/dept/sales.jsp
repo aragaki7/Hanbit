@@ -108,35 +108,50 @@ hr {
 #d {
 	background-color: firebrick;
 }
+#hidden{
+	display: none;
+}
 </style>
 <script type="text/javascript">
 <%
 JSONObject jsonObject2 = new JSONObject();
-
 jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
 
 if (jsonObject2 != null) {%>
-	var pm = <%=jsonObject2.getString("pm")%>
-	if (!("관리자".equals(pm) || "영업부".equals(pm))) {
+	var pm = "<%=jsonObject2.getString("pm")%>";
+	if (!("관리자" == pm || "영업부"==pm)) {
 		alert('권한이 부족합니다.');
 		history.go(-1);
 	}else{
 		//권한이 맞음
-		System.out.println("권한 맞음");
 	}
 <%}else{%>
 	alert('권한이 부족합니다.');
 	history.go(-1);
 <%}%>
+<%
+ArrayList<UserData> appl= (ArrayList<UserData>)request.getAttribute("userList");
+%>
+function getRow(rowValue) {
+	var rowIndex = rowValue.rowIndex;
+	return rowIndex;
+}
+
 	$(document).ready(function(){
-		
+		$('.rownum').on('click', function() {
+			var ridx=getRow(this);
+// 			alert("ridx : "+ridx);
+		    var id = $('.rownum:eq('+(ridx-1)+')>td:eq(0)').text();
+
+// 			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
+// 			location.href="../dept/applyDetail.jsp?id="+id;
+			location.href="/Hanbit/dept/salseappl.do?id="+id;
+		});
 		
 	});
 </script>
 <body>
-<%
-	ArrayList<UserData> appl= (ArrayList<UserData>)request.getAttribute("userList");
-%>
+
 	<div class="container_12">
 		<%@ include file="../template/header.jsp"%>
 		<%@ include file="../template/nav.jsp"%>
@@ -150,13 +165,15 @@ if (jsonObject2 != null) {%>
 				<div class="table">
 					<table>
 						<tr>
+							<td>ID</td>
 							<td>이름</td>		
 							<td>이메일</td>
 							<td>연락처</td>
 							<td>강의실</td>
 						</tr>
 						 <%for(int i=0;i<appl.size();i++) {%>
-		                 <tr id="row" style="cursor: hand;" onclick="location.href='../dept/applyDetail.jsp'">
+		                 <tr class="rownum" style="cursor: hand;"> <!-- onclick="location.href='../dept/applyDetail.jsp'"> jquery 이벤트로 뺌-->
+		                 	<td><%=appl.get(i).getId() %></td>
                  			<td><%=appl.get(i).getName() %></td>
 	               			<td><%=appl.get(i).getEmail() %></td>
                   			<td><%=appl.get(i).getPhone() %></td>
