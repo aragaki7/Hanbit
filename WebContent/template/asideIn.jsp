@@ -45,15 +45,15 @@
 	</div>
 	
 	<div id="kakao">
-		<img alt="카카오톡 안내"  src="../imgs/tel.gif"/>
+		<img alt="카카오톡 안내"  src="/Hanbit/imgs/tel.gif"/>
 	</div>
 
 	<div id="tel">
-		<img alt="전화번호 안내" src="../imgs/kakaotalk.gif"/>
+		<img alt="전화번호 안내" src="/Hanbit/imgs/kakaotalk.gif"/>
 	</div>
 	
 	<div id="online">
-		<a href="/Hanbit/customer/ask.jsp"><img alt="온라인 문의" src="../imgs/online.gif" /></a>
+		<a href="/Hanbit/customer/ask.jsp"><img alt="온라인 문의" src="/Hanbit/imgs/online.gif" /></a>
 	</div>
 	
 </div>
