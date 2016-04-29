@@ -141,7 +141,7 @@ input[type=submit] {
 	background-color: black;
 	border: none;
 }
-
+   
 #keyword {
 	width: 55pt;
 	height: 17pt;
@@ -167,31 +167,6 @@ input[type=submit] {
 }
 </style>
 </head>
-
-<%!PreparedStatement statement;
-	String sql;
-	ResultSet rs;
-	ArrayList<BoardData> list = new ArrayList<BoardData>();%>
-
-<%
-	sql = "select idx, TB_USER.name, title, content, days, times, count from TB_NOTICE join TB_USER on TB_NOTICE.id_fk = TB_USER.id order by idx desc";
-	try {
-		statement = DBConnect.get().prepareStatement(sql);
-		rs = statement.executeQuery();
-		list.clear();
-		while (rs.next()) {
-			list.add(new BoardData(rs.getInt("idx"), rs.getString("TB_USER.name"), rs.getString("title"),
-					rs.getString("content"), rs.getDate("days"), rs.getTimestamp("times"), rs.getInt("count")));
-		}
-	} catch (Exception e) {
-
-	} finally {
-		if (rs != null)
-			rs.close();
-		if (statement != null)
-			statement.close();
-	}
-%>
 <body>
 
 	<div class="container_12">
@@ -199,7 +174,9 @@ input[type=submit] {
 		<%@ include file="../template/nav.jsp"%>
 
 		<!-- content start -->
-
+<%
+		ArrayList<BoardData> list= (ArrayList<BoardData>)request.getAttribute("list");
+%>
 		<div class="grid9">
 			<!--  게시판 내용 시작-->
 			<p>CUSTOMER CENTER
@@ -222,10 +199,9 @@ input[type=submit] {
 						for (int i = 0; i < list.size(); i++) {
 					%>
 					<tr id="row" style="cursor: hand;" onclick="location.href='#'">
-						<td><%=list.get(i).getNum()%></td>
-						<td><%=list.get(i).getId()%></td>
-						<!--아이디-->
-						<td><%=list.get(i).getTitle()%></td>
+						<td><%=list.get(i).getNum() %></td>
+						<td><%=list.get(i).getId() %></td>
+ 						<td><%=list.get(i).getTitle()%></td>
 						<td><a href="noticeDetail.jsp"><%=list.get(i).getContent()%></a></td>
 						<%
 							if (list.get(i).getData().toString().equals(new Date(System.currentTimeMillis()).toString())) {
@@ -242,7 +218,7 @@ input[type=submit] {
 						<%
 							}
 						%>
-						<td><%=list.get(i).getCount()%></td>
+						<td><%=list.get(i).getData()%></td>
 
 					</tr>
 					<%
