@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import bean.BoardData;
 
 import db.DBConnect;
+
 public class BoardDao {
 	private Connection conn;
 	private Statement stmt;
