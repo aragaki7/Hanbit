@@ -12,7 +12,7 @@ import com.hb.model.UserDao;
 
 import bean.UserData;
 
-@WebServlet("/memberedit.do")
+//@WebServlet("/memberedit.do")
 public class EditUserToDb extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

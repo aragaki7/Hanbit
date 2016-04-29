@@ -14,7 +14,7 @@ import com.hb.model.UserDao;
 import bean.UserData;
 import net.sf.json.JSONObject;
 
-@WebServlet("/useredit.do")
+//@WebServlet("/useredit.do")
 public class EditUser extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,15 +29,15 @@ public class EditUser extends HttpServlet{
 		UserData bean = dao.selectOne(id);
 		
 		//잘 받아오는 거 확인함
-		System.out.println("id : "+bean.getId());
-		System.out.println("name : "+bean.getName());
-		System.out.println("post : "+bean.getPost());
-		System.out.println("main_addr : "+bean.getMain_address());
-		System.out.println("sub_addr : "+bean.getSub_address());
-		System.out.println("sex : "+bean.getSex());
-		System.out.println("phone : "+bean.getPhone());
-		System.out.println("mobile : "+bean.getMobile());
-		System.out.println("email : "+bean.getEmail());
+//		System.out.println("id : "+bean.getId());
+//		System.out.println("name : "+bean.getName());
+//		System.out.println("post : "+bean.getPost());
+//		System.out.println("main_addr : "+bean.getMain_address());
+//		System.out.println("sub_addr : "+bean.getSub_address());
+//		System.out.println("sex : "+bean.getSex());
+//		System.out.println("phone : "+bean.getPhone());
+//		System.out.println("mobile : "+bean.getMobile());
+//		System.out.println("email : "+bean.getEmail());
 		
 		req.setAttribute("userdto", bean);
 		req.getRequestDispatcher("/login/edituser.jsp").forward(req, resp);

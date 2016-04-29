@@ -227,6 +227,26 @@
     <url-pattern>/logout.do</url-pattern>
   </servlet-mapping>
   <!-- end logout -->
+  <!-- editUser start -->
+  <servlet>
+    <servlet-name>edit.joohyung</servlet-name>
+    <servlet-class>com.hb.controller.EditUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>edit.joohyung</servlet-name>
+    <url-pattern>/useredit.do</url-pattern>
+  </servlet-mapping>
+  <!-- end editUser -->
+  <!-- editUserDB start -->
+  <servlet>
+    <servlet-name>editmember.joo</servlet-name>
+    <servlet-class>com.hb.controller.EditUserToDb</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editmember.joo</servlet-name>
+    <url-pattern>/memberedit.do</url-pattern>
+  </servlet-mapping>
+  <!-- end editUserDB -->
   <!-- attend/list -->
   <servlet>
     <servlet-name>attend.list</servlet-name>
