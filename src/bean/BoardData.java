@@ -9,15 +9,15 @@ public class BoardData {
 	private String name;
 	private String title;
 	private String content;
-	private Date data;
+	private Date date;
 	private Timestamp time;
 	private int count;
 
-	public BoardData(int num, String name, String title, Date data, Timestamp time, int count) {
+	public BoardData(int num, String name, String title, Date date, Timestamp time, int count) {
 		this.num = num;
 		this.name = name;
 		this.title = title;
-		this.data = data;
+		this.date = date;
 		this.time = time;
 		this.count = count;
 	}
@@ -70,8 +70,8 @@ public class BoardData {
 	 * @Date
 	 */
 
-	public Date getData() {
-		return data;
+	public Date getDate() {
+		return date;
 	}
 
 	/**

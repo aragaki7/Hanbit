@@ -9,10 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hb.model.BoardDao;
 import com.hb.model.NoticeDao;
 
-import bean.BoardData;
 import bean.NoticeData;
    
 public class CustomerNotice extends HttpServlet {

@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Notice</title>
+<title>Board</title>
 
 <script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="../js/menuLoad.js"></script>
@@ -209,7 +209,7 @@ input[type=submit] {
                    <td><%=list.get(i).getTitle()%></td>
                   
                   <%
-                     if (list.get(i).getData().toString().equals(new Date(System.currentTimeMillis()).toString())) {
+                     if (list.get(i).getDate().toString().equals(new Date(System.currentTimeMillis()).toString())) {
 
                            String[] time = list.get(i).getTime().toString().split(" ");
                   %>
@@ -219,7 +219,7 @@ input[type=submit] {
                   <%
                      } else {
                   %>
-                  <td><%=list.get(i).getData()%></td>
+                  <td><%=list.get(i).getDate()%></td>
                   <%
                      }
                   %>
