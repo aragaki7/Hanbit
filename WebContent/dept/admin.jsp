@@ -1,3 +1,6 @@
+<%@page import="db.DBConnect"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="bean.UserData"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -17,6 +20,7 @@
 	margin: 0px;
 	padding: 0px;
 }
+
 p {
 	text-align: left;
 	display: block;
@@ -110,16 +114,18 @@ hr {
 /*///////////////////////////////////////////////////////////////////////////////////////////*/
 /* 탭 선택 시 표시할 요소(div) 정의(1번 탭 선택 시 첫 번째 div 요소 표시) */
 #css_tabs input:nth-of-type(1), #css_tabs input:nth-of-type(1) ~ div:nth-of-type(1),
-#css_tabs input:nth-of-type(2), #css_tabs input:nth-of-type(2) ~ div:nth-of-type(2),
-#css_tabs input:nth-of-type(3), #css_tabs input:nth-of-type(3) ~ div:nth-of-type(3),
-#css_tabs input:nth-of-type(4), #css_tabs input:nth-of-type(4) ~ div:nth-of-type(4),
-#css_tabs input:nth-of-type(5), #css_tabs input:nth-of-type(5) ~ div:nth-of-type(5){
+	#css_tabs input:nth-of-type(2), #css_tabs input:nth-of-type(2) ~ div:nth-of-type(2),
+	#css_tabs input:nth-of-type(3), #css_tabs input:nth-of-type(3) ~ div:nth-of-type(3),
+	#css_tabs input:nth-of-type(4), #css_tabs input:nth-of-type(4) ~ div:nth-of-type(4),
+	#css_tabs input:nth-of-type(5), #css_tabs input:nth-of-type(5) ~ div:nth-of-type(5)
+	{
 	display: none;
 }
 
-#css_tabs input:nth-of-type(1):checked ~ div:nth-of-type(1), #css_tabs input:nth-of-type(2):checked ~ div:nth-of-type(2), 
-#css_tabs input:nth-of-type(3):checked ~ div:nth-of-type(3), #css_tabs input:nth-of-type(4):checked ~ div:nth-of-type(4),
-#css_tabs input:nth-of-type(5):checked ~ div:nth-of-type(5) {
+#css_tabs input:nth-of-type(1):checked ~ div:nth-of-type(1), #css_tabs input:nth-of-type(2):checked 
+	 ~ div:nth-of-type(2), #css_tabs input:nth-of-type(3):checked ~ div:nth-of-type(3),
+	#css_tabs input:nth-of-type(4):checked ~ div:nth-of-type(4), #css_tabs input:nth-of-type(5):checked 
+	 ~ div:nth-of-type(5) {
 	display: block;
 }
 /* 라벨 기본 스타일 지정 */
@@ -136,7 +142,6 @@ hr {
 	color: white;
 }
 
-
 #css_tabs>label:hover {
 	cursor: pointer;
 }
@@ -144,15 +149,19 @@ hr {
 #css_tabs label[for=tab1] {
 	margin-top: 20pt;
 }
+
 #css_tabs label[for=tab2] {
 	margin-top: 20pt;
 }
+
 #css_tabs label[for=tab3] {
 	margin-top: 20pt;
 }
+
 #css_tabs label[for=tab4] {
 	margin-top: 20pt;
 }
+
 #css_tabs label[for=tab5] {
 	margin-top: 20pt;
 }
@@ -162,56 +171,96 @@ hr {
 	background: firebrick;
 	color: white;
 }
+
 #css_tabs input:nth-of-type(2):checked ~ label:nth-of-type(2), #css_tabs>label[for=tab2]:hover
 	{
 	background: firebrick;
 	color: white;
 }
+
 #css_tabs input:nth-of-type(3):checked ~ label:nth-of-type(3), #css_tabs>label[for=tab3]:hover
 	{
 	background: firebrick;
 	color: white;
 }
+
 #css_tabs input:nth-of-type(4):checked ~ label:nth-of-type(4), #css_tabs>label[for=tab4]:hover
 	{
 	background: firebrick;
 	color: white;
 }
+
 #css_tabs input:nth-of-type(5):checked ~ label:nth-of-type(5), #css_tabs>label[for=tab5]:hover
 	{
 	background: firebrick;
 	color: white;
 }
 /* 실제 내용이 담긴 div 요소 스타일 지정 */
-#css_tabs .tab1_content, #css_tabs .tab2_content, #css_tabs .tab3_content, #css_tabs .tab4_content, #css_tabs .tab5_content {
+#css_tabs .tab1_content, #css_tabs .tab2_content, #css_tabs .tab3_content,
+	#css_tabs .tab4_content, #css_tabs .tab5_content {
 	padding: 2em;
 	height: 100%;
 }
 </style>
+
+<%!String sql;
+	PreparedStatement statemnet;
+	ResultSet rs;
+	ArrayList<UserData> list = new ArrayList<UserData>();
+
+	public void getUser(int pm) {
+
+		try {
+			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email, class_room from TB_USER join TB_CLASS on TB_USER.class_fk = TB_CLASS.class_pk where pm_fk = "
+					+ pm;
+			statemnet = DBConnect.get().prepareStatement(sql);
+			rs = statemnet.executeQuery();
+			list.clear();
+			while (rs.next()) {
+				list.add(new UserData(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9),
+						rs.getString(10)));
+			}
+		} catch (Exception e) {
+
+		} finally {
+			if (rs != null) {
+				//rs.close();
+			}
+
+			if (statemnet != null) {
+				//statemnet.close();
+			}
+		}
+
+	}%>
 <body>
 	<div class="container_12">
 		<%@ include file="../template/header.jsp"%>
 		<%@ include file="../template/nav.jsp"%>
 
 		<!-- content start -->
-		
-		<div class="grid9 content"> 
-			<p>USER LIST<br/><h4>LIST</h4></p>
-			<hr/><br/>
+
+		<div class="grid9 content">
+			<p>
+				USER LIST<br />
+			<h4>LIST</h4>
+			</p>
+			<hr />
+			<br />
 			<div id="css_tabs">
-				<input id="tab1" type="radio" name="tab" checked="checked" /> 
-				<input id="tab2" type="radio" name="tab" />
-				<input id="tab3" type="radio" name="tab" />
-				<input id="tab4" type="radio" name="tab" />
-				<input id="tab5" type="radio" name="tab" />
-				
-				<label for="tab1">일반</label>
-				<label for="tab2">학생</label>
-				<label for="tab3">교육부</label>
-				<label for="tab4">영업부</label>
-				<label for="tab5">행정부</label>
-				
-				<div class="tab1_content"> <!-- 일반 회원 -->
+				<input id="tab1" type="radio" name="tab" checked="checked" /> <input
+					id="tab2" type="radio" name="tab" /> <input id="tab3" type="radio"
+					name="tab" /> <input id="tab4" type="radio" name="tab" /> <input
+					id="tab5" type="radio" name="tab" /> <label for="tab1">일반</label>
+				<label for="tab2">학생</label> <label for="tab3">교육부</label> <label
+					for="tab4">영업부</label> <label for="tab5">행정부</label>
+
+				<div class="tab1_content">
+					<!-- 일반 회원 -->
+					<%
+						getUser(1);
+					%>
 					<div class="table">
 						<table>
 							<tr>
@@ -220,90 +269,139 @@ hr {
 								<td>이메일</td>
 								<td>강의실</td>
 							</tr>
-							
+							<%
+								for (int i = 0; i < list.size(); i++) {
+							%>
 							<tr id="row" style="cursor: hand;" onclick="#'">
-								<input type="hidden" id="id" value=""/>
-								<td>이윤아</td>
-								<td>010</td>
-								<td>8339</td>
-								<td>0604</td>
+								<input type="hidden" id="id" value="" />
+								<td><%=list.get(i).getName()%></td>
+								<td><%=list.get(i).getMobile()%></td>
+								<td><%=list.get(i).getEmail()%></td>
+								<td><%=list.get(i).getClasss()%></td>
 							</tr>
+							<%
+								}
+							%>
 						</table>
 					</div>
 				</div>
-				
-				<div class="tab2_content"> <!-- 학생 회원 -->
+
+				<div class="tab2_content">
+					<!-- 학생 회원 -->
+					<%
+						getUser(2);
+					%>
 					<div class="table">
 						<table>
 							<tr>
-								<td>이름</td>		
+								<td>이름</td>
 								<td>휴대폰번호</td>
 								<td>이메일</td>
 								<td>강의실</td>
 							</tr>
+							<%
+								for (int i = 0; i < list.size(); i++) {
+							%>
 							<tr id="row" style="cursor: hand;" onclick="#'">
-	                        	<td>박지윤</td>
-								<td>010</td>
-								<td>8339</td>
-								<td>0604</td>
+								<input type="hidden" id="id" value="" />
+								<td><%=list.get(i).getName()%></td>
+								<td><%=list.get(i).getMobile()%></td>
+								<td><%=list.get(i).getEmail()%></td>
+								<td><%=list.get(i).getClasss()%></td>
 							</tr>
+							<%
+								}
+							%>
 						</table>
 					</div>
 				</div>
-				
-				<div class="tab3_content"> <!-- 교육부 -->
+
+				<div class="tab3_content">
+					<!-- 교육부 -->
+					<%
+						getUser(5);
+					%>
 					<div class="table">
 						<table>
 							<tr>
-								<td>이름</td>		
+								<td>이름</td>
 								<td>휴대폰번호</td>
 								<td>이메일</td>
 								<td>강의실</td>
 							</tr>
+							<%
+								for (int i = 0; i < list.size(); i++) {
+							%>
 							<tr id="row" style="cursor: hand;" onclick="#'">
-	                        	<td>손지현</td>
-								<td>010</td>
-								<td>8339</td>
-								<td>0604</td>
+								<input type="hidden" id="id" value="" />
+								<td><%=list.get(i).getName()%></td>
+								<td><%=list.get(i).getMobile()%></td>
+								<td><%=list.get(i).getEmail()%></td>
+								<td><%=list.get(i).getClasss()%></td>
 							</tr>
+							<%
+								}
+							%>
 						</table>
 					</div>
 				</div>
-				
-				<div class="tab4_content"> <!-- 영업부 -->
+
+				<div class="tab4_content">
+					<!-- 영업부 -->
+					<%
+						getUser(3);
+					%>
 					<div class="table">
 						<table>
 							<tr>
-								<td>이름</td>		
+								<td>이름</td>
 								<td>휴대폰번호</td>
 								<td>이메일</td>
 								<td>강의실</td>
 							</tr>
-							<tr>
-	                        	<td>강사님</td>
-								<td>010</td>
-								<td>8339</td>
-								<td>0604</td>
+							<%
+								for (int i = 0; i < list.size(); i++) {
+							%>
+							<tr id="row" style="cursor: hand;" onclick="#'">
+								<input type="hidden" id="id" value="" />
+								<td><%=list.get(i).getName()%></td>
+								<td><%=list.get(i).getMobile()%></td>
+								<td><%=list.get(i).getEmail()%></td>
+								<td><%=list.get(i).getClasss()%></td>
 							</tr>
+							<%
+								}
+							%>
 						</table>
 					</div>
 				</div>
-				
-				<div class="tab5_content"> <!-- 행정부 -->
+
+				<div class="tab5_content">
+					<!-- 행정부 -->
+					<%
+						getUser(4);
+					%>
 					<div class="table">
 						<table>
 							<tr>
-								<td>이름</td>		
+								<td>이름</td>
 								<td>휴대폰번호</td>
 								<td>이메일</td>
 								<td>강의실</td>
 							</tr>
-							<tr>
-	                        	<td>엄마</td>
-								<td>010</td>
-								<td>8339</td>
-								<td>0604</td>
+							<%
+								for (int i = 0; i < list.size(); i++) {
+							%>
+							<tr id="row" style="cursor: hand;" onclick="#'">
+								<input type="hidden" id="id" value="" />
+								<td><%=list.get(i).getName()%></td>
+								<td><%=list.get(i).getMobile()%></td>
+								<td><%=list.get(i).getEmail()%></td>
+								<td><%=list.get(i).getClasss()%></td>
 							</tr>
+							<%
+								}
+							%>
 						</table>
 					</div>
 				</div>
