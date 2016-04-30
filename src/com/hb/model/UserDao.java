@@ -283,4 +283,32 @@ public class UserDao {
 		return result;
 	}
 
+	public ArrayList<UserData> attendAdd() {
+		ArrayList<UserData> attendlist = new ArrayList<UserData>();
+		UserData bean = new UserData();
+	
+		sql = "select name, TB_CLASS.class_room from TB_USER join TB_CLASS on class_fk = class_pk order by name desc";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				bean.setName(rs.getString(1));
+				bean.setClasss(rs.getString(2));
+				attendlist.add(bean);		
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+				try {
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+		return attendlist; 
+	}
+
 }

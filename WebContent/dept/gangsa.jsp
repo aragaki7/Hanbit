@@ -277,7 +277,7 @@ background-color:firebrick;
 
 				<div class="tab1_content"> <!-- 출결관리 -->
 					<div class="table">
-						<form action="">
+<!-- 						<form action="#" method="get"> -->
 						<table>
 							<tr>
 								<td>이름</td>
@@ -305,8 +305,8 @@ background-color:firebrick;
 							<%}%>							
 						</table>
 					</div>
-						<button type="submit" class="yes">출석 입력</button>
-						</form>
+						<button type="submit" class="yes"><a href="attendadd.do">출석 입력</a></button>
+<!-- 						</form> -->
 				</div>
 				<div class="tab2_content"> <!-- 성적관리 -->
 				<form action="../gangsa/AddGrade.jsp">
