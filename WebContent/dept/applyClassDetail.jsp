@@ -116,21 +116,21 @@ if (jsonObject2 != null) {%>
 <%}%>
 
 	$(document).ready(function(){
-		$('.yes').on('click',function(){
-			var id = $('#id').text();
-			location.href="salesy.do?id="+id;
-		});
-		$('.delete').on('click',function(){
-			var id = $('#id').text();
-			location.href="salesn.do?id="+id;
-		});
+// 		$('.yes').on('click',function(){
+// 			var id = $('#id').text();
+// 			location.href="salesy.do?id="+id;
+// 		});
+// 		$('.delete').on('click',function(){
+// 			var id = $('#id').text();
+// 			location.href="salesn.do?id="+id;
+// 		});
 	});
 </script>
 </head>
 <body>
-<!-- 영업부에서 신청승인할때 쓰는 페이지 -->
-<!-- 영업부에서 신청승인할때 쓰는 페이지 -->
-<!-- 영업부에서 신청승인할때 쓰는 페이지 -->
+<!-- 행정부에서 반배정 할때 쓰는 페이지 -->
+<!-- 행정부에서 반배정 할때 쓰는 페이지 -->
+<!-- 행정부에서 반배정 할때 쓰는 페이지 -->
 	<div class="container_12">
 		<%@ include file="../template/header.jsp" %>
 		<%@ include file="../template/nav.jsp" %>

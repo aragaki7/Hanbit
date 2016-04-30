@@ -11,7 +11,6 @@
 <script type="text/javascript" src="../js/menuLoad.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
-</head>
 <style type="text/css">
 * {
 	margin: 0px;
@@ -179,12 +178,47 @@ hr {
 	height: 100%;
 }
 </style>
+<script type="text/javascript">
+<%
+JSONObject jsonObject2 = new JSONObject();
+jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
+
+if (jsonObject2 != null) {%>
+	var pm = "<%=jsonObject2.getString("pm")%>";
+	if (!("관리자" == pm || "행정부"==pm)) {
+		alert('권한이 부족합니다.');
+		location.href="/Hanbit/main.do";
+	}else{
+		//권한이 맞음
+	}
+<%}else{%>
+	alert('권한이 부족합니다.');
+	location.href="/Hanbit/main.do";
+<%}%>
+function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
+	var rowIndex = rowValue.rowIndex;
+	return rowIndex;
+}
+var url="applyClassDetail.jsp";
+	$(document).ready(function(){
+		$('.row').on('click', function() {
+			var ridx=getRow(this);
+			// 해당 row 칼럼 순서대로 n ('.row:eq('+(ridx-1)+')>td:eq(n)')
+			alert(ridx);
+// 			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
+		});
+	});
+</script>
+</head>
 <body>
 
     
 	<%
-		ArrayList<UserData> stulist = (ArrayList<UserData>)request.getAttribute("stulist"); 
-		ArrayList<UserData> tealist = (ArrayList<UserData>)request.getAttribute("tealist");
+		ArrayList<UserData> applist = (ArrayList<UserData>)request.getAttribute("applist");//신청자 리스트 
+		ArrayList<UserData> stulist = (ArrayList<UserData>)request.getAttribute("stulist");//학생 리스트
+		ArrayList<UserData> tealist = (ArrayList<UserData>)request.getAttribute("tealist");//강사 리스트
+		ArrayList<UserData> genlist = (ArrayList<UserData>)request.getAttribute("genlist");//일반 리스트
+		ArrayList<UserData> staflist = (ArrayList<UserData>)request.getAttribute("staflist");//직원 리스트
 		
 	%>
 
@@ -194,14 +228,6 @@ hr {
 
 		<!-- content start -->
 		
-		<%
-			JSONObject jsonObject2 = new JSONObject();
-
-			jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
-
-			if (jsonObject2 != null) {
-				if (jsonObject2.getString("pm").equals("관리자")) {
-		%>
 
 		<div class="grid9 content"> 
 			<p>
@@ -220,40 +246,52 @@ hr {
 				<label for="tab3">강사</label>
 				<label for="tab4">일반</label>
 				<label for="tab5">직원</label>
-					<div class="tab1_content">
+					<div class="tab1_content"><!-- 신청자 -->
 					<div class="table">
 						<table>
 							<tr>
+								<td>아이디</td>		
 								<td>이름</td>		
 								<td>휴대폰번호</td>
 								<td>이메일</td>
 								<td>강의실</td>
 							</tr>
-
+							<%
+								for (int i = 0; i < applist.size(); i++) {
+							%>
+							<tr class="row" style="cursor: hand;">
+							<!-- jquery로 뺌 onclick="location.href='../user/stuDetail.jsp'"	> -->
+								<td><%=applist.get(i).getId()%></td>
+								<td><%=applist.get(i).getName()%></td>
+								<td><%=applist.get(i).getMobile()%></td>
+								<td><%=applist.get(i).getEmail()%></td>
+								<td><%=applist.get(i).getClasss() %></td>
+								</tr>
+							<%
+								}
+							%>
 						</table>
 					</div>
 				</div>
-				<div class="tab2_content">
+				<div class="tab2_content"><!-- 학생 -->
 					<div class="table">
 						<table>
 							<tr>
+								<td>아이디</td>
 								<td>이름</td>
 								<td>휴대폰번호</td>
 								<td>이메일</td>
 								<td>강의실</td>
 							</tr>
-							
 							<%
 								for (int i = 0; i < stulist.size(); i++) {
 							%>
-							<tr id="row" style="cursor: hand;"
-							onclick="location.href='../user/stuDetail.jsp'"	>
+							<tr class="row" style="cursor: hand;">
+							<!-- jquery로 뺌 onclick="location.href='../user/stuDetail.jsp'"	> -->
+								<td><%=stulist.get(i).getId()%></td>
 								<td><%=stulist.get(i).getName()%></td>
-					
 								<td><%=stulist.get(i).getMobile()%></td>
-						
 								<td><%=stulist.get(i).getEmail()%></td>
-
 								<td><%=stulist.get(i).getClasss() %></td>
 								</tr>
 							<%
@@ -263,94 +301,91 @@ hr {
 					</div>
 				</div>
 				
-				<div class="tab3_content">
+				<div class="tab3_content"><!-- 강사 -->
 					<div class="table">
 						<table>
 							<tr>
+								<td>아이디</td>		
 								<td>이름</td>		
 								<td>휴대폰번호</td>
 								<td>이메일</td>
 								<td>강의실</td>
 							</tr>
-
 					 <%
                         for (int i = 0; i < tealist.size(); i++) {
                      %>
-                     <tr id="row" style="cursor: hand;"
-                     onclick="location.href='../user/stuDetail.jsp'"  >
+                     <tr class="row" style="cursor: hand;">
+                     <!-- jquery로 뺌 onclick="location.href='../user/stuDetail.jsp'"  > -->
+                        <td><%=tealist.get(i).getId()%></td>
                         <td><%=tealist.get(i).getName()%></td>
-               
                         <td><%=tealist.get(i).getMobile()%></td>
-                  
                         <td><%=tealist.get(i).getEmail()%></td>
-
                         <td><%=tealist.get(i).getClasss()%></td>
                         </tr>
 					<%
 						}
 					%>	
-
 						</table>
 					</div>
 				</div>
 				
-				<div class="tab4_content">
+				<div class="tab4_content"><!-- 일반 -->
 					<div class="table">
 						<table>
 							<tr>
+								<td>아이디</td>		
 								<td>이름</td>		
 								<td>휴대폰번호</td>
 								<td>이메일</td>
 								<td>강의실</td>
 							</tr>
-
+ 						<%
+                       	 for (int i = 0; i < genlist.size(); i++) {
+                     	%>
+		                     <tr class="row" style="cursor: hand;">
+		                     <!-- jquery로 뺌 onclick="location.href='../user/stuDetail.jsp'"  > -->
+		                        <td><%=genlist.get(i).getId()%></td>
+		                        <td><%=genlist.get(i).getName()%></td>
+		                        <td><%=genlist.get(i).getMobile()%></td>
+		                        <td><%=genlist.get(i).getEmail()%></td>
+		                        <td><%=genlist.get(i).getClasss()%></td>
+		                     </tr>
+						<%
+							}
+						%>	
 						</table>
 					</div>
 				</div>
 				
-				<div class="tab5_content">
+				<div class="tab5_content"><!-- 직원 -->
 					<div class="table">
 						<table>
 							<tr> 
+								<td>아이디</td>		
 								<td>이름</td>		
 								<td>휴대폰번호</td>
 								<td>이메일</td>
-								<td>강의실</td>
+								<td>강의장</td>
 							</tr>
-
+							<%
+                       		 for (int i = 0; i < staflist.size(); i++) {
+                     		%>
+		                     <tr class="row" style="cursor: hand;">
+		                     <!-- jquery로 뺌 onclick="location.href='../user/stuDetail.jsp'"  > -->
+		                        <td><%=staflist.get(i).getId()%></td>
+		                        <td><%=staflist.get(i).getName()%></td>
+		                        <td><%=staflist.get(i).getMobile()%></td>
+		                        <td><%=staflist.get(i).getEmail()%></td>
+		                        <td><%=staflist.get(i).getClasss()%></td>
+		                     </tr>
+							<%
+							}
+							%>
 						</table>
 					</div>
 				</div>
-				
 			</div>
 		</div>
-
-		<%	}
-			} else {
-		%>
-
-		<div align="center">
-
-			<script language="javascript">
-				$(document).ready(function auth(){
-				alert("권한이 없습니다.");
-				document.location.href = "../main.jsp";
-			});
-			</script>
-			 
-			
-
-
-			<%
-				
-			%>
-	
-		<!-- </div> -->
-
-		<%
-			}
-		%>
-
 		<!-- content end -->
 		<%@ include file="../template/asideIn.jsp"%>
 		<%@ include file="../template/footer.jsp"%>

@@ -337,4 +337,83 @@ public class UserDao {
 		
 		return result;
 	}
+
+	public ArrayList<UserData> Userlist(String pm, String class_fk) {
+		ArrayList<UserData> list = new ArrayList<UserData>();
+		if("있음".equals(class_fk)){
+			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room"
+				+" from TB_USER join TB_CLASS on class_fk = class_pk "
+				+" where pm_fk = (select num from TB_PM where pm = ?) and class_fk in (select class_pk from TB_CLASS where class_room not in ('없음'))"
+				+" order by name desc";
+		}else{//입력된 강의장이 있음이 아니면( ex. 없음 or 1강의장 or 2강의장...)
+			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room"
+					+" from TB_USER join TB_CLASS on class_fk = class_pk "
+					+" where pm_fk = (select num from TB_PM where pm = ?) and class_fk = (select class_pk from TB_CLASS where class_room = ?)"
+					+" order by name desc";
+		}
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, pm);
+			if(!("있음".equals(class_fk)))
+				pstmt.setString(2, class_fk);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				list.add(new UserData(rs.getString(1), rs.getString(2), 
+						rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8), 
+						rs.getString(9), rs.getString(10)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			
+		}
+		return list;
+	}
+
+	public ArrayList<UserData> Userlist(String pm) {//만약 그냥 직원이라고 들어오면 다른 결과값으로 
+		ArrayList<UserData> list = new ArrayList<UserData>();
+		if(pm.equals("직원")){
+			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room"
+					+" from TB_USER join TB_CLASS on class_fk = class_pk"
+					+" where pm_fk in (select num from TB_PM where pm in ('영업부','행정부','교육부','관리자'))"
+					+" order by name desc";
+		}else{
+			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room"
+					+" from TB_USER join TB_CLASS on class_fk = class_pk"
+					+" where pm_fk = (select num from TB_PM where pm = ?)"
+					+" order by name desc";
+		}
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			if(!pm.equals("직원"))//입력값이 직원이 아니면 pm셋팅
+				pstmt.setString(1, pm);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				list.add(new UserData(rs.getString(1), rs.getString(2), 
+						rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8), 
+						rs.getString(9), rs.getString(10)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			
+		}
+		return list;
+	}
 }

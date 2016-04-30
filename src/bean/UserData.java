@@ -12,8 +12,14 @@ public class UserData {
 	private String mobile;
 	private String email;
 	private String classs;
-
 	
+	@Override
+	public String toString() {
+		return "UserData [id=" + id + ", name=" + name + ", post=" + post + ", main_address=" + main_address
+				+ ", sub_address=" + sub_address + ", sex=" + sex + ", phone=" + phone + ", mobile=" + mobile
+				+ ", email=" + email + ", classs=" + classs + "]";
+	}
+
 	public UserData(){
 		
 	}
