@@ -109,15 +109,42 @@
 <script type="text/javascript" >
 $(document).ready(function(){
 	$( "#datepicker" ).datepicker({
-		showOn: "button",
-		buttonImage: "../imgs/calendar.png",
-		buttonImageOnly: true,
+		/* 
+		달력 UI 편집
+		*/
+		showOn: "button", // 버튼을 캘린더에 표시함
+		changeYear: true, //년도 변경 가능
+		changeMonth: true, //월 변경 가능
+		prevText: '이전달',
+		nextText: '다음달',  
+		currentText: '오늘',
+		monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+		monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],  
+        dayNames: ['일', '월', '화', '수', '목', '금', '토'],  
+        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],  
+        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],   
+        yearSuffix: '년',  
+		buttonImage: "../imgs/calendar.png", //달력 표시 버튼 이미지 경로
+		buttonImageOnly: true, // 버튼에 있는 이미지만 표시
 		buttonText: "Select date",
-		dateFormat:"yymmdd",
-		
-		
+		dateFormat:"yymmdd", //날짜 출력 포맷 20160501
 	 });
-});
+	
+	/* 
+	체크박스 단일선택만 가능하게
+	*/
+		
+    //라디오 요소처럼 동작시킬 체크박스 그룹 셀렉터
+    $('input[type="checkbox"][name="attend"]').click(function(){
+        //클릭 이벤트 발생한 요소가 체크 상태인 경우
+        if ($(this).prop('checked')) {
+            //체크박스 그룹의 요소 전체를 체크 해제후 클릭한 요소 체크 상태지정
+            $('input[type="checkbox"][name="attend"]').prop('checked', false);
+            $(this).prop('checked', true);
+        }
+   	});
+}); // document ready end
+
 
 </script>
 </head>
