@@ -2,6 +2,7 @@ package com.hb.controller.dept;
 
 	import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +22,15 @@ import bean.UserData;
 			UserDao dao1 = new UserDao();
 			ArrayList<UserData> stulist = dao1.Userlist(2);
 			request.setAttribute("stulist", stulist);
+			
+//			String name = request.getParameter("name");
+//			String classroom = request.getParameter("class");
+//			String[] check = request.getParameterValues("attend");
+//			for (int i = 0; i < check.length; i++) {
+//				System.out.println(check[i]);
+//			}
+			
+			UserDao attdao = new UserDao();
 			
 			GradeDao dao = new GradeDao();
 			ArrayList<GreadeData> list = dao.gradeList();

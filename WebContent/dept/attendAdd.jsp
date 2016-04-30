@@ -112,7 +112,10 @@ $(document).ready(function(){
 		showOn: "button",
 		buttonImage: "../imgs/calendar.png",
 		buttonImageOnly: true,
-		buttonText: "Select date"
+		buttonText: "Select date",
+		dateFormat:"yymmdd",
+		
+		
 	 });
 });
 
@@ -130,34 +133,33 @@ $(document).ready(function(){
 			<hr/><br/>
 <!-- 			<form action="../student/GradeList.jsp"> -->
 			<div class="table" >
-                <form action="">
+                <form action="attendaddlist.do">
                 <table>
                     <tr>
                        	<td>이름</td>
 						<td>강의실</td>
-						<td><input type="text" id="datepicker" name="attenddate"/></td>
+						<td><input type="text" id="datepicker" value="" name="attenddate"/></td>
                     </tr>
+                    
 	                <%ArrayList<UserData> attendlist = (ArrayList<UserData>)request.getAttribute("attendlist");%>
-                    <% for(int i=0; i<attendlist.size(); i++){ 
-                    %>
+	                
+                    <% for(int i=0; i<attendlist.size(); i++){%>
                     <tr>
-                       	<td><input type="text" readonly="readonly" name="name" value="<%=attendlist.get(i).getName() %>"/></td>
-                        <td><input type="text" readonly="readonly" name="class" value="<%=attendlist.get(i).getClasss() %>"/></td>
+                    	<input type="hidden" readonly="readonly" name="id" value="<%=attendlist.get(i).getId()%>"/>
+                       	<td><input type="text" disabled="disabled" name="name" value="<%=attendlist.get(i).getName() %>"/></td>
+                        <td><input type="text" disabled="disabled" name="class" value="<%=attendlist.get(i).getClasss() %>"/></td>
                         <td>
-                        	<select>
-								<option value="0" selected="selected">출석</option>
-								<option value="1">지각</option>
-								<option value="2">조퇴</option>
-								<option value="3">결석</option>
-							</select>
-                        </td>
+                        	<input type="checkbox" value="0" name="attend" checked="checked"/>출석
+                        	<input type="checkbox" value="1" name="attend" />지각
+                        	<input type="checkbox" value="2" name="attend"/>조퇴
+                        	<input type="checkbox" value="3" name="attend"/>결석
+                   	    </td>
                     </tr>
                    <% } %>
                 </table>
-                </form>
             </div>
  				 <button type="submit" class="edit" >입력</button>
-<!--  			</form> -->
+ 			</form>
 		</div>
 		<!-- content end -->
 		

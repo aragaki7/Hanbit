@@ -285,24 +285,27 @@ public class UserDao {
 
 	public ArrayList<UserData> attendAdd() {
 		ArrayList<UserData> attendlist = new ArrayList<UserData>();
-		UserData bean = new UserData();
 	
-		sql = "select name, TB_CLASS.class_room from TB_USER join TB_CLASS on class_fk = class_pk order by name desc";
+		sql = "select id, name, TB_CLASS.class_room from TB_USER join TB_CLASS on class_fk = class_pk where pm_fk = 2 order by name";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			while(rs.next()){
-				bean.setName(rs.getString(1));
-				bean.setClasss(rs.getString(2));
-				attendlist.add(bean);		
-			}
 			
+			while(rs.next()){
+				
+				UserData bean = new UserData();
+				bean.setId(rs.getString(1));
+				bean.setName(rs.getString(2));
+				bean.setClasss(rs.getString(3));
+				attendlist.add(bean);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			
 				try {
+					if(rs != null)rs.close();
 					if(pstmt != null)pstmt.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
@@ -311,4 +314,27 @@ public class UserDao {
 		return attendlist; 
 	}
 
+	public int attendInsert(String id, int check, String date) {
+		int result = 0;
+		
+		String sql = "INSERT INTO TB_ATTEN (id, att, days) VALUES (?,?,?)";
+			try {
+				pstmt = DBConnect.get().prepareStatement(sql);
+				pstmt.setString(1, id);
+				pstmt.setInt(2, check);
+				pstmt.setString(3, date);
+				result = pstmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally{
+					try {
+						if(pstmt !=null)pstmt.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+			}
+		
+		return result;
+	}
 }
