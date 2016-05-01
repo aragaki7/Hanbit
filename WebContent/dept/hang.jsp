@@ -195,17 +195,27 @@ if (jsonObject2 != null) {%>
 	alert('권한이 부족합니다.');
 	location.href="/Hanbit/main.do";
 <%}%>
+<%
+String result = request.getParameter("result");
+if(result!=null){
+	if("y".equals(result)){%>
+		alert('수정이 완료되었습니다.');
+	<%
+	}
+}
+%>
+
 function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 	var rowIndex = rowValue.rowIndex;
 	return rowIndex;
 }
-var url="applyClassDetail.jsp";
 	$(document).ready(function(){
-		$('.row').on('click', function() {
+		
+		$('.applist').on('click', function() {
 			var ridx=getRow(this);
 			// 해당 row 칼럼 순서대로 n ('.row:eq('+(ridx-1)+')>td:eq(n)')
-			alert(ridx);
-// 			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
+			var id = $('.row:eq('+(ridx-1)+')>td:eq(0)').text();
+			location.href="hang.applDetail?id="+id;
 		});
 	});
 </script>
@@ -259,7 +269,7 @@ var url="applyClassDetail.jsp";
 							<%
 								for (int i = 0; i < applist.size(); i++) {
 							%>
-							<tr class="row" style="cursor: hand;">
+							<tr class="row applist" style="cursor: hand;">
 							<!-- jquery로 뺌 onclick="location.href='../user/stuDetail.jsp'"	> -->
 								<td><%=applist.get(i).getId()%></td>
 								<td><%=applist.get(i).getName()%></td>

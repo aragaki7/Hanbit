@@ -54,6 +54,9 @@ import com.hb.model.UserDao;
 			request.setAttribute("tealist", tealist);
 			request.setAttribute("genlist", genlist);
 			request.setAttribute("staflist", staflist);
+			
+
+			
 			request.getRequestDispatcher("/dept/hang.jsp").forward(request, response);
 		}
 	}

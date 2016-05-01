@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import net.sf.json.JSONObject;
 import bean.UserData;
+import bean.UserDataPw;
 import net.sf.json.JSONObject;//json쓸때 필요한거. 지우지 말아주세요
 import db.DBConnect;
 
@@ -198,7 +199,6 @@ public class UserDao {
 		int result = 0;
 		
 		String query = "update TB_USER set password=password(?), name=?, post=?, main_address=?, sub_address=?, phone=?, mobile=?, email=?, pm_fk=?, class_fk=1 where id=?";//1은 강의실. 강의실 없음을 의미
-		System.out.println(query);
 		try {
 			
 			
@@ -415,5 +415,67 @@ public class UserDao {
 			
 		}
 		return list;
+	}
+
+	public UserDataPw selectOnepw(String id) {
+		UserDataPw bean = new UserDataPw();
+		
+		try {
+			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email, TB_PM.pm, TB_CLASS.class_room"
+					+" from TB_USER join TB_CLASS on class_fk = class_pk join TB_PM on pm_fk= TB_PM.num"+
+					" where id=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				bean.setId(rs.getString(1));
+				bean.setName(rs.getNString(2));
+				bean.setPost(rs.getString(3));
+				bean.setMain_address(rs.getString(4));
+				bean.setSub_address(rs.getString(5));
+				bean.setSex(rs.getString(6));
+				bean.setPhone(rs.getString(7));
+				bean.setMobile(rs.getString(8));
+				bean.setEmail(rs.getString(9));
+				bean.setPw(rs.getString(10));
+				bean.setClasss(rs.getString(11));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+		
+		return bean;
+	}
+
+	/**
+	 * 강의장 바꾸는 메소드
+	 * @int
+	 */
+	public int editGang(String id, String gang) {
+		int result=0;
+		sql="update TB_USER set class_fk =? where id=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, gang);
+			pstmt.setString(2, id);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
 	}
 }
