@@ -240,7 +240,14 @@ hr {
 		<%@ include file="../template/nav.jsp"%>
 
 		<!-- content start -->
+		<%
+			JSONObject jsonObject = new JSONObject();
 
+			jsonObject = (JSONObject) session.getAttribute("jsonObj");
+
+			if (jsonObject != null) {
+				if (jsonObject.getString("pm").equals("관리자")) {
+		%>
 		<div class="grid9 content">
 			<p>
 				USER LIST<br />
@@ -406,8 +413,32 @@ hr {
 					</div>
 				</div>
 			</div>
-		</div>
 
+		</div>
+		<%
+			}
+			} else {
+		%>
+		<div align="center">
+
+			<script language="javascript">
+				$(document).ready(function auth(){
+				alert("권한이 없습니다.");
+				document.location.href = "../main.jsp";
+			});
+			</script>
+
+
+
+
+			<%
+				
+			%>
+		</div>
+		<%
+			}
+			
+		%>
 		<!-- content end -->
 		<%@ include file="../template/asideIn.jsp"%>
 		<%@ include file="../template/footer.jsp"%>
