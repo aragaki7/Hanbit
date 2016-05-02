@@ -122,7 +122,6 @@ function attendLowCheck(){
 	  lo_this= window.e.getTarget();
 	 }
 	    var attendlow  = lo_this.parentNode.parentNode.rowIndex;
-// 	    alert(att/*  */endlow);
 	    return attendlow;
 	 }
 
@@ -153,7 +152,6 @@ $(document).ready(function(){
 	    	attendlow = attendLowCheck(); //attendLowCheck() 함수호출받아 attendlow 에 저장
 	    	attendlow -= 1; // 
 	       	if ($('.attendlow:eq('+attendlow+')>input').prop('checked')) {
-	       		 $('.attendlow:eq('+attendlow+')>input').prop('checked', false);
 	    		$('.attendlow:eq('+attendlow+')>input').prop('checked', false);
 	            $(this).prop('checked', true);
 	         } else {
