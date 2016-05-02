@@ -24,6 +24,7 @@ public class UserDao {
 		conn = DBConnect.get();
 	}
 
+
 	public ArrayList<UserData> Userlist(int pm) {
 
 		ArrayList<UserData> stulist = new ArrayList<UserData>();
@@ -533,5 +534,12 @@ public class UserDao {
 			
 		}
 		return pw;
+	}
+
+	public ArrayList daySearch(String dateSearch) {
+		ArrayList<UserData> list = new ArrayList<UserData>();
+		
+		
+		return list;
 	}
 }

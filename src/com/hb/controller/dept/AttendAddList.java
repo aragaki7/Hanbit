@@ -29,7 +29,10 @@ public class AttendAddList extends HttpServlet {
 			result += attinsert.attendInsert(id, check, date);
 		}
 		System.out.println(result);
-		req.getRequestDispatcher("/dept/attendAddList.jsp").forward(req, resp);
+		
+		if(result>0){
+			resp.sendRedirect("../dept/gangsa.do");
+		}
 		
 	}
 }

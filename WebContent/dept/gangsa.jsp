@@ -181,6 +181,14 @@ background-color:firebrick;
 	width:30px;
 	height: 25px;
 }
+
+#dateSearch{
+	background: gray;
+	text-align: center;
+	width:50px;
+	height: 20px;
+	border: 0px;
+}
 </style>
 <script type="text/javascript">
 	function getRow(rowValue) {
@@ -208,10 +216,25 @@ background-color:firebrick;
 		});
 		
 		$( "#datepicker" ).datepicker({
-			showOn: "button",
-			buttonImage: "../imgs/calendar.png",
-			buttonImageOnly: true,
-			buttonText: "Select date"
+			/* 
+			달력 UI 편집
+			*/
+			showOn: "button", // 버튼을 캘린더에 표시함
+			changeYear: true, //년도 변경 가능
+			changeMonth: true, //월 변경 가능
+			prevText: '이전달',
+			nextText: '다음달',  
+			currentText: '오늘',
+			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],  
+	        dayNames: ['일', '월', '화', '수', '목', '금', '토'],  
+	        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],  
+	        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],   
+	        yearSuffix: '년',  
+			buttonImage: "../imgs/calendar.png", //달력 표시 버튼 이미지 경로
+			buttonImageOnly: true, // 버튼에 있는 이미지만 표시
+			buttonText: "Select date",
+			dateFormat:"yymmdd", //날짜 출력 포맷 20160501
 		 });
 	});
 </script>
@@ -277,21 +300,23 @@ background-color:firebrick;
 
 				<div class="tab1_content"> <!-- 출결관리 -->
 					<div class="table">
-<!-- 						<form action="#" method="get"> -->
+						<form action="datesearch.do" method="get"> 
 						<table>
 							<tr>
 								<td>이름</td>
 								<td>휴대폰번호</td>
-								<td>이메일</td>
+								<!-- <td>이메일</td> -->
 								<td>강의실</td>
-								<td><input type="hidden" id="datepicker"/></td>
+								<td><input type="text" id="datepicker" value="" name="dateSearch"/>
+									<button type="submit">검색</button>
+								</td>
 							</tr>
-							
+						</form>	
 							<% for(int i=0; i<stulist.size();i++){ %> 
 							<tr>
 								<td><%=stulist.get(i).getName()%></td>
 								<td><%=stulist.get(i).getMobile()%></td>
-								<td><%=stulist.get(i).getEmail()%></td>
+								<%-- <td><%=stulist.get(i).getEmail()%></td> --%>
 								<td><%=stulist.get(i).getClasss() %></td>
 								<td>
 									<select>
