@@ -119,7 +119,7 @@
    <%@ include file="../template/nav.jsp"%>
       
    <!-- content start -->
-   		<%
+   		<%  
 			NoticeData dto = (NoticeData)request.getAttribute("noticeDto");
 		%>
    <div class="row grid9 content">
@@ -131,7 +131,7 @@
                <tr align="center">
                   <th colspan="2" id="boardtitle"><%=dto.getTitle() %></th>
                </tr>
-            </thead>
+            </thead>  
             <tbody>
                <tr>
                   <td>작성일</td>

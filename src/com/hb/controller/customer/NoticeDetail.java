@@ -14,7 +14,7 @@ import com.hb.model.UserDao;
 
 import bean.NoticeData;
 import bean.UserData;
-   
+     
 @WebServlet("/customer/noticedetail.do")
 public class NoticeDetail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -14,7 +14,7 @@ public class NoticeDao {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	private String sql;
-	
+	  
 	public NoticeDao() {
 		conn = DBConnect.get();
 	}
@@ -54,7 +54,7 @@ public class NoticeDao {
 				bean.setName(rs.getString(1));
 				bean.setTitle(rs.getString(2));
 				bean.setData(rs.getDate(3));
-				bean.setCount(rs.getInt(5));
+				bean.setCount(rs.getInt(4));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

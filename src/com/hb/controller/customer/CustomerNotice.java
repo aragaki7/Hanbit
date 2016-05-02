@@ -22,3 +22,4 @@ public class CustomerNotice extends HttpServlet {
 		request.getRequestDispatcher("/customer/notice.jsp").forward(request, response);
 	}
 }
+ 
