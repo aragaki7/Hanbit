@@ -173,7 +173,7 @@
       });
    
       $( "#del" ).click(function(event) { //삭제하기
-         location.href='../customer/boarddel.do?index='+index; 
+         location.href='../customer/boarddel.do'; 
       });
    });
 </script>
