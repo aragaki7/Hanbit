@@ -19,7 +19,7 @@ public class BoardDao {
 
 	public ArrayList<BoardData> BoardList() {
 		ArrayList<BoardData> list=new ArrayList<BoardData>();
-		String sql="select index, TB_USER.name, title, days, time, count from TB_BBS join TB_USER on TB_BBS.id_fk = TB_USER.id order by index desc";
+		String sql="select TB_BBS.index, TB_USER.name, title, days, time, count from TB_BBS join TB_USER on TB_BBS.id_fk = TB_USER.id order by TB_BBS.index desc";
 	try {
 		pstmt = DBConnect.get().prepareStatement(sql);
 		rs = pstmt.executeQuery();

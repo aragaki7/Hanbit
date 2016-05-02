@@ -247,7 +247,7 @@ input[type=submit] {
                      if (jsonObject.getString("pm").equals("관리자")) {
                %>
 
-               <a href="../ckeditor/board.jsp"> <input type="button" value="글쓰기" class="yes"></a>
+               <a href="../customer/boardAdd.jsp"> <input type="button" value="글쓰기" class="yes"></a>
                <%
                   }
                   }
