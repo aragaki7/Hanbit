@@ -3,7 +3,7 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>자유게시판 등록</title>
 	<script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
@@ -13,7 +13,7 @@
         $(document).ready(function(){
             $('.back').click(function(){
                 window.location.href = "../customer/board.do";
-            });
+            }); 
         }); 
   </script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css"/>

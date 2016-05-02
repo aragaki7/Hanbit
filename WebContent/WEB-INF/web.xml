@@ -169,6 +169,14 @@
     <servlet-name>customer.notice</servlet-name>
     <url-pattern>/customer/notice.do</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>customer.noticedetail</servlet-name>
+    <servlet-class>com.hb.controller.customer.NoticeDetail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>customer.noticedetail</servlet-name>
+    <url-pattern>/customer/noticedetail.do</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>customer.board</servlet-name>
     <servlet-class>com.hb.controller.customer.CustomerBoard</servlet-class>
@@ -177,6 +185,16 @@
     <servlet-name>customer.board</servlet-name>
     <url-pattern>/customer/board.do</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>customer.boarddetail</servlet-name>
+    <servlet-class>com.hb.controller.customer.BoardDetail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>customer.boarddetail</servlet-name>
+    <url-pattern> /customer/boardDetail.do</url-pattern>
+  </servlet-mapping>
+  
+ 
   <servlet>
     <servlet-name>gradeList</servlet-name>
     <servlet-class>com.hb.controller.cnt.ListCntController</servlet-class>

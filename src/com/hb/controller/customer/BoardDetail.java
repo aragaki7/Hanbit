@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.hb.model.BoardDao;
 import com.hb.model.UserDao;
 
-import bean.BoardData;
+import bean.BoardData; 
 import bean.UserData;
      
-@WebServlet("/customer/boardDetail.do")
+//@WebServlet("/customer/boardDetail.do")
 public class BoardDetail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String index = request.getParameter("index");

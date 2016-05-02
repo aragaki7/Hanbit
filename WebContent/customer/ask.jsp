@@ -1,3 +1,4 @@
+<%@page import="bean.AskData"%>
 <%@page import="javax.xml.crypto.Data"%>
 <%@page import="java.sql.Date"%>
 <%@page import="bean.BoardData"%>
@@ -128,7 +129,26 @@ hr {
 	background-color: firebrick;
 }
 </style>
+<script type="text/javascript">
+function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
+	var rowIndex = rowValue.rowIndex;
+	return rowIndex;
+}
+
+	$(document).ready(function(){
+		$('.rownum').on('click', function() {
+			var ridx=getRow(this);
+// 			alert("ridx : "+ridx);
+		    var id = $('.rownum:eq('+(ridx-1)+')>td:eq(0)').text();//$('.rownum:eq(n)>td:eq(0)').text();id 받음
+			location.href="/Hanbit/customer/askdetail.do?id="+id;
+		});
+		
+	});
+	
+
+</script>
 </head>
+<<<<<<< HEAD
 
 <%!PreparedStatement statement;
 	ResultSet rs;
@@ -155,13 +175,15 @@ hr {
 	}
 %>
 
+=======
+>>>>>>> branch 'master' of https://github.com/aragaki7/Hanbit.git
 <body>
-	<div class="container_12">
-		<%@ include file="../template/header.jsp"%>
-		<%@ include file="../template/nav.jsp"%>
 
-		<!-- content start -->
+   <div class="container_12">
+      <%@ include file="../template/header.jsp"%>
+      <%@ include file="../template/nav.jsp"%>
 
+<<<<<<< HEAD
 		<div class="grid9">
 			<!--  게시판 내용 시작-->
 			<p>1:1 문의</p>
@@ -188,7 +210,35 @@ hr {
 						<td><%=list.get(i).getTime()%></td>
 						<td><%=list.get(i).getCount()%></td>
 					</tr>
+=======
+      <!-- content start -->
+<%
+      ArrayList<AskData> list= (ArrayList<AskData>)request.getAttribute("list");
+%>
+       <div class="grid9">
+         <!--  1:1문의 내용 시작-->
+         <p>1:1 문의
+         
+         </p>
+         <hr />
+         <br />
+         <div class="table">
+            <table style="width: 100%">
+                  <col style="width:5%">
+                  <col style="width:15%">
+                  <col style="width:55%">
+                  <col style="width:15%">
+                  <col style="width:10%">
+                  <tr>
+                     <td>index</td>
+                     <td>작성자</td>
+                     <td>제목</td>
+                     <td>날짜</td>
+                     <td>시간</td>
+                  </tr>
+>>>>>>> branch 'master' of https://github.com/aragaki7/Hanbit.git
 
+<<<<<<< HEAD
 					<%
 						} else {
 					%>
@@ -204,6 +254,37 @@ hr {
 						}
 					%>
 				</table>
+=======
+               <%
+                  for (int i = 0; i < list.size(); i++) {
+               %>
+               <tr id="row" style="cursor: hand;" onclick="location.href='#'">
+                  <td><%=list.get(i).getNum() %></td>
+                  <td><%=list.get(i).getId() %></td>
+                   <td><%=list.get(i).getTitle()%></td>
+                  
+                  <%
+                     if (list.get(i).getDate().toString().equals(new Date(System.currentTimeMillis()).toString())) {
+
+                           String[] time = list.get(i).getTime().toString().split(" ");
+                  %>
+
+                  <td><%=time[1]%></td>
+
+                  <%
+                     } else {
+                  %>
+                  <td><%=list.get(i).getDate()%></td>
+                  <%
+                     }
+                  %>
+
+               </tr>
+               <%
+                  }
+               %>
+               </table>
+>>>>>>> branch 'master' of https://github.com/aragaki7/Hanbit.git
 			</div>
 			<div id="write">
 				<a href="../ckeditor/ask.jsp"> <input type="button" value="글쓰기"

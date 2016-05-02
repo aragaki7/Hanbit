@@ -199,7 +199,7 @@
                   <th colspan="2" id="boardtitle"><%=dto.getTitle() %></th>
                </tr>
             </thead>
-            <tbody> 
+            <tbody>  
                <tr>
                   <td>작성일</td>
                   <td><%=dto.getDate() %></td>
