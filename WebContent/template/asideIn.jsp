@@ -22,17 +22,20 @@
 }
 
 #dday3{
+	color: #50AF49;
 	font-size:20pt;
 	font-weight: bold;
 	margin-left:85pt;
 }
 
 .dday4{
+	color: #50AF49;
 	font-size:20pt;
 	font-weight: bold;
 	margin-left:5pt;
 }
 #dday23{
+	color: #50AF49;
 	text-align:center;
 	margin-left:14pt;
 }
