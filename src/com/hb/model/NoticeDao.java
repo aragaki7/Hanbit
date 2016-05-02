@@ -14,7 +14,7 @@ public class NoticeDao {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	private String sql;
-	  
+	
 	public NoticeDao() {
 		conn = DBConnect.get();
 	}
