@@ -12,11 +12,11 @@ import com.hb.model.AskDao;
 import bean.AskData;
 
 public class CustomerAsk extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AskDao dao = new AskDao();
-		ArrayList<AskData> list = dao.AskList();
-		request.setAttribute("list", list);
-		
-		request.getRequestDispatcher("/customer/ask.jsp").forward(request, response);
-	}
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      AskDao dao = new AskDao();
+      ArrayList<AskData> list = dao.AskList();
+      request.setAttribute("list", list);
+      
+      request.getRequestDispatcher("/customer/ask.jsp").forward(request, response);
+   }
 }
