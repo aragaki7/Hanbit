@@ -117,9 +117,9 @@ label {
 </head>
 
 <body>
-<!-- 행정부에서 반배정 할때 쓰는 페이지 -->
-<!-- 행정부에서 반배정 할때 쓰는 페이지 -->
-<!-- 행정부에서 반배정 할때 쓰는 페이지 -->
+<!-- 행정부에서 강사 반 수정 할때 쓰는 페이지 -->
+<!-- 행정부에서 강사 반 수정 할때 쓰는 페이지 -->
+<!-- 행정부에서 강사 반 수정 할때 쓰는 페이지 -->
 		<%
 			UserDataPw dto = (UserDataPw)request.getAttribute("userDto");
 		%>
@@ -132,8 +132,8 @@ label {
 
 		<br />
 		<div class="grid9 content">
-			<form action="stuassign.do">
-				<p id="p1">신청학생 상세페이지</p>
+			<form action="hang.teaEdit">
+				<p id="p1">학생 상세페이지</p>
 				<hr />
 				<br />
 				<table class="join_tbl">
@@ -173,19 +173,25 @@ label {
 							</td>
 					</tr>
 					<tr>
+					<%
+						String cs = dto.getClasss();
+						System.out.println("id : "+dto.getId());
+						System.out.println("cs : "+cs);
+					%>
 						<th>강의실</th>
 						<td colspan="3">
 							<select name="gang">
-								<option value="1">없음</option>
-								<option value="2">1강의실</option>
-								<option value="3">2강의실</option>
-								<option value="4">3강의실</option>
+								<option value="1" <%=(cs.equals("없음"))?"selected":""%>>없음</option>
+								<option value="2" <%=(cs.equals("1강의장"))?"selected":""%>>1강의실</option>
+								<option value="3"<%=(cs.equals("2강의장"))?"selected":""%>>2강의실</option>
+								<option value="4"<%=(cs.equals("3강의장"))?"selected":""%>>3강의실</option>
 							</select>
 						</td>
 					</tr>
 				</table>
 				<input type="hidden" name="id" value="<%=dto.getId()%>"/>
-				<button type="submit" class="back" >수락</button>
+				<button type="submit" class="back" >수정</button>
+				
 			</form>
 		</div>
 		<!-- content end -->

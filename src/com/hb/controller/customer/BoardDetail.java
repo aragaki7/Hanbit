@@ -19,7 +19,7 @@ import bean.UserData;
 public class BoardDetail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String index = request.getParameter("index");
-
+ 
 		BoardDao dao = new BoardDao();
 		BoardData bean = dao.selectOne(index);
 		

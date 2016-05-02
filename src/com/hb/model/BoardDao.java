@@ -48,7 +48,7 @@ public class BoardDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, index);
 			rs = pstmt.executeQuery();
-			if (rs.next()) {
+			if (rs.next()) {  
 				bean.setName(rs.getString(1));
 				bean.setTitle(rs.getString(2));
 				bean.setContent(rs.getString(3));

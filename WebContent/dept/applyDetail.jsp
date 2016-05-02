@@ -141,7 +141,7 @@ if (jsonObject2 != null) {%>
 		%>
 		<br/><div class="grid9 content">
 		<form action="#">
-			<p id="p1">신청학생 상세페이지</p>
+			<p id="p1">신청자 상세페이지</p>
 			<hr/><br/>
 				<table class="join_tbl">
 					<colgroup>

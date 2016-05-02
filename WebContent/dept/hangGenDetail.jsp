@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>신청 회원 정보</title>
+<title>직원 정보</title>
 <script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="../js/menuLoad.js"></script>
 <script type="text/javascript" src="../js/joinVaild.js"></script>
@@ -114,12 +114,19 @@ label {
 	font-size: 12pt;
 }
 </style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.back').on('click',function(){
+			location.href="hang.do";
+		});
+	});
+</script>
 </head>
 
 <body>
-<!-- 행정부에서 반배정 할때 쓰는 페이지 -->
-<!-- 행정부에서 반배정 할때 쓰는 페이지 -->
-<!-- 행정부에서 반배정 할때 쓰는 페이지 -->
+<!-- 행정부에서 일반, 직원 정보 확인 할때 쓰는 페이지 -->
+<!-- 행정부에서 일반, 직원 정보 확인 할때 쓰는 페이지 -->
+<!-- 행정부에서 일반, 직원 정보 확인 할때 쓰는 페이지 -->
 		<%
 			UserDataPw dto = (UserDataPw)request.getAttribute("userDto");
 		%>
@@ -132,8 +139,8 @@ label {
 
 		<br />
 		<div class="grid9 content">
-			<form action="stuassign.do">
-				<p id="p1">신청학생 상세페이지</p>
+<!-- 			<form action="hang.teaEdit"> -->
+				<p id="p1">학생 상세페이지</p>
 				<hr />
 				<br />
 				<table class="join_tbl">
@@ -173,20 +180,14 @@ label {
 							</td>
 					</tr>
 					<tr>
-						<th>강의실</th>
-						<td colspan="3">
-							<select name="gang">
-								<option value="1">없음</option>
-								<option value="2">1강의실</option>
-								<option value="3">2강의실</option>
-								<option value="4">3강의실</option>
-							</select>
-						</td>
+						<th>구분</th>
+						<td colspan="3"><span> <%=dto.getPw() %></span>
+							</td>
 					</tr>
 				</table>
-				<input type="hidden" name="id" value="<%=dto.getId()%>"/>
-				<button type="submit" class="back" >수락</button>
-			</form>
+				<button type="button" class="back" >확인</button>
+				
+<!-- 			</form> -->
 		</div>
 		<!-- content end -->
 

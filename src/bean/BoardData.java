@@ -28,7 +28,7 @@ public class BoardData {
 
 	public int getNum() {
 		return num;
-	}
+	}  
 
 	public String getName() {
 		return name;

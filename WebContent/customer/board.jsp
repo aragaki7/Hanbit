@@ -234,7 +234,7 @@ input[type=submit] {
                      } else {
                   %>
                   <td><%=list.get(i).getDate()%></td>
-                  <%
+                  <%  
                      }
                   %>
                   <td><%=list.get(i).getCount()%></td>

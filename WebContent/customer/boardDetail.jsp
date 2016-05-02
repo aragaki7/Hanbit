@@ -210,7 +210,7 @@
                   <td>글쓴이</td>
                   <td><%=dto.getName() %><span id="clickconents">조회 :  <%=dto.getCount() %></span></td>
                </tr>
-               <tr>
+               <tr>  
                   <td colspan="2"><p><%=dto.getContent() %></p></td>
                </tr>
             </tbody>
