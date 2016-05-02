@@ -107,10 +107,24 @@
  	}
 </style>
 <script type="text/javascript" >
-function getRow(rowValue) {
+/* function getRow(rowValue) {
 	var rowIndex = rowValue.rowIndex;
 	return rowIndex;
-}
+} */
+var attendlow = 0;
+function attendLowCheck(){
+	var lo_this;
+	 //IE 계열
+	 if(event) {
+	  lo_this= window.event.srcElement;
+	 //none IE 계열
+	 } else {
+	  lo_this= window.e.getTarget();
+	 }
+	    var attendlow  = lo_this.parentNode.parentNode.rowIndex;
+// 	    alert(att/*  */endlow);
+	    return attendlow;
+	 }
 
 $(document).ready(function(){
 	$( "#datepicker" ).datepicker({
@@ -134,121 +148,20 @@ $(document).ready(function(){
 		buttonText: "Select date",
 		dateFormat:"yymmdd", //날짜 출력 포맷 20160501
 	 });
-	
-	/* 
-	체크박스 단일선택만 가능하게
-	*/
-		
-    //라디오 요소처럼 동작시킬 체크박스 그룹 셀렉터
-   /*   $('input[type="checkbox"][name="attend"]').click(function(){
-        //클릭 이벤트 발생한 요소가 체크 상태인 경우
-        if ($(this).prop('checked')) {
-            //체크박스 그룹의 요소 전체를 체크 해제후 클릭한 요소 체크 상태지정
-            $('input[type="checkbox"][name="attend"]').prop('checked', false);
-            $(this).prop('checked', true);
-        }
-   	});   */
-  /*  		var i = 0;
-    	$("input:checkbox").each(function(i){
-   		$("input:checkbox:eq(i)").prop("checked", true);
-    	if($(this).prop('checked')){
-    		 $('input:checkbox:eq(i)').prop('checked', false);
-    	}
-    	i+=4;
-   	});  */
-  /* 	 
-   	 var i = 0;
-   	$("input:checkbox").each(function(){
-   		$("input:checkbox:eq(i)").prop("checked", true);
-   		if($(this).prop('che'))
-   		
-   	});
-   	
-	 $('input[type="checkbox"][name="attend"]').click(function(){
-	        //클릭 이벤트 발생한 요소가 체크 상태인 경우
-	        if ($(this).prop('checked')) {
-	            //체크박스 그룹의 요소 전체를 체크 해제후 클릭한 요소 체크 상태지정
-	            $('input[type="checkbox"][checked="checked"]').prop('checked', false);
-	            $(this).prop('checked', true);
-	        }
-	    }); */
-	    
-//  	var attendlow = document.getElementsByClassName("attendlow");  
-	    var attendlow = 0;
-	    
-// 		$('.attendlow>input').click(function(){
-// 	    	   attendlow = $('.attendlow').index(this);
-// 	    	   alert(attendlow);
-// 	    });
-		
-// 		$('.attendlow>input').click(function(){
-// 		    attendlow =  $('td').index(this);
-// 		    alert(attendlow)
-// 		});
-		
-	    var attendlow = 0;	    
-	    $('.attendlow>input').click(function(){
-	    	var lo_this;
-	    	if(event){
-	    		lo_this = window.event.srcElement;
-	    	} else {
-	    		lo_this = window.e.getTarget();
-	    	}
-	    	
-	    	var attendlow = lo_this.parentNode.parentNode.rowIndex;
-	    		    				 	
-	   
-	    	if ($('.attendlow:eq('+attendlow-1+')>input').prop('checked')) {
-    		 $('.attendlow:eq('+attendlow-1+')>input').prop('checked', false);
-	    		$('.attendlow:eq('+attendlow-1+')>input').prop('checked', false);
+		        
+	    $('.attendlow>input').click(function(){ // td에 있는 input 으로 되있는 (checkbox) 선택시
+	    	attendlow = attendLowCheck(); //attendLowCheck() 함수호출받아 attendlow 에 저장
+	    	attendlow -= 1; // 
+	       	if ($('.attendlow:eq('+attendlow+')>input').prop('checked')) {
+	       		 $('.attendlow:eq('+attendlow+')>input').prop('checked', false);
+	    		$('.attendlow:eq('+attendlow+')>input').prop('checked', false);
 	            $(this).prop('checked', true);
 	         } else {
-	        	 $('.attendlow:eq('+attendlow-1+')>input').prop('checked', false);
+	        	 $('.attendlow:eq('+attendlow+')>input').prop('checked', false);
 		         $(this).prop('checked', true); 
 	         }
-// 	    	attendlow++;
-	    });  
-	    
-	/*     for(var i =0; i<attendlow.length; i++)
-// 	    	var attlowlist = attendlow[i];
-// 	    	$('.attendlow:eq('+i+')>input').click(function(){
-	    	$('.attendlow:eq('+i+')>input').click(function(){
-	        //클릭 이벤트 발생한 요소가 체크 상태인 경우
-	        if ($('.attendlow:eq('+i+')>input').prop('checked')) {
-	            //체크박스 그룹의 요소 전체를 체크 해제후 클릭한 요소 체크 상태지정
-	           $('.attendlow:eq('+i+')>input').prop('checked', false);
-	            $('.attendlow:eq('+i+')>input').prop('checked', true);
-	        }
-	    }); */ 
-	    	
-/* 	     	$('.attendlow:eq(0)>input').click(function(){
-	 	       
-		        if ($('.attendlow:eq(0)>input').prop('checked')) {
-		          
-// 		           $('.attendlow:eq(0)>input').prop('checked', false);
-					$('input[type="checkbox"][checked="checked"]').prop('checked', true);
-		            $('.attendlow:eq(0)>input').prop('checked', false);
-		        }
-		    });  */	
-	     
-	  /*   for(var i =1; i < attendLowList.length;i++){
-	  	    var attTr = attendLowList.item (i);
-	  	    attTr.onclick = function(){
-	  	    	var theInputList = this.getElementsByTagName('input');	
-	  	    	var theInput = theInputList.lastChild;
-	  	    	
-	  	    	if (theInput.checked = true) {
-					theInput.checked = false;
-				} else {
-					theInput.checked = true;
-				}	
-	  	    }
-	    
-	    } */
-  
+	    }); //   $('.attendlow>input').click(function(){ end
 }); // document ready end
-
-
 </script>
 </head>
 <body>
