@@ -70,4 +70,31 @@ public class NoticeDao {
 		
 		return bean;
 	}
+
+	public NoticeData SelectEdit(String id) {
+		NoticeData bean = new NoticeData();
+		
+		try {
+			sql = "select title, content from TB_NOTICE join TB_USER on TB_NOTICE.id_fk = TB_USER.id where id=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();  
+			if (rs.next()) {
+				bean.setTitle(rs.getString(1));
+				bean.setContent(rs.getString(2));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {  
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+		
+		return bean;
+	}
 }   

@@ -152,8 +152,8 @@
                <tr>
                   <td>
                      <span id="btnlayout">
-                        <button type="button" id="list" class="btn btn-default">목록</button>
-                        <button type="button" id="modify" class="btn btn-default">수정</button>
+                        <a href='../customer/notice.do'><button type="button" id="list" class="btn btn-default" >목록</button></a>
+                        <a href='../customer/NoticeEdit.jsp'><button type="button" id="modify" class="btn btn-default">수정</button></a>
                         <button type="button" id="delete" class="btn btn-default">삭제</button>
                      </span>
                   </td>

@@ -1,3 +1,4 @@
+<%@page import="bean.NoticeData"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -5,7 +6,7 @@
 <html>
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>공지사항 등록</title>
+<title>공지사항 수정페이지</title>
 	<script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
 	<script type="text/javascript" src="../js/menuLoad.js"></script>
     <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
@@ -89,7 +90,7 @@ hr {
 #id{
 	width: 700px;
 }
-.join{
+.edit{
 	width: 80px;
 	height: 30px;
 	margin-left: 300px;
@@ -125,11 +126,13 @@ span{
 	<%@ include file="../template/header.jsp" %>
 	<%@ include file="../template/nav.jsp" %>	
 	<!-- content start -->
-		
+		<%  
+			NoticeData dto = (NoticeData)request.getAttribute("noticeDto");
+		%>
 	<div class="grid9">
 		<p>NOTICE</p>
-		<p id="write">공지사항 쓰기</p><hr/><br/>
-		<form action="../customer/board.jsp" method="post">
+		<p id="write">공지사항 수정</p><hr/><br/>
+		<form action="#" method="post">
 			<table class="join_tbl">
 			<colgroup>
 				<col width="10%" />
@@ -139,19 +142,19 @@ span{
 			</colgroup>
 			<tr> 
 				<th>제목</th>
-				<td><input type="text" id="id" name="name" value="" size="10" class="inputText"></td>
+				<td><input type="text" id="id" name="name" value="<%=dto.getTitle()%>" size="10" class="inputText" ></td>
 			</tr>
 			</table>
 				
 			<li id="li1" >
-				<textarea cols="80" id="contents" name="contents" rows="10" ></textarea>
+				<textarea cols="80" id="contents" name="contents" rows="10" value="<%=dto.getContent()%>" ></textarea>
 				<script type="text/javascript">
 					window.onload=function(){
 						CKEDITOR.replace('contents',{enterMode:'2',shiftEnterMode:'3'});
 					};
 				</script>
 			</li><br/>
-			<button type="submit" class="join" >작성</button>
+			<button type="submit" class="edit" >수정</button>
 			<button type="reset" class="back" >취소</button>
 		</form>	
 	</div>
