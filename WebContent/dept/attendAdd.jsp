@@ -107,6 +107,7 @@
  	}
 </style>
 <script type="text/javascript" >
+
 $(document).ready(function(){
 	$( "#datepicker" ).datepicker({
 		/* 
@@ -135,14 +136,103 @@ $(document).ready(function(){
 	*/
 		
     //라디오 요소처럼 동작시킬 체크박스 그룹 셀렉터
-    $('input[type="checkbox"][name="attend"]').click(function(){
+   /*   $('input[type="checkbox"][name="attend"]').click(function(){
         //클릭 이벤트 발생한 요소가 체크 상태인 경우
         if ($(this).prop('checked')) {
             //체크박스 그룹의 요소 전체를 체크 해제후 클릭한 요소 체크 상태지정
             $('input[type="checkbox"][name="attend"]').prop('checked', false);
             $(this).prop('checked', true);
         }
+   	});   */
+  /*  		var i = 0;
+    	$("input:checkbox").each(function(i){
+   		$("input:checkbox:eq(i)").prop("checked", true);
+    	if($(this).prop('checked')){
+    		 $('input:checkbox:eq(i)').prop('checked', false);
+    	}
+    	i+=4;
+   	});  */
+  /* 	 
+   	 var i = 0;
+   	$("input:checkbox").each(function(){
+   		$("input:checkbox:eq(i)").prop("checked", true);
+   		if($(this).prop('che'))
+   		
    	});
+   	
+	 $('input[type="checkbox"][name="attend"]').click(function(){
+	        //클릭 이벤트 발생한 요소가 체크 상태인 경우
+	        if ($(this).prop('checked')) {
+	            //체크박스 그룹의 요소 전체를 체크 해제후 클릭한 요소 체크 상태지정
+	            $('input[type="checkbox"][checked="checked"]').prop('checked', false);
+	            $(this).prop('checked', true);
+	        }
+	    }); */
+	    
+//  	var attendlow = document.getElementsByClassName("attendlow");  
+	    var attendlow = 0;
+	    
+// 		$('.attendlow>input').click(function(){
+// 	    	   attendlow = $('.attendlow').index(this);
+// 	    	   alert(attendlow);
+// 	    });
+		
+// 		$('.attendlow>input').click(function(){
+// 		    attendlow =  $('td').index(this);
+// 		    alert(attendlow)
+// 		});
+		
+	    var attendlow = 0;	    
+	    $('.attendlow>input').click(function(){
+	    	
+	    	if ($('.attendlow:eq('+attendlow+')>input').prop('checked')) {
+    		 $('.attendlow:eq('+attendlow+')>input').prop('checked', false);
+	    		$('.attendlow:eq('+attendlow+')>input').prop('checked', false);
+	            $(this).prop('checked', true);
+	         } else {
+	        	 $('.attendlow:eq('+attendlow+')>input').prop('checked', false);
+		         $(this).prop('checked', true); 
+	         }
+	    	attendlow++;
+	    });  
+	    
+	/*     for(var i =0; i<attendlow.length; i++)
+// 	    	var attlowlist = attendlow[i];
+// 	    	$('.attendlow:eq('+i+')>input').click(function(){
+	    	$('.attendlow:eq('+i+')>input').click(function(){
+	        //클릭 이벤트 발생한 요소가 체크 상태인 경우
+	        if ($('.attendlow:eq('+i+')>input').prop('checked')) {
+	            //체크박스 그룹의 요소 전체를 체크 해제후 클릭한 요소 체크 상태지정
+	           $('.attendlow:eq('+i+')>input').prop('checked', false);
+	            $('.attendlow:eq('+i+')>input').prop('checked', true);
+	        }
+	    }); */
+	    	
+/* 	     	$('.attendlow:eq(0)>input').click(function(){
+	 	       
+		        if ($('.attendlow:eq(0)>input').prop('checked')) {
+		          
+// 		           $('.attendlow:eq(0)>input').prop('checked', false);
+					$('input[type="checkbox"][checked="checked"]').prop('checked', true);
+		            $('.attendlow:eq(0)>input').prop('checked', false);
+		        }
+		    });  */	
+	     
+	  /*   for(var i =1; i < attendLowList.length;i++){
+	  	    var attTr = attendLowList.item (i);
+	  	    attTr.onclick = function(){
+	  	    	var theInputList = this.getElementsByTagName('input');	
+	  	    	var theInput = theInputList.lastChild;
+	  	    	
+	  	    	if (theInput.checked = true) {
+					theInput.checked = false;
+				} else {
+					theInput.checked = true;
+				}	
+	  	    }
+	    
+	    } */
+  
 }); // document ready end
 
 
@@ -172,12 +262,14 @@ $(document).ready(function(){
 	                
                     <% for(int i=0; i<attendlist.size(); i++){%>
                     <tr>
+<!-- 						<tr class = "attendlow"> -->
                     	<input type="hidden" readonly="readonly" name="id" value="<%=attendlist.get(i).getId()%>"/>
                        	<td><input type="text" disabled="disabled" name="name" value="<%=attendlist.get(i).getName() %>"/></td>
                         <td><input type="text" disabled="disabled" name="class" value="<%=attendlist.get(i).getClasss() %>"/></td>
-                        <td>
+                        <td class = "attendlow">
+<!-- 						<td> -->
                         	<input type="checkbox" value="0" name="attend" checked="checked"/>출석
-                        	<input type="checkbox" value="1" name="attend" />지각
+                        	<input type="checkbox" value="1" name="attend"/>지각
                         	<input type="checkbox" value="2" name="attend"/>조퇴
                         	<input type="checkbox" value="3" name="attend"/>결석
                    	    </td>

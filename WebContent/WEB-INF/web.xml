@@ -161,6 +161,14 @@
     <servlet-name>customer.qna</servlet-name>
     <url-pattern>/customer/qna.do</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>customer.askdetail</servlet-name>
+    <servlet-class>com.hb.controller.customer.AskDetail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>customer.askdetail</servlet-name>
+    <url-pattern>/customer/askDetail.do</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>customer.notice</servlet-name>
     <servlet-class>com.hb.controller.customer.CustomerNotice</servlet-class>
@@ -175,7 +183,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>customer.noticedetail</servlet-name>
-    <url-pattern>/customer/noticedetail.do</url-pattern>
+    <url-pattern>/customer/noticeDetail.do</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>customer.board</servlet-name>

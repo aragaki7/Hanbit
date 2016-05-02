@@ -1,7 +1,6 @@
 <%@page import="bean.AskData"%>
 <%@page import="javax.xml.crypto.Data"%>
 <%@page import="java.sql.Date"%>
-<%@page import="bean.BoardData"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="db.DBConnect"%>
 <%@page import="java.sql.ResultSet"%>
@@ -140,7 +139,7 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
          var ridx=getRow(this);
 //          alert("ridx : "+ridx);
           var id = $('.rownum:eq('+(ridx-1)+')>td:eq(0)').text();//$('.rownum:eq(n)>td:eq(0)').text();id 받음
-         location.href="/Hanbit/customer/askdetail.do?id="+id;
+         location.href="/Hanbit/customer/askDetail.do?id="+id;
       });
       
    });
@@ -172,6 +171,7 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
                   <col style="width:55%">
                   <col style="width:15%">
                   <col style="width:10%">
+                  <col style="width:10%">
                   <tr>
                      <td>index</td>
                      <td>작성자</td>
@@ -183,32 +183,34 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
                <%
                   for (int i = 0; i < list.size(); i++) {
                %>
-               <tr id="row" style="cursor: hand;">
+                <tr class="rownum" id="row" style="cursor: hand;">
                   <td><%=list.get(i).getNum() %></td>
                   <td><%=list.get(i).getId() %></td>
                    <td><%=list.get(i).getTitle()%></td>
+                   <td><%=list.get(i).getDate()%></td>
+                   <td><%=list.get(i).getTime()%></td>
                   
-                  <%
+               <%--    <%
                      if (list.get(i).getDate().toString().equals(new Date(System.currentTimeMillis()).toString())) {
 
                            String[] time = list.get(i).getTime().toString().split(" ");
                   %>
 
                   <td><%=time[1]%></td>
- <%
+
+                  <%
                      } else {
                   %>
                   <td><%=list.get(i).getDate()%></td>
-                  <%  
+                  <%
                      }
                   %>
-                  <td><%=list.get(i).getTime()%></td>
-
+            --%>
                </tr>
                <%
                   }
-               %>
-            </table>
+               %> 
+               </table>
          </div>
          <div id="write">
             <a href="../ckeditor/ask.jsp"> <input type="button" value="글쓰기"

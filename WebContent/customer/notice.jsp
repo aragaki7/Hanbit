@@ -173,15 +173,6 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
    return rowIndex;
 }
 
-<<<<<<< HEAD
-   $(document).ready(function(){
-      $('.rownum').on('click', function() {
-         var ridx=getRow(this);
-//          alert("ridx : "+ridx);
-          var idx = $('.rownum:eq('+(ridx-1)+')>td:eq(0)').text();//$('.rownum:eq(n)>td:eq(0)').text();id 받음
-          var name = $('.rownum:eq('+(ridx-1)+')>td:eq(1)').text();
-          var title = $('.rownum:eq('+(ridx-1)+')>td:eq(2)').text();
-=======
 	$(document).ready(function(){
 		$('.rownum').on('click', function() {
 			var ridx=getRow(this);
@@ -189,25 +180,11 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 		    var idx = $('.rownum:eq('+(ridx-1)+')>td:eq(0)').text();//$('.rownum:eq(n)>td:eq(0)').text();id 받음
 		    var name = $('.rownum:eq('+(ridx-1)+')>td:eq(1)').text();
 		    var title = $('.rownum:eq('+(ridx-1)+')>td:eq(2)').text();
->>>>>>> branch 'master' of https://github.com/aragaki7/Hanbit.git
-
-<<<<<<< HEAD
 //          location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
 //          location.href="../dept/applyDetail.jsp?id="+id;
-         location.href="/Hanbit/customer/noticedetail.do?idx="+idx+"&name="+name+"&title="+title;
+         location.href="/Hanbit/customer/noticeDetail.do?idx="+idx+"&name="+name+"&title="+title;
       });
-      
    });
-   
-=======
-// 			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
-// 			location.href="../dept/applyDetail.jsp?id="+id;
-			location.href="/Hanbit/customer/noticedetail.do?idx="+idx+"&name="+name+"&title="+title;
-		});
-		
-	});
-	
->>>>>>> branch 'master' of https://github.com/aragaki7/Hanbit.git
 
 </script>
 </head>

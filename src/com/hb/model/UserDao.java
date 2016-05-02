@@ -198,13 +198,11 @@ public class UserDao {
 	public int EditMember(UserData bean, String pw, int numpower) {
 		int result = 0;
 		
-		String query = "update TB_USER set password=password(?), name=?, post=?, main_address=?, sub_address=?, phone=?, mobile=?, email=?, pm_fk=?, class_fk=1 where id=?";//1은 강의실. 강의실 없음을 의미
+		String query = "update TB_USER set password=password(?), name=?, post=?, main_address=?, sub_address=?, phone=?, mobile=?, email=?, pm_fk=? where id=?";
 		try {
 			
 			
 			pstmt = DBConnect.get().prepareStatement(query);
-			
-			System.out.println("password : "+pw);
 			
 			pstmt.setString(1, pw);
 			pstmt.setString(2, bean.getName());
@@ -477,5 +475,63 @@ public class UserDao {
 			}
 		}
 		return result;
+	}
+
+	public int EditMember(UserData bean, String pw, String sub) {
+		int result = 0;
+		
+		String query = "update TB_USER set password=password(?), name=?, post=?, main_address=?, sub_address=?, phone=?, mobile=?, email=?, pm_fk=?, class_fk=? where id=?";
+		try {
+			
+			
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, pw);
+			pstmt.setString(2, bean.getName());
+			pstmt.setInt(3, Integer.parseInt(bean.getPost()));
+			pstmt.setString(4, bean.getMain_address());
+			pstmt.setString(5, bean.getSub_address());
+			pstmt.setString(6, bean.getPhone());
+			pstmt.setString(7, bean.getMobile());
+			pstmt.setString(8, bean.getEmail());
+			pstmt.setString(9, sub);
+			pstmt.setString(10, bean.getId());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
+
+	public String getPmNum(String sub) {
+		String pw="";
+		sql = "select num from TB_PM where pm=?";
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, sub);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				pw=rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			
+		}
+		return pw;
 	}
 }
