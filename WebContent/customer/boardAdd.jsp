@@ -144,7 +144,7 @@ span{
 	<div class="grid9">
 		<p>BOARD</p>
 		<p id="write">자유게시판 쓰기</p><hr/><br/>
-		<form action="../customer/board.jsp" method="post">
+		<form action="../customer/board.do" method="post">
 			<table class="join_tbl">
 			<colgroup>
 				<col width="10%" />
@@ -154,7 +154,7 @@ span{
 			</colgroup>
 			<tr> 
 				<th>제목</th>
-				<td><input type="text" id="title" name="title" value="" size="120" class="inputText"></td>
+				<td><input type="text" id="title" name="title" value="" size="100" class="inputText"></td>
 			</tr>
 			</table>
 				

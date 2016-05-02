@@ -2,6 +2,7 @@ package com.hb.model;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import bean.BoardData;
 
@@ -68,45 +69,54 @@ public class BoardDao {
 		return bean;
 	}
 
-	public int addOne(BoardData bean, String title, String contents) {
-		int result = 0;
-		String sql = "insert into TB_BBS(TB_BBS.index, id_fk, title, content, days, time, count) values (?,?,?,?,curdate(),now(),0)";
-		System.out.println(sql);
-		try {
-			pstmt = DBConnect.get().prepareStatement(sql);
-			
-			pstmt.setInt(1, bean.getNum()+1);
-			pstmt.setString(2, bean.getName());
-			pstmt.setString(3, title);
-			pstmt.setString(4, contents);
-			System.out.println(contents);
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) { 
-			e.printStackTrace();
-		} finally {
-			try {
-				if (pstmt != null) pstmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		return result;
-	}
+	public int addOne(String id, String title, String contents) {
+	      int result = 0;
+	      String sql = "insert into TB_BBS * values(null, ?,?,?,?,?,?)";
+	      System.out.println(sql);
+	      Calendar calendar = Calendar.getInstance();
 
-	public int deleteOne(String index) {
+	      java.util.Date now = calendar.getTime();
+
+	      java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
+	      try {
+	         pstmt = DBConnect.get().prepareStatement(sql);
+
+	         pstmt.setString(1, id);
+	         pstmt.setString(2, title);
+	         pstmt.setString(3, contents);
+	         pstmt.setDate(4, new java.sql.Date(System.currentTimeMillis()));
+	         pstmt.setTimestamp(5, currentTimestamp);
+	         pstmt.setInt(6, 0);
+	         System.out.println(contents);
+	         result = pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         try {
+	            if (pstmt != null)
+	               pstmt.close();
+	         } catch (SQLException e) {
+	            e.printStackTrace();
+	         }
+	      }
+	      return result;
+	   }
+
+	public int deleteOne(int index) {
 		int result = 0;
-		String sql = "delete from TB_BBS where index=?";
+		String sql = "delete from TB_BBS where TB_BBS.index=?";
 		System.out.println(sql);
 		try { 
 			pstmt = DBConnect.get().prepareStatement(sql);
-			
-			pstmt.setString(1, index);
+			pstmt.setInt(1, index);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) { 
 			e.printStackTrace();
 		} finally {
 			try {
-				if (pstmt != null) pstmt.close();
+				if(rs!=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

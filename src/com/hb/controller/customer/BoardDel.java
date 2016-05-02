@@ -18,14 +18,11 @@ import bean.UserData;
 @WebServlet("/customer/boarddel.do") 
 public class BoardDel extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String index = request.getParameter("index");
+		int index = Integer.parseInt(request.getParameter("index"));
 		int result = new BoardDao().deleteOne(index);
-
-		if(result ==1) {
-			request.getRequestDispatcher("/board.jsp").forward(request, response);			
-		}
-		else{			
-			request.getRequestDispatcher("/boardDetail.jsp?index"+index).forward(request, response);			
-		}
+		request.setAttribute("result", result);
+		
+		if(result>0) response.sendRedirect("board.jsp");
+		else response.sendRedirect("/Hanbit/customer/boardDetail.do?index="+index);		
 	}
 }

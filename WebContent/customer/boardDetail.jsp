@@ -208,6 +208,7 @@
                </tr>
                <tr>  
                   <td colspan="2"><p><%=dto.getContent() %></p></td>
+                  <td><input type="hidden" name="index" value=></td>
                </tr>
             </tbody>
          </table>

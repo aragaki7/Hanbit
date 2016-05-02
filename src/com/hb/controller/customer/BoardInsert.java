@@ -18,14 +18,14 @@ import bean.UserData;
 @WebServlet("/customer/boardinsert.do")
 public class BoardInsert extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");//post 방식에서는 encoding 필수
+		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("name");
 		String title = request.getParameter("title");
 		String contents =request.getParameter("contents");
 	
 		BoardDao dao = new BoardDao();
-		BoardData bean = new BoardData();
 		
-		int result = dao.addOne(bean, title, contents);
+		int result = dao.addOne(id, title, contents);
 		if(result >0){
 			response.sendRedirect("board.do");
 		}else{
