@@ -107,6 +107,10 @@
  	}
 </style>
 <script type="text/javascript" >
+function getRow(rowValue) {
+	var rowIndex = rowValue.rowIndex;
+	return rowIndex;
+}
 
 $(document).ready(function(){
 	$( "#datepicker" ).datepicker({
@@ -184,16 +188,25 @@ $(document).ready(function(){
 		
 	    var attendlow = 0;	    
 	    $('.attendlow>input').click(function(){
+	    	var lo_this;
+	    	if(event){
+	    		lo_this = window.event.srcElement;
+	    	} else {
+	    		lo_this = window.e.getTarget();
+	    	}
 	    	
-	    	if ($('.attendlow:eq('+attendlow+')>input').prop('checked')) {
-    		 $('.attendlow:eq('+attendlow+')>input').prop('checked', false);
-	    		$('.attendlow:eq('+attendlow+')>input').prop('checked', false);
+	    	var attendlow = lo_this.parentNode.parentNode.rowIndex;
+	    		    				 	
+	   
+	    	if ($('.attendlow:eq('+attendlow-1+')>input').prop('checked')) {
+    		 $('.attendlow:eq('+attendlow-1+')>input').prop('checked', false);
+	    		$('.attendlow:eq('+attendlow-1+')>input').prop('checked', false);
 	            $(this).prop('checked', true);
 	         } else {
-	        	 $('.attendlow:eq('+attendlow+')>input').prop('checked', false);
+	        	 $('.attendlow:eq('+attendlow-1+')>input').prop('checked', false);
 		         $(this).prop('checked', true); 
 	         }
-	    	attendlow++;
+// 	    	attendlow++;
 	    });  
 	    
 	/*     for(var i =0; i<attendlow.length; i++)
@@ -206,7 +219,7 @@ $(document).ready(function(){
 	           $('.attendlow:eq('+i+')>input').prop('checked', false);
 	            $('.attendlow:eq('+i+')>input').prop('checked', true);
 	        }
-	    }); */
+	    }); */ 
 	    	
 /* 	     	$('.attendlow:eq(0)>input').click(function(){
 	 	       
