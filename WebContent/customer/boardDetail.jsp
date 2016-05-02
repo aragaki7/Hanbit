@@ -171,11 +171,9 @@
       $( "#list" ).click(function( event ) { //목록으로
          location.href='../customer/board.do';
       });
-      $( "#modify" ).click(function( event ) { //수정하기
-          location.href='#'/* /community/modify/board/${community.id} */;
-      });
-      $( "#delete" ).click(function( event ) { //삭제하기
-         location.href='#'/* /community/delete//${community.id} */;
+   
+      $( "#delete" ).click(function() { //삭제하기
+         location.href='../customer/boarddel.do';
       });
    });
 </script>

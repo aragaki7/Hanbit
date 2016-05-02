@@ -93,5 +93,26 @@ public class BoardDao {
 		return result;
 	}
 
+	public int deleteOne(String index) {
+		int result = 0;
+		String sql = "delete from TB_BBS where index=?";
+		System.out.println(sql);
+		try {
+			pstmt = DBConnect.get().prepareStatement(sql);
+			
+			pstmt.setString(1, index);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) { 
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
 }   
 
