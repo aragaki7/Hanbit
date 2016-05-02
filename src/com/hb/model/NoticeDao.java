@@ -71,14 +71,14 @@ public class NoticeDao {
 		return bean;
 	}
 
-	public NoticeData SelectEdit(String title) {
+	public NoticeData SelectEdit(String id) {
 		NoticeData bean = new NoticeData();
 		
 		try {
-			sql = "select title, content from TB_NOTICE join TB_USER on TB_NOTICE.id_fk = TB_USER.id where title=?";
+			sql = "select title, content from TB_NOTICE join TB_USER on TB_NOTICE.id_fk = TB_USER.id where id=?";
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, title);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();  
 			if (rs.next()) {
 				bean.setTitle(rs.getString(1));
