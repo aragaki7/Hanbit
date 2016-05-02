@@ -59,7 +59,7 @@ public class NoticeDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} finally {
+		} finally {  
 			 	try {
 					if (rs != null)rs.close();
 					if(pstmt != null)pstmt.close();

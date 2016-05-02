@@ -144,7 +144,7 @@
                <tr>
                   <td colspan="2"><%=dto.getContent() %><p>이름, 패스워드 내용을 적으시고 확인버튼을 누르세요.</p></td>
                </tr>
-            </tbody>
+            </tbody>   
          </table>
          
          <table class="table table-condensed">
