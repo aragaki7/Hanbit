@@ -83,7 +83,7 @@ public class BoardDao {
 
 	         pstmt.setString(1, id);
 	         pstmt.setString(2, title);
-	         pstmt.setString(3, contents);
+	         pstmt.setString(3, contents); 
 	         pstmt.setDate(4, new java.sql.Date(System.currentTimeMillis()));
 	         pstmt.setTimestamp(5, currentTimestamp);
 	         pstmt.setInt(6, 0);
