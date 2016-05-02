@@ -13,6 +13,10 @@ public class BoardData {
 	private Timestamp time;
 	private int count;
 
+	public BoardData() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public BoardData(int num, String name, String title, Date date, Timestamp time, int count) {
 		this.num = num;
 		this.name = name;
@@ -22,76 +26,61 @@ public class BoardData {
 		this.count = count;
 	}
 
-	/**
-	 * Board num
-	 * 
-	 * {@link BoardData}
-	 * 
-	 * @int
-	 */
-
 	public int getNum() {
 		return num;
 	}
 
-	/**
-	 * Board id {@link BoardData}
-	 * 
-	 * @String
-	 */
-
-	public String getId() {
+	public String getName() {
 		return name;
 	}
-
-	/**
-	 * Board time {@link BoardData}
-	 * 
-	 * @Date
-	 */
-
-	public Timestamp getTime() {
-		return time;
-	}
-
-	/**
-	 * Board content {@link BoardData}
-	 * 
-	 * @date
-	 */
-
-	public String getContent() {
-		return content;
-	}
-
-	/**
-	 * Board data {@link BoardData}
-	 * 
-	 * @Date
-	 */
-
-	public Date getDate() {
-		return date;
-	}
-
-	/**
-	 * Board title {@link BoardData}
-	 * 
-	 * @String
-	 */
 
 	public String getTitle() {
 		return title;
 	}
 
-	/**
-	 * Board count {@link BoardData}
-	 * 
-	 * @int
-	 */
+	public String getContent() {
+		return content;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public Timestamp getTime() {
+		return time;
+	}
 
 	public int getCount() {
 		return count;
 	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public void setTime(Timestamp time) {
+		this.time = time;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
 
 }

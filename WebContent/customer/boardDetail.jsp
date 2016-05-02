@@ -1,3 +1,5 @@
+<%@page import="bean.BoardData"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="net.sf.json.JSONObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -186,7 +188,9 @@
    <%@ include file="../template/nav.jsp"%>
       
    <!-- content start -->
-
+<%  
+	BoardData dto = (BoardData)request.getAttribute("boardDto");
+%>
    <div class="row grid9 content">
       <p id="ptitle">BOARD<h4>게시글 보기</h4></p>
       <hr/><br/>
@@ -194,20 +198,20 @@
          <table class="table table-condensed tablemain">
             <thead>
                <tr align="center">
-                  <th colspan="2" id="boardtitle">자유게시판 제목 입니다.</th>
+                  <th colspan="2" id="boardtitle"><%=dto.getTitle() %></th>
                </tr>
             </thead>
             <tbody>
                <tr>
                   <td>작성일</td>
-                  <td>2014-12-15 04:45:23</td>
+                  <td><%=dto.getDate() %></td>
                </tr>
-               <tr>
+               <tr>  
                   <td>글쓴이</td>
-                  <td>husk<span id="clickconents">조회 : 0</span></td>
+                  <td><%=dto.getName() %><span id="clickconents">조회 :  <%=dto.getCount() %></span></td>
                </tr>
                <tr>
-                  <td colspan="2"><p>이름, 패스워드 내용을 적으시고 확인버튼을 누르세요.</p></td>
+                  <td colspan="2"><p><%=dto.getContent() %></p></td>
                </tr>
             </tbody>
          </table>

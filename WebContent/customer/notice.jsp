@@ -169,23 +169,25 @@ input[type=submit] {
 </style>
 <script type="text/javascript">
 function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
-	var rowIndex = rowValue.rowIndex;
-	return rowIndex;
+   var rowIndex = rowValue.rowIndex;
+   return rowIndex;
 }
 
-	$(document).ready(function(){
-		$('.rownum').on('click', function() {
-			var ridx=getRow(this);
-// 			alert("ridx : "+ridx);
-		    var id = $('.rownum:eq('+(ridx-1)+')>td:eq(0)').text();//$('.rownum:eq(n)>td:eq(0)').text();id 받음
+   $(document).ready(function(){
+      $('.rownum').on('click', function() {
+         var ridx=getRow(this);
+//          alert("ridx : "+ridx);
+          var idx = $('.rownum:eq('+(ridx-1)+')>td:eq(0)').text();//$('.rownum:eq(n)>td:eq(0)').text();id 받음
+          var name = $('.rownum:eq('+(ridx-1)+')>td:eq(1)').text();
+          var title = $('.rownum:eq('+(ridx-1)+')>td:eq(2)').text();
 
-// 			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
-// 			location.href="../dept/applyDetail.jsp?id="+id;
-			location.href="/Hanbit/customer/noticedetail.do?id="+id;
-		});
-		
-	});
-	
+//          location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
+//          location.href="../dept/applyDetail.jsp?id="+id;
+         location.href="/Hanbit/customer/noticedetail.do?idx="+idx+"&name="+name+"&title="+title;
+      });
+      
+   });
+   
 
 </script>
 </head>
@@ -193,7 +195,7 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 
    <div class="container_12">
       <%@ include file="../template/header.jsp"%>
-      <%@ include file="../template/nav.jsp"%>
+      <%@ include file="../template/nav.jsp"%>  
 
       <!-- content start -->
 <%

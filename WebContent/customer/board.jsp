@@ -167,24 +167,38 @@ input[type=submit] {
    height: 50px;
 }
 </style>
+<script type="text/javascript">
+	function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
+		var rowIndex = rowValue.rowIndex;
+		return rowIndex;
+	}
+	
+	$(document).ready(function(){
+		$('.rownum').on('click', function() {
+			var ridx=getRow(this);
+		    var index = $('.rownum:eq('+(ridx-1)+')>td:eq(0)').text();
+
+			location.href="/Hanbit/customer/boardDetail.do?index="+index;
+		});
+		
+	});
+	
+
+</script>
 </head>
 <body>
+	<div class="container_12">
+		<%@ include file="../template/header.jsp"%>
+		<%@ include file="../template/nav.jsp"%>
 
-   <div class="container_12">
-      <%@ include file="../template/header.jsp"%>
-      <%@ include file="../template/nav.jsp"%>
-
-      <!-- content start -->
+		<!-- content start -->
 <%
       ArrayList<BoardData> list= (ArrayList<BoardData>)request.getAttribute("list");
 %>
       <div class="grid9">
          <!--  게시판 내용 시작-->
-         <p>BOARD
-         <h4>자유게시판</h4>
-         </p>
-         <hr />
-         <br />
+         <p>BOARD<h4>자유게시판</h4></p>
+         <hr/><br/>
          <div class="table">
             <table style="width: 100%">
                   <col style="width:5%">
@@ -203,9 +217,9 @@ input[type=submit] {
                <%
                   for (int i = 0; i < list.size(); i++) {
                %>
-               <tr id="row" style="cursor: hand;" onclick="location.href='#'">
+               <tr class="rownum" id="row" style="cursor: hand;">
                   <td><%=list.get(i).getNum() %></td>
-                  <td><%=list.get(i).getId() %></td>
+                  <td><%=list.get(i).getName() %></td>
                    <td><%=list.get(i).getTitle()%></td>
                   
                   <%
