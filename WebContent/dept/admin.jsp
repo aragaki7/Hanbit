@@ -208,7 +208,6 @@ hr {
 <%
 JSONObject jsonObject2 = new JSONObject();
 jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
-
 if (jsonObject2 != null) {%>
 	var pm = "<%=jsonObject2.getString("pm")%>";
 	if (!("관리자" == pm)) {
@@ -221,7 +220,6 @@ if (jsonObject2 != null) {%>
 	alert('권한이 부족합니다.');
 	location.href="/Hanbit/main.do";
 <%}%>
-
 function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 	var rowIndex = rowValue.rowIndex;
 	return rowIndex;
@@ -229,22 +227,27 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 	$(document).ready(function(){
 		//일반 학생 교육 영업 행정
 		$('.genlist').on('click',function(){
+			var ridx=getRow(this);
 			var id = $('.genlist:eq('+(ridx-1)+')>td:eq(0)').text();
 			location.href="adGenDt?id="+id;
 		});
 		$('.stulist').on('click',function(){
+			var ridx=getRow(this);
 			var id = $('.stulist:eq('+(ridx-1)+')>td:eq(0)').text();
-// 			location.href="hang.stuDetail?id="+id;
+			location.href="adGenDt?id="+id;
 		});
 		$('.edulist').on('click',function(){
+			var ridx=getRow(this);
 			var id = $('.edulist:eq('+(ridx-1)+')>td:eq(0)').text();
-// 			location.href="hang.stuDetail?id="+id;
+			location.href="adGenDt?id="+id;
 		});
 		$('.salelist').on('click',function(){
+			var ridx=getRow(this);
 			var id = $('.salelist:eq('+(ridx-1)+')>td:eq(0)').text();
 			location.href="adGenDt?id="+id;
 		});
 		$('.adlist').on('click',function(){
+			var ridx=getRow(this);
 			var id = $('.adlist:eq('+(ridx-1)+')>td:eq(0)').text();
 			location.href="adGenDt?id="+id;
 		});

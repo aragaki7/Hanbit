@@ -1,4 +1,4 @@
-package com.hb.controller;
+package com.hb.controller.dept;
 
 import java.io.IOException;
 
@@ -12,8 +12,8 @@ import com.hb.model.UserDao;
 
 import bean.UserData;
 
-//@WebServlet("/memberedit.do")
-public class EditUserToDb extends HttpServlet{
+@WebServlet("/dept/adEdit.oth")
+public class AdEditToDbOth extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -23,7 +23,8 @@ public class EditUserToDb extends HttpServlet{
 		String id = req.getParameter("id");
 		String pw = req.getParameter("password1");
 		String name = req.getParameter("name");
-		int numpower=1;
+		String sub = req.getParameter("sub");
+		
 		
 //		String sex = req.getParameter("sex");
 		
@@ -49,16 +50,16 @@ public class EditUserToDb extends HttpServlet{
 		UserData bean = new UserData(id, name, Integer.toString(post), main_address, sub_address, null, phone, mobile, email, "1");
 		UserDao dao = new UserDao();
 		
-//		result = dao.Join(bean,pw, numpower);
-		result = dao.EditMember(bean,pw,numpower);
+		String subs = dao.getPmNum(sub);//쿼리문 몰라서 쿼리 2번 날림
+		result = dao.EditMember(bean,pw,subs);
 		
 		
 		if(result>0){
-			resp.sendRedirect("/Hanbit/main.jsp?editresult=success");
+			resp.sendRedirect("/Hanbit/dept/admin.do");
 		}
 		else{
 			req.setAttribute("joinresult", "fail");
-			req.getRequestDispatcher("login.do").forward(req, resp);
+			System.out.println("수정 실패");
 		}
 		
 	}

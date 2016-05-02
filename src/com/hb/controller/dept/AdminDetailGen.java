@@ -21,5 +21,8 @@ public class AdminDetailGen extends HttpServlet{
 		String id = req.getParameter("id");
 		UserDao dao = new UserDao();
 		UserDataPw bean = dao.selectOnepw(id);
+		
+		req.setAttribute("userDto", bean);
+		req.getRequestDispatcher("adminEdit.jsp").forward(req, resp);
 	}
 }

@@ -6,12 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원정보수정</title>
-<script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
-<script type="text/javascript" src="js/menuLoad.js"></script>
-<script type="text/javascript" src="js/joinVaild.js"></script>
-<script type="text/javascript" src="js/search.js"></script>
-<link rel="stylesheet" type="text/css" href="css/grid_design12.css"/>
-<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+<script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="../js/menuLoad.js"></script>
+<script type="text/javascript" src="../js/joinVaild.js"></script>
+<script type="text/javascript" src="../js/search.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/grid_design12.css"/>
+<link rel="stylesheet" type="text/css" href="../css/nav.css"/>
 <style type="text/css">
  	*{
  		margin: 0px;
@@ -154,7 +154,10 @@
 <!-- 일반, 영업부, 행정부 정보 수정 페이지(반배정x) -->
 <!-- 일반, 영업부, 행정부 정보 수정 페이지(반배정x) -->
 <!-- 일반, 영업부, 행정부 정보 수정 페이지(반배정x) -->
-<%UserDataPw dto = (UserDataPw)request.getAttribute("userdto"); %>
+	<%
+	UserDataPw dto = (UserDataPw)request.getAttribute("userDto"); 
+	System.out.println(dto.toString());
+	%>
 	<div class="container_12">
 		<%@ include file="../template/header.jsp" %>
 		<%@ include file="../template/nav.jsp" %>
@@ -162,7 +165,7 @@
 		<!-- content start -->
 		
 		<br/><div class="grid9 content">
-		<form action="memberedit.do" method="post">
+		<form action="adEdit.oth" method="post">
 			<p id="p1">회원정보수정</p>
 			<hr/><br/>
 			<table class="join_tbl">
@@ -256,15 +259,18 @@
 			</tr>
 			
 			<tr>
+				<%
+					String cs = dto.getPw();
+				%>
 			<th>구분</th>
 			<td colspan="3">
-			<input type="text" name="sub" value="일반" size="10" class="inputText" readonly="readonly">
+			<input type="text" name="sub" value="<%=cs %>" size="10" class="inputText" readonly="readonly">
              <select class="subsel">
-                        <option value="naver.com">일반</option>
-                        <option value="gmail.com">학생</option>
-                        <option value="hamail.net">영업부</option>
-                        <option value="nate.com">행정부</option>
-                        <option value="nate.com">교육부</option>
+                        <option value="일반" <%=(cs.equals("일반"))?"selected":""%>>일반</option>
+                        <option value="학생" <%=(cs.equals("학생"))?"selected":""%>>학생</option>
+                        <option value="영업부"<%=(cs.equals("영업부"))?"selected":""%>>영업부</option>
+                        <option value="행정부" <%=(cs.equals("행정부"))?"selected":""%>>행정부</option>
+                        <option value="교육부" <%=(cs.equals("교육부"))?"selected":""%>>교육부</option>
              </select> 
 			</td>
 			</tr>
@@ -272,7 +278,7 @@
 			<th>주소</th>
 			<td colspan="3">
 			<input type="text" id="id" name="post" value="<%=dto.getPost() %>" size="10" class="inputText postcodify_postcode5"/>
-			<button id="postcodify_search_button" type="button"><img src="imgs/post.JPG"  alt="우편번호검색" /></button>
+			<button id="postcodify_search_button" type="button"><img src="../imgs/post.JPG"  alt="우편번호검색" /></button>
 			<br/><input type="text" id="id" name="main_address" value="<%=dto.getMain_address() %>" size="10" class="inputText postcodify_address" style="width: 200px;"/>
 			<input type="text" id="id" name="sub_address" value="<%=dto.getSub_address() %>" size="10" class="inputText" style="width: 320px;"/>
 			</td>
