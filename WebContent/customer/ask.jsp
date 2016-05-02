@@ -130,20 +130,21 @@ hr {
 </style>
 <script type="text/javascript">
 function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
-   var rowIndex = rowValue.rowIndex;
-   return rowIndex;
-}
+	   var rowIndex = rowValue.rowIndex;
+	   return rowIndex;
+	}
 
-   $(document).ready(function(){
-      $('.rownum').on('click', function() {
-         var ridx=getRow(this);
-//          alert("ridx : "+ridx);
-          var id = $('.rownum:eq('+(ridx-1)+')>td:eq(0)').text();//$('.rownum:eq(n)>td:eq(0)').text();id 받음
-         location.href="/Hanbit/customer/askDetail.do?id="+id;
-      });
-      
-   });
-   
+		$(document).ready(function(){
+			$('.rownum').on('click', function() {
+				var ridx=getRow(this);
+			    var idx = $('.rownum:eq('+(ridx-1)+')>td:eq(0)').text();//$('.rownum:eq(n)>td:eq(0)').text();id 받음
+			    var name = $('.rownum:eq('+(ridx-1)+')>td:eq(1)').text();
+			    var title = $('.rownum:eq('+(ridx-1)+')>td:eq(2)').text();
+			    var content = $('.rownum:eq('+(ridx-1)+')>td:eq(3)').text();
+	         location.href="/Hanbit/customer/askDetail.do?idx="+idx+"&name="+name+"&title="+title+"&content="+content;
+	      });
+	   });
+    
 
 </script>
 </head>

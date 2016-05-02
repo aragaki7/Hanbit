@@ -21,7 +21,14 @@ public class AskData {
    }
 
 
-   /**
+
+
+
+public AskData() {
+	
+}
+
+/**
     * Ask num
     * 
     * {@link AskData}
@@ -109,14 +116,14 @@ public class AskData {
       this.time = time;
    }
 
-
+/*
    @Override
    public String toString() {
       return "AskData [num=" + num + ", name=" + name + ", title=" + title
             + ", content=" + content + ", date=" + date + ", time=" + time
             + "]";
    }
-
+*/
    
 
 }
