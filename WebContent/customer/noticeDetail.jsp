@@ -142,7 +142,7 @@
                   <td><%=dto.getId() %><span id="clickconents">조회 : <%=dto.getCount() %></span></td>
                </tr>
                <tr>
-                  <td colspan="2"><p>이름, 패스워드 내용을 적으시고 확인버튼을 누르세요.</p></td>
+                  <td colspan="2"><%=dto.getContent() %><p>이름, 패스워드 내용을 적으시고 확인버튼을 누르세요.</p></td>
                </tr>
             </tbody>
          </table>

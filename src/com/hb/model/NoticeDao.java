@@ -45,7 +45,7 @@ public class NoticeDao {
 		NoticeData bean = new NoticeData();
 		
 		try {
-			sql = "SELECT id_fk, title, times, count FROM TB_NOTICE where idx=?";
+			sql = "SELECT TB_USER.name, title, content, days, count FROM TB_NOTICE join TB_USER on TB_NOTICE.id_fk = TB_USER.id where IDX=?";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, idx);
@@ -53,8 +53,9 @@ public class NoticeDao {
 			if (rs.next()) {
 				bean.setName(rs.getString(1));
 				bean.setTitle(rs.getString(2));
-				bean.setData(rs.getDate(3));
-				bean.setCount(rs.getInt(4));
+				bean.setContent(rs.getString(3));
+				bean.setData(rs.getDate(4));
+				bean.setCount(rs.getInt(5));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
