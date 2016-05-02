@@ -46,7 +46,7 @@ public class AskDao {
 
    public AskData selectOne(String idx) {
 		AskData bean = new AskData();
-		sql = "SELECT id_fk, title, days,content FROM TB_INQ where idx=?";
+		sql = "SELECT TB_USER.name, title, days,content FROM TB_INQ  join TB_USER on TB_INQ.id_fk = TB_USER.id where idx=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, idx);
