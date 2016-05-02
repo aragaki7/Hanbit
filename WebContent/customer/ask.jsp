@@ -183,7 +183,7 @@ hr {
 					%>
 					<tr>
 						<td><%=list.get(i).getNum()%></td>
-						<td><%=list.get(i).getId()%></td>
+						<td><%=list.get(i).getName()%></td>
 						<td><%=list.get(i).getTitle()%></td>
 						<td><%=list.get(i).getTime()%></td>
 						<td><%=list.get(i).getCount()%></td>
@@ -194,7 +194,7 @@ hr {
 					%>
 					<tr>
 						<td><%=list.get(i).getNum()%></td>
-						<td><%=list.get(i).getId()%></td>
+						<td><%=list.get(i).getName()%></td>
 						<td><%=list.get(i).getTitle()%></td>
 						<td><%=list.get(i).getDate()%></td>
 						<td><%=list.get(i).getCount()%></td>

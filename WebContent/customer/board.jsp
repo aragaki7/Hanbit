@@ -234,7 +234,7 @@ input[type=submit] {
                      } else {
                   %>
                   <td><%=list.get(i).getDate()%></td>
-                  <%  
+                  <%
                      }
                   %>
                   <td><%=list.get(i).getCount()%></td>
@@ -258,12 +258,13 @@ input[type=submit] {
                   jsonObject = (JSONObject) session.getAttribute("jsonObj");
 
                   if (jsonObject != null) {
-                     if (jsonObject.getString("pm").equals("관리자")) {
+                	  if (jsonObject.getString("pm").equals("관리자")|jsonObject.getString("pm").equals("신청자")|jsonObject.getString("pm").equals("일반")
+                          	|jsonObject.getString("pm").equals("학생")|jsonObject.getString("pm").equals("영업부")|jsonObject.getString("pm").equals("행정부")
+                          	|jsonObject.getString("pm").equals("교육부")) {
                %>
-
                <a href="../customer/boardAdd.jsp"> <input type="button" value="글쓰기" class="yes"></a>
                <%
-                  }
+                  	}
                   }
                %>
             </div>

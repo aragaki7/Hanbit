@@ -129,7 +129,6 @@
    		}
    		%>
       //로그인한 후 id 가져와 추가하기
-        /*  var pName = $("#commentParentName");*/
          var pText = $("#commentParentText"); 
          if($.trim(pText.val())==""){
 	            alert("내용을 입력하세요.");
@@ -146,7 +145,6 @@
          }else{
             $('#commentTable tr:last').after(commentParentText);
          }
-         /* $("#commentParentName").val("");*/
          $("#commentParentText").val("");
       });
       
@@ -171,13 +169,13 @@
       });
    
       $( "#list" ).click(function( event ) { //목록으로
-         location.href='../../customer/notice.do';
+         location.href='../customer/board.do';
       });
       $( "#modify" ).click(function( event ) { //수정하기
-          location.href='/community/modify/notice/${community.id}';
+          location.href='#'/* /community/modify/board/${community.id} */;
       });
       $( "#delete" ).click(function( event ) { //삭제하기
-         location.href='/community/delete/notice/${community.id}';
+         location.href='#'/* /community/delete//${community.id} */;
       });
    });
 </script>
