@@ -204,8 +204,6 @@ public class UserDao {
 			
 			pstmt = DBConnect.get().prepareStatement(query);
 			
-			System.out.println("password : "+pw);
-			
 			pstmt.setString(1, pw);
 			pstmt.setString(2, bean.getName());
 			pstmt.setInt(3, Integer.parseInt(bean.getPost()));

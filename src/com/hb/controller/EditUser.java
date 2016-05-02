@@ -19,7 +19,6 @@ public class EditUser extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//회원 수정버튼을 누르면 정보를 가지고 회원 수정에 뿌려줌
-		System.out.println("유저 정보 수정 ");
 		
 		JSONObject jobject = (JSONObject) req.getSession().getAttribute("jsonObj");
 		

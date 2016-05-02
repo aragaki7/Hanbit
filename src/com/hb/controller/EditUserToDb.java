@@ -17,7 +17,6 @@ public class EditUserToDb extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		System.out.println("db접근하는 edit 접근함");
 		int result=0;
 		req.setCharacterEncoding("utf-8");
 		//emailchk는 회원가입에 필요없어서 일단 안받음(여기로 req타고 오긴 함)
@@ -60,7 +59,6 @@ public class EditUserToDb extends HttpServlet{
 		
 		
 		if(result>0){
-			System.out.println("수정 성공");
 			resp.sendRedirect("/Hanbit/main.jsp?editresult=success");
 		}
 		else{
