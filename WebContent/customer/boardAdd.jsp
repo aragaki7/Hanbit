@@ -11,10 +11,10 @@
     <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('#btnBack').click(function(){
-                window.location.href = "/board/boardList.html";
-            });//
-        });
+            $('.back').click(function(){
+                window.location.href = "../customer/board.do";
+            });
+        }); 
   </script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css"/>
 <link rel="stylesheet" type="text/css" href="../css/nav.css"/>

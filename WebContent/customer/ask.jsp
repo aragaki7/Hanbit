@@ -150,7 +150,7 @@ hr {
 		if (rs != null)
 			rs.close();
 		if (statement != null)
-			statement.close();
+			statement.close(); 
 
 	}
 %>

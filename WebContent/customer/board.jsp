@@ -265,7 +265,7 @@ input[type=submit] {
                <a href="../customer/boardAdd.jsp"> <input type="button" value="글쓰기" class="yes"></a>
                <%
                   	}
-                  }
+                  } 
                %>
             </div>
             <form action="#">
