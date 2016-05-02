@@ -1,3 +1,4 @@
+<%@page import="bean.AskData"%>
 <%@page import="javax.xml.crypto.Data"%>
 <%@page import="java.sql.Date"%>
 <%@page import="bean.BoardData"%>
@@ -128,82 +129,86 @@ hr {
 	background-color: firebrick;
 }
 </style>
+<script type="text/javascript">
+function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
+	var rowIndex = rowValue.rowIndex;
+	return rowIndex;
+}
+
+	$(document).ready(function(){
+		$('.rownum').on('click', function() {
+			var ridx=getRow(this);
+// 			alert("ridx : "+ridx);
+		    var id = $('.rownum:eq('+(ridx-1)+')>td:eq(0)').text();//$('.rownum:eq(n)>td:eq(0)').text();id 받음
+			location.href="/Hanbit/customer/askdetail.do?id="+id;
+		});
+		
+	});
+	
+
+</script>
 </head>
-
-<%!PreparedStatement statement;
-	ResultSet rs;
-	String sql;
-	Date today = new Date(System.currentTimeMillis());
-	ArrayList<BoardData> list = new ArrayList<BoardData>();%>
-<%
-	try {
-		statement = DBConnect.get().prepareStatement(sql);
-		rs = statement.executeQuery();
-		list.clear();
-		while (rs.next()) {
-			list.add(new BoardData(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(5),
-					rs.getTimestamp(6), rs.getInt(7)));
-		}
-	} catch (Exception e) {
-
-	} finally {
-		if (rs != null)
-			rs.close();
-		if (statement != null)
-			statement.close();
-
-	}
-%>
-
 <body>
-	<div class="container_12">
-		<%@ include file="../template/header.jsp"%>
-		<%@ include file="../template/nav.jsp"%>
 
-		<!-- content start -->
+   <div class="container_12">
+      <%@ include file="../template/header.jsp"%>
+      <%@ include file="../template/nav.jsp"%>
 
-		<div class="grid9">
-			<!--  게시판 내용 시작-->
-			<p>1:1 문의</p>
-			<hr />
-			<br />
-			<div class="table">
-				<table>
-					<tr>
-						<td>번호</td>
-						<td>아이디</td>
-						<td>제목</td>
-						<td>날짜</td>
-						<td>조회수</td>
-					</tr>
-					<%
-						for (int i = 0; i < list.size(); i++) {
-							// today = time, !today = days 
-							if (today.toString().equals(list.get(i).getDate().toString())) {
-					%>
-					<tr>
-						<td><%=list.get(i).getNum()%></td>
-						<td><%=list.get(i).getId()%></td>
-						<td><%=list.get(i).getTitle()%></td>
-						<td><%=list.get(i).getTime()%></td>
-						<td><%=list.get(i).getCount()%></td>
-					</tr>
+      <!-- content start -->
+<%
+      ArrayList<AskData> list= (ArrayList<AskData>)request.getAttribute("list");
+%>
+       <div class="grid9">
+         <!--  1:1문의 내용 시작-->
+         <p>1:1 문의
+         
+         </p>
+         <hr />
+         <br />
+         <div class="table">
+            <table style="width: 100%">
+                  <col style="width:5%">
+                  <col style="width:15%">
+                  <col style="width:55%">
+                  <col style="width:15%">
+                  <col style="width:10%">
+                  <tr>
+                     <td>index</td>
+                     <td>작성자</td>
+                     <td>제목</td>
+                     <td>날짜</td>
+                     <td>시간</td>
+                  </tr>
 
-					<%
-						} else {
-					%>
-					<tr>
-						<td><%=list.get(i).getNum()%></td>
-						<td><%=list.get(i).getId()%></td>
-						<td><%=list.get(i).getTitle()%></td>
-						<td><%=list.get(i).getDate()%></td>
-						<td><%=list.get(i).getCount()%></td>
-					</tr>
-					<%
-						}
-						}
-					%>
-				</table>
+               <%
+                  for (int i = 0; i < list.size(); i++) {
+               %>
+               <tr id="row" style="cursor: hand;" onclick="location.href='#'">
+                  <td><%=list.get(i).getNum() %></td>
+                  <td><%=list.get(i).getId() %></td>
+                   <td><%=list.get(i).getTitle()%></td>
+                  
+                  <%
+                     if (list.get(i).getDate().toString().equals(new Date(System.currentTimeMillis()).toString())) {
+
+                           String[] time = list.get(i).getTime().toString().split(" ");
+                  %>
+
+                  <td><%=time[1]%></td>
+
+                  <%
+                     } else {
+                  %>
+                  <td><%=list.get(i).getDate()%></td>
+                  <%
+                     }
+                  %>
+
+               </tr>
+               <%
+                  }
+               %>
+               </table>
 			</div>
 			<div id="write">
 				<a href="../ckeditor/ask.jsp"> <input type="button" value="글쓰기"
