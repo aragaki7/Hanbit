@@ -94,7 +94,7 @@
       background-color: #f1f1f1;
       font-size: 12px;
    }
-   button{
+   button{ 
       border: 1px solid black;
       background-color: black;
       color:white;
@@ -168,12 +168,12 @@
          }
       });
    
-      $( "#list" ).click(function( event ) { //목록으로
+      $( "#list" ).click(function(event) { //목록으로
          location.href='../customer/board.do';
       });
    
-      $( "#delete" ).click(function() { //삭제하기
-         location.href='../customer/boarddel.do';
+      $( "#del" ).click(function(event) { //삭제하기
+         location.href='../customer/boarddel.do?index='+index; 
       });
    });
 </script>
@@ -219,7 +219,7 @@
                      <span id="btnlayout">
                         <button type="button" id="list" class="btn btn-default">목록</button>
                         <button type="button" id="modify" class="btn btn-default">수정</button>
-                        <button type="button" id="delete" class="btn btn-default">삭제</button>
+                        <button type="button" id="del" class="btn btn-default">삭제</button>
                      </span>
                   </td>
                </tr>
