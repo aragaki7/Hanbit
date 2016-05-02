@@ -15,19 +15,19 @@ import com.hb.model.UserDao;
 import bean.NoticeData;
 import bean.UserData;
      
-//@WebServlet("/customer/noticeDetail.do")
-public class NoticeDetail extends HttpServlet {
+@WebServlet("/customer/noticeEdit.do")
+public class NoticeEdit extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String idx = request.getParameter("idx");
+		String title = request.getParameter("title");
 //		System.out.println("id넘어옴"+id);
 		
 		NoticeDao dao = new NoticeDao();
 		
-	    NoticeData bean = dao.selectOne(idx);
+	    NoticeData bean = dao.SelectEdit(title);
 		
 		request.setAttribute("noticeDto", bean);
-		request.getRequestDispatcher("/customer/noticeDetail.jsp").forward(request, response);
+		request.getRequestDispatcher("/customer/noticeEdit.jsp").forward(request, response);
 	}
 	
 }
