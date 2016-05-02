@@ -182,9 +182,8 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 		    var title = $('.rownum:eq('+(ridx-1)+')>td:eq(2)').text();
 //          location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
 //          location.href="../dept/applyDetail.jsp?id="+id;
-         location.href="/Hanbit/customer/noticedetail.do?idx="+idx+"&name="+name+"&title="+title;
+         location.href="/Hanbit/customer/noticeDetail.do?idx="+idx+"&name="+name+"&title="+title;
       });
-      
    });
 
 </script>
