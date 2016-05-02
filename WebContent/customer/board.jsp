@@ -198,7 +198,7 @@ input[type=submit] {
       <div class="grid9">
          <!--  게시판 내용 시작-->
          <p>BOARD<h4>자유게시판</h4></p>
-         <hr/><br/>
+         <hr/><br/> 
          <div class="table">
             <table style="width: 100%">
                   <col style="width:5%">

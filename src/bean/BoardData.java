@@ -12,7 +12,7 @@ public class BoardData {
 	private Date date;
 	private Timestamp time;
 	private int count;
-
+ 
 	public BoardData() {
 		// TODO Auto-generated constructor stub
 	}

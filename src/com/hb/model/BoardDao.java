@@ -81,7 +81,7 @@ public class BoardDao {
 			pstmt.setString(4, contents);
 			System.out.println(contents);
 			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
+		} catch (SQLException e) { 
 			e.printStackTrace();
 		} finally {
 			try {
