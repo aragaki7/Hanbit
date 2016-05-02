@@ -276,7 +276,7 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
                   }
                   }
                %>
-            </div>
+            </div>   
             <form action="#">
                <select id="keyword">
                   <option value="title">제목</option>
