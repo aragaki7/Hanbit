@@ -217,6 +217,27 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 			var id = $('.row:eq('+(ridx-1)+')>td:eq(0)').text();
 			location.href="hang.applDetail?id="+id;
 		});
+		$('.sturow').on('click', function() {
+			var ridx=getRow(this);
+			var id = $('.sturow:eq('+(ridx-1)+')>td:eq(0)').text();
+			location.href="hang.stuDetail?id="+id;
+		});
+		$('.tearow').on('click', function() {
+			var ridx=getRow(this);
+			var id = $('.tearow:eq('+(ridx-1)+')>td:eq(0)').text();
+			location.href="hang.teaDetail?id="+id;
+		});
+		$('.genrow').on('click', function() {
+			var ridx=getRow(this);
+			var id = $('.genrow:eq('+(ridx-1)+')>td:eq(0)').text();
+			location.href="hang.genDetail?id="+id;
+		});
+		$('.stafrow').on('click', function() {
+			var ridx=getRow(this);
+			var id = $('.stafrow:eq('+(ridx-1)+')>td:eq(0)').text();
+			location.href="hang.genDetail?id="+id;
+		});
+		
 	});
 </script>
 </head>
@@ -296,7 +317,7 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 							<%
 								for (int i = 0; i < stulist.size(); i++) {
 							%>
-							<tr class="row" style="cursor: hand;">
+							<tr class="row sturow" style="cursor: hand;">
 							<!-- jquery로 뺌 onclick="location.href='../user/stuDetail.jsp'"	> -->
 								<td><%=stulist.get(i).getId()%></td>
 								<td><%=stulist.get(i).getName()%></td>
@@ -324,7 +345,7 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 					 <%
                         for (int i = 0; i < tealist.size(); i++) {
                      %>
-                     <tr class="row" style="cursor: hand;">
+                     <tr class="row tearow" style="cursor: hand;">
                      <!-- jquery로 뺌 onclick="location.href='../user/stuDetail.jsp'"  > -->
                         <td><%=tealist.get(i).getId()%></td>
                         <td><%=tealist.get(i).getName()%></td>
@@ -347,18 +368,18 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 								<td>이름</td>		
 								<td>휴대폰번호</td>
 								<td>이메일</td>
-								<td>강의실</td>
+<!-- 								<td>강의실</td> -->
 							</tr>
  						<%
                        	 for (int i = 0; i < genlist.size(); i++) {
                      	%>
-		                     <tr class="row" style="cursor: hand;">
+		                     <tr class="row genrow" style="cursor: hand;">
 		                     <!-- jquery로 뺌 onclick="location.href='../user/stuDetail.jsp'"  > -->
 		                        <td><%=genlist.get(i).getId()%></td>
 		                        <td><%=genlist.get(i).getName()%></td>
 		                        <td><%=genlist.get(i).getMobile()%></td>
 		                        <td><%=genlist.get(i).getEmail()%></td>
-		                        <td><%=genlist.get(i).getClasss()%></td>
+<%-- 		                        <td><%=genlist.get(i).getClasss()%></td> --%>
 		                     </tr>
 						<%
 							}
@@ -375,18 +396,18 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 								<td>이름</td>		
 								<td>휴대폰번호</td>
 								<td>이메일</td>
-								<td>강의장</td>
+<!-- 								<td>강의장</td> -->
 							</tr>
 							<%
                        		 for (int i = 0; i < staflist.size(); i++) {
                      		%>
-		                     <tr class="row" style="cursor: hand;">
+		                     <tr class="row stafrow" style="cursor: hand;">
 		                     <!-- jquery로 뺌 onclick="location.href='../user/stuDetail.jsp'"  > -->
 		                        <td><%=staflist.get(i).getId()%></td>
 		                        <td><%=staflist.get(i).getName()%></td>
 		                        <td><%=staflist.get(i).getMobile()%></td>
 		                        <td><%=staflist.get(i).getEmail()%></td>
-		                        <td><%=staflist.get(i).getClasss()%></td>
+<%-- 		                        <td><%=staflist.get(i).getClasss()%></td> --%>
 		                     </tr>
 							<%
 							}

@@ -1,6 +1,7 @@
 package com.hb.controller.dept;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,20 +10,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hb.model.UserDao;
 
-import bean.UserDataPw;
-
-
-@WebServlet("/dept/hang.applDetail")
-public class ApplDetail extends HttpServlet{
+@WebServlet("/dept/hang.teaEdit")
+public class HangTeaEdit extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//신청자 테이블 눌렀을때
+		//행정부 -> 강사 -> 반 수정 누를때 쓰는거
 		String id = req.getParameter("id");
-		UserDao dao = new UserDao();
-		UserDataPw bean = dao.selectOnepw(id);
-//		System.out.println(bean.toString());
+		String gang = req.getParameter("gang");
 		
-		req.setAttribute("userDto", bean);
-		req.getRequestDispatcher("/dept/applyClassDetail.jsp").forward(req, resp);
+		UserDao dao = new UserDao();
+		
+		//강의장만 바꾸는거
+		int result = dao.editGang(id, gang);
+		
+		if(result>0){
+			req.getRequestDispatcher("/dept/hang.do").forward(req, resp);
+		}
 	}
 }
