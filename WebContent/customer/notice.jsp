@@ -70,7 +70,7 @@ hr {
    border-width: 0px 1px 1px 0px;
    text-align: left;
    padding: 7px;
-   font-size: 10px;
+   font-size: 13px;
    font-family: Arial;
    font-weight: normal;
    color: #000000;
@@ -97,7 +97,7 @@ hr {
 
 #row>td {
    text-align: center;
-   font-size: 10pt;
+   font-size: 11pt;
 }
 
 .content {
@@ -167,6 +167,27 @@ input[type=submit] {
    height: 50px;
 }
 </style>
+<script type="text/javascript">
+function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
+	var rowIndex = rowValue.rowIndex;
+	return rowIndex;
+}
+
+	$(document).ready(function(){
+		$('.rownum').on('click', function() {
+			var ridx=getRow(this);
+// 			alert("ridx : "+ridx);
+		    var id = $('.rownum:eq('+(ridx-1)+')>td:eq(0)').text();//$('.rownum:eq(n)>td:eq(0)').text();id 받음
+
+// 			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
+// 			location.href="../dept/applyDetail.jsp?id="+id;
+			location.href="/Hanbit/customer/noticedetail.do?id="+id;
+		});
+		
+	});
+	
+
+</script>
 </head>
 <body>
 
@@ -187,8 +208,8 @@ input[type=submit] {
          <br />
          <div class="table">
             <table style="width: 100%">
-                  <col style="width:5%">
-                 <col style="width:15%">
+                <col style="width:5%">
+                <col style="width:15%">
               <col style="width:55%">
               <col style="width:15%">
                  <col style="width:10%">
@@ -203,7 +224,7 @@ input[type=submit] {
                <%
                   for (int i = 0; i < list.size(); i++) {
                %>
-               <tr id="row" style="cursor: hand;" onclick="location.href='#'">
+               <tr class="rownum" style="cursor: hand;">
                   <td><%=list.get(i).getNum() %></td>
                   <td><%=list.get(i).getId() %></td>
                    <td><%=list.get(i).getTitle()%></td>

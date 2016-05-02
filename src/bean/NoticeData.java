@@ -22,6 +22,10 @@ public class NoticeData {
 		this.count = count;
 	}
 
+	public NoticeData() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * Board num
 	 * 
@@ -92,6 +96,34 @@ public class NoticeData {
 
 	public int getCount() {
 		return count;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public void setTime(Timestamp time) {
+		this.time = time;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 
 }
