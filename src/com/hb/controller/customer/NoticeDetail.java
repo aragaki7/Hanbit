@@ -19,12 +19,12 @@ import bean.UserData;
 public class NoticeDetail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("id");
+		String idx = request.getParameter("idx");
 //		System.out.println("id넘어옴"+id);
 		
 		NoticeDao dao = new NoticeDao();
 		
-	    NoticeData bean = dao.selectOne(id);
+	    NoticeData bean = dao.selectOne(idx);
 		
 		request.setAttribute("noticeDto", bean);
 		request.getRequestDispatcher("/customer/noticeDetail.jsp").forward(request, response);

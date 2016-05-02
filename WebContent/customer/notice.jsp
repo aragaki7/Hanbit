@@ -195,7 +195,7 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 
    <div class="container_12">
       <%@ include file="../template/header.jsp"%>
-      <%@ include file="../template/nav.jsp"%>
+      <%@ include file="../template/nav.jsp"%>  
 
       <!-- content start -->
 <%
