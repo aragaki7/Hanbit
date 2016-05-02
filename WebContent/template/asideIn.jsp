@@ -61,7 +61,7 @@
 	<div id="text1"></div><!-- 개강일 안내 태그 -->
 	<%
 		Dday day = new Dday();
-		out.print("<span id=\"dday1\">"+ day.getMonth() + "월 개강 일정</span><p/>");
+		out.print("<br/><span id=\"dday1\">"+ day.getMonth() + "월 개강 일정</span><p/>");
 		out.print("<div id=\"dday23\"><span class=\"dday2\">"+day.getMonth()+"</span>&nbsp;<span class=\"dday4\">월</span><span class=\"dday2\">&nbsp;1</span>&nbsp;<span class=\"dday4\">일</span></div><p/>");
 		out.print("<span id=\"dday3\"> D - "+ day.getDays()+"</span>");
 	%>
