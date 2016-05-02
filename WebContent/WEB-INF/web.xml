@@ -175,7 +175,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>customer.noticedetail</servlet-name>
-    <url-pattern>/customer/noticedetail.do</url-pattern>
+    <url-pattern>/customer/noticeDetail.do</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>customer.board</servlet-name>
