@@ -6,15 +6,30 @@
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>자유게시판 등록</title>
-	<script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
-	<script type="text/javascript" src="../js/menuLoad.js"></script>
-    <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.back').click(function(){
-                window.location.href = "../customer/board.do";
-            }); 
-        }); 
+<script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="../js/menuLoad.js"></script>
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('form').submit(function(){
+			var title = $('#title').val();
+			
+			if(title=="" || title==null){
+				alert('제목을 입력하세요');
+				$('#title').focus();
+				return false;
+			}
+			
+			if(CKEDITOR.instances.contents.getData()==''|CKEDITOR.instances.contents.getData()==null){
+				alert('내용을 입력하세요');
+				CKEDITOR.instances.contents.focus();
+				return false;
+			}
+		}); 
+		$('.back').click(function(){
+			window.location.href = "../customer/board.do";
+		}); 
+	});
   </script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css"/>
 <link rel="stylesheet" type="text/css" href="../css/nav.css"/>
@@ -139,7 +154,7 @@ span{
 			</colgroup>
 			<tr> 
 				<th>제목</th>
-				<td><input type="text" id="id" name="name" value="" size="10" class="inputText"></td>
+				<td><input type="text" id="title" name="title" value="" size="120" class="inputText"></td>
 			</tr>
 			</table>
 				

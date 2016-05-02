@@ -193,7 +193,6 @@
     <servlet-name>customer.boarddetail</servlet-name>
     <url-pattern> /customer/boardDetail.do</url-pattern>
   </servlet-mapping>
-  
  
   <servlet>
     <servlet-name>gradeList</servlet-name>
