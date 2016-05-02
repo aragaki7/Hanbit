@@ -114,10 +114,11 @@
   			var idx = this.selectedIndex;
  			if(idx==0){
   				$('input[name="domain"]').val('');
+  				$('input[name="domain"]').removeAttr("readonly");
  			}
  			else{
- 				var str = "";
  				$('input[name="domain"]').val(this.options[this.selectedIndex].value);
+ 				$('input[name="domain"]').attr("readonly","readonly");
  			}
  		});
  		

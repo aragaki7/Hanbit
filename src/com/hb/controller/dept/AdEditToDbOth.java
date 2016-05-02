@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.hb.model.UserDao;
 
 import bean.UserData;
+import bean.UserDataPw;
 
 @WebServlet("/dept/adEdit.oth")
 public class AdEditToDbOth extends HttpServlet{
@@ -42,17 +43,16 @@ public class AdEditToDbOth extends HttpServlet{
 		mobile += "-"+req.getParameter("mobile3");
 		
 		String email=req.getParameter("email")+"@"+req.getParameter("domain");
-		int post = Integer.parseInt(req.getParameter("post"));
+		String post = req.getParameter("post");
 		
 		String main_address=req.getParameter("main_address");
 		String sub_address=req.getParameter("sub_address");
-		
-		UserData bean = new UserData(id, name, Integer.toString(post), main_address, sub_address, null, phone, mobile, email, "1");
+
 		UserDao dao = new UserDao();
 		
 		String subs = dao.getPmNum(sub);//쿼리문 몰라서 쿼리 2번 날림
-		result = dao.EditMember(bean,pw,subs);
-		
+		UserDataPw bean = new UserDataPw(id, name, post, main_address, sub_address, null, phone, mobile, email, subs,"1");
+		result = dao.EditMember(bean,pw);
 		
 		if(result>0){
 			resp.sendRedirect("/Hanbit/dept/admin.do");
@@ -61,6 +61,5 @@ public class AdEditToDbOth extends HttpServlet{
 			req.setAttribute("joinresult", "fail");
 			System.out.println("수정 실패");
 		}
-		
 	}
 }

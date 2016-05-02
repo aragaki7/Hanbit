@@ -91,44 +91,106 @@ input[type=radio],input[type=checkbox] {
 #b{
  	background-color: firebrick;
 }
-
+.info{
+	color: red;
+}
 /* 겹치지않는부분시작 */
 </style>
 <!-- 신청페이지(eduApply)css 끝 -->
+<script type="text/javascript">
+	<%
+	JSONObject jsonObject2 = new JSONObject();
+	jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
+	if (jsonObject2 != null) {%>
+		var pm = "<%=jsonObject2.getString("pm")%>";
+		if (!("일반" == pm)) {
+			alert('일반 회원만 신청할 수 있습니다.');
+			location.href="/Hanbit/main.do";
+		}else{
+		//권한이 맞음
+		}
+<%}else{%>
+	alert('로그인이 필요한 시스템입니다.');
+	location.href="/Hanbit/main.do";
+<%}%>
+	$(document).ready(function(){
+		$('.emailsel').on('change',function(){
+  			var idx = this.selectedIndex;
+ 			if(idx==0){
+  				$('input[name="domain"]').val('');
+  				$('input[name="domain"]').removeAttr("readonly");
+ 			}
+ 			else{
+ 				$('input[name="domain"]').val(this.options[this.selectedIndex].value);
+ 				$('input[name="domain"]').attr("readonly","readonly");
+ 			}
+ 		});
+		
+		$('form').on('submit',function(){
+			for(var b=0;b<$('.isN').length;b++){
+				if(!($.isNumeric($('.isN').eq(b).val()))){
+					alert('연락처는 숫자만 입력 하세요');
+					return false;
+					}
+ 				}
+			return true;
+ 		});
+	});
+</script>
 </head>
 <body>
 	<div class="container_12">
-		<%@ include file="../template/header.jsp" %>
-		<%@ include file="../template/nav.jsp" %>
+		<%@ include file="../template/header.jsp"%>
+		<%@ include file="../template/nav.jsp"%>
 		<!-- content start -->
-<!-- 신청 페이지 시작-->
-<br/><div class="grid9 content" >
-<p>정규교육신청</p>
-			<hr/><br/>
-<div>
-<table class="Apply">
-<tr><td id="td">이름 </td><td id="td2"><input type="text"></td></tr>
-<tr><td id="td">이메일 </td><td id="td2"><input type="email" name="em">@
-                		<input type="email" name="em">
-                		<select name="urlad">
-	               	    <option value="직접입력">직접입력</option>
-	                    <option value="naver">naver.com</option>
-	                    <option value="chol">chol.com</option>
-	                    <option value="gmail">gmail.com</option>
-	                    <option value="nate">nate.com</option>
-	                    <option value="daum">hanmail.net</option>s</select></td></tr>
-<tr><td id="td">연락처 </td><td id="td2"><select name="tele">
-	                	<option value="010">010</option>
-	                    <option value="011">011</option>
-	                    <option value="016">016</option>
-	                    <option value="017">017</option>
-	                    <option value="018">018</option>
-	                    <option value="019">019</option>
-	                    <option value="070">070</option>
-	                    </select>-<input type="text" name="tel">-<input type="text" name="tel"></td></tr>                   
-<tr><td><br/></td><td><br/></td></tr>
-<tr><td colspan="2"><h4>개인정보보호를 위한 이용자 동의사항</h4>
-<textarea name="content" rows="17" cols="109">
+		<!-- 신청 페이지 시작-->
+		<br />
+		<div class="grid9 content">
+			<p>정규교육신청</p>
+			<hr />
+			<br />
+			<div>
+			<form action="edu.appl" method="post">
+			<span class="info">*입력 하신 정보가 개인정보로 자동 수정됩니다.</span>
+				<table class="Apply">
+					<tr>
+						<td id="td">이름</td>
+						<td id="td2"><input type="text"></td>
+					</tr>
+					<tr>
+						<td id="td">이메일</td>
+						<td id="td2"><input type="email" name="em" value=""/>@<input type="email" name="domain" value=""/>
+						<select name="urlad" class="emailsel">
+								<option value="">직접입력</option>
+								<option value="naver.com">naver.com</option>
+								<option value="chol.com">chol.com</option>
+								<option value="gmail.com">gmail.com</option>
+								<option value="nate.com">nate.com</option>
+								<option value="daum.net">hanmail.net</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td id="td">연락처</td>
+						<td id="td2">
+						<select name="tel1">
+								<option value="010">010</option>
+								<option value="011">011</option>
+								<option value="016">016</option>
+								<option value="017">017</option>
+								<option value="018">018</option>
+								<option value="019">019</option>
+								<option value="070">070</option>
+						</select>-<input type="text" name="tel2" value="" class="isN">
+						-<input type="text" name="tel3" value="" class="isN">
+						</td>
+					</tr>
+					<tr>
+						<td><br /></td>
+						<td><br /></td>
+					</tr>
+					<tr>
+						<td colspan="2"><h4>개인정보보호를 위한 이용자 동의사항</h4> <textarea
+								name="content" rows="17" cols="109">
 	개인정보의 수집범위
 	한빛교육센터은 별도의 회원가입 절차 없이 대부분의 컨텐츠에 자유롭게 접근할 수 있습니다. 한빛교육센터의 회원제 서비스를 이용하시고자 할 경우 다음의 정보를 입력해주셔야 하며 선택항목을 입력하시지 않았다 하여 서비스 이용에 제한은 없습니다.
 	1) 회원 가입시 수집하는 개인정보의 범위
@@ -148,19 +210,30 @@ input[type=radio],input[type=checkbox] {
 	- 계약 또는 청약철회 등에 관한 기록 : 5년
 	- 대금결제 및 재화등의 공급에 관한 기록 : 5년
 	- 소비자의 불만 또는 분쟁처리에 관한 기록 : 3년
-	② 귀하의 동의를 받아 보유하고 있는 거래정보 등을 귀하께서 열람을 요구하는 경우 지체없이 그 열람,확인 할 수 있도록 조치합니다.</textarea></td></tr>
-<tr><td></td><td id="td3"><input type="checkbox"name="check"value="sev">위 개인정보취급방침에 동의합니다.</td></tr>
-<tr><td></td><td>
-	<div><input type="submit" value="확인" class="yes"></div>
-	<!-- <div><input type="reset" value="취소" class="yes1"></div> --></td></tr>
-</table>
-</div>
+	② 귀하의 동의를 받아 보유하고 있는 거래정보 등을 귀하께서 열람을 요구하는 경우 지체없이 그 열람,확인 할 수 있도록 조치합니다.</textarea></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td id="td3"><input type="checkbox" name="check" value="sev">위
+							개인정보취급방침에 동의합니다.</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div>
+								<input type="submit" value="확인" class="yes">
+							</div> <!-- <div><input type="reset" value="취소" class="yes1"></div> -->
+						</td>
+					</tr>
+				</table>
+				</form>
+			</div>
 		</div>
-<!-- 신청 페이지 끝-->
-		
-		<!-- content end -->	
-		<%@ include file="../template/asideIn.jsp" %>
-		<%@ include file="../template/footer.jsp" %>
+		<!-- 신청 페이지 끝-->
+
+		<!-- content end -->
+		<%@ include file="../template/asideIn.jsp"%>
+		<%@ include file="../template/footer.jsp"%>
 	</div>
 </body>
 </html>

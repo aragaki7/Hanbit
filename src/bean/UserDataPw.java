@@ -25,7 +25,7 @@ public class UserDataPw {
 				+ ", email=" + email + ", pw=" + pw + ", classs=" + classs + "]";
 	}
 	public UserDataPw(String id, String name, String post, String main_address, String sub_address, String sex,
-			String phone, String mobile, String email, String classs) {
+			String phone, String mobile, String email, String pw,String classs) {
 		this.id = id;
 		this.name = name;
 		this.post = post;
@@ -35,6 +35,7 @@ public class UserDataPw {
 		this.phone = phone;
 		this.mobile = mobile;
 		this.email = email;
+		this.pw = pw;
 		this.classs = classs;
 	}
 

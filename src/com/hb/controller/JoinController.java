@@ -22,12 +22,7 @@ public class JoinController extends HttpServlet {
 		String id = req.getParameter("id");
 		String pw = req.getParameter("password1");
 		String name = req.getParameter("name");
-		String power = req.getParameter("power");
-		int numpower=1;
-		if("student".equals(power))
-			numpower=1;
-		else if("profe".equals(power))
-			numpower=2;
+		String numpower="1";
 		
 		String sex = req.getParameter("sex");
 		

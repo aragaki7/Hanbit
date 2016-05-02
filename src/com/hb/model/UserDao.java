@@ -86,7 +86,7 @@ public class UserDao {
 		return result;
 	}
 
-	public int Join(UserData bean, String pw, int numpower) {
+	public int Join(UserData bean, String pw, String numpower) {
 		int result = 0;
 		
 		String query = "insert into TB_USER(id, password, name, post, main_address, sub_address, sex, phone, mobile, email, pm_fk, class_fk) values(?,password(?),?,?,?,?,?,?,?,?,?,1)";//1은 강의실. 강의실 없음을 의미
@@ -99,14 +99,14 @@ public class UserDao {
 			pstmt.setString(1, bean.getId());
 			pstmt.setString(2, pw);
 			pstmt.setString(3, bean.getName());
-			pstmt.setInt(4, Integer.parseInt(bean.getPost()));
+			pstmt.setString(4, bean.getPost());
 			pstmt.setString(5, bean.getMain_address());
 			pstmt.setString(6, bean.getSub_address());
 			pstmt.setString(7, bean.getSex());
 			pstmt.setString(8, bean.getPhone());
 			pstmt.setString(9, bean.getMobile());
 			pstmt.setString(10, bean.getEmail());
-			pstmt.setInt(11, numpower);
+			pstmt.setString(11, numpower);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -196,25 +196,26 @@ public class UserDao {
 		return bean;
 	}
 
-	public int EditMember(UserData bean, String pw, int numpower) {
+	public int EditMember(UserDataPw bean, String pw) {
 		int result = 0;
 		
-		String query = "update TB_USER set password=password(?), name=?, post=?, main_address=?, sub_address=?, phone=?, mobile=?, email=?, pm_fk=? where id=?";
+		String query = "update TB_USER set password=password(?), name=?, post=?, main_address=?, sub_address=?, phone=?, mobile=?, email=?, pm_fk=?, class_fk=? where id=?";
 		try {
 			
 			
-			pstmt = DBConnect.get().prepareStatement(query);
+			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setString(1, pw);
 			pstmt.setString(2, bean.getName());
-			pstmt.setInt(3, Integer.parseInt(bean.getPost()));
+			pstmt.setString(3, bean.getPost());
 			pstmt.setString(4, bean.getMain_address());
 			pstmt.setString(5, bean.getSub_address());
 			pstmt.setString(6, bean.getPhone());
 			pstmt.setString(7, bean.getMobile());
 			pstmt.setString(8, bean.getEmail());
-			pstmt.setInt(9, numpower);
-			pstmt.setString(10, bean.getId());
+			pstmt.setString(9, bean.getPw());
+			pstmt.setString(10, bean.getClasss());
+			pstmt.setString(11, bean.getId());
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -262,7 +263,6 @@ public class UserDao {
 		int result = 0;
 		
 		String query = "update TB_USER set pm_fk=? where id=?";
-		System.out.println(query);
 		try {
 			pstmt = DBConnect.get().prepareStatement(query);
 			pstmt.setInt(1, i);
@@ -478,39 +478,41 @@ public class UserDao {
 		return result;
 	}
 
-	public int EditMember(UserData bean, String pw, String sub) {
-		int result = 0;
-		
-		String query = "update TB_USER set password=password(?), name=?, post=?, main_address=?, sub_address=?, phone=?, mobile=?, email=?, pm_fk=?, class_fk=? where id=?";
-		try {
-			
-			
-			pstmt = conn.prepareStatement(query);
-			
-			pstmt.setString(1, pw);
-			pstmt.setString(2, bean.getName());
-			pstmt.setInt(3, Integer.parseInt(bean.getPost()));
-			pstmt.setString(4, bean.getMain_address());
-			pstmt.setString(5, bean.getSub_address());
-			pstmt.setString(6, bean.getPhone());
-			pstmt.setString(7, bean.getMobile());
-			pstmt.setString(8, bean.getEmail());
-			pstmt.setString(9, sub);
-			pstmt.setString(10, bean.getId());
-			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (pstmt != null) pstmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		return result;
-	}
+//	public int EditMember(UserData bean, String pw, String sub) {//안써서 폐기 예정. 일단 주석
+//		int result = 0;
+//		String query = "update TB_USER set password=password(?), name=?, post=?, main_address=?, sub_address=?, phone=?, mobile=?, email=?, pm_fk=?, class_fk=? where id=?";
+//		try {
+//			pstmt = conn.prepareStatement(query);
+//			pstmt.setString(1, pw);
+//			pstmt.setString(2, bean.getName());
+//			pstmt.setInt(3, Integer.parseInt(bean.getPost()));
+//			pstmt.setString(4, bean.getMain_address());
+//			pstmt.setString(5, bean.getSub_address());
+//			pstmt.setString(6, bean.getPhone());
+//			pstmt.setString(7, bean.getMobile());
+//			pstmt.setString(8, bean.getEmail());
+//			pstmt.setString(9, sub);
+//			pstmt.setString(10, bean.getId());
+//			result = pstmt.executeUpdate();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			try {
+//				if (pstmt != null) pstmt.close();
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//		
+//		return result;
+//	}
 
+	/**
+	 * 
+	 * @param pm데이터
+	 * SELECT NUM FROM TB_PM WHERE PM=?
+	 * @String
+	 */
 	public String getPmNum(String sub) {
 		String pw="";
 		sql = "select num from TB_PM where pm=?";
@@ -536,6 +538,67 @@ public class UserDao {
 		return pw;
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * SELECT PM_FK FROM TB_USER WHERE ID=?
+	 * @String
+	 */
+	public String getPmfk(String id) {
+		String pmNum="";
+		sql = "select pm_fk from TB_USER where id=?";
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				pmNum=rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			
+		}
+		return pmNum;
+	}
+
+	/**
+	 * @param ID
+	 * SELECT PM_FK FROM TB_USER WHERE ID=?
+	 * @String
+	 */
+	public String getClassfk(String id) {
+		String clFk="";
+		sql = "select class_fk from TB_USER where id=?";
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				clFk=rs.getString(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			
+		}
+		return clFk;
+	}
+	
 	public ArrayList daySearch(String dateSearch) {
 		ArrayList<UserData> list = new ArrayList<UserData>();
 		

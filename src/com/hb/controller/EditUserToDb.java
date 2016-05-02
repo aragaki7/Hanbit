@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.hb.model.UserDao;
 
 import bean.UserData;
+import bean.UserDataPw;
 
 //@WebServlet("/memberedit.do")
 public class EditUserToDb extends HttpServlet{
@@ -41,16 +42,19 @@ public class EditUserToDb extends HttpServlet{
 		mobile += "-"+req.getParameter("mobile3");
 		
 		String email=req.getParameter("email")+"@"+req.getParameter("domain");
-		int post = Integer.parseInt(req.getParameter("post"));
+		String post = req.getParameter("post");
 		
 		String main_address=req.getParameter("main_address");
 		String sub_address=req.getParameter("sub_address");
 		
-		UserData bean = new UserData(id, name, Integer.toString(post), main_address, sub_address, null, phone, mobile, email, "1");
+		
 		UserDao dao = new UserDao();
 		
-//		result = dao.Join(bean,pw, numpower);
-		result = dao.EditMember(bean,pw,numpower);
+		String pm = dao.getPmfk(id);//pm_fk는 안바꿀려고 기존에 있는거 그대로 가져옴
+		String cl = dao.getClassfk(id);//class_fk는 안바꿀려고 기존에 있는거 그대로 가져옴
+		UserDataPw bean = new UserDataPw(id, name, post, main_address, sub_address, null, phone, mobile, email, pm, cl);
+		
+		result = dao.EditMember(bean,pw);
 		
 		
 		if(result>0){

@@ -34,12 +34,6 @@ public class LoginToServlet extends HttpServlet {
 		JSONObject jsonObject = dao.loginJson(id, pw);
 		resp.setCharacterEncoding("UTF-8");
 		req.getSession().setAttribute("jsonObj", jsonObject);
-		// req.getSession().setAttribute("login", true);
-		// resp.setContentType("application/x-json; charset=UTF-8");
-		// req.getRequestDispatcher("/index.do").forward(req, resp);
-		// out.print(jsonObject.getString("name"));
-		// out.print(jsonObject);
-		// out.close();
 		resp.getWriter().print(jsonObject);
 	}
 }

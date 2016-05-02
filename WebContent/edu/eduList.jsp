@@ -94,6 +94,29 @@ p{
     background-color: firebrick;
     }
 </style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.submitbtn').on('click',function(){
+			<%
+			JSONObject loginsuc = new JSONObject();
+			loginsuc = (JSONObject) session.getAttribute("jsonObj");
+			%>
+			<%if (loginsuc == null) {%>
+				alert('로그인이 필요한 시스템입니다.');
+				location.href="/Hanbit/main.do";
+				return false;
+			<%}else{%>
+				var re = "<%=loginsuc.getString("result")%>";
+				if ("success" != re) {
+					alert('로그인이 필요한 시스템입니다.');
+					location.href="/Hanbit/main.do";
+					return false;
+				}
+			<%}%>
+			
+		});
+	});
+</script>
 </head>
 <body>
    <div class="container_12">
@@ -101,14 +124,6 @@ p{
       <%@ include file="../template/nav.jsp" %>
       <!-- content start -->
       <!-- 과정소개 페이지 시작 -->
-       <%
-         JSONObject jsonObject = new JSONObject();
-
-         jsonObject = (JSONObject) session.getAttribute("jsonObj");
-
-         if (jsonObject != null) {
-            if (jsonObject.getString("pm").equals("관리자")) { /////////////////////관리자일 경우 시작
-      %>
 <br/><div class="grid9 content" >
 <p>
    REGULAR CURRICULUM<br/>
@@ -189,112 +204,6 @@ p{
                    <a href="eduJsp.jsp"><input type="button" value="상세보기" class="yes detailbtn"/></a>
 <!--                    </div> -->
 </div>
-<%
-         }															/////////////////////관리자일 경우 끝
-         } else {													/////////////////////관리자가 아닐 경우 시작
-      %>
-      <br/><div class="grid9 content" >
-<p>
-   REGULAR CURRICULUM<br/>
-   <h4>정규교육과정</h4>
-</p>
-<hr/><br/><br/><br/>
-   <table id="tab">
-      <tr>
-         <th rowspan="4">
-            <img class="size" src="../imgs/javaLogo.PNG"/>
-         </th>
-         <td>
-            <a href="eduJava.jsp" id="aa">
-               교육과정 : 자바 프로그래밍</a>
-         </td>
-      </tr>
-      <tr>
-         <td>교육장소 : 한빛신촌교육센터</td>
-      </tr>
-      <tr>
-         <td>교육기간 : 2016.05.01 ~ 2016.05.31</td>
-      </tr>
-      <tr>
-         <td>모집인원 : 20명</td>
-      </tr>
-      <tr>
-       </tr>
-   </table>
-   <br/>
-<!--             <div> -->
-              <input type="button" value="신청하기" class="yes submitbtn" onclick="button1_click()"/>
-               <script language="javascript">
-               function button1_click() {
-            		alert("로그인이 필요합니다.");
-            		document.location.href = "../main.jsp";
-            	}
-	         </script>
-<!--             </div> -->
-<!--              <div class="detailbtn"> -->
-                <a href="eduJava.jsp"><input type="button" value="상세보기" class="yes detailbtn"/></a>
-<!--              </div> -->
-   <table id="tab"> 
-      <tr>
-         <th rowspan="4">
-            <img class="size" src="../imgs/AndroidLogo.png"/>
-         </th>
-         <td>
-            <a href="eduAndroid.jsp" id="aa">
-            교육과정 : 안드로이드 프로그래밍</a>
-         </td>
-      </tr>
-      <tr>
-         <td>교육장소 : 한빛신촌교육센터</td>
-      </tr>
-      <tr>
-         <td>교육기간 : 2016.05.01 ~ 2016.05.31</td>
-      </tr>
-      <tr>
-         <td>모집인원 : 20명</td>
-      </tr>
-   </table>
-      <br/>
-      
-<!--             <div> -->
-              <input type="button" value="신청하기" class="yes submitbtn" onclick="button1_click()"/>
-               <script language="javascript">
-               function button1_click() {
-            		alert("로그인이 필요합니다.");
-            		document.location.href = "../main.jsp";
-            	}
-	         </script>
-<!--             </div> -->
-<!--              <div class="detailbtn"> -->
-             <a href="eduAndroid.jsp"><input type="button" value="상세보기" class="yes detailbtn"/></a>
-<!--              </div> -->
-      
-   <table id="tab">
-      <tr><th rowspan="4"><img class="size" src="../imgs/jspLogo.png"/></th>
-         <td><a href="eduJsp.jsp" id="aa">교육과정 : JSP 프로그래밍</a></td></tr>
-      <tr><td>교육장소 : 한빛신촌교육센터</td></tr>
-      <tr><td>교육기간 : 2016.05.01 ~ 2016.05.31</td></tr>
-      <tr><td>모집인원 : 20명</td></tr>
-   </table>
-      <br/>
-                  
-<!--             <div> -->
-              <input type="button" value="신청하기" class="yes submitbtn" onclick="button1_click()"/>
-               <script language="javascript">
-               function button1_click() {
-            		alert("로그인이 필요합니다.");
-            		document.location.href = "../main.jsp";
-            	}
-	         </script>
-<!--             </div> -->
-<!--                    <div class="detailbtn"> -->
-                   <a href="eduJsp.jsp"><input type="button" value="상세보기" class="yes detailbtn"/></a>
-<!--                    </div> -->
-</div>
-    
-      <%
-         }															/////////////////////관리자가 아닐 경우 시작
-      %>
 <!-- 과정소개 첫 페이지 끝 -->
       <!-- content end -->   
       <%@ include file="../template/asideIn.jsp" %>
