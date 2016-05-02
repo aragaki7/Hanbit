@@ -20,6 +20,7 @@ public class AskData {
 		this.time = time;
 	}
 
+
 	/**
 	 * Ask num
 	 * 
@@ -82,5 +83,32 @@ public class AskData {
 		return title;
 	}
 
+	
+	
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public void setTime(Timestamp time) {
+		this.time = time;
+	}
+
+	
 
 }
