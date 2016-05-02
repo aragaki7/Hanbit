@@ -15,7 +15,7 @@ import com.hb.model.UserDao;
 import bean.BoardData; 
 import bean.UserData;
      
-@WebServlet("/customer/boarddel.do")
+@WebServlet("/customer/boarddel.do") 
 public class BoardDel extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String index = request.getParameter("index");

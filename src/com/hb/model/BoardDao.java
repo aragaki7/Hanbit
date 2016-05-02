@@ -97,7 +97,7 @@ public class BoardDao {
 		int result = 0;
 		String sql = "delete from TB_BBS where index=?";
 		System.out.println(sql);
-		try {
+		try { 
 			pstmt = DBConnect.get().prepareStatement(sql);
 			
 			pstmt.setString(1, index);

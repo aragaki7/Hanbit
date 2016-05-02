@@ -99,7 +99,7 @@
       background-color: black;
       color:white;
       width: 50px;
-      height: 30px;
+      height: 30px; 
    }
    .commenttext{
       background-color: #f1f1f1;
