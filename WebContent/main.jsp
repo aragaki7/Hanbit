@@ -128,8 +128,6 @@ span>a>img {
 				if("success".equals(appresult)){%>
 					alert('신청이 완료되었습니다.');
 				<%}%>
-			
-		
 	});
 </script>
 </head>

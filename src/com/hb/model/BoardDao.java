@@ -173,43 +173,45 @@ public class BoardDao {
         return result;
 	}
 
-	public BoardData GetSearchList(String search, String keyword) {
-		BoardData bean = new BoardData();
+	public ArrayList<BoardData> GetSearchList(String search, String keyword) {
+		ArrayList<BoardData> bean = new ArrayList<BoardData>();
 	    /* 검색 
 	    sql > select TB_BBS.index, TB_USER.name, title, days, time, count from TB_BBS 
-	    	join TB_USER on TB_BBS.id_fk = TB_USER.id WHERE TITLE LIKE '%김주형%' order by TB_BBS.index desc  
+	    	join TB_USER on TB_BBS.id_fk = TB_USER.id 
+	    	
+	    	> WHERE TITLE LIKE '%김주형%'
+			order by TB_BBS.index desc  
 		*/ 
         try{
             String sql ="select TB_BBS.index, TB_USER.name, title, days, time, count from TB_BBS "+
-            			"join TB_USER on TB_BBS.id_fk = TB_USER.id "; //조건넣어서 정렬하기전 sql문장
+            			"join TB_USER on TB_BBS.id_fk = TB_USER.id"; //조건넣어서 정렬하기전 sql문장
             if(search != null | !search.equals("") ){ //input값이 빈칸이아닐때
-                sql +="WHERE "+keyword.trim()+" LIKE '%"+search.trim()+"%' order by TB_BBS.index desc";
+                sql +=" WHERE "+keyword.trim()+" LIKE '%"+search.trim()+"%' order by TB_BBS.index desc";
             }else{//모든 게시글 검색
                 sql +=" order by TB_BBS.index desc";
             }
             System.out.println("sql = " + sql);
             pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery(); 
-			 System.out.println(">>>>>>>>>>>1");
+           
             while(rs.next()){
-                bean.setNum(rs.getInt(1));
-                bean.setName(rs.getString(2));
-                bean.setTitle(rs.getString(3));
-				bean.setDate(rs.getDate(4));
-				bean.setTime(rs.getTimestamp(5));
-				bean.setCount(rs.getInt(6));
+            	BoardData tmp = new BoardData();
+            	tmp.setNum(rs.getInt(1));
+            	tmp.setName(rs.getString(2));
+            	tmp.setTitle(rs.getString(3));
+            	tmp.setDate(rs.getDate(4));
+            	tmp.setTime(rs.getTimestamp(5));
+            	tmp.setCount(count = rs.getInt(6));
+            	bean.add(tmp);
             }
-            System.out.println(">>>>>>>>>>>2");
         }catch(Exception e){ }finally{          
             try {
-				pstmt.close();
-				rs.close();
-				conn.close();
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-        }
-        System.out.println(">>>>>>>>>>>3");
+        }      
         return bean;
 	}
 }   

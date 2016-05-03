@@ -82,5 +82,11 @@ public class BoardData {
 		this.count = count;
 	}
 
+	@Override
+	public String toString() {
+		return "BoardData [num=" + num + ", name=" + name + ", title=" + title + ", content=" + content + ", date="
+				+ date + ", time=" + time + ", count=" + count + "]";
+	}
+
 
 }
