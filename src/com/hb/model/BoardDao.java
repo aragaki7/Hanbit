@@ -70,17 +70,16 @@ public class BoardDao {
 		return bean;
 	}
 
-	public int addOne(String id, String title, String contents) {
+	public int addOne(String name, String title, String contents) {
 	      int result = 0;
 	      String sql = "insert into TB_BBS (TB_BBS.index, id_fk, title, content, days, time, count) values(0, ?,?,?,?,?,?)";
-	      
 	      Calendar calendar = Calendar.getInstance();
 	      java.util.Date now = calendar.getTime();
 	      java.sql.Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
 	      try {
 	         pstmt = DBConnect.get().prepareStatement(sql);
 
-	         pstmt.setString(1, id);
+	         pstmt.setString(1, name);
 	         pstmt.setString(2, title);
 	         pstmt.setString(3, contents); 
 	         pstmt.setDate(4, new java.sql.Date(System.currentTimeMillis()));
