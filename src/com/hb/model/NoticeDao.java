@@ -155,7 +155,7 @@ public class NoticeDao {
 	       int result = 0;
 	         String sql = "UPDATE TB_NOTICE SET TITLE=?, CONTENT=? WHERE IDX=?";
 	         try {
-	            pstmt = DBConnect.get().prepareStatement(sql);
+	            pstmt = conn.prepareStatement(sql);
 	            pstmt.setString(1, title);
 	            pstmt.setString(2, content); 
 	            pstmt.setString(3, idx); 

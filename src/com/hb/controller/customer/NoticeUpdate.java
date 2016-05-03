@@ -17,9 +17,9 @@ public class NoticeUpdate extends HttpServlet {
 			String idx= request.getParameter("idx");
 			String title= request.getParameter("title");
 			String content= request.getParameter("content");
-			
 			NoticeDao dao = new NoticeDao();
-		    int result = dao.EditOne(idx, title, content);
+		    int result = dao.EditOne(title, content, idx);
+		    System.out.println("result : "+result);
 		    if(result >0){
 				response.sendRedirect("notice.do");
 			}else{
