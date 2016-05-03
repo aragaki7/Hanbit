@@ -9,12 +9,42 @@
 	<script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
 	<script type="text/javascript" src="../js/menuLoad.js"></script>
     <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.back').click(function(){
-                window.location.href = "../customer/board.do";
-            }); 
-        }); 
+<script type="text/javascript">
+
+<%
+JSONObject jsonObject2 = new JSONObject();
+jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
+if (jsonObject2 != null) {%>
+	var pm = "<%=jsonObject2.getString("pm")%>";
+	if (!("관리자"== pm)) {
+		alert('권한이 부족합니다.');
+		location.href="/Hanbit/main.do";
+	}else{
+		//권한이 맞음
+	}
+<%}else{%>
+	alert('권한이 부족합니다.');
+	location.href="/Hanbit/main.do";
+<%}%>
+	$(document).ready(function(){
+		$('form').submit(function(){
+			var title = $('#title').val();
+			if(title=="" || title==null){
+				alert('제목을 입력하세요');
+				$('#title').focus();
+				return false;
+			}
+			
+			if(CKEDITOR.instances.contents.getData()==''|CKEDITOR.instances.contents.getData()==null){
+				alert('내용을 입력하세요');
+				CKEDITOR.instances.contents.focus();
+				return false;
+			}
+		}); 
+		$('.back').click(function(){
+			window.location.href = "../customer/notice.do";
+		}); 
+	});
   </script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css"/>
 <link rel="stylesheet" type="text/css" href="../css/nav.css"/>
@@ -129,7 +159,11 @@ span{
 	<div class="grid9">
 		<p>NOTICE</p>
 		<p id="write">공지사항 쓰기</p><hr/><br/>
-		<form action="../customer/board.jsp" method="post">
+		<%
+			JSONObject loginID = new JSONObject();
+			loginID = (JSONObject) session.getAttribute("jsonObj");
+		%>
+		<form action="../customer/noticeinsert.do" method="post">
 			<table class="join_tbl">
 			<colgroup>
 				<col width="10%" />
@@ -139,7 +173,8 @@ span{
 			</colgroup>
 			<tr> 
 				<th>제목</th>
-				<td><input type="text" id="id" name="name" value="" size="10" class="inputText"></td>
+				<td><input type="text" id="title" name="title" value="" size="100" class="inputText">
+				<input type="text" name="name" value="<%= loginID.get("id") %>" readonly="readonly"></td>
 			</tr>
 			</table>
 				
