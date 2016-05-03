@@ -115,6 +115,22 @@
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
 <script type="text/javascript">
+<%
+JSONObject jsonObject2 = new JSONObject();
+jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
+if (jsonObject2 != null) {%>
+	var pm = "<%=jsonObject2.getString("pm")%>";
+	if (!(("관리자"== pm)|("신청자"== pm)|("교육부"== pm)|("영업부"== pm)|("행정부"== pm)|("학생"== pm)|("일반"== pm))) {
+		alert('권한이 부족합니다.');
+		location.href="/Hanbit/main.do";
+	}else{
+		//권한이 맞음
+	}
+<%}else{%>
+	alert('권한이 부족합니다.');
+	location.href="/Hanbit/main.do";
+<%}%>
+
    $(function(){
       //제일 하단에 있는 depth1의 댓글을 다는 이벤트
        $("#commentParentSubmit").click(function( event ) {
@@ -200,7 +216,7 @@
             <tbody>  
                <tr>
                   <td>작성일</td>
-                  <td colspan="2"><%=dto.getDate() %><span id="name" name="index" value="<%= request.getParameter("index") %>">index : <%= request.getParameter("index") %></span></td>
+                  <td colspan="2"><%=dto.getDate() %></td>
                </tr>
                <tr>  
                   <td>글쓴이</td>

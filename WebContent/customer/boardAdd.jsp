@@ -11,6 +11,22 @@
 <script type="text/javascript" src="../js/menuLoad.js"></script>
 <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
+
+<%
+JSONObject jsonObject2 = new JSONObject();
+jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
+if (jsonObject2 != null) {%>
+	var pm = "<%=jsonObject2.getString("pm")%>";
+	if (!(("관리자"== pm)|("신청자"== pm)|("교육부"== pm)|("영업부"== pm)|("행정부"== pm)|("학생"== pm)|("일반"== pm))) {
+		alert('권한이 부족합니다.');
+		location.href="/Hanbit/main.do";
+	}else{
+		//권한이 맞음
+	}
+<%}else{%>
+	alert('권한이 부족합니다.');
+	location.href="/Hanbit/main.do";
+<%}%>
 	$(document).ready(function(){
 		$('form').submit(function(){
 			var title = $('#title').val();
@@ -160,7 +176,7 @@ span{
 			<tr> 
 				<th>제목</th>
 				<td><input type="text" id="title" name="title" value="" size="100" class="inputText">
-				<input type="text" name="name" value="<%= loginID.get("name") %>" readonly="readonly"></td>
+				<input type="hidden" name="name" value="<%= loginID.get("id") %>" readonly="readonly"></td>
 			</tr>
 
 			</table>
