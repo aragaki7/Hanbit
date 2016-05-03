@@ -122,5 +122,11 @@ public class BoardDao {
 		return result;
 	}
 
+
+	public BoardData SelectEdit(String index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }   
 

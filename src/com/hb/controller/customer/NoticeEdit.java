@@ -19,18 +19,12 @@ import net.sf.json.JSONObject;
 @WebServlet("/customer/noticeEdit.do")
 public class NoticeEdit extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
-		JSONObject jobject = (JSONObject) request.getSession().getAttribute("jsonObj");
-		*/
-			String idx= request.getParameter("idx");
-			
-			NoticeDao dao = new NoticeDao();
-		    NoticeData bean = dao.SelectEdit(idx);
+		String idx= request.getParameter("idx");
+		
+		NoticeDao dao = new NoticeDao();
+		NoticeData bean = dao.SelectEdit(idx);
 		    
-		    request.setAttribute("noticeDto", bean);
-			request.getRequestDispatcher("/customer/NoticeEdit.jsp").forward(request, response);
-		
-		
+		request.setAttribute("noticeDto", bean);
+		request.getRequestDispatcher("/customer/NoticeEdit.jsp").forward(request, response);
 	}
-	
 }

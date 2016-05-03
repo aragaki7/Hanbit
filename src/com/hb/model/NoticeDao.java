@@ -150,4 +150,27 @@ public class NoticeDao {
 		}
 		return result;
 	}
+	
+	public int EditOne(String title, String content, String idx) {
+	       int result = 0;
+	         String sql = "UPDATE TB_NOTICE SET TITLE=?, CONTENT=? WHERE IDX=?";
+	         try {
+	            pstmt = DBConnect.get().prepareStatement(sql);
+	            pstmt.setString(1, title);
+	            pstmt.setString(2, content); 
+	            pstmt.setString(3, idx); 
+	            result = pstmt.executeUpdate();
+	         } catch (SQLException e) {
+	            e.printStackTrace();
+	         } finally {
+	            try {
+	               if (pstmt != null)
+	                  pstmt.close();
+	            } catch (SQLException e) {
+	               e.printStackTrace();
+	            }
+	         }
+	         return result;
+	      }
+	
 }   

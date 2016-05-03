@@ -171,7 +171,9 @@
       $( "#list" ).click(function(event) { //목록으로
          location.href='../customer/board.do';
       });
-   
+      $( "#modify" ).click(function(event) { //수정하기
+         location.href='../customer/boardedit.do?index='+<%=request.getParameter("index")%>; 
+      });
       $( "#del" ).click(function(event) { //삭제하기
          location.href='../customer/boarddel.do?index='+<%= request.getParameter("index") %>; 
       });

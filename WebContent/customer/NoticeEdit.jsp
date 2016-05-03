@@ -13,7 +13,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $('.back').click(function(){
-                window.location.href = "../customer/board.do";
+                window.location.href = "../customer/notice.do";
             }); 
         }); 
   </script>
@@ -132,7 +132,7 @@ span{
 	<div class="grid9">
 		<p>NOTICE</p>
 		<p id="write">공지사항 수정</p><hr/><br/>
-		<form action="#" method="post">
+		<form action="../customer/noticeupdate.do" method="post">
 			<table class="join_tbl">
 			<colgroup>
 				<col width="10%" />
@@ -142,16 +142,17 @@ span{
 			</colgroup>
 			<tr> 
 				<th>제목</th>
-				<td><input type="text" id="id" name="name" value="<%=dto.getTitle()%>" size="10" class="inputText" ></td>
+				<td><input type="text" id="title" name="title" value="<%=dto.getTitle()%>" size="100" class="inputText" >
+				<input type="text" id="idx" name="idx" value="<%=request.getParameter("idx")%>">
+				</td>
 			</tr>
 			</table>
 				
 			<li id="li1" >
-				<textarea cols="80" id="contents" name="contents" rows="10" value="" ><%=dto.getContent()%></textarea>
+				<textarea cols="80" id="content" name="content" rows="10" value="" ><%=dto.getContent()%></textarea>
 				<script type="text/javascript">
 					window.onload=function(){
-						CKEDITOR.replace('contents',{enterMode:'2',shiftEnterMode:'3'});
-						
+						CKEDITOR.replace('content',{enterMode:'2',shiftEnterMode:'3'});
 					};
 				</script>
 			</li><br/>

@@ -174,7 +174,7 @@ span{
 			<tr> 
 				<th>제목</th>
 				<td><input type="text" id="title" name="title" value="" size="100" class="inputText">
-				<input type="text" name="name" value="<%= loginID.get("id") %>" readonly="readonly"></td>
+				<input type="hidden" name="name" value="<%= loginID.get("id") %>" readonly="readonly"></td>
 			</tr>
 			</table>
 				
