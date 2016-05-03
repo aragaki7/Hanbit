@@ -194,21 +194,20 @@
          <table class="table table-condensed tablemain">
             <thead>
                <tr align="center">
-                  <th colspan="2" id="boardtitle"><%=dto.getTitle() %></th>
+                  <th colspan="3" id="boardtitle"><%=dto.getTitle() %></th>
                </tr>
             </thead>
             <tbody>  
                <tr>
                   <td>작성일</td>
-                  <td><%=dto.getDate() %></td>
+                  <td colspan="2"><%=dto.getDate() %></td>
                </tr>
                <tr>  
                   <td>글쓴이</td>
-                  <td><%=dto.getName() %><span id="clickconents">조회 :  <%=dto.getCount() %></span></td>
+                  <td colspan="2"><%=dto.getName() %><span id="clickconents">조회 :  <%=dto.getCount() %></span></td>
                </tr>
                <tr>  
                   <td colspan="2"><p><%=dto.getContent() %></p></td>
-                  <td><input type="hidden" name="index" value=></td>
                </tr>
             </tbody>
          </table>
