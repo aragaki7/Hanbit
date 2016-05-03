@@ -299,8 +299,11 @@ background-color:firebrick;
 				</div>
 
 				<div class="tab1_content"> <!-- 출결관리 -->
+				<%
+					ArrayList<UserData> dateSearch = (ArrayList<UserData>)request.getAttribute("dateSearch");
+				 %>
 					<div class="table">
-						<form action="datesearch.do" method="get"> 
+						<form action="gangsa.do" method="get"> 
 						<table>
 							<tr>
 								<td>이름</td>
@@ -312,12 +315,12 @@ background-color:firebrick;
 								</td>
 							</tr>
 						</form>	
-							<% for(int i=0; i<stulist.size();i++){ %> 
+							<% for(int i=0; i<dateSearch.size();i++){ %> 
 							<tr>
-								<td><%=stulist.get(i).getName()%></td>
-								<td><%=stulist.get(i).getMobile()%></td>
+								<td><%=dateSearch.get(i).getName()%></td>
+								<td><%=dateSearch.get(i).getMobile()%></td>
 								<%-- <td><%=stulist.get(i).getEmail()%></td> --%>
-								<td><%=stulist.get(i).getClasss() %></td>
+								<td><%=dateSearch.get(i).getClasss() %></td>
 								<td>
 									<select>
 										<option value="0" selected="selected">출석</option>

@@ -129,6 +129,7 @@
     <servlet-name>dept.hang</servlet-name>
     <url-pattern>/dept/hang.do</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>dept.gangsa</servlet-name>
     <servlet-class>com.hb.controller.dept.DeptGangsa</servlet-class>
@@ -137,6 +138,7 @@
     <servlet-name>dept.gangsa</servlet-name>
     <url-pattern>/dept/gangsa.do</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>dept.admin</servlet-name>
     <servlet-class>com.hb.controller.dept.DeptAdmin</servlet-class>

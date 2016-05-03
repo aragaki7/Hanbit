@@ -30,11 +30,23 @@ import bean.UserData;
 //				System.out.println(check[i]);
 //			}
 			
-			UserDao attdao = new UserDao();
+//			UserDao attdao = new UserDao();
 			
 			GradeDao dao = new GradeDao();
 			ArrayList<GreadeData> list = dao.gradeList();
-
+			
+			System.out.println("검색넘어옴");
+			String dateSearch = request.getParameter("dateSearch");
+			ArrayList<UserData> daySearchlist = new UserDao().daySearch(dateSearch);
+			request.setAttribute("dateSearch",daySearchlist);		
+//			request.getRequestDispatcher("/dept/gangsa.jsp").forward(request, response);
+			
+			UserData tmp = new UserData();
+			for (int i = 0; i < daySearchlist.size(); i++) {
+				tmp = daySearchlist.get(i);
+					System.out.println(tmp.toString());
+				}
+			
 			request.setAttribute("list", list);
 			request.getRequestDispatcher("/dept/gangsa.jsp").forward(request, response);
 		}
