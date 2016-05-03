@@ -247,7 +247,6 @@ input[type=submit] {
                href="#">[3]</a> <a href="#">[4]</a> <a href="#">[5]</a> <a
                href="#">▶</a>
          </div>
-         <div id="gumsackjang">
             <div id="write">
             <%
             	JSONObject jsonObject = new JSONObject();
@@ -263,6 +262,7 @@ input[type=submit] {
                 }
                %>
             </div>
+         <div id="gumsackjang">
             <form action="#">
                <select id="keyword">
                   <option value="title">제목</option>
