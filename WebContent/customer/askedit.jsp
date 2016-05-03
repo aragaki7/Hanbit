@@ -141,13 +141,14 @@ span{
          <table class="join_tbl">
          <colgroup>
             <col width="10%" />
-            <col width="40%" />
+            <col width="40%" />  
             <col width="10%" />
             <col width="40%" />
          </colgroup>
          <tr> 
             <th>제목</th>
-            <td><input type="text" id="id" name="title" value="<%=dto.getTitle()%> " size="10" class="inputText" ></td>
+            <td><input type="text" id="id" name="title" value="<%=dto.getTitle()%> " size="10" class="inputText" >
+            <input type="hidden" id="idx" name="idx" value="<%=request.getParameter("idx")%>"></td>
          </tr>
          </table>
              

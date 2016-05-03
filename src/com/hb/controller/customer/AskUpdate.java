@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.hb.model.AskDao;
 import com.hb.model.NoticeDao;
      
-@WebServlet("/customer/askupdate.do")
+@WebServlet("/customer/askupdate.do")  
 public class AskUpdate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			request.setCharacterEncoding("UTF-8");

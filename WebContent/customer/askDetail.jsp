@@ -14,7 +14,7 @@
     #ptitle{
         text-align: left;
        display: block;
-       width: 400px;
+       width: 400px;  
          font-size:25pt;
          font-weight:bold;
          color:black;
@@ -155,10 +155,8 @@
                <tr>
                   <td>
                      <span id="btnlayout">
-                        <a href="../customer/ask.do">
-                        <button type="button" id="list" class="btn btn-default">목록</button></a>
-                        <a href="../customer/askedit.do?idx=<%=request.getParameter("idx")%>">
-                        <button type="button">수정</button></a>
+                        <a href="../customer/ask.do"><button type="button" id="list" class="btn btn-default">목록</button></a>
+                        <a href="../customer/askedit.do?idx=<%=request.getParameter("idx")%>"><button type="button" id="modify" class="btn btn-default">수정</button></a>
                         <button type="button" id="delete" class="btn btn-default">삭제</button>
                      </span>
                   </td>

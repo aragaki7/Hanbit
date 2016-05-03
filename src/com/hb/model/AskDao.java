@@ -80,7 +80,7 @@ public class AskDao {
 			if (rs.next()) {
 				bean.setTitle(rs.getString(1));
 				bean.setContent(rs.getString(2)); 
-			}
+			}  
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
