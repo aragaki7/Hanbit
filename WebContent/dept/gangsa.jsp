@@ -218,10 +218,7 @@ background-color:firebrick;
 		
 		$('.stuListRow').on('click', function() {
 			var ridx=getRow(this);
-			var id=$('.row:eq('+(ridx-1)+')>td:eq(0)').text();
-			var mobile=$('.row:eq('+(ridx-1)+')>td:eq(0)').text();
-			var email=$('.row:eq('+(ridx-1)+')>td:eq(0)').text();
-			var classroom=$('.row:eq('+(ridx-1)+')>td:eq(0)').text();
+			var id=$('.stuListRow:eq('+(ridx-1)+')>td:eq(0)').text();
 			location.href="studetail.do?id="+id;
 		});
 		
