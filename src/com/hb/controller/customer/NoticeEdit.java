@@ -20,13 +20,12 @@ import net.sf.json.JSONObject;
 public class NoticeEdit extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-			String id= request.getParameter("id");
-			
+			String idx= request.getParameter("idx");
 			NoticeDao dao = new NoticeDao();
-		    NoticeData bean = dao.SelectEdit(id);
+		    NoticeData bean = dao.SelectEdit(idx);
 		    
 		    request.setAttribute("noticeDto", bean);
-			request.getRequestDispatcher("/customer/noticeEdit.jsp").forward(request, response);
+			request.getRequestDispatcher("/customer/NoticeEdit.jsp").forward(request, response);
 		
 		
 	}

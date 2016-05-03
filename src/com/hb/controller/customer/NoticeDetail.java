@@ -20,7 +20,6 @@ public class NoticeDetail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String idx = request.getParameter("idx");
-//		System.out.println("id넘어옴"+id);
 		
 		NoticeDao dao = new NoticeDao();
 		
