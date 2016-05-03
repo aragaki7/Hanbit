@@ -15,6 +15,7 @@ public class BoardDao {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	private String sql;
+	int count = 0;
 	
 	public BoardDao() {
 		conn = DBConnect.get();
@@ -49,14 +50,17 @@ public class BoardDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, index);
 			rs = pstmt.executeQuery();
+			
 			if (rs.next()) {  
 				bean.setName(rs.getString(1));
 				bean.setTitle(rs.getString(2));
 				bean.setContent(rs.getString(3));
 				bean.setDate(rs.getDate(4));
 				bean.setTime(rs.getTimestamp(5));
-				bean.setCount(rs.getInt(6));
+				bean.setCount(count = rs.getInt(6));
 			}
+			pstmt.executeUpdate("update TB_BBS set count="+(count+1)+" where TB_BBS.index="+index);
+			System.out.println("update TB_BBS set count="+(count+1)+" where TB_BBS.index="+index);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
