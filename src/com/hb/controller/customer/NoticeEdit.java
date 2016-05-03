@@ -19,9 +19,9 @@ import net.sf.json.JSONObject;
 @WebServlet("/customer/noticeEdit.do")
 public class NoticeEdit extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		/*
 		JSONObject jobject = (JSONObject) request.getSession().getAttribute("jsonObj");
-		
+		*/
 			String idx= request.getParameter("idx");
 			
 			NoticeDao dao = new NoticeDao();
