@@ -1,4 +1,4 @@
-<%@page import="bean.NoticeData"%>
+<%@page import="bean.BoardData"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -6,14 +6,14 @@
 <html>
 <head> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>공지사항 수정페이지</title>
+<title>자유게시판 수정페이지</title>
 	<script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
 	<script type="text/javascript" src="../js/menuLoad.js"></script>
     <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $('.back').click(function(){
-                window.location.href = "../customer/notice.do";
+                window.location.href = "../customer/board.do";
             }); 
         }); 
   </script>
@@ -127,12 +127,12 @@ span{
 	<%@ include file="../template/nav.jsp" %>	
 	<!-- content start -->
 		<%  
-			NoticeData dto = (NoticeData)request.getAttribute("noticeDto");
+			BoardData dto = (BoardData)request.getAttribute("boardDto");
 		%>
 	<div class="grid9">
-		<p>NOTICE</p>
-		<p id="write">공지사항 수정</p><hr/><br/>
-		<form action="../customer/noticeupdate.do" method="post">
+		<p>BOARD</p>
+		<p id="write">자유게시판 수정</p><hr/><br/>
+		<form action="../customer/boardupdate.do" method="post">
 			<table class="join_tbl">
 			<colgroup>
 				<col width="10%" />
@@ -143,7 +143,7 @@ span{
 			<tr> 
 				<th>제목</th>
 				<td><input type="text" id="title" name="title" value="<%=dto.getTitle()%>" size="100" class="inputText" >
-				<input type="hidden" id="idx" name="idx" value="<%=request.getParameter("idx")%>">
+				<input type="hidden" id="idx" name="index" value="<%=request.getParameter("index")%>">
 				</td>
 			</tr>
 			</table>

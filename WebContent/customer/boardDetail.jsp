@@ -228,7 +228,8 @@
 		                    	|jsonObject.getString("pm").equals("일반")) {
 		               %>
 		           	    <button type="button" id="list" class="btn btn-default">목록</button>
-                        <button type="button" id="modify" class="btn btn-default">수정</button>
+                        <a href='../customer/boardedit.do?index=<%=request.getParameter("index")%>'>
+                        	<button type="button" id="modify" class="btn btn-default">수정</button></a>
                         <button type="button" id="del" class="btn btn-default">삭제</button>
 		               <%
 		                	}

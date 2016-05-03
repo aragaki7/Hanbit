@@ -8,19 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hb.model.NoticeDao;
+import bean.BoardData;
 
-import bean.NoticeData;
+import com.hb.model.BoardDao;
+
      
-@WebServlet("/customer/noticeEdit.do")
-public class NoticeEdit extends HttpServlet {
+@WebServlet("/customer/boardedit.do")
+public class BoardEdit extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String idx= request.getParameter("idx");
+		String index= request.getParameter("index");
 		
-		NoticeDao dao = new NoticeDao();
-		NoticeData bean = dao.SelectEdit(idx);
+		BoardDao dao = new BoardDao();
+		BoardData bean = dao.SelectEdit(index);
 		    
-		request.setAttribute("noticeDto", bean);
-		request.getRequestDispatcher("/customer/NoticeEdit.jsp").forward(request, response);
+		request.setAttribute("boardDto", bean);
+		request.getRequestDispatcher("/customer/BoardEdit.jsp").forward(request, response);
 	}
 }
