@@ -19,35 +19,24 @@ import bean.UserData;
 	public class DeptGangsa extends HttpServlet{
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
+			//학생리스트
 			UserDao dao1 = new UserDao();
+			//학생 권한값을 인자로 넘긴다.
 			ArrayList<UserData> stulist = dao1.Userlist(2);
-			request.setAttribute("stulist", stulist);
 			
-//			String name = request.getParameter("name");
-//			String classroom = request.getParameter("class");
-//			String[] check = request.getParameterValues("attend");
-//			for (int i = 0; i < check.length; i++) {
-//				System.out.println(check[i]);
-//			}
-			
-//			UserDao attdao = new UserDao();
-			
+			//성적리스트
 			GradeDao dao = new GradeDao();
 			ArrayList<GreadeData> list = dao.gradeList();
 			
-			System.out.println("검색넘어옴");
+			//출결리스트
 			String dateSearch = request.getParameter("dateSearch");
 			ArrayList<UserData> daySearchlist = new UserDao().daySearch(dateSearch);
-			request.setAttribute("dateSearch",daySearchlist);		
-//			request.getRequestDispatcher("/dept/gangsa.jsp").forward(request, response);
 			
-			UserData tmp = new UserData();
-			for (int i = 0; i < daySearchlist.size(); i++) {
-				tmp = daySearchlist.get(i);
-					System.out.println(tmp.toString());
-				}
 			
-			request.setAttribute("list", list);
+			
+			request.setAttribute("stulist", stulist); //학생리스트 보냄
+			request.setAttribute("dateSearch",daySearchlist); //출결리스트 보냄		
+			request.setAttribute("list", list); //성적리스트 보냄
 			request.getRequestDispatcher("/dept/gangsa.jsp").forward(request, response);
 		}
 }
