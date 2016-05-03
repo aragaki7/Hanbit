@@ -149,8 +149,8 @@ span{
 			<table class="join_tbl">
 			<colgroup>
 				<col width="10%" />
-				<col width="40%" />
-				<col width="10%" />
+				<col width="40%" /> 
+				<col width="10%" /> 
 				<col width="40%" />
 			</colgroup>
 			<tr> 
