@@ -245,8 +245,6 @@ background-color:firebrick;
 
 	<%
 		ArrayList<UserData> stulist = (ArrayList<UserData>)request.getAttribute("stulist"); 
-		ArrayList<UserData> tealist = (ArrayList<UserData>)request.getAttribute("tealist");
-		
 	%>
 
 		<!-- content start -->
@@ -317,16 +315,18 @@ background-color:firebrick;
 						</form>	
 							<% for(int i=0; i<dateSearch.size();i++){ %> 
 							<tr>
+							<%
+								int attNum = dateSearch.get(i).getAtt();
+							 %>
 								<td><%=dateSearch.get(i).getName()%></td>
 								<td><%=dateSearch.get(i).getMobile()%></td>
-								<%-- <td><%=stulist.get(i).getEmail()%></td> --%>
 								<td><%=dateSearch.get(i).getClasss() %></td>
 								<td>
 									<select>
-										<option value="0" selected="selected">출석</option>
-										<option value="1">지각</option>
-										<option value="2">조퇴</option>
-										<option value="3">결석</option>
+										<option value="0" <%=(attNum==0) ? "selected":"" %>>출석</option>
+										<option value="1" <%=(attNum==1) ? "selected":"" %>>지각</option>
+										<option value="2" <%=(attNum==2) ? "selected":"" %>>조퇴</option>
+										<option value="3" <%=(attNum==3) ? "selected":"" %>>결석</option>
 									</select>
 								</td>
 							</tr>
