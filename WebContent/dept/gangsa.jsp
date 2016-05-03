@@ -192,6 +192,14 @@ background-color:firebrick;
 .hid{
 	display: none;
 }
+
+#attSearchBtn{
+	background-color: black;
+	color:white;
+	width:40px;
+	height: 20px;
+	border: 0px;
+}
 </style>
 <script type="text/javascript">
 	function getRow(rowValue) {
@@ -324,7 +332,7 @@ background-color:firebrick;
 								<!-- <td>이메일</td> -->
 								<td>강의실</td>
 								<td><input type="text" id="datepicker" value="" name="dateSearch"/>
-									<button type="submit">검색</button>
+									<button type="submit" id="attSearchBtn">검색</button>
 								</td>
 							</tr>
 						</form>	
