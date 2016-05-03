@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.hb.model.UserDao;
 
-@WebServlet("/dept/attendaddlist.do")
+// @WebServlet("/dept/attendaddlist.do")
 public class AttendAddList extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

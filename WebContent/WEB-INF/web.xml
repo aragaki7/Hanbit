@@ -273,6 +273,7 @@
     <servlet-name>attend.list</servlet-name>
     <url-pattern>/attend/list.do</url-pattern>
   </servlet-mapping>
+   
    <servlet>
     <servlet-name>student.detail</servlet-name>
     <servlet-class>com.hb.controller.dept.StuDetail</servlet-class>
@@ -281,6 +282,7 @@
     <servlet-name>student.detail</servlet-name>
     <url-pattern>/dept/studetail.do</url-pattern>
   </servlet-mapping>
+  
    <servlet>
     <servlet-name>Attend.Add</servlet-name>
     <servlet-class>com.hb.controller.dept.AttendAdd</servlet-class>
@@ -289,6 +291,7 @@
     <servlet-name>Attend.Add</servlet-name>
     <url-pattern>/dept/attendadd.do</url-pattern>
   </servlet-mapping>
+ 
   <servlet>
     <servlet-name>AttendList.Add</servlet-name>
     <servlet-class>com.hb.controller.dept.AttendAddList</servlet-class>
@@ -297,6 +300,7 @@
     <servlet-name>AttendList.Add</servlet-name>
     <url-pattern>/dept/attendaddlist.do</url-pattern>
   </servlet-mapping>
+ 
   <servlet>
     <servlet-name>ConnectorServlet</servlet-name>
     <servlet-class>com.ckfinder.connector.ConnectorServlet</servlet-class>
