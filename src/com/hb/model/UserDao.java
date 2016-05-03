@@ -58,7 +58,7 @@ public class UserDao {
 	public boolean chkIdVali(String id) {
 		boolean result = false;
 		
-		String query = "select count(*) from TB_USER where id = ?";
+		String query = "select count(*) from TB_GRADE where id=?";
 		System.out.println(query);
 		try {
 			pstmt = DBConnect.get().prepareStatement(query);
@@ -91,7 +91,6 @@ public class UserDao {
 		int result = 0;
 		
 		String query = "insert into TB_USER(id, password, name, post, main_address, sub_address, sex, phone, mobile, email, pm_fk, class_fk) values(?,password(?),?,?,?,?,?,?,?,?,?,1)";//1은 강의실. 강의실 없음을 의미
-		System.out.println(query);
 		try {
 			
 			
@@ -666,24 +665,46 @@ public class UserDao {
 	}
 
 
-	public GreadeData getGradeinfo(String id) {
-		GreadeData bean = new GreadeData();
-		//일단 성적 정보가 있는지 조회.
-		//있으면 그거 끌어다 쓰고 없으면 insert
-		int result = 0;
+	public int isExgrade(String id) {
+		int result=0;
+		String query="";
 		try {
-			sql = "select count(*) from TB_GRADE where id=?";
-			
-			pstmt = conn.prepareStatement(sql);
+			System.out.println(query);
+			query = "select count(*) from TB_GRADE where id=?";
+			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				result = rs.getInt(1);
 			}
-			if(result==0){
-				sql = "insert into TB_GRADE (id, java, web, fw, comment) VALUES (?, 0, 0, 0, \"\");";
-			}else{
-				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+		return result;
+	}
+
+	/**
+	 * id로 학생 grade받아옴
+	 * @param id
+	 * @return
+	 */
+	public GreadeData getGradeinfo(String id) {
+		GreadeData bean = null;
+		try {
+			sql = "select id, java, web, fw, comment where id=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				bean = new GreadeData(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -696,7 +717,32 @@ public class UserDao {
 				}
 			
 		}
-		
 		return bean;
 	}
+
+
+	public int addDefGrade(String id) {
+		int result = 0;
+		
+		String query = "insert into TB_GRADE(id, java, web, fw, comment) values(?,0,0,0,'')";//1은 강의실. 강의실 없음을 의미";
+		try {
+			
+			
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+	}
+
 }

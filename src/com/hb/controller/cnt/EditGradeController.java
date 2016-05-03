@@ -16,6 +16,10 @@ import bean.GreadeData;
 public class EditGradeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		/*
+		 * 현재 안쓰지만 삭제 보류중
+		 * 
+		 */
 		//전체 리스트중 한명을 눌러서 점수 입력폼으로 보내는 클래스 
 		String id = request.getParameter("id");
 		int java = Integer.parseInt(request.getParameter("java"));
