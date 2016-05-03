@@ -198,6 +198,7 @@ background-color:firebrick;
 		var rowIndex = rowValue.rowIndex;
 		return rowIndex;
 	}
+	
 	$(document).ready(function() {
 		
 		var result = <%=request.getAttribute("result") %>
@@ -217,6 +218,16 @@ background-color:firebrick;
 			
 			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
 		});
+		
+		$('.stuListRow').on('click', function() {
+			var ridx=getRow(this);
+			var id=$('.row:eq('+(ridx-1)+')>td:eq(0)').text();
+			var mobile=$('.row:eq('+(ridx-1)+')>td:eq(0)').text();
+			var email=$('.row:eq('+(ridx-1)+')>td:eq(0)').text();
+			var classroom=$('.row:eq('+(ridx-1)+')>td:eq(0)').text();
+			location.href="studetail.do?id="+id;
+		});
+		
 		
 		$( "#datepicker" ).datepicker({
 			/* 
@@ -281,9 +292,11 @@ background-color:firebrick;
 								</tr>
 								<%
 								for (int i = 0; i < stulist.size(); i++) {
-							%>
-							<tr id="row" style="cursor: hand;"
-							onclick="location.href='../user/stuDetail.jsp'"	>
+								%>
+							<tr class="stuListRow" style="cursor: hand;">
+								
+								<td class="hid"><%=stulist.get(i).getId()%></td>
+								
 								<td><%=stulist.get(i).getName()%></td>
 					
 								<td><%=stulist.get(i).getMobile()%></td>
