@@ -19,16 +19,27 @@ public class AttendAddList extends HttpServlet {
 		String[] idArr = req.getParameterValues("id");
 		String[] checkArr = req.getParameterValues("attend");
 		
+		UserDao attinsert = new UserDao();
+
 		String id;
 		int check;
 		int result = 0;
-		UserDao attinsert = new UserDao();
-		for (int i = 0; i < idArr.length; i++) {
-			id = idArr[i];
-			check = Integer.parseInt(checkArr[i]);
-			result += attinsert.attendInsert(id, check, date);
-		}
 		
+		for(int i = 0; i < idArr.length; i++){
+			id = idArr[i];
+			int attOver = attinsert.attOverlap(id, date);
+//			System.out.println(attOver);
+			if(attOver==0){
+				for (int j = 0; j < idArr.length; j++) {
+					id = idArr[j];
+					check = Integer.parseInt(checkArr[j]);
+					result += attinsert.attendInsert(id, check, date);
+				}
+			} else {
+//				resp.sendRedirect("../dept/attendadd.do");
+			}
+		}
+			
 		if(result>0){
 			resp.sendRedirect("../dept/gangsa.do");
 		}

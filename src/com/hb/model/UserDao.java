@@ -826,4 +826,33 @@ public class UserDao {
 		return list;
 	}
 
+
+	public int attOverlap(String id, String date) {
+		int attOver = 0;
+		sql = "select count(*) from TB_ATTEN where id=? and days=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, date);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				attOver = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+		
+		return attOver;
+	}
+
+
+
 }
