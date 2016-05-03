@@ -21,8 +21,7 @@ import bean.UserData;
 			
 			//학생리스트
 			UserDao dao1 = new UserDao();
-			//학생 권한값을 인자로 넘긴다.
-			ArrayList<UserData> stulist = dao1.Userlist(2);
+			ArrayList<UserData> stulist = dao1.Userlist("학생","있음");//학생. pm==2(학생) & class!=1(강의실 있음)
 			
 			//성적리스트
 			GradeDao dao = new GradeDao();

@@ -189,6 +189,9 @@ background-color:firebrick;
 	height: 20px;
 	border: 0px;
 }
+.hid{
+	display: none;
+}
 </style>
 <script type="text/javascript">
 	function getRow(rowValue) {
@@ -341,22 +344,20 @@ background-color:firebrick;
 					<div class="table">
 						<table>
 						<tr>
-							<td>아이디</td>
-							<td>자바</td>
-							<td>웹</td>
-							<td>프레임워크</td>
+							<td>이름</td>
+							<td>강의장</td>
 						</tr>
 							<%
-							ArrayList<GreadeData> list = (ArrayList<GreadeData>)request.getAttribute("list");
-							for (int i = 0; i < list.size(); i++) {
+// 							ArrayList<GreadeData> list = (ArrayList<GreadeData>)request.getAttribute("list");
+							
+							for (int i = 0; i < stulist.size(); i++) {
 							%>
 							<tr class="row" style="cursor: hand;"><!--  onclick="location.href='EditGrade.do'"> -->
 <!-- 							onclick="location.href='../student/EditGrade.jsp'"> 클릭 이벤트 jquery로 뺌-->
 
-							<td><%=list.get(i).getId()%></td>
-							<td><%=list.get(i).getJava()%></td>
-							<td><%=list.get(i).getWeb()%></td>
-							<td><%=list.get(i).getFw()%></td>
+							<td class="hid"><%=stulist.get(i).getId()%></td>
+							<td><%=stulist.get(i).getName()%></td>
+							<td><%=stulist.get(i).getClasss()%></td>
 							</tr>
 							<%}%>
 					</table>
