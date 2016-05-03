@@ -11,7 +11,6 @@ import com.hb.model.GradeDao;
 
 import bean.GreadeData;
 
-
 @WebServlet("/dept/editgrade.tea")
 public class TEditGrade extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -15,6 +15,7 @@ import com.hb.model.UserDao;
 
 import bean.GreadeData;
 import bean.UserData;
+import bean.UserDataGrade;
 
 	public class DeptGangsa extends HttpServlet{
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,7 +23,12 @@ import bean.UserData;
 			//학생리스트
 			UserDao dao1 = new UserDao();
 			ArrayList<UserData> stulist = dao1.Userlist("학생","있음");//학생. pm==2(학생) & class!=1(강의실 있음)
-			
+			ArrayList<UserDataGrade> stulistgrade = dao1.UserlistGrade();
+			UserDataGrade tmp = new UserDataGrade();
+//			for (int i = 0; i < stulistgrade.size(); i++) {
+//				tmp = stulistgrade.get(i);
+//				System.out.println(tmp.toString());
+//			}
 			//성적리스트
 			GradeDao dao = new GradeDao();
 			ArrayList<GreadeData> list = dao.gradeList();
@@ -33,7 +39,7 @@ import bean.UserData;
 			
 			
 			
-			request.setAttribute("stulist", stulist); //학생리스트 보냄
+			request.setAttribute("stulist", stulistgrade); //학생리스트 보냄
 			request.setAttribute("dateSearch",daySearchlist); //출결리스트 보냄		
 			request.setAttribute("list", list); //성적리스트 보냄
 			request.getRequestDispatcher("/dept/gangsa.jsp").forward(request, response);

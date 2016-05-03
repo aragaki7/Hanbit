@@ -1,4 +1,4 @@
-<%@page import="bean.GreadeData"%>
+<%@page import="bean.GradeDataNM"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -139,6 +139,9 @@ hr {
  #d{
  	background-color: firebrick;
  	}
+ .hid{
+ 	display: none;
+ }
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -167,17 +170,18 @@ hr {
 			<div class="table">
 				<table>
 					<tr>
-						<td>아이디</td>
+						<td>이름</td>
 						<td>자바</td>
 						<td>웹</td>
 						<td>프레임워크</td>
 						<td>평가</td>
 					</tr>
 					<%
-					GreadeData dto = (GreadeData)request.getAttribute("gradeDto");
+					GradeDataNM dto = (GradeDataNM)request.getAttribute("gradeDto");
 					%>
 					<tr id="grade">
-						<td><input type="text" name="id" value="<%=dto.getId() %>" class="ip" readonly="readonly"/></td>
+						<td class="hid"><input type="hidden" name="id" value="<%=dto.getId() %>" class="ip" readonly="readonly"/></td>
+						<td><input type="text" name="name" value="<%=dto.getName() %>" class="ip" readonly="readonly"/></td>
 						<td><input type="text" name="java" value="<%=dto.getJava() %>"class="ip" /></td>
 						<td><input type="text" name="web" value=<%=dto.getWeb() %> class="ip" /></td>
 						<td><input type="text" name="fw" value=<%=dto.getFw() %> class="ip" /></td>

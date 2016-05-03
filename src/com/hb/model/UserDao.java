@@ -8,8 +8,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import net.sf.json.JSONObject;
+import bean.GradeDataNM;
 import bean.GreadeData;
 import bean.UserData;
+import bean.UserDataGrade;
 import bean.UserDataPw;
 import net.sf.json.JSONObject;//json쓸때 필요한거. 지우지 말아주세요
 import db.DBConnect;
@@ -697,15 +699,15 @@ public class UserDao {
 	 * @param id
 	 * @return
 	 */
-	public GreadeData getGradeinfo(String id) {
-		GreadeData bean = null;
+	public GradeDataNM getGradeinfo(String id) {
+		GradeDataNM bean = null;
 		try {
-			sql = "select id, java, web, fw, comment from TB_GRADE where id=?";
+			sql = "select TB_GRADE.id, TB_USER.name, java, web, fw, comment from TB_GRADE join TB_USER on TB_USER.id = TB_GRADE.id where TB_USER.id=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				bean = new GreadeData(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5));
+				bean = new GradeDataNM(rs.getString(1), rs.getString(2),rs.getInt(3), rs.getInt(4), rs.getInt(5), rs.getString(6));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -790,6 +792,38 @@ public class UserDao {
 			}
 		}
 		return result;
+	}
+
+
+	public ArrayList<UserDataGrade> UserlistGrade() {
+		ArrayList<UserDataGrade> list = new ArrayList<UserDataGrade>();
+			sql = "select TB_USER.id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room, java, web, fw"
+				+" from TB_USER join TB_CLASS on class_fk = class_pk join TB_GRADE on TB_USER.id = TB_GRADE.id "
+				+" where pm_fk = (select num from TB_PM where pm = '학생') and class_fk in (select class_pk from TB_CLASS where class_room not in ('없음'))"
+				+" order by class_fk";
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				list.add(new UserDataGrade(rs.getString(1), rs.getString(2), 
+						rs.getString(3), rs.getString(4), rs.getString(5),
+						rs.getString(6), rs.getString(7), rs.getString(8), 
+						rs.getString(9), rs.getString(10), rs.getInt(11),rs.getInt(12),rs.getInt(13)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			
+		}
+		return list;
 	}
 
 }

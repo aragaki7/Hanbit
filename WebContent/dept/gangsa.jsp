@@ -1,3 +1,4 @@
+<%@page import="bean.UserDataGrade"%>
 <%@page import="bean.UserData"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -275,7 +276,7 @@ background-color:firebrick;
 		<%@ include file="../template/nav.jsp"%>
 
 	<%
-		ArrayList<UserData> stulist = (ArrayList<UserData>)request.getAttribute("stulist"); 
+		ArrayList<UserDataGrade> stulist = (ArrayList<UserDataGrade>)request.getAttribute("stulist"); 
 	%>
 
 		<!-- content start -->
@@ -381,6 +382,9 @@ background-color:firebrick;
 							<td>아이디</td>
 							<td>이름</td>
 							<td>강의장</td>
+							<td>java</td>
+							<td>web</td>
+							<td>fw</td>
 						</tr>
 							<%
 // 							ArrayList<GreadeData> list = (ArrayList<GreadeData>)request.getAttribute("list");
@@ -393,6 +397,9 @@ background-color:firebrick;
 							<td><%=stulist.get(i).getId()%></td>
 							<td><%=stulist.get(i).getName()%></td>
 							<td><%=stulist.get(i).getClasss()%></td>
+							<td><%=stulist.get(i).getJava()%></td>
+							<td><%=stulist.get(i).getWeb()%></td>
+							<td><%=stulist.get(i).getFw()%></td>
 							</tr>
 							<%}%>
 					</table>
