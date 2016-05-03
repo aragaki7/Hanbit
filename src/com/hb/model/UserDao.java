@@ -343,7 +343,7 @@ public class UserDao {
 			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room"
 				+" from TB_USER join TB_CLASS on class_fk = class_pk "
 				+" where pm_fk = (select num from TB_PM where pm = ?) and class_fk in (select class_pk from TB_CLASS where class_room not in ('없음'))"
-				+" order by class_fk desc";
+				+" order by class_fk";
 		}else{//입력된 강의장이 있음이 아니면( ex. 없음 or 1강의장 or 2강의장...)
 			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room"
 					+" from TB_USER join TB_CLASS on class_fk = class_pk "
@@ -632,7 +632,7 @@ public class UserDao {
 	
 	public ArrayList<UserData> daySearch(String dateSearch) {
 		ArrayList<UserData> list = new ArrayList<UserData>();
-		sql = "select a.name, a.mobile, b.class_room, c.att, c.days "+ 
+		sql = "select a.id, a.name, a.mobile, b.class_room, c.att, c.days "+ 
 				"from TB_USER a, TB_CLASS b, TB_ATTEN c, TB_ATTEN_INFO d "+
 				"where a.class_fk = b.class_pk and "+
 				"c.att = d.att_num and "+ 
@@ -644,11 +644,12 @@ public class UserDao {
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				UserData bean = new UserData();
-				bean.setName(rs.getNString(1));
-				bean.setMobile(rs.getString(2));
-				bean.setClasss(rs.getString(3));
-				bean.setAtt(rs.getInt(4));
-				bean.setAttDate(rs.getString(5));
+				bean.setId(rs.getString(1));
+				bean.setName(rs.getNString(2));
+				bean.setMobile(rs.getString(3));
+				bean.setClasss(rs.getString(4));
+				bean.setAtt(rs.getInt(5));
+				bean.setAttDate(rs.getString(6));
 				list.add(bean);
 			}
 		} catch (SQLException e) {

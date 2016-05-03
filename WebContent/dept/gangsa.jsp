@@ -221,6 +221,12 @@ background-color:firebrick;
 			location.href="studetail.do?id="+id;
 		});
 		
+		$('.attendListRow').on('click', function(){
+			var ridx=getRow(this);
+			var id=$('.attendListRow:eq('+(ridx-1)+')>td:eq(0)').text();
+			location.href="studedit.do?id="+id;
+		});
+		
 		
 		$( "#datepicker" ).datepicker({
 			/* 
@@ -323,10 +329,11 @@ background-color:firebrick;
 							</tr>
 						</form>	
 							<% for(int i=0; i<dateSearch.size();i++){ %> 
-							<tr>
+							<tr class="attendListRow">
 							<%
 								int attNum = dateSearch.get(i).getAtt();
 							 %>
+							 	<td class="hid"><%=dateSearch.get(i).getId()%></td>
 								<td><%=dateSearch.get(i).getName()%></td>
 								<td><%=dateSearch.get(i).getMobile()%></td>
 								<td><%=dateSearch.get(i).getClasss() %></td>

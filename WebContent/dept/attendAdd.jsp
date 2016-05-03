@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>출결 수정</title>
+<title>출결 입력</title>
 <script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="../js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="../js/menuLoad.js"></script>
@@ -107,10 +107,6 @@
  	}
 </style>
 <script type="text/javascript" >
-/* function getRow(rowValue) {
-	var rowIndex = rowValue.rowIndex;
-	return rowIndex;
-} */
 var attendlow = 0;
 function attendLowCheck(){
 	var lo_this;
@@ -172,7 +168,6 @@ $(document).ready(function(){
 		<br/><div class="grid9 content">
 			<p>Attendance ADD</p>
 			<hr/><br/>
-<!-- 			<form action="../student/GradeList.jsp"> -->
 			<div class="table" >
                 <form action="attendaddlist.do">
                 <table>
@@ -186,12 +181,10 @@ $(document).ready(function(){
 	                
                     <% for(int i=0; i<attendlist.size(); i++){%>
                     <tr>
-<!-- 						<tr class = "attendlow"> -->
                     	<input type="hidden" readonly="readonly" name="id" value="<%=attendlist.get(i).getId()%>"/>
                        	<td><input type="text" disabled="disabled" name="name" value="<%=attendlist.get(i).getName() %>"/></td>
                         <td><input type="text" disabled="disabled" name="class" value="<%=attendlist.get(i).getClasss() %>"/></td>
                         <td class = "attendlow">
-<!-- 						<td> -->
                         	<input type="checkbox" value="0" name="attend" checked="checked"/>출석
                         	<input type="checkbox" value="1" name="attend"/>지각
                         	<input type="checkbox" value="2" name="attend"/>조퇴
