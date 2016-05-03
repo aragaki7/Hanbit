@@ -202,6 +202,7 @@ background-color:firebrick;
 }
 </style>
 <script type="text/javascript">
+	<%String dateEdit = request.getParameter("dateSearch");%>
 	function getRow(rowValue) {
 		var rowIndex = rowValue.rowIndex;
 		return rowIndex;
@@ -232,7 +233,11 @@ background-color:firebrick;
 		$('.attendListRow').on('click', function(){
 			var ridx=getRow(this);
 			var id=$('.attendListRow:eq('+(ridx-1)+')>td:eq(0)').text();
-			location.href="studedit.do?id="+id;
+			var name=$('.attendListRow:eq('+(ridx-1)+')>td:eq(1)').text();
+			var mobile=$('.attendListRow:eq('+(ridx-1)+')>td:eq(2)').text();
+			var classroom=$('.attendListRow:eq('+(ridx-1)+')>td:eq(3)').text();
+			
+			location.href="stuedit.jsp?id="+id+"&name="+name+"&mobile="+mobile+"&classroom="+classroom+"&attDate="+<%=dateEdit%>;
 		});
 		
 		
