@@ -213,7 +213,7 @@ background-color:firebrick;
 			var ridx=getRow(this);
 			var id=$('.row:eq('+(ridx-1)+')>td:eq(0)').text();
 			
-			location.href="EditGrade.do?id="+id;
+			location.href="egradeser.do?id="+id;
 		});
 		
 		$('.stuListRow').on('click', function() {

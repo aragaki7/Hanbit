@@ -16,6 +16,9 @@ public class GreadeData {
 		this.comm = comm;
 	}
 	
+	public GreadeData() {
+	}
+
 	public String getId() {
 		return id;
 	}

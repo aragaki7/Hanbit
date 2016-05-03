@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import net.sf.json.JSONObject;
+import bean.GreadeData;
 import bean.UserData;
 import bean.UserDataPw;
 import net.sf.json.JSONObject;//json쓸때 필요한거. 지우지 말아주세요
@@ -662,5 +663,40 @@ public class UserDao {
 				}
 		}
 		return list;
+	}
+
+
+	public GreadeData getGradeinfo(String id) {
+		GreadeData bean = new GreadeData();
+		//일단 성적 정보가 있는지 조회.
+		//있으면 그거 끌어다 쓰고 없으면 insert
+		int result = 0;
+		try {
+			sql = "select count(*) from TB_GRADE where id=?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				result = rs.getInt(1);
+			}
+			if(result==0){
+				sql = "insert into TB_GRADE (id, java, web, fw, comment) VALUES (?, 0, 0, 0, \"\");";
+			}else{
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			
+		}
+		
+		return bean;
 	}
 }

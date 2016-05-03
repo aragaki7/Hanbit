@@ -129,7 +129,6 @@
     <servlet-name>dept.hang</servlet-name>
     <url-pattern>/dept/hang.do</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>dept.gangsa</servlet-name>
     <servlet-class>com.hb.controller.dept.DeptGangsa</servlet-class>
@@ -138,7 +137,6 @@
     <servlet-name>dept.gangsa</servlet-name>
     <url-pattern>/dept/gangsa.do</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>dept.admin</servlet-name>
     <servlet-class>com.hb.controller.dept.DeptAdmin</servlet-class>
@@ -163,7 +161,7 @@
     <servlet-name>customer.qna</servlet-name>
     <url-pattern>/customer/qna.do</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>customer.askdetail</servlet-name>
     <servlet-class>com.hb.controller.customer.AskDetail</servlet-class>
   </servlet>
@@ -179,7 +177,7 @@
     <servlet-name>customer.notice</servlet-name>
     <url-pattern>/customer/notice.do</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>customer.noticedetail</servlet-name>
     <servlet-class>com.hb.controller.customer.NoticeDetail</servlet-class>
   </servlet>
@@ -195,7 +193,7 @@
     <servlet-name>customer.board</servlet-name>
     <url-pattern>/customer/board.do</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>customer.boarddetail</servlet-name>
     <servlet-class>com.hb.controller.customer.BoardDetail</servlet-class>
   </servlet>
@@ -203,7 +201,6 @@
     <servlet-name>customer.boarddetail</servlet-name>
     <url-pattern> /customer/boardDetail.do</url-pattern>
   </servlet-mapping>
- 
   <servlet>
     <servlet-name>gradeList</servlet-name>
     <servlet-class>com.hb.controller.cnt.ListCntController</servlet-class>
