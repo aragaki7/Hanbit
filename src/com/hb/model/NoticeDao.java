@@ -15,6 +15,7 @@ public class NoticeDao {
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	private String sql;
+	int count=0;
 	
 	public NoticeDao() {
 		conn = DBConnect.get();
@@ -51,13 +52,16 @@ public class NoticeDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, idx);
 			rs = pstmt.executeQuery();  
+			
 			if (rs.next()) {
 				bean.setName(rs.getString(1));
 				bean.setTitle(rs.getString(2));
 				bean.setContent(rs.getString(3));
 				bean.setData(rs.getDate(4));
-				bean.setCount(rs.getInt(5));
+				bean.setCount(count=rs.getInt(5));
 			}
+			pstmt.executeUpdate("update TB_NOTICE set count="+(count+1)+" where idx="+idx);
+			System.out.println("update TB_NOTICE set count="+(count+1)+" where idx="+idx);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {  
