@@ -173,7 +173,7 @@
       });
    
       $( "#del" ).click(function(event) { //삭제하기
-         location.href='../customer/boarddel.do'; 
+         location.href='../customer/boarddel.do?index='+<%= request.getParameter("index") %>; 
       });
    });
 </script>
@@ -200,7 +200,7 @@
             <tbody>  
                <tr>
                   <td>작성일</td>
-                  <td colspan="2"><%=dto.getDate() %></td>
+                  <td colspan="2"><%=dto.getDate() %><span id="name" name="index" value="<%= request.getParameter("index") %>">index : <%= request.getParameter("index") %></span></td>
                </tr>
                <tr>  
                   <td>글쓴이</td>

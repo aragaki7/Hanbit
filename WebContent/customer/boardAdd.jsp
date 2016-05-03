@@ -156,7 +156,7 @@ span{
 			<tr> 
 				<th>제목</th>
 				<td><input type="text" id="title" name="title" value="" size="100" class="inputText">
-				<input type="text" name="name" value="gangsa" ></td>
+				<input type="text" name="name" value="<%= request.getParameter("id") %>" ></td>
 			</tr>
 
 			</table>

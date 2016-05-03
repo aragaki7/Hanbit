@@ -22,7 +22,7 @@ public class BoardDel extends HttpServlet {
 		int result = new BoardDao().deleteOne(index);
 		request.setAttribute("result", result);
 		
-		if(result>0) response.sendRedirect("board.jsp");
+		if(result>0) response.sendRedirect("board.do");
 		else response.sendRedirect("/Hanbit/customer/boardDetail.do?index="+index);		
 	}
 }
