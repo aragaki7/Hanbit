@@ -12,7 +12,7 @@ import bean.BoardData;
 
 import com.hb.model.BoardDao;
 
-     
+      
 @WebServlet("/customer/boardsearch.do")
 public class BoardSearch extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

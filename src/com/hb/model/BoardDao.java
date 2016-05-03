@@ -181,7 +181,7 @@ public class BoardDao {
 	    	
 	    	> WHERE TITLE LIKE '%김주형%'
 			order by TB_BBS.index desc  
-		*/
+		*/ 
         try{
             String sql ="select TB_BBS.index, TB_USER.name, title, days, time, count from TB_BBS "+
             			"join TB_USER on TB_BBS.id_fk = TB_USER.id"; //조건넣어서 정렬하기전 sql문장
