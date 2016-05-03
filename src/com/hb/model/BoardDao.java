@@ -204,8 +204,8 @@ public class BoardDao {
             }
         }catch(Exception e){ }finally{          
             try {
-				pstmt.close();
 				rs.close();
+				pstmt.close();
 				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();

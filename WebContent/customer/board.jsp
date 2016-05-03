@@ -264,7 +264,7 @@ input[type=submit] {
             </div>
          <div id="gumsackjang">
             <form action="../customer/boardsearch.do" method="post">
-               <select id="keyword">
+               <select id="keyword" name="keyword">
                   <option value="title">제목</option>
                   <option value="content">내용</option>
                   <option value="name">글쓴이</option>

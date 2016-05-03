@@ -26,7 +26,7 @@ public class AttendUpdate extends HttpServlet {
 		if(result>0){
 			response.sendRedirect("/Hanbit/dept/gangsa.do");
 		} else {
-			response.sendRedirect("/dept/studedit.do");
+			response.sendRedirect("/Hanbit/dept/studedit.do");
 		}
 	
 	}
