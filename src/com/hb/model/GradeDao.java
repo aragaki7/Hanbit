@@ -42,10 +42,10 @@ public class GradeDao {
 		return list;
 	}
 
-	public int updateGrade(String id, int java, int web, int fw) {
+	public int updateGrade(String id, int java, int web, int fw, String comm) {
 		int result = 0;
 		
-		String sql="update TB_GRADE set java=?, web=?, fw=? where id=?";
+		String sql="update TB_GRADE set java=?, web=?, fw=?, comment=? where id=?";
 		try {
 			System.out.println(sql);
 			
@@ -54,7 +54,8 @@ public class GradeDao {
 			pstmt.setInt(1, java);
 			pstmt.setInt(2, web);
 			pstmt.setInt(3, fw);
-			pstmt.setString(4, id);
+			pstmt.setString(4, comm);
+			pstmt.setString(5, id);
 			
 			result = pstmt.executeUpdate();
 			System.out.println("executeUpdate");

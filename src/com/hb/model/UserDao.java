@@ -343,7 +343,7 @@ public class UserDao {
 			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room"
 				+" from TB_USER join TB_CLASS on class_fk = class_pk "
 				+" where pm_fk = (select num from TB_PM where pm = ?) and class_fk in (select class_pk from TB_CLASS where class_room not in ('없음'))"
-				+" order by name desc";
+				+" order by class_fk desc";
 		}else{//입력된 강의장이 있음이 아니면( ex. 없음 or 1강의장 or 2강의장...)
 			sql = "select id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room"
 					+" from TB_USER join TB_CLASS on class_fk = class_pk "

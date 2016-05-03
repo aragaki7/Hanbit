@@ -261,7 +261,7 @@ background-color:firebrick;
 			jsonObject1 = (JSONObject) session.getAttribute("jsonObj");
 
 			if (jsonObject1 != null) {
-				if (jsonObject1.getString("pm").equals("관리자")) {
+				if (jsonObject1.getString("pm").equals("관리자") || jsonObject1.getString("pm").equals("교육부")) {
 		%>
 		<div class="grid9 content"> 
 			<p>EDUCATION<br/><h4>LIST</h4></p>

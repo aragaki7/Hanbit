@@ -21,7 +21,7 @@ public class UpdateGradeController extends HttpServlet{
 		
 		int result = 0;
 		GradeDao dao = new GradeDao();
-		result = dao.updateGrade(id,java,web,fw);
+//		result = dao.updateGrade(id,java,web,fw);
 		
 		if(result>0){
 			System.out.println("입력 성공");

@@ -38,4 +38,9 @@ import bean.UserData;
 			request.setAttribute("list", list); //성적리스트 보냄
 			request.getRequestDispatcher("/dept/gangsa.jsp").forward(request, response);
 		}
+		@Override
+		protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+				throws ServletException, IOException {
+			doGet(req, resp);
+		}
 }

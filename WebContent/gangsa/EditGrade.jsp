@@ -143,7 +143,7 @@ hr {
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.list').on('click',function(){
-			var url = "/Hanbit/dept/gansa.do";    
+			var url = "/Hanbit/dept/gangsa.do";    
 			$(location).attr('href',url);
 		});
 	});
@@ -160,7 +160,7 @@ hr {
 
 		<br />
 		<div class="grid9 content">
-		<form action="${pageContext.request.contextPath}/student/updateGrade.do" method="post">
+		<form action="${pageContext.request.contextPath}/dept/editgrade.tea" method="post">
 			<p>GRADE EDIT</p>
 			<hr />
 			<br />
@@ -175,14 +175,13 @@ hr {
 					</tr>
 					<%
 					GreadeData dto = (GreadeData)request.getAttribute("gradeDto");
-					System.out.println("코맨트 : "+dto.getComm());
 					%>
 					<tr id="grade">
 						<td><input type="text" name="id" value="<%=dto.getId() %>" class="ip" readonly="readonly"/></td>
 						<td><input type="text" name="java" value="<%=dto.getJava() %>"class="ip" /></td>
 						<td><input type="text" name="web" value=<%=dto.getWeb() %> class="ip" /></td>
 						<td><input type="text" name="fw" value=<%=dto.getFw() %> class="ip" /></td>
-						<td><input type="text" name="comm" value=<%=dto.getComm() %> class="ip" /></td>
+						<td><textarea rows="3" cols="10" name="comm"><%=dto.getComm() %></textarea> </td>
 					</tr>
 				</table>
 			</div>
