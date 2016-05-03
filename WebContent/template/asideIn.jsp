@@ -76,7 +76,7 @@
 	</div>
 	
 	<div id="online">
-		<a href="/Hanbit/customer/ask.jsp"><img alt="온라인 문의" src="/Hanbit/imgs/online.gif" /></a>
+		<a href="/Hanbit/customer/ask.do"><img alt="온라인 문의" src="/Hanbit/imgs/online.gif" /></a>
 	</div>
 	
 </div>

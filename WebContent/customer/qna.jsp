@@ -38,7 +38,7 @@
     font-size:.9em;
     padding:5px;
     text-align:center;
-    width:142px;
+    width:140px;
     line-height:1.8em;
     font-weight:700;
     border-radius:3px 3px 0 0;
@@ -93,14 +93,14 @@ p{
     text-align:center;
 }
 #toggle1,#toggle2,#toggle3,#toggle4,#toggle5{
-	width: 795px;
+	width: 777px;
 	height: 30px;
 	font-size: 12pt;
 	font-weight: bold;
 	color: black;
 	background-color: #eee;
 	border: none;
-	margin-left:-40px;
+	margin-left:-30px;
 	
 } 	
 </style>
@@ -198,7 +198,7 @@ $(function(){
 			<div id="content6"> A. 남겨주신 연락처로 유선 or 문자답변 드립니다.<br/>
 			교육상담 02-123-4567~8(평일 09:00~22:00/토,일,공휴일:10:00~18:00)<br/>
 			업무상담 02-123-5678~9(평일 09:00~22:00/토,일,공휴일:10:00~18:00)<br/>
-			카카토옥 hb.kakao 건대점 친구추가 후 문의 주세요. 
+			카카오톡 hb.kakao 건대점 친구추가 후 문의 주세요. 
 			</div>
 		    </div>
 			</div>

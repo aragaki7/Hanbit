@@ -25,7 +25,7 @@
    padding: 0px;
 }
 
-p {
+#boardtitle {
    text-align: left;
    display: block;
    width: 400px;
@@ -194,7 +194,7 @@ input[type=submit] {
 %>
       <div class="grid9">
          <!--  게시판 내용 시작-->
-         <p>BOARD<h4>자유게시판</h4></p>
+         <p id="boardtitle">BOARD<h4>자유게시판</h4></p>
          <hr/><br/> 
          <div class="table">
             <table style="width: 100%">
@@ -242,12 +242,12 @@ input[type=submit] {
                %>
             </table>
          </div>
-         <div class="page">
+         <p class="page">
             <a href="#">◀</a> <a href="#">[1]</a> <a href="#">[2]</a> <a
                href="#">[3]</a> <a href="#">[4]</a> <a href="#">[5]</a> <a
                href="#">▶</a>
-         </div>
-            <div id="write">
+         </p>
+         <div id="write">
             <%
             	JSONObject jsonObject = new JSONObject();
 				jsonObject = (JSONObject) session.getAttribute("jsonObj");
