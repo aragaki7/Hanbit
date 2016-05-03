@@ -173,5 +173,46 @@ public class BoardDao {
         return result;
 	}
 
+	public BoardData GetSearchList(String search, String keyword) {
+		BoardData bean = new BoardData();
+	    /* 검색 
+	    sql > select TB_BBS.index, TB_USER.name, title, days, time, count from TB_BBS 
+	    	join TB_USER on TB_BBS.id_fk = TB_USER.id 
+	    	
+	    	> WHERE TITLE LIKE '%김주형%'
+			order by TB_BBS.index desc  
+		*/
+        try{
+            String sql ="select TB_BBS.index, TB_USER.name, title, days, time, count from TB_BBS "+
+            			"join TB_USER on TB_BBS.id_fk = TB_USER.id"; //조건넣어서 정렬하기전 sql문장
+            if(search != null | !search.equals("") ){ //input값이 빈칸이아닐때
+                sql +="WHERE "+keyword.trim()+" LIKE '%"+search.trim()+"%' order by TB_BBS.index desc";
+            }else{//모든 게시글 검색
+                sql +=" order by TB_BBS.index desc";
+            }
+            System.out.println("sql = " + sql);
+            pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery(); 
+           
+            while(rs.next()){
+                bean.setNum(rs.getInt(1));
+                bean.setName(rs.getString(2));
+                bean.setTitle(rs.getString(3));
+				bean.setDate(rs.getDate(4));
+				bean.setTime(rs.getTimestamp(5));
+				bean.setCount(count = rs.getInt(6));
+            }
+        }catch(Exception e){ }finally{          
+            try {
+				pstmt.close();
+				rs.close();
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+        }      
+        return bean;
+	}
+
 }   
 

@@ -15,14 +15,16 @@ import com.hb.model.BoardDao;
      
 @WebServlet("/customer/boardsearch.do")
 public class BoardSearch extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		String search= request.getParameter("search");
 		String keyword= request.getParameter("keyword");
-		
+		System.out.println(search);
+		System.out.println(keyword);
 		BoardDao dao = new BoardDao();
-		/*BoardData bean = dao.SelectEdit(index);
+		BoardData bean = dao.GetSearchList(search, keyword);
 		    
 		request.setAttribute("boardDto", bean);
-		request.getRequestDispatcher("/customer/board.jsp").forward(request, response);*/
+		request.getRequestDispatcher("/customer/board.jsp").forward(request, response);
 	}
 }

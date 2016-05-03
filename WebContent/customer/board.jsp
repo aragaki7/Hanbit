@@ -263,12 +263,14 @@ input[type=submit] {
                %>
             </div>
          <div id="gumsackjang">
-            <form action="#">
-               <select id="keyword">
-                  <option value="title">제목</option>
-                  <option value="content">내용</option>
-                  <option value="name">글쓴이</option>
-               </select> <input type="text" name="search"> <input type="submit" value="검색">
+            <form action="../customer/boardsearch.do" method="post">
+               <select>
+                  <option id="keyword" value="title">제목</option>
+                  <option id="keyword" value="content">내용</option>
+                  <option id="keyword" value="name">글쓴이</option>
+               </select> 
+               <input type="text" name="search" value=""> 
+               <input type="submit" value="검색">
             </form>
          </div>
 
