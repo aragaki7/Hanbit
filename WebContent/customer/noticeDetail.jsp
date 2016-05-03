@@ -110,7 +110,32 @@
 <script type="text/javascript" src="../js/menuLoad.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
-
+<script type="text/javascript">
+<%
+JSONObject jsonObject2 = new JSONObject();
+jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
+if (jsonObject2 != null) {%>
+	var pm = "<%=jsonObject2.getString("pm")%>";
+	if (!(("관리자"== pm)|("신청자"== pm)|("교육부"== pm)|("영업부"== pm)|("행정부"== pm)|("학생"== pm)|("일반"== pm))) {
+		alert('권한이 부족합니다.');
+		location.href="/Hanbit/main.do";
+	}else{
+		//권한이 맞음
+	}
+<%}else{%>
+	alert('권한이 부족합니다.');
+	location.href="/Hanbit/main.do";
+<%}%>
+$(function(){
+	$( "#list" ).click(function(event) { //목록으로
+	    location.href='../customer/notice.do';
+	 });
+	
+	 $( "#del" ).click(function(event) { //삭제하기
+	    location.href='../customer/noticedel.do?idx='+<%= request.getParameter("idx") %>; 
+	 });
+});
+</script>
 </head>
 <body>
    <!-- 좌우측의 공간 확보 -->
@@ -154,7 +179,7 @@
                      <span id="btnlayout">
                         <a href='../customer/notice.do'><button type="button" id="list" class="btn btn-default" >목록</button></a>
                         <a href='../customer/noticeEdit.do?idx=<%=request.getParameter("idx")%>'><button type="button" id="modify" class="btn btn-default">수정</button></a>
-                        <button type="button" id="delete" class="btn btn-default">삭제</button>
+                        <button type="button" id="del" class="btn btn-default">삭제</button>
                      </span>
                   </td>
                </tr>

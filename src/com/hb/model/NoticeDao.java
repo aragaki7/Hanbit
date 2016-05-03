@@ -129,4 +129,25 @@ public class NoticeDao {
 	      System.out.println(result);
 	      return result;
 	}
+
+	public int deleteOne(int idx) {
+		int result = 0;
+		String sql = "delete from TB_NOTICE where idx=?";
+		System.out.println(sql);
+		try { 
+			pstmt = DBConnect.get().prepareStatement(sql);
+			pstmt.setInt(1, idx);
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) { 
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt!=null) pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
 }   
