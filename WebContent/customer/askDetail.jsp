@@ -106,6 +106,9 @@
       float: right;
    }
 </style>
+<script type="text/javascript">
+
+</script>
 <script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="../js/menuLoad.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
@@ -137,7 +140,7 @@
                   <td>작성일</td>
                   <td><%=dto.getDate() %></td>
                </tr>
-               <tr>
+               <tr class="rownum" id="row" style="cursor: hand;">
                   <td>글쓴이</td>
                   <td><%=dto.getId() %><span id="clickconents"></span></td>
                </tr>
@@ -152,8 +155,10 @@
                <tr>
                   <td>
                      <span id="btnlayout">
-                        <button type="button" id="list" class="btn btn-default">목록</button>
-                        <button type="button" id="modify" class="btn btn-default">수정</button>
+                        <a href="../customer/ask.do">
+                        <button type="button" id="list" class="btn btn-default">목록</button></a>
+                        <a href="../customer/askedit.do?idx=<%=request.getParameter("idx")%>">
+                        <button type="button">수정</button></a>
                         <button type="button" id="delete" class="btn btn-default">삭제</button>
                      </span>
                   </td>

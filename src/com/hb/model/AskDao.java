@@ -69,4 +69,28 @@ public class AskDao {
 		}
 		return bean;
 	}
+   
+   public AskData selectOne2(String idx) {
+		AskData bean = new AskData();
+		sql = "SELECT title,content FROM TB_INQ  join TB_USER on TB_INQ.id_fk = TB_USER.id where idx=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, idx);
+			rs = pstmt.executeQuery();    
+			if (rs.next()) {
+				bean.setTitle(rs.getString(1));
+				bean.setContent(rs.getString(2)); 
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+		 	try {
+				if (rs != null)rs.close();
+				if(pstmt != null)pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return bean;
+	}
 }   
