@@ -740,5 +740,33 @@ public class UserDao {
 		}
 		return result;
 	}
+	public ArrayList<UserData> stuDetailList(String id) {
+		ArrayList<UserData> stuDetailList = new ArrayList<UserData>();
+		sql = "select id, name, sex, phone, mobile, main_address, sub_address, email, post, TB_CLASS.class_room from TB_USER join TB_CLASS on TB_USER.class_fk = TB_CLASS.class_pk where TB_USER.id = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				UserData stuList = new UserData(rs.getString("id"), rs.getString("name"), rs.getString("post"),
+						rs.getString("main_address"), rs.getString("sub_address"), rs.getString("sex"),
+						rs.getString("phone"), rs.getString("mobile"), rs.getString("email"),
+						rs.getString("TB_CLASS.class_room"));
+				stuDetailList.add(stuList);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return stuDetailList;
+	}
 
 }

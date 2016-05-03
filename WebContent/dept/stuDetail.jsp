@@ -118,36 +118,6 @@ label {
 }
 </style>
 </head>
-
-
-<%!PreparedStatement statement;
-	String sql;
-	String id;
-	ResultSet rs;
-	UserData userdata;%>
-<%
-	id = request.getParameter("id");
-	try {
-		sql = "select id, name, sex, phone, mobile, main_address, sub_address, email, post, TB_CLASS.class_room from TB_USER join TB_CLASS on TB_USER.class_fk = TB_CLASS.class_pk where TB_USER.id = ?";
-		statement.setString(1, id);
-		statement = DBConnect.get().prepareStatement(sql);
-		rs = statement.executeQuery();
-		if (rs.next()) {
-			userdata = new UserData(rs.getString("id"), rs.getString("name"), rs.getString("post"),
-					rs.getString("main_address"), rs.getString("sub_address"), rs.getString("sex"),
-					rs.getString("phone"), rs.getString("mobile"), rs.getString("email"),
-					rs.getString("TB_CLASS.class_room"));
-		}
-	} catch (Exception e) {
-
-	} finally {
-		if (rs != null)
-			rs.close();
-		if (statement != null) {
-			statement.close();
-		}
-	}
-%>
 <body>
 	<div class="container_12">
 		<%@ include file="../template/header.jsp"%>
@@ -168,44 +138,41 @@ label {
 						<col width="10%" />
 						<col width="40%" />
 					</colgroup>
+					  <%ArrayList<UserData> stuDetailList = (ArrayList<UserData>)request.getAttribute("stuDetailList");%>
+					 <% for(int i=0; i<stuDetailList.size(); i++){%>
 					<tr>
 						<th>아이디</th>
-						<td colspan="3"><span id="id" name="id"><%=userdata.getId()%></span></td>
+						<td colspan="3"><span id="id" name="id"><%=stuDetailList.get(i).getId()%></span></td>
 					</tr>
 					<tr>
 						<th>이름</th>
-						<td colspan="3"><span id="name" name="name"><%=userdata.getName()%></span></td>
+						<td colspan="3"><span id="name" name="name"><%=stuDetailList.get(i).getName()%></span></td>
 					</tr>
 					<tr>
 						<th>성별</th>
-						<td colspan="3"><span id="sex" name="sex"><%=userdata.getSex()%></span></td>
+						<td colspan="3"><span id="sex" name="sex"><%=stuDetailList.get(i).getSex()%></span></td>
 					</tr>
 					<tr>
 						<th>전화번호</th>
-						<td colspan="3"><span id="tel1" name="phone"><%=userdata.getPhone()%></td>
+						<td colspan="3"><span id="tel1" name="phone"><%=stuDetailList.get(i).getMobile()%></td>
 					</tr>
 					<th>휴대폰</th>
-					<td colspan="3"><span id="tel4" name="mobile" size="3"><%=userdata.getMobile()%></span></td>
+					<td colspan="3"><span id="tel4" name="mobile" size="3"><%=stuDetailList.get(i).getPhone()%></span></td>
 					</tr>
 					<tr>
 						<th>이메일</th>
-						<td colspan="3"><span name="email" size="3"><%=userdata.getEmail()%></span></td>
+						<td colspan="3"><span name="email" size="3"><%=stuDetailList.get(i).getEmail()%></span></td>
 					</tr>
 					<tr>
 						<th>주소</th>
-						<td colspan="3"><span name="post" size="3"><%=userdata.getMain_address() + " " + userdata.getSub_address() + "(" + userdata.getPost() + ")"%></span>
+						<td colspan="3"><span name="post" size="3"><%=stuDetailList.get(i).getMain_address() + " " + stuDetailList.get(i).getSub_address() + "(" + stuDetailList.get(i).getPost() + ")"%></span>
 							</div></td>
 					</tr>
 					<tr>
 						<th>강의실</th>
-						<td colspan="3"><select>
-								<option value="1">없음</option>
-								<option value="2">1강의실</option>
-								<option value="3">2강의실</option>
-								<option value="4">3강의실</option>
-						</select>
-							<button type="reset" class="back">수정</button></td>
+						<td colspan="3"><span name="classroom" size="3"><%=stuDetailList.get(i).getClasss()%></span></td>
 					</tr>
+					<%} %>
 				</table>
 			</form>
 		</div>
