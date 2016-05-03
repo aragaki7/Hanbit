@@ -28,7 +28,6 @@ public class AttendAddList extends HttpServlet {
 			check = Integer.parseInt(checkArr[i]);
 			result += attinsert.attendInsert(id, check, date);
 		}
-		System.out.println(result);
 		
 		if(result>0){
 			resp.sendRedirect("../dept/gangsa.do");
