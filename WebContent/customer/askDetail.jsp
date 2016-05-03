@@ -113,6 +113,13 @@
 <script type="text/javascript" src="../js/menuLoad.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
+<script type="text/javascript">
+$(function(){
+	 $( "#del" ).click(function(event) { //삭제하기
+	    location.href='../customer/askdel.do?idx='+<%= request.getParameter("idx") %>; 
+	 });
+});
+</script>
 
 </head>
 <body>
@@ -157,7 +164,7 @@
                      <span id="btnlayout">
                         <a href="../customer/ask.do"><button type="button" id="list" class="btn btn-default">목록</button></a>
                         <a href="../customer/askedit.do?idx=<%=request.getParameter("idx")%>"><button type="button" id="modify" class="btn btn-default">수정</button></a>
-                        <button type="button" id="delete" class="btn btn-default">삭제</button>
+                        <button type="button" id="del" class="btn btn-default">삭제</button>
                      </span>
                   </td>
                </tr>
