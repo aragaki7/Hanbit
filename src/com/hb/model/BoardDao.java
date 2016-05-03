@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import bean.BoardData;
-import bean.NoticeData;
-import bean.UserData;
 
 import db.DBConnect;
 

@@ -4,10 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import bean.BoardData;
-import bean.GreadeData;
 import bean.NoticeData;
-import bean.UserData;
 import db.DBConnect;
 public class NoticeDao {
 	private Connection conn;
@@ -176,5 +173,44 @@ public class NoticeDao {
 	         }
 	         return result;
 	      }
+
+	public ArrayList<NoticeData> GetSearchList(String search, String keyword) {
+		ArrayList<NoticeData> bean = new ArrayList<NoticeData>();
+	   /*
+	    select idx, TB_USER.name, title, days, times, count from TB_NOTICE join TB_USER 
+ 		on TB_NOTICE.id_fk = TB_USER.id WHERE TITLE LIKE '%admin%' order by idx desc  
+	    */
+		try{
+            String sql =" select idx, TB_USER.name, title, days, times, count from TB_NOTICE "+
+            			"join TB_USER on TB_NOTICE.id_fk = TB_USER.id "; //조건넣어서 정렬하기전 sql문장
+            if(search != null | !search.equals("") ){ //input값이 빈칸이아닐때
+                sql +=" WHERE "+keyword.trim()+" LIKE '%"+search.trim()+"%' order by idx desc";
+            }else{//모든 게시글 검색
+                sql +=" order by idx desc";
+            }
+            System.out.println("sql = " + sql);
+            pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery(); 
+           
+            while(rs.next()){
+            	NoticeData tmp = new NoticeData();
+            	tmp.setNum(rs.getInt(1));
+            	tmp.setName(rs.getString(2));
+            	tmp.setTitle(rs.getString(3));
+            	tmp.setData(rs.getDate(4));
+            	tmp.setTime(rs.getTimestamp(5));
+            	tmp.setCount(rs.getInt(6));
+            	bean.add(tmp);
+            }
+        }catch(Exception e){ }finally{          
+            try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+        }      
+        return bean;
+	}
 	
 }   

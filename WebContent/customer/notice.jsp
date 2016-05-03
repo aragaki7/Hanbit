@@ -274,13 +274,14 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
                %>
             </div>   
          <div id="gumsackjang">
-            <form action="#">
-               <select id="keyword">
+            <form action="../customer/noticesearch.do" method="post">
+               <select id="keyword" name="keyword">
                   <option value="title">제목</option>
                   <option value="content">내용</option>
                   <option value="name">글쓴이</option>
-               </select> <input type="text" name="search"> <input type="submit"
-                  value="검색">
+               </select> 
+               <input type="text" name="search" value=""> 
+               <input type="submit" value="검색">
             </form>
          </div>
 
