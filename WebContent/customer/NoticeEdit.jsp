@@ -147,10 +147,11 @@ span{
 			</table>
 				
 			<li id="li1" >
-				<textarea cols="80" id="contents" name="contents" rows="10" value="<%=dto.getContent()%>" ></textarea>
+				<textarea cols="80" id="contents" name="contents" rows="10" value="" ><%=dto.getContent()%></textarea>
 				<script type="text/javascript">
 					window.onload=function(){
 						CKEDITOR.replace('contents',{enterMode:'2',shiftEnterMode:'3'});
+						
 					};
 				</script>
 			</li><br/>

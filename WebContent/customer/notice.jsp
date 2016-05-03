@@ -101,7 +101,7 @@ hr {
 }
 
 .content {
-   height: 300px;
+   height: 500px;
 }
 
 .page {
