@@ -230,7 +230,7 @@ if (jsonObject2 != null) {%>
                </table>
          </div>
          <div id="write">
-            <a href="../ckeditor/ask.jsp"> <input type="button" value="글쓰기"
+            <a href="../customer/askAdd.jsp"> <input type="button" value="글쓰기"
                class="yes"></a>
          </div>
       </div>
