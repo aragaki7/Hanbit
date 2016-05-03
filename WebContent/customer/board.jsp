@@ -190,7 +190,11 @@ input[type=submit] {
 
 		<!-- content start -->
 <%
-      ArrayList<BoardData> list= (ArrayList<BoardData>)request.getAttribute("list");
+	    ArrayList<BoardData> list= (ArrayList<BoardData>)request.getAttribute("list");
+		int pageNum = Integer.parseInt((String)request.getAttribute("pageNum"));
+		int fpage = (Integer)request.getAttribute("fpage");
+		int lpage = (Integer)request.getAttribute("lpage");
+		int pageTotal = (Integer)request.getAttribute("pageTotal");
 %>
       <div class="grid9">
          <!--  게시판 내용 시작-->
@@ -243,9 +247,15 @@ input[type=submit] {
             </table>
          </div>
          <p class="page">
-            <a href="#">◀</a> <a href="#">[1]</a> <a href="#">[2]</a> <a
-               href="#">[3]</a> <a href="#">[4]</a> <a href="#">[5]</a> <a
-               href="#">▶</a>
+            <%if(pageNum!=1) {%>
+			<a href="board.do?page=<%=pageNum-1%>"> ◀ </a> 
+			<%} %>
+		<%for(int i=fpage;i<lpage+1;i++) {%>
+			<a href="board.do?page=<%=i %>"> [<%=i%>] </a>
+		<%} %>
+		<%if(pageNum!=pageTotal) {%>
+			<a href="board.do?page=<%=pageNum+1%>"> ▶ </a>
+			<%} %>
          </p>
          <div id="write">
             <%

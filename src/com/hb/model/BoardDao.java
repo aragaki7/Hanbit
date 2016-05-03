@@ -21,25 +21,26 @@ public class BoardDao {
 	}
 
 	public ArrayList<BoardData> BoardList() {
-		ArrayList<BoardData> list=new ArrayList<BoardData>();
-		String sql="select TB_BBS.index, TB_USER.name, title, days, time, count from TB_BBS join TB_USER on TB_BBS.id_fk = TB_USER.id order by TB_BBS.index desc";
-	try {
-		pstmt = DBConnect.get().prepareStatement(sql);
-		rs = pstmt.executeQuery();
-		list.clear();
-		while (rs.next()) {
-			list.add(new BoardData(rs.getInt("index"), rs.getString("TB_USER.name"), rs.getString("title"),
-					rs.getDate("days"), rs.getTimestamp("time"), rs.getInt("count")));
-		}
-	} catch (Exception e) {} finally {
+		ArrayList<BoardData> list = new ArrayList<BoardData>();
+		String sql = "select TB_BBS.index, TB_USER.name, title, days, time, count from TB_BBS join TB_USER on TB_BBS.id_fk = TB_USER.id order by TB_BBS.index desc";
+		try {
+			pstmt = DBConnect.get().prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			list.clear();
+			while (rs.next()) {
+				list.add(new BoardData(rs.getInt("index"), rs.getString("TB_USER.name"), rs.getString("title"),
+						rs.getDate("days"), rs.getTimestamp("time"), rs.getInt("count")));
+			}
+		} catch (Exception e) {
+		} finally {
 			try {
-				if (rs != null) rs.close();
-				if (pstmt != null)	pstmt.close();
+				if (rs != null)rs.close();
+				if (pstmt != null)pstmt.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
-	return list;
+		return list;
 	}
 
 	public BoardData selectOne(String index) {
@@ -212,5 +213,64 @@ public class BoardDao {
         }      
         return bean;
 	}
+
+	
+	
+	
+//	this.num = num;
+//	this.name = name;
+//	this.title = title;
+//	content
+//	this.date = date;
+//	this.time = time;
+//	this.count = count;
+	
+	
+	public ArrayList<BoardData> BoardList2(int pStart, int pEnd) {
+		ArrayList<BoardData> list = new ArrayList<BoardData>();
+		String sql = "SELECT @RN:=@RN+1 AS ROWNUM, TB.* FROM(SELECT `index`, id_fk, title, content, days, `time`, count FROM TB_BBS) AS TB, (SELECT @RN:=0) AS R order by `index` desc Limit "+pStart+", "+pEnd;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				System.out.println(++count);
+				list.add(new BoardData(rs.getInt(2), rs.getString(3), rs.getString(4),
+						rs.getString(5), rs.getDate(6),rs.getTimestamp(7), rs.getInt(8)));
+			}
+		} catch (Exception e) {
+		} finally {
+			try {
+				if (rs != null)rs.close();
+				if (pstmt != null)pstmt.close();
+				if (stmt != null)stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+
+	public int getTotal() {
+		int result = 0;
+		sql = "select count(*) from TB_BBS";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();  
+			if (rs.next()) {
+				result = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {  
+			 try {
+				if (rs != null)rs.close();
+				if(pstmt != null)pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+	
 }   
 

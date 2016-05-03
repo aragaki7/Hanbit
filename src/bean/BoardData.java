@@ -26,6 +26,16 @@ public class BoardData {
 		this.count = count;
 	}
 
+	public BoardData(int num, String name, String title, String content, Date date, Timestamp time, int count) {
+		this.num = num;
+		this.name = name;
+		this.title = title;
+		this.content = content;
+		this.date = date;
+		this.time = time;
+		this.count = count;
+	}
+	
 	public int getNum() {
 		return num;
 	}  
