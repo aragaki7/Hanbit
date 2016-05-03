@@ -11,12 +11,11 @@
 	<script type="text/javascript" src="../js/menuLoad.js"></script>
     <script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
     <script type="text/javascript">
-        $(document).ready(function(){
-            $('#btnBack').click(function(){
-                window.location.href = "/board/boardList.html";
-            });//
-        
-        });
+    $(document).ready(function(){
+        $('.back').click(function(){
+            window.location.href = "../customer/ask.do";
+        }); 
+    }); 
     </script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css"/>
 <link rel="stylesheet" type="text/css" href="../css/nav.css"/>
@@ -96,7 +95,7 @@ hr {
 	 #id{
 	 	width: 700px;
 	 }
-	 .join{
+.edit{
 	width: 80px;
 	height: 30px;
 	margin-left: 300px;
@@ -105,19 +104,19 @@ hr {
 	color: white;
 	background-color: firebrick;
 	border: none;
-	margin-top: 100px;
-	
-	}
-	.back{
+	margin-top: 270px;
+}
+.back{
 	width: 80px;
 	height: 30px;
 	margin-left: 0px;
+	margin-top: 270px;
 	font-size: 11pt;
 	font-weight: bold;
 	color: white;
 	background-color: black;
 	border: none;
-	}
+}
 	textarea {
    resize: none;
 }
@@ -138,7 +137,7 @@ span{
    <div class="grid9">
       <p>Ask</p>
       <p id="write">문의수정</p><hr/><br/>
-      <form action="#" method="get">
+      <form action="../customer/askupdate.do" method="post">
          <table class="join_tbl">
          <colgroup>
             <col width="10%" />
@@ -148,12 +147,12 @@ span{
          </colgroup>
          <tr> 
             <th>제목</th>
-            <td><input type="text" id="id" name="name" value="<%=dto.getTitle()%> " size="10" class="inputText" ></td>
+            <td><input type="text" id="id" name="title" value="<%=dto.getTitle()%> " size="10" class="inputText" ></td>
          </tr>
          </table>
              
          <li id="li1" >
-            <textarea cols="80" id="contents" name="contents" rows="10"><%=dto.getContent()%></textarea>
+            <textarea cols="80" id="contents" name="content" rows="10"><%=dto.getContent()%></textarea>
             <script type="text/javascript">
                window.onload=function(){
                   CKEDITOR.replace('contents',{enterMode:'2',shiftEnterMode:'3'});
