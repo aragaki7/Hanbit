@@ -669,12 +669,13 @@ public class UserDao {
 		int result=0;
 		String query="";
 		try {
-			System.out.println(query);
 			query = "select count(*) from TB_GRADE where id=?";
+			System.out.println(query);
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
-			if (rs.next()) {
+			while (rs.next()) {
+				System.out.println("rs : "+rs.getInt(1));
 				result = rs.getInt(1);
 			}
 		} catch (SQLException e) {
@@ -698,8 +699,7 @@ public class UserDao {
 	public GreadeData getGradeinfo(String id) {
 		GreadeData bean = null;
 		try {
-			sql = "select id, java, web, fw, comment where id=?";
-			
+			sql = "select id, java, web, fw, comment from TB_GRADE where id=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
@@ -724,12 +724,9 @@ public class UserDao {
 	public int addDefGrade(String id) {
 		int result = 0;
 		
-		String query = "insert into TB_GRADE(id, java, web, fw, comment) values(?,0,0,0,'')";//1은 강의실. 강의실 없음을 의미";
+		String query = "insert into TB_GRADE(id, java, web, fw, comment) values(?,0,0,0,'입력정보가 없습니다.')";//1은 강의실. 강의실 없음을 의미";
 		try {
-			
-			
 			pstmt = conn.prepareStatement(query);
-			
 			pstmt.setString(1, id);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -741,7 +738,6 @@ public class UserDao {
 				e.printStackTrace();
 			}
 		}
-		
 		return result;
 	}
 

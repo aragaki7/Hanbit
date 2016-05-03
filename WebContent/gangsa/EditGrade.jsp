@@ -143,7 +143,7 @@ hr {
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('.list').on('click',function(){
-			var url = "list.do";    
+			var url = "/Hanbit/dept/gansa.do";    
 			$(location).attr('href',url);
 		});
 	});
@@ -171,9 +171,11 @@ hr {
 						<td>자바</td>
 						<td>웹</td>
 						<td>프레임워크</td>
+						<td>평가</td>
 					</tr>
 					<%
 					GreadeData dto = (GreadeData)request.getAttribute("gradeDto");
+					System.out.println("코맨트 : "+dto.getComm());
 					%>
 					<tr id="grade">
 						<td><input type="text" name="id" value="<%=dto.getId() %>" class="ip" readonly="readonly"/></td>
@@ -186,7 +188,6 @@ hr {
 			</div>
 			<button type="button" class="list">목록</button>
 			<button type="submit" class="edit">수정</button>
-			<button class="delete">삭제</button>
 		</form>
 		</div>
 		<!-- content end -->

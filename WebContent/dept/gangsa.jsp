@@ -350,6 +350,7 @@ background-color:firebrick;
 					<div class="table">
 						<table>
 						<tr>
+							<td>아이디</td>
 							<td>이름</td>
 							<td>강의장</td>
 						</tr>
@@ -361,14 +362,13 @@ background-color:firebrick;
 							<tr class="graderow" style="cursor: hand;"><!--  onclick="location.href='EditGrade.do'"> -->
 <!-- 							onclick="location.href='../student/EditGrade.jsp'"> 클릭 이벤트 jquery로 뺌-->
 
-							<td class="hid"><%=stulist.get(i).getId()%></td>
+							<td><%=stulist.get(i).getId()%></td>
 							<td><%=stulist.get(i).getName()%></td>
 							<td><%=stulist.get(i).getClasss()%></td>
 							</tr>
 							<%}%>
 					</table>
 				</div>
-				<button type="submit" class="yes">성적 입력</button>
 			</form>
 		</div>
 			</div>
