@@ -632,4 +632,34 @@ public class UserDao {
 		}
 		return list;
 	}
+	
+	/**
+	 * 수강 신청시 신청자로 변경
+	 * @param id
+	 * @param mobile
+	 * @param email
+	 * @return int
+	 */
+	public int editAppl(String id, String mobile, String email) {
+		int result = 0;
+		
+		String query = "update TB_USER set mobile=?, email=?, pm_fk=7, class_fk=1 where id=?";
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, mobile);
+			pstmt.setString(2, email);
+			pstmt.setString(3, id);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
 }

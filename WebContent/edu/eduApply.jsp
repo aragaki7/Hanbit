@@ -127,14 +127,25 @@ input[type=radio],input[type=checkbox] {
  		});
 		
 		$('form').on('submit',function(){
+			for(var a=0;a<$('input[type!="radio"]').length;a++){
+				if($('input[type!="radio"]').eq(a).val()==""){
+				alert('비어있는 항목이 있습니다.');	 					
+				return false;
+				}
+			}
 			for(var b=0;b<$('.isN').length;b++){
 				if(!($.isNumeric($('.isN').eq(b).val()))){
 					alert('연락처는 숫자만 입력 하세요');
 					return false;
 					}
- 				}
+				}
+			if($('input[type="checkbox"]').is(":checked") == false){
+				alert('필수 약관에 동의 하여야 신청할 수 있습니다.');a
+				return false;
+			}
 			return true;
  		});
+		
 	});
 </script>
 </head>
@@ -155,11 +166,14 @@ input[type=radio],input[type=checkbox] {
 				<table class="Apply">
 					<tr>
 						<td id="td">이름</td>
-						<td id="td2"><input type="text"></td>
+						<td id="td2">
+							<input type="text" value="<%=jsonObject2.getString("name")%>" readonly="readonly">
+							<input type="hidden" name="id" value="<%=jsonObject2.getString("id")%>" />  
+						</td>
 					</tr>
 					<tr>
 						<td id="td">이메일</td>
-						<td id="td2"><input type="email" name="em" value=""/>@<input type="email" name="domain" value=""/>
+						<td id="td2"><input type="text" name="em" value=""/>@<input type="text" name="domain" value=""/>
 						<select name="urlad" class="emailsel">
 								<option value="">직접입력</option>
 								<option value="naver.com">naver.com</option>
