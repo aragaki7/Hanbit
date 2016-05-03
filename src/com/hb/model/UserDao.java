@@ -638,7 +638,7 @@ public class UserDao {
 				"from TB_USER a, TB_CLASS b, TB_ATTEN c, TB_ATTEN_INFO d "+
 				"where a.class_fk = b.class_pk and "+
 				"c.att = d.att_num and "+ 
-				"a.id = c.id and c.days = ? and not b.class_room= '없음' order by a.name";
+				"a.id = c.id and c.days = ? and not b.class_room= '없음' order by b.class_room";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
