@@ -145,6 +145,10 @@ span{
 	<div class="grid9">
 		<p>BOARD</p>
 		<p id="write">자유게시판 쓰기</p><hr/><br/>
+		<%
+			JSONObject loginID = new JSONObject();
+			loginID = (JSONObject) session.getAttribute("jsonObj");
+		%>
 		<form action="../customer/boardinsert.do" method="post">
 			<table class="join_tbl">
 			<colgroup>
@@ -156,7 +160,7 @@ span{
 			<tr> 
 				<th>제목</th>
 				<td><input type="text" id="title" name="title" value="" size="100" class="inputText">
-				<input type="text" name="name" value="<%= request.getParameter("id") %>" ></td>
+				<input type="text" name="name" value="<%= loginID.get("name") %>" readonly="readonly"></td>
 			</tr>
 
 			</table>

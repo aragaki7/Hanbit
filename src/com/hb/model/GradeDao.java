@@ -21,11 +21,15 @@ public class GradeDao {
 		
 		String sql="";
 		try {
-			sql = "select id, java, web, fw from TB_GRADE order by id desc";
+			sql = "select id, java, web, fw, comment from TB_GRADE order by id desc";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				list.add(new GreadeData(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getInt(4)));
+				list.add(new GreadeData(rs.getString(1),
+						rs.getInt(2),
+						rs.getInt(3),
+						rs.getInt(4),
+						rs.getString(5)));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

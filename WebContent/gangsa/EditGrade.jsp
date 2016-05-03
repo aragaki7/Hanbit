@@ -180,6 +180,7 @@ hr {
 						<td><input type="text" name="java" value="<%=dto.getJava() %>"class="ip" /></td>
 						<td><input type="text" name="web" value=<%=dto.getWeb() %> class="ip" /></td>
 						<td><input type="text" name="fw" value=<%=dto.getFw() %> class="ip" /></td>
+						<td><input type="text" name="fw" value=<%=dto.getComm() %> class="ip" /></td>
 					</tr>
 				</table>
 			</div>

@@ -21,8 +21,9 @@ public class EditGradeController extends HttpServlet {
 		int java = Integer.parseInt(request.getParameter("java"));
 		int web = Integer.parseInt(request.getParameter("web"));
 		int fw = Integer.parseInt(request.getParameter("fw"));
+		String comm = request.getParameter("comm");
 		
-		GreadeData gd = new GreadeData(id, java, web, fw);
+		GreadeData gd = new GreadeData(id, java, web, fw, comm);
 		
 		request.setAttribute("gradeDto", gd);
 		request.getRequestDispatcher("/gangsa/EditGrade.jsp").forward(request, response);

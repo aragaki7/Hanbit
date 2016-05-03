@@ -209,14 +209,11 @@ background-color:firebrick;
 					alert('입력 실패');
 				}
 			}
-		$('.row').on('click', function() {
+		$('.graderow').on('click', function() {
 			var ridx=getRow(this);
 			var id=$('.row:eq('+(ridx-1)+')>td:eq(0)').text();
-			var java=$('.row:eq('+(ridx-1)+')>td:eq(1)').text();
-			var web=$('.row:eq('+(ridx-1)+')>td:eq(2)').text();
-			var fw=$('.row:eq('+(ridx-1)+')>td:eq(3)').text();
 			
-			location.href="EditGrade.do?id="+id+"&java="+java+"&web="+web+"&fw="+fw;
+			location.href="EditGrade.do?id="+id;
 		});
 		
 		$('.stuListRow').on('click', function() {
@@ -365,7 +362,7 @@ background-color:firebrick;
 							
 							for (int i = 0; i < stulist.size(); i++) {
 							%>
-							<tr class="row" style="cursor: hand;"><!--  onclick="location.href='EditGrade.do'"> -->
+							<tr class="graderow" style="cursor: hand;"><!--  onclick="location.href='EditGrade.do'"> -->
 <!-- 							onclick="location.href='../student/EditGrade.jsp'"> 클릭 이벤트 jquery로 뺌-->
 
 							<td class="hid"><%=stulist.get(i).getId()%></td>
