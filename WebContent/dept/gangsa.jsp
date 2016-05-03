@@ -349,7 +349,7 @@ background-color:firebrick;
 							<%}%>							
 						</table>
 					</div>
-						<button type="submit" class="yes"><a href="attendadd.do">출석 입력</a></button>
+						<a href="attendadd.do"><button type="submit" class="yes">출석 입력</button></a>
 <!-- 						</form> -->
 				</div>
 				<div class="tab2_content"> <!-- 성적관리 -->
