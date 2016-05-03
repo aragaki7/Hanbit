@@ -1,5 +1,4 @@
 <%@page import="bean.UserData"%>
-<%@page import="bean.GreadeData" %>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -202,7 +201,14 @@ background-color:firebrick;
 }
 </style>
 <script type="text/javascript">
-	<%String dateEdit = request.getParameter("dateSearch");%>
+	<%
+	String dateEdit = request.getParameter("dateSearch");
+	ArrayList<UserData> dateSearch = (ArrayList<UserData>)request.getAttribute("dateSearch");
+	int attNum = 0;
+	for(int i=0; i<dateSearch.size(); i++){
+		attNum = dateSearch.get(i).getAtt();	
+	}
+	%>
 	function getRow(rowValue) {
 		var rowIndex = rowValue.rowIndex;
 		return rowIndex;
@@ -235,9 +241,8 @@ background-color:firebrick;
 			var id=$('.attendListRow:eq('+(ridx-1)+')>td:eq(0)').text();
 			var name=$('.attendListRow:eq('+(ridx-1)+')>td:eq(1)').text();
 			var mobile=$('.attendListRow:eq('+(ridx-1)+')>td:eq(2)').text();
-			var classroom=$('.attendListRow:eq('+(ridx-1)+')>td:eq(3)').text();
 			
-			location.href="stuedit.jsp?id="+id+"&name="+name+"&mobile="+mobile+"&classroom="+classroom+"&attDate="+<%=dateEdit%>;
+			location.href="stuedit.jsp?id="+id+"&name="+name+"&mobile="+mobile+"&attNum="+<%=attNum%>+"&attDate="+<%=dateEdit%>;
 		});
 		
 		
@@ -325,9 +330,9 @@ background-color:firebrick;
 				</div>
 
 				<div class="tab1_content"> <!-- 출결관리 -->
-				<%
+			<%-- 	<%
 					ArrayList<UserData> dateSearch = (ArrayList<UserData>)request.getAttribute("dateSearch");
-				 %>
+				 %> --%>
 					<div class="table">
 						<form action="gangsa.do" method="get"> 
 						<table>
@@ -343,19 +348,22 @@ background-color:firebrick;
 						</form>	
 							<% for(int i=0; i<dateSearch.size();i++){ %> 
 							<tr class="attendListRow">
-							<%
+						<%-- 	<%
 								int attNum = dateSearch.get(i).getAtt();
-							 %>
+							 %> --%>
 							 	<td class="hid"><%=dateSearch.get(i).getId()%></td>
+							 	<%
+							 		int attNumm = dateSearch.get(i).getAtt();
+							 	%>
 								<td><%=dateSearch.get(i).getName()%></td>
 								<td><%=dateSearch.get(i).getMobile()%></td>
 								<td><%=dateSearch.get(i).getClasss() %></td>
 								<td>
 									<select>
-										<option value="0" <%=(attNum==0) ? "selected":"" %>>출석</option>
-										<option value="1" <%=(attNum==1) ? "selected":"" %>>지각</option>
-										<option value="2" <%=(attNum==2) ? "selected":"" %>>조퇴</option>
-										<option value="3" <%=(attNum==3) ? "selected":"" %>>결석</option>
+										<option value="0" <%=(attNumm==0) ? "selected":"" %>>출석</option>
+										<option value="1" <%=(attNumm==1) ? "selected":"" %>>지각</option>
+										<option value="2" <%=(attNumm==2) ? "selected":"" %>>조퇴</option>
+										<option value="3" <%=(attNumm==3) ? "selected":"" %>>결석</option>
 									</select>
 								</td>
 							</tr>

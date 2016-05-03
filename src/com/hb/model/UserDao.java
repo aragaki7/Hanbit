@@ -770,4 +770,26 @@ public class UserDao {
 		return stuDetailList;
 	}
 
+
+	public int updateAttNum(String id, String attDate, int attNum) {
+		int result = 0;
+		sql = "update TB_ATTEN set att=? where id=? and days=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, attNum);
+			pstmt.setString(2, id);
+			pstmt.setString(3, attDate);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
 }

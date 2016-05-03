@@ -138,7 +138,7 @@ label {
 
 		<br />
 		<div class="grid9 content">
-			<form action="#">
+			<form action="studedit.do">
 				<p id="p1">출결 정보 수정 페이지</p>
 				<hr />
 				<br />
@@ -153,11 +153,15 @@ label {
 				  String name = request.getParameter("name");
 				  String mobile = request.getParameter("mobile");
 				  String attDate = request.getParameter("attDate");
-				  String classroom = request.getParameter("classroom");
+				  int attNum =  Integer.parseInt(request.getParameter("attNum"));
 				%>	
 					<tr class="hid">
 						<th>아이디</th>
-						<td colspan="3"><span id="name" name="name"><%=id%></span></td>
+						<td colspan="3"><span id="name" name="name">
+											<input type="hidden" value="<%=id%>" name="id"/>
+											<input type="hidden" value="<%=attDate %>" name="attDate"/>
+										</span>
+						</td>
 					</tr>
 					<tr>
 						<th>이름</th>
@@ -168,13 +172,26 @@ label {
 					</tr>
 					<tr>
 						<th>강의실</th>
-						<td colspan="3"><span name="classroom">현재 강의실 : <%=classroom%></span>
+						<td colspan="3"><span name="classroom">이날 출결 상황 : 
+						<%if(attNum==0) {%>
+						 <span>출석</span>
+						<%}%>
+						<%if(attNum==1) {%>
+						 <span>지각</span>
+						<%}%>
+						<%if(attNum==2) {%>
+						 <span>조퇴</span>
+						<%}%>
+						<%if(attNum==3) {%>
+						 <span>결석</span>
+						<%}%> 
+						</span>
 						<span>
-							<select>
-								<option value="0">없음</option>
-								<option value="1">1강의실</option>
-								<option value="2">2강의실</option>
-								<option value="3">3강의실</option>
+							<select name="attNum">
+								<option value="0">출석</option>
+								<option value="1">지각</option>
+								<option value="2">조퇴</option>
+								<option value="3">결석</option>
 						
 							</select><button type="submit" id="changeBtn"> 변경</button>
 						</td>
