@@ -98,7 +98,7 @@ hr {
 .yes {
 	margin-top: 70px;
 	width: 110px;
-	height: 50px;
+	height: 30px;
 	margin-left: 660px;
 	font-size: 11pt;
 	font-weight: bold;
