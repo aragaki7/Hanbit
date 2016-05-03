@@ -285,7 +285,7 @@ public class UserDao {
 	public ArrayList<UserData> attendAdd() {
 		ArrayList<UserData> attendlist = new ArrayList<UserData>();
 	
-		sql = "select id, name, TB_CLASS.class_room from TB_USER join TB_CLASS on class_fk = class_pk where pm_fk = 2 order by name";
+		sql = "select id, name, TB_CLASS.class_room from TB_USER join TB_CLASS on class_fk = class_pk where pm_fk = 2 and not TB_CLASS.class_room = '없음' order by name";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -599,10 +599,37 @@ public class UserDao {
 		return clFk;
 	}
 	
-	public ArrayList daySearch(String dateSearch) {
+	public ArrayList<UserData> daySearch(String dateSearch) {
 		ArrayList<UserData> list = new ArrayList<UserData>();
+		UserData bean = new UserData();
+		sql = "select a.name, a.mobile, b.class_room, c.att, c.days "+ 
+				"from TB_USER a, TB_CLASS b, TB_ATTEN c, TB_ATTEN_INFO d "+
+				"where a.class_fk = b.class_pk and "+
+				"c.att = d.att_num and "+ 
+				"a.id = c.id and c.days = ? and not b.class_room= '없음' order by a.name";
 		
-		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dateSearch);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				bean.setName(rs.getNString(1));
+				bean.setMobile(rs.getString(2));
+				bean.setClasss(rs.getString(3));
+				bean.setAtt(rs.getInt(4));
+				bean.setAttDate(rs.getString(4));
+				list.add(bean);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+				try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
 		return list;
 	}
 }

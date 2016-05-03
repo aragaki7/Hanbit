@@ -24,9 +24,8 @@ public class AttendSearch extends HttpServlet {
 		String dateSearch = req.getParameter("dateSearch");
 		
 		ArrayList<UserData> list = new UserDao().daySearch(dateSearch);
-		
-		
-		req.getRequestDispatcher("/dept/datesearch.jsp").forward(req, resp);
+		req.setAttribute("dateSearch",list);		
+		req.getRequestDispatcher("/dept/gangsa.do").forward(req, resp);
 	}
 
 }

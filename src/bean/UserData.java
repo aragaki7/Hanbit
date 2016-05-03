@@ -12,6 +12,8 @@ public class UserData {
 	private String mobile;
 	private String email;
 	private String classs;
+	private String attDate;
+	private int att;
 	
 	@Override
 	public String toString() {
@@ -73,6 +75,14 @@ public class UserData {
 	public String getMain_address() {
 		return main_address;
 	}
+	
+	/**
+	 * User att Number
+	 * @Int
+	 *  */
+	public int getAtt(){
+		return att;
+	}
 
 	/**
 	 * User sub address
@@ -81,6 +91,14 @@ public class UserData {
 	 */
 	public String getSub_address() {
 		return sub_address;
+	}
+	
+	/** 
+	 * User Attend Date
+	 * @String
+	 * */
+	public String getAttDate() {
+		return attDate;
 	}
 
 	/**
@@ -156,5 +174,11 @@ public class UserData {
 	}
 	public void setClasss(String classs) {
 		this.classs = classs;
+	}
+	public void setAtt(int att){
+		this.att = att;
+	}
+	public void setAttDate(String attDate){
+		this.attDate = attDate;
 	}
 }
