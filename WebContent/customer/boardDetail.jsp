@@ -115,22 +115,6 @@
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
 <script type="text/javascript">
-<%
-JSONObject jsonObject2 = new JSONObject();
-jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
-if (jsonObject2 != null) {%>
-	var pm = "<%=jsonObject2.getString("pm")%>";
-	if (!(("관리자"== pm)|("신청자"== pm)|("교육부"== pm)|("영업부"== pm)|("행정부"== pm)|("학생"== pm)|("일반"== pm))) {
-		alert('권한이 부족합니다.');
-		location.href="/Hanbit/main.do";
-	}else{
-		//권한이 맞음
-	}
-<%}else{%>
-	alert('권한이 부족합니다.');
-	location.href="/Hanbit/main.do";
-<%}%>
-
    $(function(){
       //제일 하단에 있는 depth1의 댓글을 다는 이벤트
        $("#commentParentSubmit").click(function( event ) {
@@ -233,9 +217,21 @@ if (jsonObject2 != null) {%>
                <tr>
                   <td>
                      <span id="btnlayout">
-                        <button type="button" id="list" class="btn btn-default">목록</button>
+                     <%
+		            	JSONObject jsonObject = new JSONObject();
+						jsonObject = (JSONObject) session.getAttribute("jsonObj");
+						if (jsonObject != null) {
+		                     if (jsonObject.getString("pm").equals("관리자")|jsonObject.getString("pm").equals("신청자")|jsonObject.getString("pm").equals("교육부")
+		                    	|jsonObject.getString("pm").equals("영업부")|jsonObject.getString("pm").equals("행정부")|jsonObject.getString("pm").equals("학생")
+		                    	|jsonObject.getString("pm").equals("일반")) {
+		               %>
+		           	    <button type="button" id="list" class="btn btn-default">목록</button>
                         <button type="button" id="modify" class="btn btn-default">수정</button>
                         <button type="button" id="del" class="btn btn-default">삭제</button>
+		               <%
+		                	}
+		                }
+		               %>
                      </span>
                   </td>
                </tr>
