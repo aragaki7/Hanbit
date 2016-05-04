@@ -151,6 +151,13 @@ span>a>img {
 			<span><a href="http://hanbitgn.com/"><img id="img2" alt="한빛 강남점" src="imgs/center_gangnam.jpg"/></a></span>
 		
 		</div>
+		
+<button class="mbbtn1" ><a href="#" id="mbintro">Intro</a></button>
+<button class="mbbtn2"><a href="#" id="mbedu">Edu</a></button>
+<button class="mbbtn3"><a href="#" id="mbservice">Service</a></button>
+<button class="mbbtn4"><a href="#" id="mbdept">Dept</a><img src="imgs/mbdept.PNG" alt="logo" id="mbimg4"/></button>
+<button class="mbbtn5"><a href="#" id="mbcustomer">Customer</a></button>
+
 				
 		<!-- content end -->
 

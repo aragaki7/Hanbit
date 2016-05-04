@@ -2,7 +2,7 @@
         /*¸ð¹ÙÀÏ*/
     *{
       margin: 0px;
-      padding: 0px;  
+      padding: 0px; 
    }
    .container_12{
       width: 100%;
@@ -20,11 +20,93 @@
     .header>.img1{
     	display:none;
     }
+     
+  .mbbtn1,.mbbtn2,.mbbtn3,.mbbtn4,.mbbtn5{
+    position:absolute;
+   height: 250px;
+   font-size: 11pt;
+   font-weight: bold;
+   color: white;
+   border: none;   
+   
+ } 
+ .mbbtn1{
+ background-color: rgb(184,95,219);
+ width: 150px; 
+ margin-top: 13px;
+ margin-left: 10px; 
+ }
+ .mbbtn2{
+ background-color: rgb(19,173,235);
+ width: 300px; 
+ margin-top: 13px; 
+ margin-left: 335px; 
+ }
+ .mbbtn3{
+ background-color: rgb(29,144,163);
+ width: 300px; 
+ margin-top: 283px;
+ margin-left: 10px;
+ }
+ .mbbtn4{ 
+ background-color: rgb(227,53,132);
+ width: 300px;
+ margin-top: 283px;
+ margin-left: 335px;
+ } 
+ .mbbtn5{
+ background-color: rgb(255,192,0); 
+ width: 624px;   
+ margin-top: 551px;  
+ margin-left: 10px;
+ }
+
+.mbbody{
+   background-color: black;
+}
+#mbintro,#mbedu,#mbservice,#mbdept,#mbcustomer{
+position:absolute;
+font-weight: bold;
+color:white;
+text-decoration: none;
+font-size: 35px;  
+}
+#mbintro{
+margin-top: 45px;
+ margin-left: -43px; 
+}
+#mbedu{
+margin-top: 45px; 
+  margin-left: -37px; 
+ }
+#mbservice{
+ margin-top: 50px; 
+ margin-left: -68px; 
+ }
+#mbdept{
+ margin-top: 50px;
+  margin-left: -40px; 
+ }
+#mbcustomer{
+  margin-top: 45px;  
+  margin-left: -94px; 
+ }
+#mbimg4{
+position:absolute;
+margin-top:330px;
+margin-left:427px; 
+width:120px;
+height:110px;
+ }
+ 
 }
 
 
 @media only screen and (min-width:400px){
 	/*pc  */
+.mbbtn1,.mbbtn2,.mbbtn3,.mbbtn4,.mbbtn5{
+	display: none;
+} 	
  *{
       margin: 0px;
       padding: 0px;
