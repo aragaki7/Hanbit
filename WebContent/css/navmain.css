@@ -1,5 +1,5 @@
 @media only screen and (max-width:399px){
-        /*¸ð¹ÙÀÏ*/
+        /*ï¿½ï¿½ï¿½ï¿½ï¿½*/
     *{
       margin: 0px;
       padding: 0px; 
@@ -23,61 +23,60 @@
      
   .mbbtn1,.mbbtn2,.mbbtn3,.mbbtn4,.mbbtn5{
     position:absolute;
-   height: 250px;
-   font-size: 11pt;
-   font-weight: bold;
-   color: white;
-   border: none;   
-   
+	height: 150px;
+	font-size: 11pt;
+	font-weight: bold;
+	color: white;
+	border: none;	
+	
  } 
  .mbbtn1{
  background-color: rgb(184,95,219);
- width: 150px; 
+ width: 172px; 
  margin-top: 13px;
  margin-left: 10px; 
  }
  .mbbtn2{
  background-color: rgb(19,173,235);
- width: 300px; 
- margin-top: 13px; 
- margin-left: 335px; 
+ width: 172px; 
+ margin-top: 13px;
+ margin-left: 200px;
  }
  .mbbtn3{
  background-color: rgb(29,144,163);
- width: 300px; 
- margin-top: 283px;
+ width: 172px; 
+ margin-top: 183px;
  margin-left: 10px;
  }
  .mbbtn4{ 
  background-color: rgb(227,53,132);
- width: 300px;
- margin-top: 283px;
- margin-left: 335px;
- } 
+ width: 172px;
+ margin-top: 183px;
+ margin-left: 200px;
+ }
  .mbbtn5{
- background-color: rgb(255,192,0); 
- width: 624px;   
- margin-top: 551px;  
+ background-color: rgb(255,192,0);
+ width: 358px; 
+ margin-top: 350px;  
  margin-left: 10px;
  }
-
-.mbbody{
+ body{
    background-color: black;
-}
+ }
 #mbintro,#mbedu,#mbservice,#mbdept,#mbcustomer{
 position:absolute;
 font-weight: bold;
 color:white;
 text-decoration: none;
-font-size: 35px;  
+font-size: 23px;  
 }
 #mbintro{
 margin-top: 45px;
- margin-left: -43px; 
+ margin-left: -30px; 
 }
 #mbedu{
 margin-top: 45px; 
-  margin-left: -37px; 
+  margin-left: -26px; 
  }
 #mbservice{
  margin-top: 50px; 
