@@ -125,7 +125,7 @@ public class UserDao {
 
 	public JSONObject loginJson(String id, String pw) {
 		JSONObject jsonObject = new JSONObject();
-		String query = "select TB_USER.id, TB_USER.name, TB_PM.pm from TB_USER join TB_PM on TB_USER.pm_fk = TB_PM.num where id = ? and password=password(?)";
+		String query = "select TB_USER.id, TB_USER.name, TB_PM.pm, TB_USER.class_fk from TB_USER join TB_PM on TB_USER.pm_fk = TB_PM.num where id = ? and password=password(?)";
 		// System.out.println(query);
 		// PrintWriter out = resp.getWriter();
 		try {
@@ -142,6 +142,7 @@ public class UserDao {
 				jsonObject.put("name", rs.getString("TB_USER.name"));
 				jsonObject.put("result", "success");
 				jsonObject.put("pm", rs.getString("TB_PM.pm"));// 권한 설정. 학생 or강사
+				jsonObject.put("classs", rs.getString("TB_USER.class_fk"));
 
 			} else {
 				// System.out.println("아이디 & 비번 매칭되는거 없음");
