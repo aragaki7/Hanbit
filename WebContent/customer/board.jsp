@@ -177,9 +177,10 @@ input[type=submit] {
 		if(tag == "[null]" || "" == tag){
 			tag="[1]";
 		}
+		
+		
 		$('.atag').each(function(){
 			var yeonseong =$(this).text().trim(); 
-			
 			if(yeonseong == tag){
 				$(this).css("font-weight","bold");
 			}
@@ -267,7 +268,7 @@ input[type=submit] {
 			<a href="board.do?page=<%=pageNum-1%>"> ◀ </a> 
 			<%} %>
 		<%for(int i=fpage;i<lpage+1;i++) {%>
-			<a href="board.do?page=<%=i %>"> [<%=i%>] </a>
+			<a href="board.do?page=<%=i %>" class="atag"> [<%=i%>] </a>
 		<%} %>
 		<%if(pageNum!=pageTotal) {%>
 			<a href="board.do?page=<%=pageNum+1%>"> ▶ </a>
