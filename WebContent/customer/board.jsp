@@ -173,6 +173,22 @@ input[type=submit] {
 		return rowIndex;
 	}
 	$(document).ready(function(){
+		var tag = "[<%=request.getParameter("page") %>]";
+		if(tag == "[null]" || "" == tag){
+			tag="[1]";
+		}
+		$('.atag').each(function(){
+			var yeonseong =$(this).text().trim(); 
+			
+			if(yeonseong == tag){
+				$(this).css("font-weight","bold");
+			}
+			else{
+				$(this).removeAttr("font-weight");
+			}
+		});
+		
+		
 		$('.rownum').on('click', function() {
 			var ridx=getRow(this);
 		    var index = $('.rownum:eq('+(ridx-1)+')>td:eq(0)').text();
