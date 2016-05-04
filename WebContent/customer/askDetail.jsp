@@ -105,6 +105,9 @@
       margin-right: -10px;
       float: right;
    }
+   #commentParentSubmit{
+   	 margin-left: 700px;
+   }
 </style>
 <script type="text/javascript">
 
@@ -114,10 +117,64 @@
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
 <script type="text/javascript">
-$(function(){
-	 $( "#del" ).click(function(event) { //삭제하기
-	    location.href='../customer/askdel.do?idx='+<%= request.getParameter("idx") %>; 
-	 });
+   $(function(){
+      //제일 하단에 있는 depth1의 댓글을 다는 이벤트
+       $("#commentParentSubmit").click(function( event ) {
+    	   var pName="";
+    	   <%
+   		JSONObject re = (JSONObject) session.getAttribute("jsonObj");
+   		if (re != null){ 
+   			if (re.getString("result").equals("success")){%>
+   				pName="<%=re.getString("name")%>";
+   				<%
+   			}
+   		}
+   		%>
+      //로그인한 후 id 가져와 추가하기
+         var pText = $("#commentParentText"); 
+         if($.trim(pText.val())==""){
+	            alert("내용을 입력하세요.");
+	            pText.focus();
+	            return;
+         }
+         
+         var commentParentText = '<tr id="r1" name="commentParentCode">'+'<td colspan=2>'+ '<strong>'+pName+'</strong>' +
+                           '| <a style="cursor:pointer; color:firebrick;" name="pDel">삭제</a><p>'+pText.val().replace(/\n/g, "<br>")+'</p>'+'</td>'+'</tr>';
+         
+         //댓글테이블의 tr자식이 있으면 tr 뒤에 붙인다. 없으면 테이블 안에 새로운 tr을 붙인다.
+         if($('#commentTable').contents().size()==0){
+            $('#commentTable').append(commentParentText);
+         }else{
+            $('#commentTable tr:last').after(commentParentText);
+         }
+         $("#commentParentText").val("");
+      });
+      
+      //답글 삭제링크를 눌렀을때 해당 댓글을 삭제하는 이벤트
+      $(document).on("click","table#commentTable a", function(){//동적으로 버튼이 생긴 경우 처리 방식
+         if($(this).attr("name")=="pDel"){
+            if (confirm("정말 삭제하시겠습니까?") == true){    //확인
+                 var delComment = $(this).parent().parent();
+               var nextTr = delComment.next();
+               var delTr;
+               delComment.remove();
+            }else{   //취소
+               return;
+            }
+         }else if($(this).attr("name")=="cDel"){
+            if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+                  $(this).parent().parent().remove();
+            }else{   //취소
+                return;
+            }
+         }
+      });
+      
+      $(function(){
+    		 $( "#del" ).click(function(event) { //삭제하기
+    		    location.href='../customer/askdel.do?idx='+<%= request.getParameter("idx") %>; 
+    		 });
+		});
 });
 </script>
 
@@ -170,8 +227,23 @@ $(function(){
                </tr>
             </thead>
          </table> 
-            
-
+        
+        <table id="commentTable" class="table table-condensed"></table>
+         <table class="table table-condensed commenttext ">
+            <tr>
+               <td>
+                  <span class="form-inline" role="form">
+                  <p>
+                     <textarea id="commentParentText" placeholder="내용" class="form-control col-lg-12" rows="4"></textarea>
+                     <div class="form-group">
+                        <button type="button" id="commentParentSubmit" name="commentParentSubmit" class="btn commentbtn btn-default">등록</button>
+                     </div>
+                  </p>
+                 
+                  </span>
+               </td>
+            </tr>
+         </table>      
       </div>
    </div>
    <!-- content end -->
