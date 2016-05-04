@@ -94,7 +94,7 @@
       font-size: 12px;
    }
    button{
-      border: 1px solid black;
+      border: 1px solid black;  
       background-color: black;
       color:white;
       width: 50px;

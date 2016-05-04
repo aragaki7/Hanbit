@@ -89,7 +89,7 @@
       color: white;
    }
    .col-lg-12{
-      margin-top: 5px;
+      margin-top: 5px;  
    }
    #commentTable{
       background-color: #f1f1f1;

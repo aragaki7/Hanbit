@@ -90,7 +90,7 @@
       margin-top: 5px;
    }
    #commentTable{
-      background-color: #f1f1f1;
+      background-color: #f1f1f1;  
       font-size: 12px;
    }
    button{
