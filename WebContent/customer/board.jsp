@@ -266,7 +266,7 @@ input[type=submit] {
                     	|jsonObject.getString("pm").equals("영업부")|jsonObject.getString("pm").equals("행정부")|jsonObject.getString("pm").equals("학생")
                     	|jsonObject.getString("pm").equals("일반")) {
                %>
-           	    <input type="button" value="글쓰기" onclick="location.href='/Hanbit/customer/boardAdd.jsp'" class="yes"/>
+           	    <input type="button" value="글쓰기" onclick="location.href='/Hanbit/customer/boardadd.do'" class="yes"/>
                <%
                 	}
                 }

@@ -229,7 +229,7 @@ if (jsonObject2 != null) {%>
                </table>
          </div>
          <div id="write">
-           <input type="button" value="글쓰기" onclick="location.href='/Hanbit/customer/askAdd.jsp'" class="yes"/>
+           <input type="button" value="글쓰기" onclick="location.href='/Hanbit/customer/askadd.do'" class="yes"/>
          </div>
       </div>
      
