@@ -94,7 +94,9 @@ span>a>img {
 	position:absolute;
 	z-index:-1;
 }
-
+#img1, #img2{
+	margin-top: -30px;
+}
 </style>
 <script type="text/javascript" src="js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
@@ -145,8 +147,8 @@ span>a>img {
 				<li><img alt="main slideshow" src="imgs/slideshow3.gif"></li>
 			</ul>
 			
-			<span><a href="http://hanbitsc.com/"><img alt="한빛 신촌점" src="imgs/center_hanbit.jpg"/></a></span>
-			<span><a href="http://hanbitgn.com/"><img alt="한빛 강남점" src="imgs/center_gangnam.jpg"/></a></span>
+			<span><a href="http://hanbitsc.com/"><img id="img1" alt="한빛 신촌점" src="imgs/center_hanbit.jpg"/></a></span>
+			<span><a href="http://hanbitgn.com/"><img id="img2" alt="한빛 강남점" src="imgs/center_gangnam.jpg"/></a></span>
 		
 		</div>
 				
