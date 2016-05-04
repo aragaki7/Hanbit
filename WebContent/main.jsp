@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메인페이지</title>
 <link rel="stylesheet" type="text/css" href="css/grid_design12.css" />
-<link rel="stylesheet" type="text/css" href="css/nav.css" />
+<link rel="stylesheet" type="text/css" href="css/navmain.css" />
 <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" />
 <style type="text/css"> 
 .bxslider>li img {

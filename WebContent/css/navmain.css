@@ -1,4 +1,4 @@
- @media only screen and (max-width:399px){
+@media only screen and (max-width:399px){
         /*¸ð¹ÙÀÏ*/
     *{
       margin: 0px;
@@ -7,9 +7,16 @@
    .container_12{
       width: 100%;
    }
+   .grid9{
+   	width:100%;
+   	display: none;
+   }
    .grid3{
    	display: none;
    }
+    .footer{
+    	display: none;
+    }
     }
 
 
