@@ -155,6 +155,13 @@ $(document).ready(function(){
 		         $(this).prop('checked', true); 
 	         }
 	    }); //   $('.attendlow>input').click(function(){ end
+	    	
+		<%
+		String flag = (String)request.getParameter("flag");
+		if(flag!=null)
+			if("false".equals(flag)){%>
+				alert('이미 출결 처리가 완료되었습니다.');
+		<%}%> 	
 }); // document ready end
 </script>
 </head>

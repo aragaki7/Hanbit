@@ -24,24 +24,27 @@ public class AttendAddList extends HttpServlet {
 		String id;
 		int check;
 		int result = 0;
+		int attOver = 0;
+		boolean flag = false;
 		
 		for(int i = 0; i < idArr.length; i++){
 			id = idArr[i];
-			int attOver = attinsert.attOverlap(id, date);
+			attOver = attinsert.attOverlap(id, date);
 //			System.out.println(attOver);
 			if(attOver==0){
 				for (int j = 0; j < idArr.length; j++) {
 					id = idArr[j];
 					check = Integer.parseInt(checkArr[j]);
 					result += attinsert.attendInsert(id, check, date);
+					flag = true;
 				}
-			} else {
-//				resp.sendRedirect("../dept/attendadd.do");
 			}
 		}
 			
-		if(result>0){
+		if(flag){
 			resp.sendRedirect("../dept/gangsa.do");
+		} else {
+			resp.sendRedirect("../dept/attendadd.do?flag="+flag);
 		}
 		
 	}
