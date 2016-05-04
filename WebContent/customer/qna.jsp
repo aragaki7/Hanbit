@@ -69,7 +69,7 @@
     border:1px solid #333;
     width:80%;
     height:100%;
-    margin-top:-10px;
+    margin-top:0px;
 }
 /* /////////////////////////////////////////////////////// */
 p{
