@@ -140,7 +140,7 @@
 	            return;
          }
          
-         var commentParentText = '<tr id="r1" name="commentParentCode">'+'<td colspan=2>'+ '<strong>'+pName+'</strong>' +
+         var commentParentText = '<tr id="r1" name="commentParentCode">'+'<td colspan=2>'+ '<strong>'+pName+'</strong>'+
                            '| <a style="cursor:pointer; color:firebrick;" name="pDel">삭제</a><p>'+pText.val().replace(/\n/g, "<br>")+'</p>'+'</td>'+'</tr>';
          
          //댓글테이블의 tr자식이 있으면 tr 뒤에 붙인다. 없으면 테이블 안에 새로운 tr을 붙인다.
