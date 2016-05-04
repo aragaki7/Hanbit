@@ -97,7 +97,7 @@
       width: 50px;
       height: 30px;
    }
-   .commenttext{
+   .commenttext{    
       background-color: #f1f1f1;
    }
    #btnlayout{
