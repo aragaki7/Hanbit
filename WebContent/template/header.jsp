@@ -15,12 +15,11 @@
 .header {
 	height: 100px;
 }
-
-.log {
-	margin-right: 0px;
-}
-.img{
+.img1{
 	margin-left: 480px;
+}
+.img2{
+	display: none;
 }
 #hh{
 	font-size:12pt;
@@ -34,8 +33,8 @@
 </style>
 
 <div class="grid9 header">
-	<a href="<%=request.getContextPath()%>/main.do" class="img"><img
-		src="<%=request.getContextPath()%>/imgs/logo.jpg" alt="logo" /></a>
+	<a href="<%=request.getContextPath()%>/main.do" class="img1"><img src="<%=request.getContextPath()%>/imgs/logo.jpg" alt="logo" /></a>
+	<a href="<%=request.getContextPath()%>/main.do" class="img2"><img src="<%=request.getContextPath()%>/imgs/mobilemain.png" alt="mobilelogo" /></a>
 </div>
 	<div class="grid3 header"><div id="hh">
 	<%
