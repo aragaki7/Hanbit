@@ -22,6 +22,9 @@
     .col-md-10{
        width: 1100px;
     }
+    .tablemain{
+     width:800px;
+    }
     .tablemain td{
       vertical-align:middle;
       background-color:white;
@@ -101,8 +104,8 @@
       background-color: #f1f1f1;
    }
    #btnlayout{
-      margin-top: -10px;
-      margin-right: -10px;
+      margin-top: 10px;
+      margin-left: 620px;
       float: right;
    }
 </style>

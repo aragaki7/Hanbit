@@ -44,6 +44,7 @@
         box-shadow: 5px 5px 5px lightgray;
    }
    .tablemain{
+   		width:800px;
         margin:0px;
          padding:0px;
          box-shadow: 10px 10px 5px #888888;
@@ -105,9 +106,12 @@
       background-color: #f1f1f1;
    }
    #btnlayout{
-      margin-top: -10px;
-      margin-right: -10px;
+       margin-top: 10px;
+      margin-left: 600px;
       float: right;
+   }
+    .table-condensed{
+   	width:800px;
    }
 </style>
 <script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
