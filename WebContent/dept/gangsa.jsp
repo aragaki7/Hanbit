@@ -209,6 +209,7 @@ background-color:firebrick;
 	for(int i=0; i<dateSearch.size(); i++){
 		attNum = dateSearch.get(i).getAtt();	
 	}
+	
 	%>
 	function getRow(rowValue) {
 		var rowIndex = rowValue.rowIndex;
@@ -309,7 +310,20 @@ background-color:firebrick;
 								<td>강의실</td>
 								</tr>
 								<%
+								String tmp ="없음";
+								String loginclass = jsonObject1.getString("classs");
+						
+								if("2".equals(loginclass))
+									tmp = "1강의장";
+								else if("3".equals(loginclass))
+									tmp = "2강의장";
+								if("4".equals(loginclass))
+									tmp = "3강의장";
+								
+								
 								for (int i = 0; i < stulist.size(); i++) {
+									if(!(stulist.get(i).getClasss().equals(tmp)))
+										continue;
 								%>
 							<tr class="stuListRow" style="cursor: hand;">
 								
