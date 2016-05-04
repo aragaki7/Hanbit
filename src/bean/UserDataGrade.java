@@ -113,4 +113,13 @@ public class UserDataGrade {
 	public UserDataGrade(){
 		
 	}
+	@Override
+	public String toString() {
+		return "UserDataGrade [id=" + id + ", name=" + name + ", post=" + post
+				+ ", main_address=" + main_address + ", sub_address="
+				+ sub_address + ", sex=" + sex + ", phone=" + phone
+				+ ", mobile=" + mobile + ", email=" + email + ", classs="
+				+ classs + ", java=" + java + ", web=" + web + ", fw=" + fw
+				+ "]";
+	}
 	}
