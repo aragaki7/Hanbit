@@ -223,7 +223,7 @@ if (jsonObject2 != null) {%>
                   %>
             --%>
                </tr>
-               <%
+               <%  
                   }
                %> 
                </table>

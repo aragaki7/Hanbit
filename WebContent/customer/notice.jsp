@@ -265,11 +265,11 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
                   if (jsonObject != null) {
                      if (jsonObject.getString("pm").equals("관리자")) {
                %>
-
+  
                <input type="button" value="글쓰기" onclick="location.href='/Hanbit/customer/NoticeAdd.jsp'" class="yes"/>
                <%
                   }
-                  }
+                  }  
                %>
             </div>   
          <div id="gumsackjang">

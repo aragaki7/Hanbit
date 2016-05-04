@@ -270,8 +270,8 @@ input[type=submit] {
                <%
                 	}
                 }
-               %>
-            </div>
+               %>  
+            </div>  
          <div id="gumsackjang">
             <form action="../customer/boardsearch.do" method="post">
                <select id="keyword" name="keyword">
