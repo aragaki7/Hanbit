@@ -408,30 +408,35 @@ background-color:firebrick;
 					<div class="table">
 						<table>
 						<tr>
-							<td>아이디</td>
+							<td class="hid">아이디</td>
 							<td>이름</td>
 							<td>강의장</td>
-							<td>java</td>
-							<td>web</td>
-							<td>fw</td>
+							<td class="hid">java</td>
+							<td class="hid">web</td>
+							<td class="hid">fw</td>
+							<td>총 점</td>
+							<td>평 균</td>
 						</tr>
 							<%
 // 							ArrayList<GreadeData> list = (ArrayList<GreadeData>)request.getAttribute("list");
-							
 							for (int i = 0; i < stulist.size(); i++) {
 								if(admin.equals("관리자")){
 								}else if(!(stulist.get(i).getClasss().equals(tmp)))
 									continue; 
-								%>
+							int sum =stulist.get(i).getJava()+stulist.get(i).getWeb()+stulist.get(i).getFw();
+							int avg = sum/3;
+							%>
 							<tr class="graderow" style="cursor: hand;"><!--  onclick="location.href='EditGrade.do'"> -->
 <!-- 							onclick="location.href='../student/EditGrade.jsp'"> 클릭 이벤트 jquery로 뺌-->
 
-							<td><%=stulist.get(i).getId()%></td>
+							<td class="hid"><%=stulist.get(i).getId()%></td>
 							<td><%=stulist.get(i).getName()%></td>
 							<td><%=stulist.get(i).getClasss()%></td>
-							<td><%=stulist.get(i).getJava()%></td>
-							<td><%=stulist.get(i).getWeb()%></td>
-							<td><%=stulist.get(i).getFw()%></td>
+							<td class="hid"><%=stulist.get(i).getJava()%></td>
+							<td class="hid"><%=stulist.get(i).getWeb()%></td>
+							<td class="hid"><%=stulist.get(i).getFw()%></td>
+							<td><%=sum %></td>
+							<td><%=avg %></td>
 							</tr>
 							<%}%>
 					</table>
