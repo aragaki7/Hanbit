@@ -202,6 +202,22 @@ background-color:firebrick;
 }
 </style>
 <script type="text/javascript">
+<%
+		JSONObject jsonObject1 = new JSONObject();
+		jsonObject1 = (JSONObject) session.getAttribute("jsonObj");
+		String admin = jsonObject1.getString("pm");
+		if (jsonObject1 != null) {%>
+			var pm = "<%=jsonObject1.getString("pm")%>";
+			if (!("관리자" == pm || "교육부"==pm)) {
+				alert('권한이 부족합니다.');
+				location.href="/Hanbit/main.do";
+			}else{
+				//권한이 맞음
+			}
+<%		}else{%>
+			alert('권한이 부족합니다.');
+			location.href="/Hanbit/main.do";
+<%}%>
 	<%
 	String dateEdit = request.getParameter("dateSearch");
 	ArrayList<UserData> dateSearch = (ArrayList<UserData>)request.getAttribute("dateSearch");
@@ -282,12 +298,7 @@ background-color:firebrick;
 
 		<!-- content start -->
 		<%
-			JSONObject jsonObject1 = new JSONObject();
-
 			jsonObject1 = (JSONObject) session.getAttribute("jsonObj");
-
-			if (jsonObject1 != null) {
-				if (jsonObject1.getString("pm").equals("관리자") || jsonObject1.getString("pm").equals("교육부")) {
 		%>
 		<div class="grid9 content"> 
 			<p>EDUCATION<br/><h4>LIST</h4></p>
@@ -322,7 +333,8 @@ background-color:firebrick;
 								
 								
 								for (int i = 0; i < stulist.size(); i++) {
-									if(!(stulist.get(i).getClasss().equals(tmp)))
+									if(admin.equals("관리자")){
+									}else if(!(stulist.get(i).getClasss().equals(tmp)))
 										continue;
 								%>
 							<tr class="stuListRow" style="cursor: hand;">
@@ -361,7 +373,10 @@ background-color:firebrick;
 								</td>
 							</tr>
 						</form>	
-							<% for(int i=0; i<dateSearch.size();i++){ %> 
+							<% for(int i=0; i<dateSearch.size();i++){ 
+								if(admin.equals("관리자")){
+								}else if(!(stulist.get(i).getClasss().equals(tmp)))
+										continue; %>
 							<tr class="attendListRow">
 						<%-- 	<%
 								int attNum = dateSearch.get(i).getAtt();
@@ -404,7 +419,10 @@ background-color:firebrick;
 // 							ArrayList<GreadeData> list = (ArrayList<GreadeData>)request.getAttribute("list");
 							
 							for (int i = 0; i < stulist.size(); i++) {
-							%>
+								if(admin.equals("관리자")){
+								}else if(!(stulist.get(i).getClasss().equals(tmp)))
+									continue; 
+								%>
 							<tr class="graderow" style="cursor: hand;"><!--  onclick="location.href='EditGrade.do'"> -->
 <!-- 							onclick="location.href='../student/EditGrade.jsp'"> 클릭 이벤트 jquery로 뺌-->
 
@@ -423,20 +441,13 @@ background-color:firebrick;
 			</div>
 		</div>
 	   <%
-			}
-			} else {
+			
 		%>
 		<div align="center">
-
-			<script language="javascript">
-				$(document).ready(function auth(){
-				alert("권한이 없습니다.");
-				document.location.href = "../main.jsp";
-			});
-			</script>
+		
 		</div>
 		<%
-			}
+			
 		%>
 		<!-- content end -->
 		<%@ include file="../template/asideIn.jsp"%>

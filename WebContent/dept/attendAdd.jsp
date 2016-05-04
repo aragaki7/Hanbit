@@ -107,6 +107,7 @@
  	}
 </style>
 <script type="text/javascript" >
+
 var attendlow = 0;
 function attendLowCheck(){
 	var lo_this;
@@ -183,10 +184,32 @@ $(document).ready(function(){
 						<td>강의실</td>
 						<td><input type="text" id="datepicker" value="" name="attenddate"/></td>
                     </tr>
-                    
+                    <%
+						JSONObject jsonObject1 = new JSONObject();
+			
+						jsonObject1 = (JSONObject) session.getAttribute("jsonObj");
+						String admin = jsonObject1.getString("pm");
+			
+// 						if (jsonObject1 != null) {
+// 							if (jsonObject1.getString("pm").equals("관리자") || jsonObject1.getString("pm").equals("교육부")) {
+					%>
 	                <%ArrayList<UserData> attendlist = (ArrayList<UserData>)request.getAttribute("attendlist");%>
-	                
-                    <% for(int i=0; i<attendlist.size(); i++){%>
+	                <%
+								String tmp ="없음";
+								String loginclass = jsonObject1.getString("classs");
+						
+								if("2".equals(loginclass))
+									tmp = "1강의장";
+								else if("3".equals(loginclass))
+									tmp = "2강의장";
+								if("4".equals(loginclass))
+									tmp = "3강의장";
+					%>
+                    <% for(int i=0; i<attendlist.size(); i++){
+                    	if(admin.equals("관리자")){
+						}else if(!(attendlist.get(i).getClasss().equals(tmp)))
+							continue;
+                    %>
                     <tr>
                     	<input type="hidden" readonly="readonly" name="id" value="<%=attendlist.get(i).getId()%>"/>
                        	<td><input type="text" disabled="disabled" name="name" value="<%=attendlist.get(i).getName() %>"/></td>
