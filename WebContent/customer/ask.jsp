@@ -208,7 +208,7 @@ if (jsonObject2 != null) {%>
                   
                <%--    <%
                      if (list.get(i).getDate().toString().equals(new Date(System.currentTimeMillis()).toString())) {
-
+ 
                            String[] time = list.get(i).getTime().toString().split(" ");
                   %>
 

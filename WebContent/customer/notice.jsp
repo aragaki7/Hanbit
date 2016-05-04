@@ -250,7 +250,7 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
                   }
                %>
             </table>
-         </div>
+         </div> 
          <div class="page">
             <a href="#">◀</a> <a href="#">[1]</a> <a href="#">[2]</a> <a
                href="#">[3]</a> <a href="#">[4]</a> <a href="#">[5]</a> <a

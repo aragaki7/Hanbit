@@ -258,7 +258,7 @@ input[type=submit] {
 			<%} %>
          </p>
          <div id="write">
-            <%
+            <% 
             	JSONObject jsonObject = new JSONObject();
 				jsonObject = (JSONObject) session.getAttribute("jsonObj");
 				if (jsonObject != null) {
