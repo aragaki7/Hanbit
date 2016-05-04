@@ -18,6 +18,6 @@ import bean.UserData;
 @WebServlet("/customer/noticeadd.do")
 public class NoticeAdd extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/customer/noticeAdd.jsp").forward(request, response);
+		request.getRequestDispatcher("/customer/NoticeAdd.jsp").forward(request, response);
 	}
 }
