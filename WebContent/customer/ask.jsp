@@ -184,11 +184,10 @@ if (jsonObject2 != null) {%>
          <div class="table">
             <table style="width: 100%">
                   <col style="width:5%">
-                  <col style="width:15%">
-                  <col style="width:55%">
-                  <col style="width:15%">
                   <col style="width:10%">
-                  <col style="width:10%">
+                  <col style="width:45%">
+                  <col style="width:15%">
+                  <col style="width:25%">
                   <tr>
                      <td>index</td>
                      <td>작성자</td>
