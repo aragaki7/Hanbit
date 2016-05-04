@@ -3,7 +3,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>    
+<head>      
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메인페이지</title>
 <link rel="stylesheet" type="text/css" href="css/grid_design12.css" />
