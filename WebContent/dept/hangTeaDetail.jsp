@@ -42,7 +42,7 @@ hr {
 .back {
 	width: 100px;
 	height: 40px;
-	margin:0 auto;
+	margin-left: 400px;
 	font-size: 11pt;
 	font-weight: bold;
 	color: white;
@@ -133,7 +133,7 @@ label {
 		<br />
 		<div class="grid9 content">
 			<form action="hang.teaEdit">
-				<p id="p1">학생 상세페이지</p>
+				<p id="p1">강사 상세페이지</p>
 				<hr />
 				<br />
 				<table class="join_tbl">

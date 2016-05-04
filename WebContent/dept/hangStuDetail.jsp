@@ -42,7 +42,7 @@ hr {
 .back {
 	width: 100px;
 	height: 40px;
-	margin:0 auto;
+	margin-left: 400px;
 	font-size: 11pt;
 	font-weight: bold;
 	color: white;
