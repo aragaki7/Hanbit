@@ -15,7 +15,6 @@ public class BoardComm {
 	}
 	public BoardComm(int num, String id, String content, Date date,
 			Timestamp time, int idx_fk) {
-		super();
 		this.num = num;
 		this.id = id;
 		this.content = content;

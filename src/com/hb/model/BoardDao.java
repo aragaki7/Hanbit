@@ -6,7 +6,7 @@ import java.util.Calendar;
 
 import bean.BoardComm;
 import bean.BoardData;
-
+import bean.UserData;
 import db.DBConnect;
 
 public class BoardDao {
@@ -234,7 +234,6 @@ public class BoardDao {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
-				System.out.println(++count);
 				list.add(new BoardData(rs.getInt(2), rs.getString(3), rs.getString(4),
 						rs.getString(5), rs.getDate(6),rs.getTimestamp(7), rs.getInt(8)));
 			}
@@ -274,37 +273,30 @@ public class BoardDao {
 	}
 
 	public ArrayList<BoardComm> selectComm(String index) {
-		ArrayList<BoardComm> comList = new ArrayList<BoardComm>();
-		
-		String sql = "SELECT idx, id_fk, content, days, `time` FROM TB_BBS_COM where bbs_idx_fk=? order by `time`";
+		ArrayList<BoardComm> list = new ArrayList<BoardComm>();
 		try {
+			sql = "select idx, id_fk, content, days, time, bbs_idx_fk from TB_BBS_COM where bbs_idx_fk=?";
+			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, Integer.parseInt(index));
-			System.out.println("idx : "+Integer.parseInt(index));
 			rs = pstmt.executeQuery();
-			System.out.println("dao에서");
 			while (rs.next()) {
-				BoardComm tmp = new BoardComm();
-				
-				tmp.setNum(rs.getInt("idx"));
-				tmp.setIdx_fk(rs.getInt("id_fk"));
-				tmp.setContent(rs.getString("content"));
-				tmp.setDate(rs.getDate("days"));
-				tmp.setTime(rs.getTimestamp("time"));
-				System.out.println(tmp.toString());
-				comList.add(tmp);
+				list.add(new BoardComm(rs.getInt("idx"), rs.getString("id_fk"), 
+						rs.getString("content"), null, rs.getTimestamp("time"),
+						rs.getInt("bbs_idx_fk")));
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
-			try {
-				if (rs != null)rs.close();
-				if (pstmt != null)pstmt.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			
 		}
-		
-		return comList;
+		return list;
 	}
 	
 }   

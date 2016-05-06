@@ -47,7 +47,6 @@ public class CustomerBoard extends HttpServlet {
 		if(fpage<=0)
 			fpage=1;
 		lpage=fpage+viewPage-1;//보여주는 마지막 페이지
-		System.out.println("lpage1 : "+lpage);
 		if(lpage>pageTotal)
 			lpage=pageTotal;
 		

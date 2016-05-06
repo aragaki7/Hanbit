@@ -124,45 +124,56 @@
 	JSONObject re = (JSONObject) session.getAttribute("jsonObj");
 	ArrayList<BoardComm> commList = (ArrayList<BoardComm>)request.getAttribute("boardCommDto");
 %>
-var addComm = function(name, comm){
-	console.log("comment : "+comm);
+
+function Convert(str){//혹시나 태그로 댓글 쓸까봐 그거 차단하는 함수
+ str = str.replace(/</g,"&lt;");
+ str = str.replace(/>/g,"&gt;");
+ str = str.replace(/\"/g,"&quot;");
+ str = str.replace(/\'/g,"&#39;");
+ str = str.replace(/\n/g,"<br />");
+ return str;
+}
+var addComm = function(name, comm){//댓글추가 하는 함수
 	var pName=name;
-	   
-//로그인한 후 id 가져와 추가하기
-//   var pText = comm;
-//   if($.trim(pText)==""){
-//          alert("내용을 입력하세요.");
-//          pText.focus();
-//          return;
-//   }
+	var pText = Convert(comm);
+	var commentParentText = '<tr id="r1" name="commentParentCode">'+'<td colspan=2>'+ '<strong>'+pName+'</strong>'+
+                    '| <a style="cursor:pointer; color:firebrick;" name="pDel">삭제</a><p>'+pText+'</p>'+'</td>'+'</tr>';
   
-  var commentParentText = '<tr id="r1" name="commentParentCode">'+'<td colspan=2>'+ '<strong>'+pName+'</strong>'+
-                    '| <a style="cursor:pointer; color:firebrick;" name="pDel">삭제</a><p>'+pText.replace(/\n/g, "<br>")+'</p>'+'</td>'+'</tr>';
-  
-  //댓글테이블의 tr자식이 있으면 tr 뒤에 붙인다. 없으면 테이블 안에 새로운 tr을 붙인다.
-  if($('#commentTable').contents().size()==0){
-     $('#commentTable').append(commentParentText);
-  }else{
-     $('#commentTable tr:last').after(commentParentText);
-  }
+    //댓글테이블의 tr자식이 있으면 tr 뒤에 붙인다. 없으면 테이블 안에 새로운 tr을 붙인다.
+    if($('#commentTable').contents().size()==0){
+    	$('#commentTable').append(commentParentText);
+    }else{
+    	$('#commentTable tr:last').after(commentParentText);
+    }
   $("#commentParentText").val("");
-};//댓글 함수
+};
+
    $(function(){
       //제일 하단에 있는 depth1의 댓글을 다는 이벤트
-       $("#commentParentSubmit").click(function( event ) {
+       $("#coform").on('submit',function( event ) {
+    	   //유효성 검사 통과하면 return true
     	   var cname="";
     	   <%if (re != null){ 
     			if (re.getString("result").equals("success")){%>
     				cname="<%=re.getString("name")%>";
     		  <%}else{%>
-    				cname="익명";
+    				alert('로그인이 필요한 시스템입니다.');
+    				return false;
     				<%}
     		}else{%>
-    			cname="익명";
+    			alert('로그인이 필요한 시스템입니다.');
+				return false;
     		<%}%>
-    		var comment = $("#commentParentText").val(); 
-    		console.log("comment : "+comment);
-    		addComm(cname, comment);
+    		var comn=$('#commentParentText');
+    	  	if($.trim(comn.val())==""){
+    	  		alert("내용을 입력하세요.");
+    	  		comn.focus();
+    	  		return false;
+    	  		}
+    		
+    	  	return true;
+//     		var comment = $("#commentParentText").val(); 
+//     		addComm(cname, comment);
       });
       
       //답글 삭제링크를 눌렀을때 해당 댓글을 삭제하는 이벤트
@@ -196,19 +207,11 @@ var addComm = function(name, comm){
       });
    });
    $(document).ready(function(){
-	   <%
-	   System.out.println("jsp에서");
-	   if(commList !=null){
-		   for(int i= 0;i<commList.size();i++){
-			   System.out.println(commList.get(i).toString());
-		   }
-	   }
-	   %>
-	   <%
+	   <%//불러온 댓글 목록 가져다 붙임
 	   	if(commList !=null){
 	   		for(int i= 0;i<commList.size();i++){
 	   		%>
-	   			addComm(<%=commList.get(i).getId()%>,<%=commList.get(i).getContent()%>);
+	   			addComm('<%=commList.get(i).getId()%>','<%=commList.get(i).getContent()%>');/* addComm('','')호출 */
 	   		<%}
 	   	}
 	   %>
@@ -276,23 +279,29 @@ var addComm = function(name, comm){
                </tr>
             </thead>
          </table> 
-            
+         <form action="boardcoadd.do" method="post" id="coform">
          <table id="commentTable" class="table table-condensed"></table>
          <table class="table table-condensed commenttext ">
             <tr>
                <td>
                   <span class="form-inline" role="form">
                   <p>
-                     <textarea id="commentParentText" placeholder="내용" class="form-control col-lg-12" rows="4"></textarea>
-                     <div class="form-group">
-                        <button type="button" id="commentParentSubmit" name="commentParentSubmit" class="btn commentbtn btn-default">등록</button>
-                     </div>
+                  <!-- hiden- id,idx_fk(글번호) -->
+                  <!-- 내용 전달 -->
+                  <!-- form으로 댓글 양식 써서 add하려는데 로긴에서 막힘... id가 null일때 처리 -->
+<%--                   <input type="hidden" name="id" value="<%=re.getString("id")%>"/> --%>
+                  <input type="hidden" name="idx_fk" value="<%=request.getParameter("index")%>"/>
+                  <textarea id="commentParentText" placeholder="내용" class="form-control col-lg-12" rows="4"></textarea>
+                  <div class="form-group">
+                  <button type="submit" id="commentParentSubmit" name="commentParentSubmit" class="btn commentbtn btn-default">등록</button>
+                  </div>
                   </p>
                  
                   </span>
                </td>
             </tr>
          </table>      
+         </form>
       </div>
    </div>
    <!-- content end -->
