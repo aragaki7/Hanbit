@@ -1,3 +1,4 @@
+<%@page import="bean.BoardComm"%>
 <%@page import="bean.BoardData"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="net.sf.json.JSONObject"%>
@@ -119,37 +120,49 @@
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
 <script type="text/javascript">
+<%
+	JSONObject re = (JSONObject) session.getAttribute("jsonObj");
+	ArrayList<BoardComm> commList = (ArrayList<BoardComm>)request.getAttribute("boardCommDto");
+%>
+var addComm = function(name, comm){
+	console.log("comment : "+comm);
+	var pName=name;
+	   
+//로그인한 후 id 가져와 추가하기
+//   var pText = comm;
+//   if($.trim(pText)==""){
+//          alert("내용을 입력하세요.");
+//          pText.focus();
+//          return;
+//   }
+  
+  var commentParentText = '<tr id="r1" name="commentParentCode">'+'<td colspan=2>'+ '<strong>'+pName+'</strong>'+
+                    '| <a style="cursor:pointer; color:firebrick;" name="pDel">삭제</a><p>'+pText.replace(/\n/g, "<br>")+'</p>'+'</td>'+'</tr>';
+  
+  //댓글테이블의 tr자식이 있으면 tr 뒤에 붙인다. 없으면 테이블 안에 새로운 tr을 붙인다.
+  if($('#commentTable').contents().size()==0){
+     $('#commentTable').append(commentParentText);
+  }else{
+     $('#commentTable tr:last').after(commentParentText);
+  }
+  $("#commentParentText").val("");
+};//댓글 함수
    $(function(){
       //제일 하단에 있는 depth1의 댓글을 다는 이벤트
        $("#commentParentSubmit").click(function( event ) {
-    	   var pName="";
-    	   <%
-   		JSONObject re = (JSONObject) session.getAttribute("jsonObj");
-   		if (re != null){ 
-   			if (re.getString("result").equals("success")){%>
-   				pName="<%=re.getString("name")%>";
-   				<%
-   			}
-   		}
-   		%>
-      //로그인한 후 id 가져와 추가하기
-         var pText = $("#commentParentText"); 
-         if($.trim(pText.val())==""){
-	            alert("내용을 입력하세요.");
-	            pText.focus();
-	            return;
-         }
-         
-         var commentParentText = '<tr id="r1" name="commentParentCode">'+'<td colspan=2>'+ '<strong>'+pName+'</strong>'+
-                           '| <a style="cursor:pointer; color:firebrick;" name="pDel">삭제</a><p>'+pText.val().replace(/\n/g, "<br>")+'</p>'+'</td>'+'</tr>';
-         
-         //댓글테이블의 tr자식이 있으면 tr 뒤에 붙인다. 없으면 테이블 안에 새로운 tr을 붙인다.
-         if($('#commentTable').contents().size()==0){
-            $('#commentTable').append(commentParentText);
-         }else{
-            $('#commentTable tr:last').after(commentParentText);
-         }
-         $("#commentParentText").val("");
+    	   var cname="";
+    	   <%if (re != null){ 
+    			if (re.getString("result").equals("success")){%>
+    				cname="<%=re.getString("name")%>";
+    		  <%}else{%>
+    				cname="익명";
+    				<%}
+    		}else{%>
+    			cname="익명";
+    		<%}%>
+    		var comment = $("#commentParentText").val(); 
+    		console.log("comment : "+comment);
+    		addComm(cname, comment);
       });
       
       //답글 삭제링크를 눌렀을때 해당 댓글을 삭제하는 이벤트
@@ -182,6 +195,25 @@
          location.href='../customer/boarddel.do?index='+<%= request.getParameter("index") %>; 
       });
    });
+   $(document).ready(function(){
+	   <%
+	   System.out.println("jsp에서");
+	   if(commList !=null){
+		   for(int i= 0;i<commList.size();i++){
+			   System.out.println(commList.get(i).toString());
+		   }
+	   }
+	   %>
+	   <%
+	   	if(commList !=null){
+	   		for(int i= 0;i<commList.size();i++){
+	   		%>
+	   			addComm(<%=commList.get(i).getId()%>,<%=commList.get(i).getContent()%>);
+	   		<%}
+	   	}
+	   %>
+   });
+   
 </script>
 </head>
 <body>

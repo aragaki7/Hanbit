@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.hb.model.BoardDao;
 import com.hb.model.UserDao;
 
+import bean.BoardComm;
 import bean.BoardData; 
 import bean.UserData;
      
@@ -22,8 +23,18 @@ public class BoardDetail extends HttpServlet {
  
 		BoardDao dao = new BoardDao();
 		BoardData bean = dao.selectOne(index);
+		ArrayList<BoardComm> bean1 = dao.selectComm(index);
+		
+		System.out.println("서블릿 에서");
+		for (int i = 0; i < bean1.size(); i++) {
+			BoardComm tmp = new BoardComm();
+			tmp = bean1.get(i);
+			System.out.println(i+" "+tmp.toString());
+		}
+		
 		
 		request.setAttribute("boardDto", bean);
+		request.setAttribute("boardCommDto", bean1);
 		request.getRequestDispatcher("/customer/boardDetail.jsp").forward(request, response);
 	}
 	

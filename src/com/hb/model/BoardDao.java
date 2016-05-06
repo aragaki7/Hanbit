@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import bean.BoardComm;
 import bean.BoardData;
 
 import db.DBConnect;
@@ -270,6 +271,40 @@ public class BoardDao {
 			}
 		}
 		return result;
+	}
+
+	public ArrayList<BoardComm> selectComm(String index) {
+		ArrayList<BoardComm> comList = new ArrayList<BoardComm>();
+		
+		String sql = "SELECT idx, id_fk, content, days, `time` FROM TB_BBS_COM where bbs_idx_fk=? order by `time`";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(index));
+			System.out.println("idx : "+Integer.parseInt(index));
+			rs = pstmt.executeQuery();
+			System.out.println("dao에서");
+			while (rs.next()) {
+				BoardComm tmp = new BoardComm();
+				
+				tmp.setNum(rs.getInt("idx"));
+				tmp.setIdx_fk(rs.getInt("id_fk"));
+				tmp.setContent(rs.getString("content"));
+				tmp.setDate(rs.getDate("days"));
+				tmp.setTime(rs.getTimestamp("time"));
+				System.out.println(tmp.toString());
+				comList.add(tmp);
+			}
+		} catch (Exception e) {
+		} finally {
+			try {
+				if (rs != null)rs.close();
+				if (pstmt != null)pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return comList;
 	}
 	
 }   
