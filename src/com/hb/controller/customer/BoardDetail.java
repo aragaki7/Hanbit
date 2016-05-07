@@ -25,17 +25,20 @@ public class BoardDetail extends HttpServlet {
 		BoardData bean = dao.selectOne(index);
 		ArrayList<BoardComm> bean1 = dao.selectComm(index);
 		
-//		System.out.println("서블릿 에서");
-//		for (int i = 0; i < bean1.size(); i++) {
-//			BoardComm tmp = new BoardComm();
-//			tmp = bean1.get(i);
-//			System.out.println(i+" "+tmp.toString());
-//		}
+		System.out.println("서블릿 에서");
+		for (int i = 0; i < bean1.size(); i++) {
+			BoardComm tmp = new BoardComm();
+			tmp = bean1.get(i);
+			System.out.println(i+" "+tmp.toString());
+		}
 		
 		
-		request.setAttribute("boardDto", bean);
-		request.setAttribute("boardCommDto", bean1);
+		request.setAttribute("boardDto", bean);//글 내용 관련
+		request.setAttribute("boardCommDto", bean1);//글 코멘트 관련
 		request.getRequestDispatcher("/customer/boardDetail.jsp").forward(request, response);
 	}
-	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doGet(req, resp);
+	}
 }

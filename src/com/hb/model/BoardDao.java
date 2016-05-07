@@ -275,14 +275,14 @@ public class BoardDao {
 	public ArrayList<BoardComm> selectComm(String index) {
 		ArrayList<BoardComm> list = new ArrayList<BoardComm>();
 		try {
-			sql = "select idx, id_fk, content, days, time, bbs_idx_fk from TB_BBS_COM where bbs_idx_fk=?";
+			sql = "select idx, id_fk, content, days, time, bbs_idx_fk from TB_BBS_COM where bbs_idx_fk=? order by time";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, Integer.parseInt(index));
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				list.add(new BoardComm(rs.getInt("idx"), rs.getString("id_fk"), 
-						rs.getString("content"), null, rs.getTimestamp("time"),
+						rs.getString("content"), rs.getDate("days"), rs.getTimestamp("time"),
 						rs.getInt("bbs_idx_fk")));
 			}
 		} catch (SQLException e) {
@@ -297,6 +297,37 @@ public class BoardDao {
 			
 		}
 		return list;
+	}
+
+	/**
+	 * 댓글 작성
+	 * @param id(작성자)
+	 * @param idx(글번호)
+	 * @param content(내용)
+	 * @return int (쿼리 결과)
+	 */
+	public int addCoOne(String id, int idx, String content) {
+		int result = 0;
+		 String sql = "INSERT INTO TB_BBS_COM (`id_fk`, `content`, `days`, `bbs_idx_fk`)"
+		+" VALUES (?, ?, now(), ?)";
+	      try {
+	         pstmt = conn.prepareStatement(sql);
+
+	         pstmt.setString(1, id);
+	         pstmt.setString(2, content); 
+	         pstmt.setInt(3, idx); 
+	         result = pstmt.executeUpdate();
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         try {
+	            if (pstmt != null)
+	               pstmt.close();
+	         } catch (SQLException e) {
+	            e.printStackTrace();
+	         }
+	      }
+		return result;
 	}
 	
 }   

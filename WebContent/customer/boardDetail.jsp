@@ -4,7 +4,7 @@
 <%@page import="net.sf.json.JSONObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html> 
 <head>
@@ -133,10 +133,12 @@ function Convert(str){//혹시나 태그로 댓글 쓸까봐 그거 차단하는
  str = str.replace(/\n/g,"<br />");
  return str;
 }
-var addComm = function(name, comm){//댓글추가 하는 함수
+var addComm = function(name, comm, pk_num){//댓글추가 하는 함수
 	var pName=name;
 	var pText = Convert(comm);
-	var commentParentText = '<tr id="r1" name="commentParentCode">'+'<td colspan=2>'+ '<strong>'+pName+'</strong>'+
+	var commentParentText = '<tr id="r1" name="commentParentCode">'+'<td colspan=2>'
+					+ '<input type="hidden" name="num" value="'+pk_num+'"/>' 
+					+'<strong>'+pName+'</strong>'+
                     '| <a style="cursor:pointer; color:firebrick;" name="pDel">삭제</a><p>'+pText+'</p>'+'</td>'+'</tr>';
   
     //댓글테이블의 tr자식이 있으면 tr 뒤에 붙인다. 없으면 테이블 안에 새로운 tr을 붙인다.
@@ -180,10 +182,11 @@ var addComm = function(name, comm){//댓글추가 하는 함수
       $(document).on("click","table#commentTable a", function(){//동적으로 버튼이 생긴 경우 처리 방식
          if($(this).attr("name")=="pDel"){
             if (confirm("정말 삭제하시겠습니까?") == true){    //확인
-                 var delComment = $(this).parent().parent();
-               var nextTr = delComment.next();
-               var delTr;
-               delComment.remove();
+//                var delComment = $(this).parent().parent();
+//                var nextTr = delComment.next();
+//                var delTr;
+//                delComment.remove();
+				var comNum=$(this).siblings('input').val();//클릭 했을때 hidden으로 넣어둔 댓글 고유 번호 뽑아냄
             }else{   //취소
                return;
             }
@@ -211,7 +214,8 @@ var addComm = function(name, comm){//댓글추가 하는 함수
 	   	if(commList !=null){
 	   		for(int i= 0;i<commList.size();i++){
 	   		%>
-	   			addComm('<%=commList.get(i).getId()%>','<%=commList.get(i).getContent()%>');/* addComm('','')호출 */
+	   		/* addComm('id','comment','댓글 pk')호출 */
+	   			addComm('<%=commList.get(i).getId()%>','<%=commList.get(i).getContent()%>', <%=commList.get(i).getNum()%>);
 	   		<%}
 	   	}
 	   %>
@@ -287,11 +291,10 @@ var addComm = function(name, comm){//댓글추가 하는 함수
                   <span class="form-inline" role="form">
                   <p>
                   <!-- hiden- id,idx_fk(글번호) -->
-                  <!-- 내용 전달 -->
-                  <!-- form으로 댓글 양식 써서 add하려는데 로긴에서 막힘... id가 null일때 처리 -->
-<%--                   <input type="hidden" name="id" value="<%=re.getString("id")%>"/> --%>
-                  <input type="hidden" name="idx_fk" value="<%=request.getParameter("index")%>"/>
-                  <textarea id="commentParentText" placeholder="내용" class="form-control col-lg-12" rows="4"></textarea>
+                  <!-- 내용 전달. id가 널(로그인x) 일때 편히 처리하려고 jstl씀 -->
+                  <input type="hidden" name="id" value="<c:out value="${sessionScope.jsonObj.id}"/> "/>
+                  <input type="hidden" name="idx_fk" value="${param.index }"/>
+                  <textarea id="commentParentText" name="comment" placeholder="내용" class="form-control col-lg-12" rows="4"></textarea>
                   <div class="form-group">
                   <button type="submit" id="commentParentSubmit" name="commentParentSubmit" class="btn commentbtn btn-default">등록</button>
                   </div>
