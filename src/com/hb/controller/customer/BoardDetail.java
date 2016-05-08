@@ -25,12 +25,12 @@ public class BoardDetail extends HttpServlet {
 		BoardData bean = dao.selectOne(index);
 		ArrayList<BoardComm> bean1 = dao.selectComm(index);
 		
-		System.out.println("서블릿 에서");
-		for (int i = 0; i < bean1.size(); i++) {
-			BoardComm tmp = new BoardComm();
-			tmp = bean1.get(i);
-			System.out.println(i+" "+tmp.toString());
-		}
+//		System.out.println("서블릿 에서");
+//		for (int i = 0; i < bean1.size(); i++) {
+//			BoardComm tmp = new BoardComm();
+//			tmp = bean1.get(i);
+//			System.out.println(i+" "+tmp.toString());
+//		}
 		
 		
 		request.setAttribute("boardDto", bean);//글 내용 관련

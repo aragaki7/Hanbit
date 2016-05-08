@@ -329,6 +329,26 @@ public class BoardDao {
 	      }
 		return result;
 	}
+
+	public int delCommOne(int num) {
+		int result = 0;
+		String sql = "delete from TB_BBS_COM where idx=?";
+		try { 
+			pstmt = DBConnect.get().prepareStatement(sql);
+			pstmt.setInt(1, num);
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) { 
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt!=null) pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
 	
 }   
 

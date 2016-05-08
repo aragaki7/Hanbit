@@ -134,12 +134,17 @@ function Convert(str){//혹시나 태그로 댓글 쓸까봐 그거 차단하는
  return str;
 }
 var addComm = function(name, comm, pk_num){//댓글추가 하는 함수
-	var pName=name;
+	var pName=name.trim();
 	var pText = Convert(comm);
+	var loginId = "${sessionScope.jsonObj.id}".trim();
+	var adel = '';
+	if(pName==loginId){//현재 로긴한 아이디랑 코맨트 쓴 아이디랑 비교해서 같으면 '삭제'기능 추가
+		adel = '<a style="cursor:pointer; color:firebrick;" name="pDel">삭제</a>';
+	}
 	var commentParentText = '<tr id="r1" name="commentParentCode">'+'<td colspan=2>'
 					+ '<input type="hidden" name="num" value="'+pk_num+'"/>' 
 					+'<strong>'+pName+'</strong>'+
-                    '| <a style="cursor:pointer; color:firebrick;" name="pDel">삭제</a><p>'+pText+'</p>'+'</td>'+'</tr>';
+                    '| '+adel+'<p>'+pText+'</p>'+'</td>'+'</tr>';
   
     //댓글테이블의 tr자식이 있으면 tr 뒤에 붙인다. 없으면 테이블 안에 새로운 tr을 붙인다.
     if($('#commentTable').contents().size()==0){
@@ -187,6 +192,7 @@ var addComm = function(name, comm, pk_num){//댓글추가 하는 함수
 //                var delTr;
 //                delComment.remove();
 				var comNum=$(this).siblings('input').val();//클릭 했을때 hidden으로 넣어둔 댓글 고유 번호 뽑아냄
+				location.href='../customer/delcomment.do?num='+comNum+'&idx='+${param.index };
             }else{   //취소
                return;
             }
