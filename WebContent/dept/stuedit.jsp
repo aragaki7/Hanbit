@@ -1,3 +1,4 @@
+<%@page import="java.util.Calendar"%>
 <%@page import="db.DBConnect"%>
 <%@page import="bean.UserData"%>
 <%@page import="java.util.ArrayList"%>
@@ -14,6 +15,7 @@
 <script type="text/javascript" src="../js/menuLoad.js"></script>
 <script type="text/javascript" src="../js/joinVaild.js"></script>
 <script type="text/javascript" src="../js/search.js"></script>
+
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
 <style type="text/css">
@@ -127,6 +129,9 @@ label {
 	background-color: firebrick;
 	color: white;	
 }
+.sat{
+	background-color: blue;
+}
 </style>
 </head>
 <body>
@@ -196,11 +201,83 @@ label {
 							</select><button type="submit" id="changeBtn"> 변경</button>
 						</td>
 						</span>
-						
 					</tr>
-				
 				</table>
 			</form>
+<%
+    Calendar cal = Calendar.getInstance(); // Calendar Instance 생성
+    int year = cal.get(Calendar.YEAR); //현재 연도를 가져옴
+    int month = cal.get(Calendar.MONTH); // 현재 달을 가져옴
+    
+    cal.set(year, month, 1); // - Calendar MONTH는 0-11까지이므로 1을 더해준다. 
+    int bgnWeek = cal.get(Calendar.DAY_OF_WEEK);  // 시작요일 확인 1~7 1 = 일요일
+    int lastDay = cal.getActualMaximum(Calendar.DATE);
+   /*  System.out.println("year"+year);
+    System.out.println("month"+month);
+    System.out.println("bgnWeek"+bgnWeek);
+       */
+%>
+ <h2><%=name%>님의 <%=year%>년 <%=month%>월 출결 상황</h2>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+    <td align="center"></td>
+</tr>
+<tr>
+    <td>
+
+        <table border="1">
+        <tr>
+            <td>일</td>
+            <td>월</td>
+            <td>화</td>
+            <td>수</td>
+            <td>목</td>
+            <td>금</td>
+            <td>토</td>
+        </tr>
+        <tr>
+<%
+    // 시작요일까지 이동
+    for (int i=1; i<bgnWeek; i++){%>
+    	<td>&nbsp;</td>
+<% }
+       while (cal.get(Calendar.MONTH) == month) { //변수 month 의 값과, 현재달이 같을때까지 (즉 현재달의 날짜 만큼)
+//     	System.out.println(cal.get(Calendar.DATE));
+%>    	
+        
+        <td><%=cal.get(Calendar.DATE)%></td>
+<% 		//날짜를 가져온다.
+
+       
+       	 if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY){  // 만약 토요일일 경우에는 </tr>을 닫고 새로운 <tr> 생성
+%>			</tr><tr>
+
+<%		}
+		/* int sun = Calendar.SUNDAY;
+		int sat = Calendar.SATURDAY;
+		System.out.println(sun);
+		System.out.println(sat); */
+       
+		// 날짜를 1씩 증가시킨다.
+        cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE)+1);
+//      System.out.println("이 달의 마지막 날: " + cal.getActualMaximum(Calendar.DATE) ); 
+    }
+
+    // 끝난 날부터 토요일까지 공백으로 처리
+    for (int i=cal.get(Calendar.DAY_OF_WEEK); i<=7; i++){
+//     	System.out.println("말 일 >>> "+cal.get(Calendar.DAY_OF_WEEK));
+//     	System.out.println("bgnweek last >>> "+bgnWeek);
+    	%>
+    	
+    	<td>&nbsp;</td>
+<%}%>
+        </tr>
+        </table>
+
+    </td>
+</tr>
+</table>
+
 		</div>
 		<!-- content end -->
 
