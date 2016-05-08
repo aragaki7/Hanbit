@@ -144,6 +144,9 @@ $(document).ready(function(){
 		buttonText: "Select date",
 		dateFormat:"yymmdd", //날짜 출력 포맷 20160501
 	 });
+	
+		// 오늘 날짜를 구해와 디폴트 값으로  yymmdd 형식으로 집어넣음
+		$('#datepicker').val($.datepicker.formatDate('yymmdd', new Date()));
 		        
 	    $('.attendlow>input').click(function(){ // td에 있는 input 으로 되있는 (checkbox) 선택시
 	    	attendlow = attendLowCheck(); //attendLowCheck() 함수호출받아 attendlow 에 저장
