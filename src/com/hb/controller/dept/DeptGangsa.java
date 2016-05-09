@@ -27,7 +27,7 @@ import bean.UserDataGrade;
 			UserDataGrade tmp = new UserDataGrade();
 			for (int i = 0; i < stulistgrade.size(); i++) {
 				tmp = stulistgrade.get(i);
-				System.out.println(tmp.toString());
+//				System.out.println(tmp.toString());
 			}
 			//성적리스트
 			GradeDao dao = new GradeDao();

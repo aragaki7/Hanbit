@@ -129,9 +129,26 @@ label {
 	background-color: firebrick;
 	color: white;	
 }
-.sat{
-	background-color: blue;
+.saturday{
+	color: blue;
 }
+.sunday{
+	color: red;
+}
+.space{
+	background-color: black;
+}
+#attendChart{
+	border: 1px solid black;
+	text-align: center;
+}
+#attendChart tr, #attendChart td{
+	border: 1px solid black;
+}
+#attendChart td{
+	width:20px;
+}
+
 </style>
 </head>
 <body>
@@ -212,65 +229,65 @@ label {
     cal.set(year, month, 1); // - Calendar MONTH는 0-11까지이므로 1을 더해준다. 
     int bgnWeek = cal.get(Calendar.DAY_OF_WEEK);  // 시작요일 확인 1~7 1 = 일요일
     int lastDay = cal.getActualMaximum(Calendar.DATE);
-   /*  System.out.println("year"+year);
-    System.out.println("month"+month);
-    System.out.println("bgnWeek"+bgnWeek);
-       */
 %>
- <h2><%=name%>님의 <%=year%>년 <%=month%>월 출결 상황</h2>
-<table border="0" cellpadding="0" cellspacing="0">
+ <h2><%=name%>님의 <%=year%>년 <%=month+1%>월 출결 상황</h2><p/>
+<table>
 <tr>
     <td align="center"></td>
 </tr>
 <tr>
     <td>
 
-        <table border="1">
-        <tr>
-            <td>일</td>
-            <td>월</td>
-            <td>화</td>
-            <td>수</td>
-            <td>목</td>
-            <td>금</td>
-            <td>토</td>
-        </tr>
-        <tr>
+        <table id="attendChart">
+        	<tr>  
+<% 
+
+	int cnt = 1;
+	while(true){
+		if((bgnWeek+lastDay)==cnt)break;
+		out.print("<td class=\"sunday\">일</td>");
+		cnt++;
+		if((bgnWeek+lastDay)==cnt)break;
+		out.print("<td>월</td>");
+		cnt++;
+		if((bgnWeek+lastDay)==cnt)break;
+		out.print("<td>화</td>");
+		cnt++;
+		if((bgnWeek+lastDay)==cnt)break;
+		out.print("<td>수</td>");
+		cnt++;
+		if((bgnWeek+lastDay)==cnt)break;
+		out.print("<td>목</td>");
+		cnt++;
+		if((bgnWeek+lastDay)==cnt)break;
+		out.print("<td>금</td>");
+		cnt++;
+		if((bgnWeek+lastDay)==cnt)break;
+		out.print("<td class=\"saturday\">토</td>");
+		if((bgnWeek+lastDay)==cnt)break;
+		cnt++;
+	}
+%>		
+			</tr>
 <%
     // 시작요일까지 이동
     for (int i=1; i<bgnWeek; i++){%>
-    	<td>&nbsp;</td>
+    	<td class="space"></td>
 <% }
        while (cal.get(Calendar.MONTH) == month) { //변수 month 의 값과, 현재달이 같을때까지 (즉 현재달의 날짜 만큼)
-//     	System.out.println(cal.get(Calendar.DATE));
 %>    	
         
         <td><%=cal.get(Calendar.DATE)%></td>
 <% 		//날짜를 가져온다.
-
-       
-       	 if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY){  // 만약 토요일일 경우에는 </tr>을 닫고 새로운 <tr> 생성
-%>			</tr><tr>
-
-<%		}
-		/* int sun = Calendar.SUNDAY;
-		int sat = Calendar.SATURDAY;
-		System.out.println(sun);
-		System.out.println(sat); */
        
 		// 날짜를 1씩 증가시킨다.
         cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE)+1);
-//      System.out.println("이 달의 마지막 날: " + cal.getActualMaximum(Calendar.DATE) ); 
     }
 
-    // 끝난 날부터 토요일까지 공백으로 처리
-    for (int i=cal.get(Calendar.DAY_OF_WEEK); i<=7; i++){
-//     	System.out.println("말 일 >>> "+cal.get(Calendar.DAY_OF_WEEK));
-//     	System.out.println("bgnweek last >>> "+bgnWeek);
     	%>
     	
-    	<td>&nbsp;</td>
-<%}%>
+<!--     	<td>&nbsp;</td> -->
+<%-- <%}%> --%>
         </tr>
         </table>
 
