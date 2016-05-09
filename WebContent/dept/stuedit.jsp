@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="db.DBConnect"%>
 <%@page import="bean.UserData"%>
@@ -225,6 +226,7 @@ label {
     Calendar cal = Calendar.getInstance(); // Calendar Instance 생성
     int year = cal.get(Calendar.YEAR); //현재 연도를 가져옴
     int month = cal.get(Calendar.MONTH); // 현재 달을 가져옴
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
     
     cal.set(year, month, 1); // - Calendar MONTH는 0-11까지이므로 1을 더해준다. 
     int bgnWeek = cal.get(Calendar.DAY_OF_WEEK);  // 시작요일 확인 1~7 1 = 일요일
@@ -273,23 +275,55 @@ label {
     // 시작요일까지 이동
     for (int i=1; i<bgnWeek; i++){%>
     	<td class="space"></td>
-<% }
-       while (cal.get(Calendar.MONTH) == month) { //변수 month 의 값과, 현재달이 같을때까지 (즉 현재달의 날짜 만큼)
+<% }%>
+<%        while (cal.get(Calendar.MONTH) == month) { //변수 month 의 값과, 현재달이 같을때까지 (즉 현재달의 날짜 만큼)
 %>    	
         
         <td><%=cal.get(Calendar.DATE)%></td>
 <% 		//날짜를 가져온다.
        
 		// 날짜를 1씩 증가시킨다.
-        cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE)+1);
+		
+         cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),  cal.get(Calendar.DATE)+1);
+		
     }
 
     	%>
-    	
-<!--     	<td>&nbsp;</td> -->
-<%-- <%}%> --%>
-        </tr>
+         </tr>
+         
+         <tr>
+         <% ArrayList<UserData> attendDetailList = (ArrayList<UserData>)request.getAttribute("attendDetailList"); %>
+        
+         <% for (int i=1; i<bgnWeek; i++){%>
+    		<td class="space"></td>
+		<%}%>
+		
+		<%	for (int i = 0; i < attendDetailList.size(); i++) {%>
+			<td><%=attendDetailList.get(i).getAtt()%></td>
+<%-- 			<td><%=attendDetailList.get(i).getAttDate()%></td> --%>
+			<td><%String nalja = attendDetailList.get(i).getAttDate().substring(6);
+			System.out.println(nalja);
+			%></td>
+       <%}%>
+       
+    
+       <% while (cal.get(Calendar.MONTH) == month) { //변수 month 의 값과, 현재달이 같을때까지 (즉 현재달의 날짜 만큼)
+%>    	
+        
+        <td><%=cal.get(Calendar.DATE)%></td>
+<% 		//날짜를 가져온다.
+       
+		// 날짜를 1씩 증가시킨다.
+		cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE)+1);
+		
+    }
+
+    	%>
+		
+
+		</tr>
         </table>
+        
 
     </td>
 </tr>

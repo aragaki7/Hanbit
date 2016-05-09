@@ -260,7 +260,8 @@ background-color:firebrick;
 			var name=$('.attendListRow:eq('+(ridx-1)+')>td:eq(1)').text();
 			var mobile=$('.attendListRow:eq('+(ridx-1)+')>td:eq(2)').text();
 			
-			location.href="stuedit.jsp?id="+id+"&name="+name+"&mobile="+mobile+"&attNum="+<%=attNum%>+"&attDate="+<%=dateEdit%>;
+<%-- 		location.href="stuedit.jsp?id="+id+"&name="+name+"&mobile="+mobile+"&attNum="+<%=attNum%>+"&attDate="+<%=dateEdit%>; --%>
+			location.href="attenddetail.do?id="+id+"&name="+name+"&mobile="+mobile+"&attNum="+<%=attNum%>+"&attDate="+<%=dateEdit%>;
 		});
 		
 		

@@ -154,10 +154,6 @@ public class UserDao {
 			try {
 				if (rs != null) rs.close();
 				if (pstmt != null) pstmt.close();
-				if (rs != null)
-					rs.close();
-				if (pstmt != null)
-					pstmt.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -654,6 +650,7 @@ public class UserDao {
 				bean.setAtt(rs.getInt(5));
 				bean.setAttDate(rs.getString(6));
 				list.add(bean);
+//				System.out.println(list);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -889,4 +886,37 @@ public class UserDao {
 		return result;
 	}
 
+
+	public ArrayList<UserData> attendDetail(String id, String attDateSub) {
+		ArrayList<UserData> list = new ArrayList();
+//		sql = "SELECT ATT, DAYS FROM TB_ATTEN WHERE DAYS LIKE CONCAT ('%', ?, '%')  AND ID=?";
+		sql = "SELECT ATT, DAYS FROM TB_ATTEN WHERE DAYS LIKE ? AND ID=?";
+		/*System.out.println(attDateSub);
+		System.out.println(id);
+		String temp = "%"+attDateSub+"%";
+		System.out.println(temp);*/
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,"%"+attDateSub+"%");
+			pstmt.setString(2, id);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				UserData bean = new UserData();
+				bean.setAtt(rs.getInt(1));
+				bean.setAttDate(rs.getString(2));
+				list.add(bean);
+//				System.out.println(list);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+		return list;
+	}
 }
