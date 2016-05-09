@@ -136,12 +136,47 @@ position:absolute;
 margin-top:-68px;
 margin-left:93px; 
  }
+ .mbform:hover{									
+ opacity:0.5;
+ }
+
+ #layerBtn,#layerBtn2,#layerBtn3,#layerBtn4,#layerBtn5 { /* 각각의 폼 */
+ cursor:pointer;
+ }
+ #lay,#lay2,#lay3,#lay4,#lay5 {				/* 팝업창 */
+ position:absolute; 
+ top:305px; 
+ left:100px; 
+ height:460px; 
+ width:310px; 
+ margin-top:-180px; 
+ margin-left:-50px; 
+ text-align:left; 
+ z-index:160; 
+ color:white;
+ }
+ #lay span, #lay2 span ,#lay3 span ,#lay4 span ,#lay5 span{ /* 닫기 */
+ display:block; 
+ position:absolute; 
+ right:5px; 
+ bottom:5px; 
+ cursor:pointer;
+ }
+ #blind_box { 												/* 팝업창 이외의 박스 */
+ position:absolute; 
+ top:0; 
+ left:0; 
+ width:100%; 
+ height:100%; 
+ background:#000; 
+ z-index:50;
+ } 
 }
 
 
 @media only screen and (min-width:400px){
 	/*pc  **********************************************************************/
-.mbbtn1,.mbbtn2,.mbbtn3,.mbbtn4,.mbbtn5{
+.mbbtn1,.mbbtn2,.mbbtn3,.mbbtn4,.mbbtn5, #Hblogo{
 	display: none;
 } 	
  *{
@@ -347,4 +382,6 @@ margin-left:93px;
    color:red;
    text-decoration: underline;
    }
+
+   
 }

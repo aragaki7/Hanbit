@@ -151,26 +151,114 @@ span>a>img {
 			<span><a href="http://hanbitgn.com/"><img id="img2" alt="한빛 강남점" src="imgs/center_gangnam.jpg"/></a></span>
 		
 		</div>
+<!-------------- mobile 버전 main 시작----------------->
 <div id="mobileblock">
-<form action="#">		
+<form action="#" class="mbform" id="layerBtn">		<!-- intro폼 -->
 <button class="mbbtn1" ><a href="#" id="mbintro">Intro</a><img src="imgs/mbintro.png" alt="logo" id="mbimg1"/></button>
 </form>
-<form action="#">
+<div id="lay">
+  <h2>Intro</h2>
+  <button>개요</button><br/><button>CEO소개</button><br/>
+  <button>연혁</button><br/><button>시설/장비</button><br/>
+  <button>교수진</button><br/><button>입학안내</button><br/>
+  <button>수상현황</button><br/><button>찾아오는길</button><br/>
+  <span id="close">닫기</span>
+ </div>
+ 
+<form action="#" class="mbform" id="layerBtn2">		<!-- Edu폼 -->
 <button class="mbbtn2"><a href="#" id="mbedu">Edu</a><img src="imgs/mbedu.png" alt="logo" id="mbimg2"/></button>
 </form>
-<form action="#">
+<div id="lay2">
+  <h2>Edu</h2>
+  <button>과정소개</button>
+  <span id="close2">닫기</span>
+ </div>
+
+<form action="#" class="mbform" id="layerBtn3">		<!-- Service폼 -->
 <button class="mbbtn3"><a href="#" id="mbservice">Service</a><img src="imgs/mbservice.png" alt="logo" id="mbimg3"/></button>
 </form>
-<form action="#">
+<div id="lay3">
+  <h2>Service</h2>
+  <button>취업교육</button><br/><button>재직자교육</button><br/>
+  <button>기업맞춤교육</button>
+  <span id="close3">닫기</span>
+ </div>
+ 
+<form action="#" class="mbform" id="layerBtn4">		<!-- Dept폼 -->
 <button class="mbbtn4"><a href="#" id="mbdept">Dept</a><img src="imgs/mbdept.PNG" alt="logo" id="mbimg4"/></button>
 </form>
-<form action="#">
+<div id="lay4">
+  <h2>Dept</h2>
+  <button>영업부</button><br/><button>행정부</button><br/>
+  <button>교육진</button><br/><button>관리자</button><br/>
+  <span id="close4">닫기</span>
+ </div>
+
+<form action="#" class="mbform" id="layerBtn5">		<!-- Customer폼 -->
 <button class="mbbtn5"><a href="#" id="mbcustomer">Customer</a><img src="imgs/mbcustomer.png" alt="logo" id="mbimg5"/></button>
 </form>
-<img src="imgs/BKLogo.png" alt="hblogo" id="Hblogo"/>
+<div id="lay5">
+  <h2>Customer</h2>
+  <button>공지사항</button><br/><button>1:1문의</button><br/>
+  <button>자유게시판</button><br/><button>Q&A</button><br/>
+  <span id="close5">닫기</span>
+ </div>
+
+<img src="imgs/BKLogo.png" alt="hblogo" id="Hblogo"/>  <!-- Logo -->
 </div>
 
-				
+<script type="text/javascript">
+$(document).ready(function(){
+	   $("#lay,#lay2,#lay3,#lay4,#lay5").hide(); // 팝업창 숨김
+	   $("#layerBtn").click(function(){   //layerBtn=>Intro폼을 클릭하면
+	    $('<div id="blind_box"></div>').css('opacity',0.7).appendTo('body');     
+	    $('#lay').fadeIn(300);    
+	    $('#lay').css('z-index', '100');        //blind_box와 lay=>팝업창을 보여준다.
+	   });
+	   $("#layerBtn2").click(function(){
+		    $('<div id="blind_box"></div>').css('opacity',0.7).appendTo('body');     
+		    $('#lay2').fadeIn(300);    
+		    $('#lay2').css('z-index', '100');        
+		   });
+	   $("#layerBtn3").click(function(){
+		    $('<div id="blind_box"></div>').css('opacity',0.7).appendTo('body');     
+		    $('#lay3').fadeIn(300);    
+		    $('#lay3').css('z-index', '100');        
+		   });
+	   $("#layerBtn4").click(function(){
+		    $('<div id="blind_box"></div>').css('opacity',0.7).appendTo('body');     
+		    $('#lay4').fadeIn(300);    
+		    $('#lay4').css('z-index', '100');        
+		   });
+	   $("#layerBtn5").click(function(){
+		    $('<div id="blind_box"></div>').css('opacity',0.7).appendTo('body');     
+		    $('#lay5').fadeIn(300);    
+		    $('#lay5').css('z-index', '100');        
+		   });
+	  
+	   $("#close").click(function(){ //#close=>닫기 를 누르면 
+	    $("#blind_box").remove();	 // blind_box를 제거하고
+	    $("#lay").hide();			 // lay=>팝업창을 숨긴다.
+	   });
+	   $("#close2").click(function(){
+		    $("#blind_box").remove();
+		    $("#lay2").hide();
+		   });
+	   $("#close3").click(function(){
+		    $("#blind_box").remove();
+		    $("#lay3").hide();
+		   });
+	   $("#close4").click(function(){
+		    $("#blind_box").remove();
+		    $("#lay4").hide();
+		   });
+	   $("#close5").click(function(){
+		    $("#blind_box").remove();
+		    $("#lay5").hide();
+		   });
+	   });
+</script>
+<!-------------- mobile 버전 main 끝----------------->
 		<!-- content end -->
 
 		<%@ include file="template/aside.jsp"%>
