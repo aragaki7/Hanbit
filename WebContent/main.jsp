@@ -151,6 +151,7 @@ span>a>img {
 			<span><a href="http://hanbitgn.com/"><img id="img2" alt="한빛 강남점" src="imgs/center_gangnam.jpg"/></a></span>
 		
 		</div>
+<div id="mobileblock">
 <form action="#">		
 <button class="mbbtn1" ><a href="#" id="mbintro">Intro</a><img src="imgs/mbintro.png" alt="logo" id="mbimg1"/></button>
 </form>
@@ -166,6 +167,8 @@ span>a>img {
 <form action="#">
 <button class="mbbtn5"><a href="#" id="mbcustomer">Customer</a><img src="imgs/mbcustomer.png" alt="logo" id="mbimg5"/></button>
 </form>
+<img src="imgs/BKLogo.png" alt="hblogo" id="Hblogo"/>
+</div>
 
 				
 		<!-- content end -->

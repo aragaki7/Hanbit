@@ -1,5 +1,5 @@
 @media only screen and (max-width:399px){
-        /*�����*/
+        /*mobile*/
     *{
       margin: 0px;
       padding: 0px; 
@@ -21,7 +21,7 @@
     	display:none;
     }
      
-  .mbbtn1,.mbbtn2,.mbbtn3,.mbbtn4,.mbbtn5{
+  .mbbtn1,.mbbtn2,.mbbtn3,.mbbtn4,.mbbtn5{ /* 네모난 색배경 */
     position:absolute;
 	height: 150px;
 	font-size: 11pt;
@@ -60,10 +60,10 @@
  margin-top: 350px;  
  margin-left: 10px;
  }
- body{
+ body{											/* 바탕을 검은색으로 바꿈 */
    background-color: black;
  }
-#mbintro,#mbedu,#mbservice,#mbdept,#mbcustomer{
+#mbintro,#mbedu,#mbservice,#mbdept,#mbcustomer{ /* 하얀 글씨 */
 position:absolute;
 font-weight: bold;
 color:white;
@@ -71,66 +71,76 @@ text-decoration: none;
 font-size: 23px;  
 }
 #mbintro{
-margin-top: 45px;
- margin-left: -28px; 
+margin-top:35px;
+ margin-left: -25px; 
 }
 #mbedu{
-margin-top: 45px; 
+margin-top: 35px; 
   margin-left: -23px; 
  }
 #mbservice{
- margin-top: 45px; 
+ margin-top: 35px; 
  margin-left: -42px; 
  }
 #mbdept{
- margin-top: 45px;
-  margin-left: -28px; 
+ margin-top: 35px;
+  margin-left: -27px; 
  }
 #mbcustomer{
-  margin-top: 45px;  
+  margin-top: 35px;  
   margin-left: -53px; 
  }
-#mbimg1{
+#mbimg1{										/* 픽토그램 이미지 */
 position:absolute;
-margin-top:-65px;
-margin-left:-54px; 
-width:110px;
-height:110px;
+margin-top:-55px;
+margin-left:-39px; 
+width:80px; 
+height:80px;
  }
  #mbimg2{
 position:absolute;
-margin-top:-60px;
-margin-left:-50px; 
-width:100px;
-height:100px;
+margin-top:-44px;
+margin-left:-32px; 
+width:65px;
+height:70px;
  }
  #mbimg3{
 position:absolute;
-margin-top:-62px;
-margin-left:-50px; 
-width:110px;
-height:100px;
+margin-top:-50px;
+margin-left:-40px; 
+width:80px;
+height:70px;
  }
  #mbimg4{
 position:absolute;
-margin-top:-55px;
-margin-left:-45px; 
-width:90px;
-height:90px;
+margin-top:-46px;
+margin-left:-35px; 
+width:70px;
+height:70px;
  }
  #mbimg5{
 position:absolute;
-margin-top:-62px;
-margin-left:-53px; 
-width:110px;
-height:100px;
+margin-top:-45px;
+margin-left:-35px; 
+width:70px;
+height:70px;
  }
- 
+ .nav,.nav2,.nav3,.nav4,.nav5,.nav6{			/* nav를 없앰 */
+display:none;
+ }
+ #mobileblock{  								/* 없앤 nav자리를 비움 */
+margin-top:90px;
+ }
+ #Hblogo{										/* 한빛로고 */
+position:absolute;
+margin-top:-68px;
+margin-left:93px; 
+ }
 }
 
 
 @media only screen and (min-width:400px){
-	/*pc  */
+	/*pc  **********************************************************************/
 .mbbtn1,.mbbtn2,.mbbtn3,.mbbtn4,.mbbtn5{
 	display: none;
 } 	
