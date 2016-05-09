@@ -17,7 +17,7 @@ public class AdminDetailGen extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		//일반, 영업, 행정 디테일로 가는 서블릿
+		//관리자(admin)가 각 유저 정보 디테일 가는 페이지
 		String id = req.getParameter("id");
 		UserDao dao = new UserDao();
 		UserDataPw bean = dao.selectOnepw(id);

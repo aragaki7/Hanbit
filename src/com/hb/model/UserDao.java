@@ -669,6 +669,11 @@ public class UserDao {
 	}
 
 
+	/**
+	 * TB_GRADE에 학점 정보가 있는지 검사. 있으면 1 없으면0 리턴
+	 * @param id
+	 * @return
+	 */
 	public int isExgrade(String id) {
 		int result=0;
 		String query="";
@@ -725,6 +730,11 @@ public class UserDao {
 	}
 
 
+	/**
+	 * 해당 id로 TB_GRADE테이블에 학점 튜블 삽입
+	 * @param id
+	 * @return
+	 */
 	public int addDefGrade(String id) {
 		int result = 0;
 		
@@ -855,5 +865,28 @@ public class UserDao {
 	}
 
 
+	/**
+	 * 학생 성적 튜플 삭제
+	 * @param id
+	 * @return
+	 */
+	public int delGrade(String id) {
+		int result = 0;
+		sql = "delete from TB_GRADE where id=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null) pstmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
 
 }

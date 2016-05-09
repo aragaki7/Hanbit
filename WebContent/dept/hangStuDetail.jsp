@@ -175,8 +175,8 @@ label {
 					<tr>
 					<%
 						String cs = dto.getClasss();
-						System.out.println("id : "+dto.getId());
-						System.out.println("cs : "+cs);
+// 						System.out.println("id : "+dto.getId());
+// 						System.out.println("cs : "+cs);
 					%>
 						<th>강의실</th>
 						<td colspan="3">

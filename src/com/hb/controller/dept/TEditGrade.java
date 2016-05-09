@@ -14,7 +14,7 @@ import bean.GreadeData;
 @WebServlet("/dept/editgrade.tea")
 public class TEditGrade extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("접근됨");
+		//강사가 해당 id의 학생 점수 수정
 		request.setCharacterEncoding("utf-8");
 		String id = request.getParameter("id");
 		int java = Integer.parseInt(request.getParameter("java"));

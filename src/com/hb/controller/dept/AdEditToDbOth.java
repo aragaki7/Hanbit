@@ -17,7 +17,7 @@ import bean.UserDataPw;
 public class AdEditToDbOth extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		//관리자가 유저 정보를 db를 통해 수정하는 페이지
 		int result=0;
 		req.setCharacterEncoding("utf-8");
 		//emailchk는 회원가입에 필요없어서 일단 안받음(여기로 req타고 오긴 함)
@@ -48,9 +48,20 @@ public class AdEditToDbOth extends HttpServlet{
 		String main_address=req.getParameter("main_address");
 		String sub_address=req.getParameter("sub_address");
 
-		UserDao dao = new UserDao();
 		
-		String subs = dao.getPmNum(sub);//쿼리문 몰라서 쿼리 2번 날림
+		UserDao dao = new UserDao();
+		int exist = dao.isExgrade(id);
+		if("학생".equals(sub)){//학생일 시
+			if(exist>0){//학생이지만 성적 튜플이 없을 시
+				dao.addDefGrade(id);
+			}
+		}else{
+			if(exist>0)//학생이 아니지만 학생 성적 튜플이 있을시
+				dao.delGrade(id);
+		}
+		
+		
+		String subs = dao.getPmNum(sub);//쿼리문 몰라서 쿼리 2번 날림.
 		UserDataPw bean = new UserDataPw(id, name, post, main_address, sub_address, null, phone, mobile, email, subs,"1");
 		result = dao.EditMember(bean,pw);
 		
