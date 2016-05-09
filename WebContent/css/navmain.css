@@ -72,30 +72,58 @@ font-size: 23px;
 }
 #mbintro{
 margin-top: 45px;
- margin-left: -30px; 
+ margin-left: -28px; 
 }
 #mbedu{
 margin-top: 45px; 
-  margin-left: -26px; 
+  margin-left: -23px; 
  }
 #mbservice{
- margin-top: 50px; 
- margin-left: -68px; 
+ margin-top: 45px; 
+ margin-left: -42px; 
  }
 #mbdept{
- margin-top: 50px;
-  margin-left: -40px; 
+ margin-top: 45px;
+  margin-left: -28px; 
  }
 #mbcustomer{
   margin-top: 45px;  
-  margin-left: -94px; 
+  margin-left: -53px; 
  }
-#mbimg4{
+#mbimg1{
 position:absolute;
-margin-top:330px;
-margin-left:427px; 
-width:120px;
+margin-top:-65px;
+margin-left:-54px; 
+width:110px;
 height:110px;
+ }
+ #mbimg2{
+position:absolute;
+margin-top:-60px;
+margin-left:-50px; 
+width:100px;
+height:100px;
+ }
+ #mbimg3{
+position:absolute;
+margin-top:-62px;
+margin-left:-50px; 
+width:110px;
+height:100px;
+ }
+ #mbimg4{
+position:absolute;
+margin-top:-55px;
+margin-left:-45px; 
+width:90px;
+height:90px;
+ }
+ #mbimg5{
+position:absolute;
+margin-top:-62px;
+margin-left:-53px; 
+width:110px;
+height:100px;
  }
  
 }
