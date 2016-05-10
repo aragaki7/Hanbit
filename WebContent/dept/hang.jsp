@@ -9,6 +9,8 @@
 <title>행정부</title>
 <script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="../js/menuLoad.js"></script>
+<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+<script src="http://ggumimugg.cafe24.com/js/jquery.cookie-1.4.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
 <style type="text/css">
@@ -237,6 +239,58 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 			var id = $('.stafrow:eq('+(ridx-1)+')>td:eq(0)').text();
 			location.href="hang.genDetail?id="+id;
 		});
+		
+// 		var num = 0;
+		
+// 		var c_name = getcookie(); // 기존 저장된 쿠키값을 가져온다.
+// 		alert(c_name);
+// 		if(c_name){ // 기존 저장된 쿠키값이 있으면 그 값으로 ch 함수 호출
+// 		    ch(c_name);  // ch 함수호출
+// 		}
+		
+		$("#css_tabs input").click(function () {
+		  $.cookie("index", $(this).index(), { expires:30 });
+// 		     num = $(this).index();
+// 		     setcookie(num);  // 클릭한 li 의 index 번호를 쿠키에 저장한다.
+// 		     ch(num);
+		});
+		
+		 if($.cookie("index")) { index = $.cookie("index"); } 
+		 $("#css_tabs input").hide().eq(index).show().css("display","");
+		 alert(index);
+		
+		
+// 		function setcookie(num) {  // 쿠키생성함수
+// 		    document.cookie = num;
+//  		    alert(document.cookie);
+// 		    return false;
+// 		}
+		
+// 		 function ch(num){  // 클릭한 li 의 탭기능 구현함수
+// // 	            $("ul.tabs li").removeClass("active").css("color", "#333");
+// // 	            $("ul.tabs li:eq("+num+")").addClass("active").css("color", "darkred");
+// // 	            $(".tab_content").hide()
+// // 	            $(".tab_content:eq("+num+")").fadeIn()
+// // 				alert(num);
+// 				$(".css_tabs").hide();
+//  	            $(".css_tabs:eq("+num+")").fadeIn();
+// 		 }
+		
+// 		 function getcookie() {  // 쿠키호출함수
+// // 			    var cookies = document.cookie.split("; ");
+// // 			    for (var i = 0; i < cookies.length; i++) {
+// // 			      var coValues = cookies[i].split("=");
+// // 			      if (coValues[0] == Key) {
+// // 			          return unescape(coValues[1]);
+// // 			      }
+// // // 		      alert(coValues);
+// // 			    }
+// // 		      alert(cookies);
+// 			    return cookies;
+// 			}
+	
+		
+		
 		
 	});
 </script>
