@@ -4,7 +4,6 @@ $(document).ready(function(){
 	$('.nav4').css('display','none');
 	$('.nav5').css('display','none');
 	$('.nav6').css('display','none');
-	$('.nav>ul>li>a:eq(4)').css('display','none');
 	
 	$('.header').on('mouseover',function(){
 		$('.nav2').css('display','none'); 
@@ -21,7 +20,7 @@ $(document).ready(function(){
 		$('.nav3').css('display','');
 		$('.nav4').css('display','');
 		$('.nav5').css('display','');
-		$('.nav6').css('display','none');
+		$('.nav6').css('display','');
 		return false;
 	});
 	$('.nav2').mouseleave(function(){ 
@@ -39,7 +38,7 @@ $(document).ready(function(){
 		$('.nav3').css('display','');
 		$('.nav4').css('display','');
 		$('.nav5').css('display','');
-		$('.nav6').css('display','none');
+		$('.nav6').css('display','');
 		return false;
 	});
 	$('.nav3').mouseleave(function(){ 
@@ -57,7 +56,7 @@ $(document).ready(function(){
 		$('.nav3').css('display','');
 		$('.nav4').css('display','');
 		$('.nav5').css('display','');
-		$('.nav6').css('display','none');
+		$('.nav6').css('display','');
 		return false;
 	});
 	$('.nav4').mouseleave(function(){ 
@@ -75,7 +74,7 @@ $(document).ready(function(){
 		$('.nav3').css('display','');
 		$('.nav4').css('display','');
 		$('.nav5').css('display','');
-		$('.nav6').css('display','none');
+		$('.nav6').css('display','');
 		return false;
 	});
 	$('.nav5').mouseleave(function(){ 
