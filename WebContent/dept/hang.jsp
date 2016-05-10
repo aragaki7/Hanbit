@@ -87,7 +87,7 @@ hr {
 	border-width: 0px 0px 1px 1px;
 	font-size: 14px;
 	font-family: Arial;
-	font-weight: bold;
+	font-weight: bold;  
 	color: white;
 }
 

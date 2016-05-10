@@ -140,7 +140,7 @@ input[type=submit] {
    font-weight: bold;
    color: white;
    background-color: black;
-   border: none;
+   border: none;  
 }
    
 #keyword {

@@ -22,7 +22,7 @@
 		<li><a href="<%=request.getContextPath()%>/intro/way.do">찾아오는 길</a></li>
 	</ul>
 </div>
-<div class="grid12 nav3">
+<div class="grid12 nav3">  
 	<ul>
 		<li><a href="<%=request.getContextPath()%>/edu/curri.do">과정소개</a></li>
 	</ul>

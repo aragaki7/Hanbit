@@ -109,7 +109,7 @@ hr {
 	background-color: firebrick;
 }
 #hidden{
-	display: none;
+	display: none; 
 }
 </style>
 <script type="text/javascript">

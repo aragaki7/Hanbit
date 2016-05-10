@@ -148,7 +148,7 @@ input[type=submit] {
    height: 17pt;
    font-size: 11pt;
    border-color: black;
-}
+}  
 
 #write {
    position: relative;

@@ -100,7 +100,7 @@ hr {
 	width: 110px;
 	height: 50px;
 	margin-left: 690px;
-	font-size: 11pt;
+	font-size: 11pt;  
 	font-weight: bold;
 	color: white;
 	background-color: firebrick;

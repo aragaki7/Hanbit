@@ -102,7 +102,7 @@ hr {
 	margin-left: 660px;
 	font-size: 11pt;
 	font-weight: bold;
-	color: white;
+	color: white;  
 	background-color: firebrick;
 	border: none;
 }
