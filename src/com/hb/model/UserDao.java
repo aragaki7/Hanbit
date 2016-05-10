@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import net.sf.json.JSONObject;
+import bean.AttData;
 import bean.GradeDataNM;
 import bean.GreadeData;
 import bean.UserData;
@@ -61,7 +62,6 @@ public class UserDao {
 		boolean result = false;
 		
 		String query = "select count(*) from TB_GRADE where id=?";
-		System.out.println(query);
 		try {
 			pstmt = DBConnect.get().prepareStatement(query);
 			pstmt.setString(1, id);
@@ -75,7 +75,6 @@ public class UserDao {
 				else{
 					result=true;
 				}
-				System.out.println("result : "+result);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -676,12 +675,12 @@ public class UserDao {
 		String query="";
 		try {
 			query = "select count(*) from TB_GRADE where id=?";
-			System.out.println(query);
+//			System.out.println(query);
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				System.out.println("rs : "+rs.getInt(1));
+//				System.out.println("rs : "+rs.getInt(1));
 				result = rs.getInt(1);
 			}
 		} catch (SQLException e) {
@@ -906,6 +905,37 @@ public class UserDao {
 				bean.setAttDate(rs.getString(2));
 				list.add(bean);
 //				System.out.println(list);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			 	try {
+					if (rs != null)rs.close();
+					if(pstmt != null)pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+		return list;
+	}
+
+
+	public ArrayList<AttData> attendInfo(String id, String attDateSub) {
+		ArrayList<AttData> list = new ArrayList<AttData>();
+		sql = "SELECT ATT, DAYS FROM TB_ATTEN WHERE DAYS LIKE ? AND ID=? ORDER BY DAYS";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,"%"+attDateSub+"%");
+			pstmt.setString(2, id);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				AttData bean = new AttData();
+				bean.setAtt(rs.getInt(1));
+				String tmp=rs.getString("DAYS");
+				tmp=tmp.substring(tmp.length()-2, tmp.length());//마지막 2자리 건짐
+				tmp=Integer.toString(Integer.parseInt(tmp));//02라면 2라고만 처리될려고 문자열->숫자->문자열로 다시 바꿈
+				bean.setAttDate(tmp);
+				list.add(bean);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

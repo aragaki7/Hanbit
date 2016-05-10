@@ -1,3 +1,4 @@
+<%@page import="bean.AttData"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="db.DBConnect"%>
@@ -151,6 +152,18 @@ label {
 }
 
 </style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.week').each(function(){
+			if($(this).text()=='일'){
+				$(this).css('color','red');
+			}
+			else if($(this).text()=='토'){
+				$(this).css('color','blue');
+			}
+		});
+	});
+</script>
 </head>
 <body>
 	<div class="container_12">
@@ -233,101 +246,138 @@ label {
     int lastDay = cal.getActualMaximum(Calendar.DATE);
 %>
  <h2><%=name%>님의 <%=year%>년 <%=month+1%>월 출결 상황</h2><p/>
-<table>
-<tr>
-    <td align="center"></td>
-</tr>
-<tr>
-    <td>
+ 
+ <%
+ 		ArrayList<AttData> attendDetailList = (ArrayList<AttData>)request.getAttribute("attendDetailList");
+		String[] dayOfWeek = { "", "일", "월", "화", "수", "목", "금", "토" };
+		String yo_il = dayOfWeek[cal.get(Calendar.DAY_OF_WEEK)];
+		
+	%>
+	<table border="1">
+	<tr>
+	<%for(int i=0;i<lastDay;i++){ %>
+		<td class="week"><%=dayOfWeek[cal.get(Calendar.DAY_OF_WEEK)] %></td>
+	<%
+	cal.set(year, month, i+2);
+	} %>
+	</tr>
+	<tr>
+	<%for(int i=0;i<lastDay;i++){ %>
+		<td><%=i+1%></td>
+	<%} 
+	int cnt=0;%>
+	</tr>
+	<tr>
+	<%for(int i=0;i<lastDay;i++){
+		int j;
+		for(j=0;j<attendDetailList.size();j++){
+			if(Integer.parseInt(attendDetailList.get(j).getAttDate())==i+1){%>
+				<td><%=attendDetailList.get(j).getAtt()%></td>
+			<%break;}
+		}%>
+		<%if(j>=attendDetailList.size()){%>
+			<td> x</td>
+			<%}
+		}%>
+	</tr>
+	</table>
+ 
+ 
+<!-- <table> -->
+<!-- <tr> -->
+<!--     <td align="center"></td> -->
+<!-- </tr> -->
+<!-- <tr> -->
+<!--     <td> -->
 
-        <table id="attendChart">
-        	<tr>  
-<% 
+<!--         <table id="attendChart"> -->
+<!--         	<tr>   -->
+<%-- <%  --%>
 
-	int cnt = 1;
-	while(true){
-		if((bgnWeek+lastDay)==cnt)break;
-		out.print("<td class=\"sunday\">일</td>");
-		cnt++;
-		if((bgnWeek+lastDay)==cnt)break;
-		out.print("<td>월</td>");
-		cnt++;
-		if((bgnWeek+lastDay)==cnt)break;
-		out.print("<td>화</td>");
-		cnt++;
-		if((bgnWeek+lastDay)==cnt)break;
-		out.print("<td>수</td>");
-		cnt++;
-		if((bgnWeek+lastDay)==cnt)break;
-		out.print("<td>목</td>");
-		cnt++;
-		if((bgnWeek+lastDay)==cnt)break;
-		out.print("<td>금</td>");
-		cnt++;
-		if((bgnWeek+lastDay)==cnt)break;
-		out.print("<td class=\"saturday\">토</td>");
-		if((bgnWeek+lastDay)==cnt)break;
-		cnt++;
-	}
-%>		
-			</tr>
-<%
-    // 시작요일까지 이동
-    for (int i=1; i<bgnWeek; i++){%>
-    	<td class="space"></td>
-<% }%>
-<%        while (cal.get(Calendar.MONTH) == month) { //변수 month 의 값과, 현재달이 같을때까지 (즉 현재달의 날짜 만큼)
-%>    	
+<!--  	int cnt = 1; -->
+<!--  	while(true){ -->
+<!--  		if((bgnWeek+lastDay)==cnt)break; -->
+<!--  		out.print("<td class=\"sunday\">일</td>"); -->
+<!--  		cnt++; -->
+<!--  		if((bgnWeek+lastDay)==cnt)break; -->
+<!--  		out.print("<td>월</td>"); -->
+<!--  		cnt++; -->
+<!--  		if((bgnWeek+lastDay)==cnt)break; -->
+<!--  		out.print("<td>화</td>"); -->
+<!--  		cnt++; -->
+<!--  		if((bgnWeek+lastDay)==cnt)break; -->
+<!--  		out.print("<td>수</td>"); -->
+<!--  		cnt++; -->
+<!--  		if((bgnWeek+lastDay)==cnt)break; -->
+<!--  		out.print("<td>목</td>"); -->
+<!--  		cnt++; -->
+<!--  		if((bgnWeek+lastDay)==cnt)break; -->
+<!--  		out.print("<td>금</td>"); -->
+<!--  		cnt++; -->
+<!--  		if((bgnWeek+lastDay)==cnt)break; -->
+<!--  		out.print("<td class=\"saturday\">토</td>"); -->
+<!--  		if((bgnWeek+lastDay)==cnt)break; -->
+<!--  		cnt++; -->
+<!--  	} -->
+<%-- %>		 --%>
+<!-- 			</tr> -->
+<%-- <% --%>
+     <!-- // 시작요일까지 이동 -->
+<%--     for (int i=1; i<bgnWeek; i++){%> --%>
+<!--     	<td class="space"></td> -->
+<%-- <% }%> --%>
+<%-- <%        while (cal.get(Calendar.MONTH) == month) { //변수 month 의 값과, 현재달이 같을때까지 (즉 현재달의 날짜 만큼) --%>
+<%-- %>    	 --%>
         
-        <td><%=cal.get(Calendar.DATE)%></td>
-<% 		//날짜를 가져온다.
+<%--         <td><%=cal.get(Calendar.DATE)%></td> --%>
+<%-- <% 		//날짜를 가져온다. --%>
        
-		// 날짜를 1씩 증가시킨다.
+<!--  		// 날짜를 1씩 증가시킨다. -->
 		
-         cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),  cal.get(Calendar.DATE)+1);
+<!--           cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),  cal.get(Calendar.DATE)+1); -->
 		
-    }
+<!--      } -->
 
-    	%>
-         </tr>
+<%--     	%> --%>
+<!--          </tr> -->
          
-         <tr>
-         <% ArrayList<UserData> attendDetailList = (ArrayList<UserData>)request.getAttribute("attendDetailList"); %>
+<!--          <tr> -->
+<%--          <% ArrayList<UserData> attendDetailList = (ArrayList<UserData>)request.getAttribute("attendDetailList"); %> --%>
         
-         <% for (int i=1; i<bgnWeek; i++){%>
-    		<td class="space"></td>
-		<%}%>
+<%--          <% for (int i=1; i<bgnWeek; i++){%> --%>
+<!--     		<td class="space"></td> -->
+<%-- 		<%}%> --%>
 		
-		<%	for (int i = 0; i < attendDetailList.size(); i++) {%>
-			<td><%=attendDetailList.get(i).getAtt()%></td>
+<%-- 		<%	for (int i = 0; i < attendDetailList.size(); i++) {%> --%>
+<%-- 			<td><%=attendDetailList.get(i).getAtt()%></td> --%>
 <%-- 			<td><%=attendDetailList.get(i).getAttDate()%></td> --%>
-			<td><%String nalja = attendDetailList.get(i).getAttDate().substring(6);
-			System.out.println(nalja);
-			%></td>
-       <%}%>
+<%-- 			<td><%String nalja = attendDetailList.get(i).getAttDate().substring(6); --%>
+<!--  			System.out.println(nalja); -->
+<%-- 			%></td> --%>
+<%--        <%}%> --%>
        
     
-       <% while (cal.get(Calendar.MONTH) == month) { //변수 month 의 값과, 현재달이 같을때까지 (즉 현재달의 날짜 만큼)
-%>    	
+<%--        <% while (cal.get(Calendar.MONTH) == month) { //변수 month 의 값과, 현재달이 같을때까지 (즉 현재달의 날짜 만큼) --%>
+<%-- %>    	 --%>
         
-        <td><%=cal.get(Calendar.DATE)%></td>
-<% 		//날짜를 가져온다.
+<%--         <td><%=cal.get(Calendar.DATE)%></td> --%>
+<%-- <% 		//날짜를 가져온다. --%>
        
-		// 날짜를 1씩 증가시킨다.
-		cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE)+1);
+<!--  		// 날짜를 1씩 증가시킨다. -->
+<!--  		cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE)+1); -->
 		
-    }
+<!--      } -->
 
-    	%>
+<%--     	%> --%>
 		
 
-		</tr>
-        </table>
+<!-- 		</tr> -->
+<!--         </table> -->
         
 
-    </td>
-</tr>
-</table>
+<!--     </td> -->
+<!-- </tr> -->
+<!-- </table> -->
 
 		</div>
 		<!-- content end -->
