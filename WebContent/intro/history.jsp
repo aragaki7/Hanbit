@@ -4,12 +4,69 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Histrory</title>
+<title>History</title>
 <script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="../js/menuLoad.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css"/>
 <link rel="stylesheet" type="text/css" href="../css/nav.css"/>
 <style type="text/css">
+@media only screen and (max-width:399px){
+          /*mobile*********************************************/
+    *{
+      margin: 0px;
+      padding: 0px; 
+   }
+   .container_12{
+      width: 100%;
+   }
+  
+   .grid3{
+   	display: none;
+   }
+    .footer{
+    	display: none;
+    }
+    .header>.img1{
+    	display:none;
+    }
+  
+  
+	 .nav,.nav2,.nav3,.nav4,.nav5,.nav6{			/* nav를 없앰 */
+	display:none;
+	 }
+	 #mobileblock{  								/* 없앤 nav자리를 비움 */
+	margin-top:90px;
+	 }
+	 p,hr{
+	 display: none;
+	 }
+	 #Hblogo{										/* 한빛로고 */
+	position:absolute;
+	margin-top:-105px;
+	margin-left:53px; 
+	 }
+	  #rowspan{										/* table의 년도 */
+	 background-color:#D5D5D5;
+	 font-weight:bold;
+	 font-size: 25px;
+	 text-align:center;
+	 color:#4C4C4C;
+	 }
+	 #month{										/* table의 월 */
+	 background-color:#F6F6F6;
+	  font-size: 20px;
+	  text-align:center;
+	 }
+	 #hcnt{											/* table의 내용 */
+	  border: 1px solid #F6F6F6;
+	  font-size:15px;
+	 }
+	 .history{										/* table의 넓이 */
+	 width:100%;
+	 }
+	 }
+ @media only screen and (min-width:400px){
+	/*pc  **********************************************************************/
 *{
  		margin: 0px;
  		padding: 0px;
@@ -52,6 +109,10 @@ p{
  }
   #a{
  	background-color: firebrick;
+ }
+  #Hblogo{										/* 한빛로고 */
+	display: none;
+	 }
  }
 </style>
 </head>
@@ -106,6 +167,7 @@ p{
 		</table>
 		</div>
 		</div>
+		<img src="../imgs/BKLogo.png" alt="hblogo" id="Hblogo"/>  <!-- Logo -->
 		<!-- content end -->
 		<%@ include file="../template/asideIn.jsp" %>
 		<%@ include file="../template/footer.jsp" %>

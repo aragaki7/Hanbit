@@ -148,9 +148,8 @@ margin-left:93px;
  top:305px; 
  left:100px; 
  height:460px; 
- width:310px; 
+ width:255px; 
  margin-top:-180px; 
- margin-left:-50px; 
  text-align:left; 
  z-index:160; 
  color:white;
@@ -171,6 +170,16 @@ margin-left:93px;
  background:#000; 
  z-index:50;
  } 
+ .mbt{														/* 팝업창 버튼 */
+   margin-top:15px;
+   width: 185px;
+   height: 30px;
+   font-size: 11pt;
+   font-weight: bold;
+   color: white;
+   background-color: firebrick;
+   border: none; 
+ }
 }
 
 
