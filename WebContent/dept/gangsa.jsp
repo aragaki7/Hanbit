@@ -205,7 +205,7 @@ background-color:firebrick;
 <%
 		JSONObject jsonObject1 = new JSONObject();
 		jsonObject1 = (JSONObject) session.getAttribute("jsonObj");
-		String admin = jsonObject1.getString("pm");
+// 		String admin = jsonObject1.getString("pm");
 		if (jsonObject1 != null) {%>
 			var pm = "<%=jsonObject1.getString("pm")%>";
 			if (!("관리자" == pm || "교육부"==pm)) {
@@ -335,7 +335,7 @@ background-color:firebrick;
 								
 								for (int i = 0; i < stulist.size(); i++) {
 // 										System.out.println(stulist.get(i).getClasss());
-									if(admin.equals("관리자")){
+									if(jsonObject1.getString("pm").equals("관리자")){
 									}else if(!(stulist.get(i).getClasss().equals(tmp)))
 										continue;
 								%>
@@ -376,7 +376,7 @@ background-color:firebrick;
 							</tr>
 						</form>	
 							<% for(int i=0; i<dateSearch.size();i++){ 
-								if(admin.equals("관리자")){
+								if(jsonObject1.getString("pm").equals("관리자")){
 								}else if(!(stulist.get(i).getClasss().equals(tmp)))
 										continue; %>
 							<tr class="attendListRow">
@@ -422,7 +422,7 @@ background-color:firebrick;
 							<%
 // 							ArrayList<GreadeData> list = (ArrayList<GreadeData>)request.getAttribute("list");
 							for (int i = 0; i < stulist.size(); i++) {
-								if(admin.equals("관리자")){
+								if(jsonObject1.getString("pm").equals("관리자")){
 								}else if(!(stulist.get(i).getClasss().equals(tmp)))
 									continue; 
 // 							int sum =stulist.get(i).getJava()+stulist.get(i).getWeb()+stulist.get(i).getFw();
