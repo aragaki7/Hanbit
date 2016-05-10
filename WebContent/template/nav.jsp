@@ -41,7 +41,7 @@
 		<li><a href="<%=request.getContextPath()%>/customer/board.do">자유게시판</a></li>
 		<li><a href="<%=request.getContextPath()%>/customer/qna.do">Q & A</a></li>
 	</ul>
-</div>
+</div>  
 <div class="grid12 nav6">
 	<ul>
 		<li><a href="<%=request.getContextPath()%>/dept/sales.do">영업부</a></li>
