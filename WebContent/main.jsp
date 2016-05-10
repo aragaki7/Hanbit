@@ -158,11 +158,11 @@ span>a>img {
 </form>
 <div id="lay">
   <h2>Intro</h2>
-  <button>개요</button><br/><button>CEO소개</button><br/>
-  <button>연혁</button><br/><button>시설/장비</button><br/>
-  <button>교수진</button><br/><button>입학안내</button><br/>
-  <button>수상현황</button><br/><button>찾아오는길</button><br/>
-  <span id="close">닫기</span>
+  <a href="intro/intro.jsp"><button class="mbt">개요</button></a><br/><a href="intro/ceo.jsp"><button class="mbt">CEO소개</button></a><br/>
+  <a href="intro/history.jsp"><button class="mbt">연혁</button></a><br/><a href="intro/facility.jsp"><button class="mbt">시설/장비</button></a><br/>
+  <a href="intro/profess.jsp"><button class="mbt">교수진</button></a><br/><a href="intro/enter.jsp"><button class="mbt">입학안내</button></a><br/>
+  <a href="intro/award.jsp"><button class="mbt">수상현황</button></a><br/><a href="intro/way.jsp"><button class="mbt">찾아오는길</button></a><br/>
+  <span id="close">X</span>
  </div>
  
 <form action="#" class="mbform" id="layerBtn2">		<!-- Edu폼 -->
@@ -170,18 +170,18 @@ span>a>img {
 </form>
 <div id="lay2">
   <h2>Edu</h2>
-  <button>과정소개</button>
-  <span id="close2">닫기</span>
+   <a href="edu/eduList.jsp"><button class="mbt">과정소개</button></a>
+  <span id="close2">X</span>
  </div>
-
+ 
 <form action="#" class="mbform" id="layerBtn3">		<!-- Service폼 -->
 <button class="mbbtn3"><a href="#" id="mbservice">Service</a><img src="imgs/mbservice.png" alt="logo" id="mbimg3"/></button>
 </form>
 <div id="lay3">
   <h2>Service</h2>
-  <button>취업교육</button><br/><button>재직자교육</button><br/>
-  <button>기업맞춤교육</button>
-  <span id="close3">닫기</span>
+  <a href="service/job.jsp"><button class="mbt">취업교육</button></a><br/><a href="service/work.jsp"><button class="mbt">재직자교육</button></a><br/>
+  <a href="service/company.jsp"><button class="mbt">기업맞춤교육</button></a>
+  <span id="close3">X</span>
  </div>
  
 <form action="#" class="mbform" id="layerBtn4">		<!-- Dept폼 -->
@@ -189,9 +189,9 @@ span>a>img {
 </form>
 <div id="lay4">
   <h2>Dept</h2>
-  <button>영업부</button><br/><button>행정부</button><br/>
-  <button>교육진</button><br/><button>관리자</button><br/>
-  <span id="close4">닫기</span>
+ <a href="dept/sales.jsp"><button class="mbt">영업부</button></a><br/><a href="dept/hang.jsp"><button class="mbt">행정부</button></a><br/>
+  <a href="dept/gangsa.jsp"><button class="mbt">교육진</button></a><br/><a href="dept/admin.jsp"><button class="mbt">관리자</button></a><br/>
+  <span id="close4">X</span>
  </div>
 
 <form action="#" class="mbform" id="layerBtn5">		<!-- Customer폼 -->
@@ -199,9 +199,9 @@ span>a>img {
 </form>
 <div id="lay5">
   <h2>Customer</h2>
-  <button>공지사항</button><br/><button>1:1문의</button><br/>
-  <button>자유게시판</button><br/><button>Q&A</button><br/>
-  <span id="close5">닫기</span>
+  <a href="customer/notice.jsp"><button class="mbt">공지사항</button></a><br/><a href="customer/ask.jsp"><button class="mbt">1:1문의</button></a><br/>
+  <a href="customer/board.jsp"><button class="mbt">자유게시판</button></a><br/><a href="customer/qna.jsp"><button class="mbt">Q&A</button></a><br/>
+  <span id="close5">X</span>
  </div>
 
 <img src="imgs/BKLogo.png" alt="hblogo" id="Hblogo"/>  <!-- Logo -->

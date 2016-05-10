@@ -10,6 +10,51 @@
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css"/>
 <link rel="stylesheet" type="text/css" href="../css/nav.css"/>
 <style type="text/css">
+@media only screen and (max-width:399px){
+        /*mobile*********************************************/
+    *{
+      margin: 0px;
+      padding: 0px; 
+   }
+   .container_12{
+      width: 100%;
+   }
+  
+   .grid3{
+   	display: none;
+   }
+    .footer{
+    	display: none;
+    }
+    .header>.img1{
+    	display:none;
+    }
+    body{											/* 바탕을 검은색으로 바꿈 */
+	   background-color: black;
+	 }
+	 .nav,.nav2,.nav3,.nav4,.nav5,.nav6{			/* nav를 없앰 */
+	display:none;
+	 }
+	 #mobileblock{  								/* 없앤 nav자리를 비움 */
+	margin-top:90px;
+	 }
+	 #intro_award{									/* award img */
+	 position:absolute;
+	 width:380px;
+	 height:550px;
+	 margin-top:-78px;
+	 }
+	 p{
+	 display: none;
+	 }
+	 #Hblogo{										/* 한빛로고 */
+	position:absolute;
+	margin-top:-105px;
+	margin-left:13px;
+	 }
+ }
+ @media only screen and (min-width:400px){
+	/*pc  **********************************************************************/
 *{
  		margin: 0px;
  		padding: 0px;
@@ -34,6 +79,10 @@ p{
   #a{
  	background-color: firebrick;
  }
+ #Hblogo{										/* 한빛로고 */
+	display: none;
+	 }
+ }
 </style>
 </head>
 <body>
@@ -49,6 +98,7 @@ p{
 		<img src="../imgs/intro_award.JPG" id="intro_award">
 		</div>
 		</div>
+		<img src="../imgs/BKLogo.png" alt="hblogo" id="Hblogo"/>  <!-- Logo -->
 		<!-- content end -->
 		<%@ include file="../template/asideIn.jsp" %>
 		<%@ include file="../template/footer.jsp" %>
