@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css"/>
 <link rel="stylesheet" type="text/css" href="../css/nav.css"/>
 <style type="text/css">
- #e{
+ #d{
     background-color: firebrick;
  }
 
