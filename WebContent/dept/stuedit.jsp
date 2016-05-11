@@ -272,11 +272,17 @@ label {
 		int j;
 		for(j=0;j<attendDetailList.size();j++){
 			if(Integer.parseInt(attendDetailList.get(j).getAttDate())==i+1){%>
-				<td><%=attendDetailList.get(j).getAtt()%></td>
+				<%-- <td><%=attendDetailList.get(j).getAtt()%></td> --%>
+				<%int attEq = attendDetailList.get(j).getAtt();
+				if(attEq==0){out.print("<td><img src=\"../imgs/att"+attEq+".png\"/></td>");}
+				else if(attEq==1){out.print("<td><img src=\"../imgs/att"+attEq+".png\"/></td>");}
+				else if(attEq==2){out.print("<td><img src=\"../imgs/att"+attEq+".png\"/></td>");}
+				else if(attEq==3){out.print("<td><img src=\"../imgs/att"+attEq+".png\"/></td>");}
+				%>
 			<%break;}
 		}%>
 		<%if(j>=attendDetailList.size()){%>
-			<td> x</td>
+			<td><img src="../imgs/att4.png"/></td>
 			<%}
 		}%>
 	</tr>
