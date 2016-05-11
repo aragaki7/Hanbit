@@ -64,13 +64,14 @@ public class AttendAddList extends HttpServlet {
             day = "토";
             break ;
         }
-		System.out.println(day);
-		
+
 		String id;
 		int check;
 		int result = 0;
 		int attOver = 0;
 		boolean flag = false;
+
+	
 		
 		for(int i = 0; i < idArr.length; i++){
 			id = idArr[i];

@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.util.Date"%>
 <%@page import="bean.AttData"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -160,6 +161,15 @@ label {
 	margin:5px 0px;
 	padding: 10px;
 }
+#attView span ~ span, #attView>span{
+	font-size:12px;
+	color:red;
+	font-weight: bold;
+	border: 1px solid #D5D5D5;
+}
+h2{
+margin-bottom: 20px;
+}
 
 </style>
 <script type="text/javascript">
@@ -215,6 +225,14 @@ label {
 				    SimpleDateFormat dateFormat = new SimpleDateFormat("yy년 MM월 dd일 E요일");
 				    
 				%>
+				
+				<%ArrayList<AttData> attendDetailList = (ArrayList<AttData>)request.getAttribute("attendDetailList");
+					int weekCnt = 0; // 주말 숫자 계산 카운트
+					int checkCnt=0; //출석 일 수 계산 카운트
+					int leaveCnt=0; //지각&조퇴 카운트
+					int absenceCnt=0; //결석카운트
+				
+				%>
 					<tr class="hid">
 						<th>아이디</th>
 						<td colspan="3"><span id="name" name="name">
@@ -263,7 +281,7 @@ label {
  <h2><%=name%>님의 <%=year%>년 <%=month+1%>월 출결 상황</h2><p/>
  
  <%
- 		ArrayList<AttData> attendDetailList = (ArrayList<AttData>)request.getAttribute("attendDetailList");
+ 		
 		String[] dayOfWeek = { "", "일", "월", "화", "수", "목", "금", "토" };
 		String yo_il = dayOfWeek[cal.get(Calendar.DAY_OF_WEEK)];
 		
@@ -271,6 +289,9 @@ label {
 	<table border="1">
 	<tr>
 	<%for(int i=0;i<lastDay;i++){ %>
+		<%if("일".equals(dayOfWeek[cal.get(Calendar.DAY_OF_WEEK)])||"토".equals(dayOfWeek[cal.get(Calendar.DAY_OF_WEEK)])){
+			weekCnt++;
+		} %>
 		<td class="week"><%=dayOfWeek[cal.get(Calendar.DAY_OF_WEEK)] %></td>
 	<%
 	cal.set(year, month, i+2);
@@ -280,7 +301,9 @@ label {
 	<%for(int i=0;i<lastDay;i++){ %>
 		<td><%=i+1%></td>
 	<%}  
-	int cnt=0;%>
+	int cnt=0;
+	
+	%>
 	</tr>
 	<tr>
 	<%for(int i=0;i<lastDay;i++){
@@ -289,26 +312,47 @@ label {
 			if(Integer.parseInt(attendDetailList.get(j).getAttDate())==i+1){%>
 				<%-- <td><%=attendDetailList.get(j).getAtt()%></td> --%>
 				<%int attEq = attendDetailList.get(j).getAtt();
-				if(attEq==0){out.print("<td><img src=\"../imgs/att"+attEq+".png\"/></td>");}
-				else if(attEq==1){out.print("<td><img src=\"../imgs/att"+attEq+".png\"/></td>");}
-				else if(attEq==2){out.print("<td><img src=\"../imgs/att"+attEq+".png\"/></td>");}
-				else if(attEq==3){out.print("<td><img src=\"../imgs/att"+attEq+".png\"/></td>");}
+				if(attEq==0){checkCnt++;
+					out.print("<td><img src=\"../imgs/att"+attEq+".png\"/></td>");}
+				else if(attEq==1){
+					leaveCnt++;
+					out.print("<td><img src=\"../imgs/att"+attEq+".png\"/></td>");}
+				else if(attEq==2){
+					leaveCnt++;
+					out.print("<td><img src=\"../imgs/att"+attEq+".png\"/></td>");}
+				else if(attEq==3){
+					absenceCnt++;
+					out.print("<td><img src=\"../imgs/att"+attEq+".png\"/></td>");}
 				%>
 			<%break;}
 		}%>
 		<%if(j>=attendDetailList.size()){%>
-			<td><img src="../imgs/att4.png"/></td>
+			<td>&nbsp;&nbsp;</td>
 			<%}
 		}%>
 	</tr>
 	</table>
 	<br/>
+	<%int attTotal = lastDay-weekCnt;
+	double attPer = (double)checkCnt/attTotal*100;
+	int leaveTotal = (int)(absenceCnt+(leaveCnt/3));
+	String format = "#.##";
+	DecimalFormat df = new java.text.DecimalFormat(format);
+	
+	%>
+	<div id =attView>
+		<span>소정 출석 횟수 : <%=lastDay-weekCnt%>일</span>
+		<span>출석 일 수 : <%=checkCnt%>일</span>
+		<span>결석 일 수 : <%=leaveTotal%>일</span>
+		<span>출석률 : <%out.println(df.format(attPer));%>%</span>
+	</div>
 	<div id="attInfo">
 	* 화면상태 표시 설명 => 출석:[<img src="../imgs/att0.png"/>]&nbsp;지각:[<img src="../imgs/att1.png"/>]
 							조퇴:[<img src="../imgs/att2.png"/>]&nbsp;결석:[<img src="../imgs/att3.png"/>]
-							&nbsp;입력 없음:[<img src="../imgs/att4.png"/>]<br/>
+							&nbsp;입력 없음:[&nbsp;&nbsp;]<br/>
 	* 지각, 조퇴, 외출 3회 마다 1일 결석으로 처리됩니다.<br/> 
-	* 출결유무는 교육진에서 출결자료를 입력한 후에 반영됩니다.
+	* 출결유무는 교육진에서 출결자료를 입력한 후에 반영됩니다.<br/>
+	* 단위기간 출석률이 80% 미만인 경우 제적될 수 있습니다.
 	</div>
 		</div>
 		<!-- content end -->
