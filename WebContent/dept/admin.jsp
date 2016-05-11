@@ -5,13 +5,14 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Admin page</title>
 <script type="text/javascript" src="../js/jquery-1.12.2.min.js"></script>
 <script type="text/javascript" src="../js/menuLoad.js"></script>
+<script type="text/javascript" src="../js/jquery.cookie.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/grid_design12.css" />
 <link rel="stylesheet" type="text/css" href="../css/nav.css" />
 <style type="text/css">
@@ -252,6 +253,18 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 			var id = $('.adlist:eq('+(ridx-1)+')>td:eq(0)').text();
 			location.href="adGenDt?id="+id;
 		});
+		
+		// css_tab input(우리현재 메뉴탭) 을 클릭했을때 이벤트 발생
+		$("#css_tabs input").click(function () {
+			//클릭한 input(메뉴탭)의 index 번호를 가져와 쿠키에 저장함. expires : 쿠키 저장기간
+		  $.cookie("adminIndex", $(this).index(), { expires:1 });
+		});
+		
+		//쿠키에 index 값이 있다면
+		 if($.cookie("adminIndex")) {
+			 adminIndex = $.cookie("adminIndex"); // index 는 쿠키에서 index를 받아와서 초기화하고 
+			 $("#css_tabs input:eq("+adminIndex+")").attr('checked','checked'); //해당 탭을 선택한다.
+		 } 
 		
 	});
 </script>
