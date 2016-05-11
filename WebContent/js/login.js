@@ -18,7 +18,7 @@ var loginfuc=function(){
 					$('#hh').html("<a href=\"/Hanbit/useredit.do\" >개인정보</a><a href=\"/Hanbit/logout.do\" >/ 로그아웃</a></div>");
 					$('#log').remove();
 				}else{
-					alert('아이디 비번 확인');
+					alert('아이디 또는 비밀번호를 확인하세요');
 				}
 			},
 			"error":function(){
