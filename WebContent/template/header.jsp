@@ -45,11 +45,9 @@
     <a href="/Hanbit/useredit.do" >개인정보</a>
 	<a href="/Hanbit/logout.do" >/ 로그아웃</a></div>
 	<%}else{%>
-	<a href="#" >로그인</a>
-	<a href="/Hanbit/login/join.jsp" >/ 회원가입</a></div>
+	<a href="/Hanbit/login/join.jsp" >회원가입</a></div>
 	<%}}else{%>
-		<a href="#" >로그인</a>
-	<a href="/Hanbit/login/join.jsp" >/ 회원가입</a></div>	
+	<a href="/Hanbit/login/join.jsp" >회원가입</a></div>	
 	<%}%>
 	</div>
 
