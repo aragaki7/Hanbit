@@ -41,17 +41,18 @@
 	 }
 	 #intro_way{									/* way img */
 	 position:absolute;
-	 width:380px;
-	 height:550px;
-	 margin-top:-78px;
+	 width:100%;
+	 height:500px;
+	 margin-top:-78px;  
 	 }
 	 p{
 	 display: none;
 	 }
 	 #Hblogo{										/* 한빛로고 */
 	position:absolute;
-	margin-top:-105px;
-	margin-left:-286px; 
+	margin-top:-28%;  
+	margin-left:-75%;
+	width:50%;
 	 }
  }
  @media only screen and (min-width:400px){

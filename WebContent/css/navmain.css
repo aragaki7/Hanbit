@@ -27,42 +27,42 @@
      
   .mbbtn1,.mbbtn2,.mbbtn3,.mbbtn4,.mbbtn5{ /* 네모난 색배경 */
     position:absolute;
-	height: 150px;
-	font-size: 11pt;
-	font-weight: bold;
+	height: 23%;
+	font-size: 10pt;
+	font-weight: bold;  
 	color: white;
-	border: none;	
+	border: none;	  
 	
  } 
- .mbbtn1{
+ .mbbtn1{ 
  background-color: rgb(184,95,219);
- width: 172px; 
- margin-top: 13px;
- margin-left: 10px; 
- }
+ width: 42%;   
+ margin-top: 4%;   
+ margin-left: 5%;     
+ }   
  .mbbtn2{
  background-color: rgb(19,173,235);
- width: 172px; 
- margin-top: 13px;
- margin-left: 200px;
- }
+ width: 42%; 
+ margin-top: 4%;  
+ margin-left: 53%;   
+ }   
  .mbbtn3{
- background-color: rgb(29,144,163);
- width: 172px; 
- margin-top: 183px;
- margin-left: 10px;
- }
+ background-color: rgb(29,144,163);    
+ width: 42%; 
+ margin-top: 51%;    
+ margin-left: 5%;
+ }    
  .mbbtn4{ 
  background-color: rgb(227,53,132);
- width: 172px;
- margin-top: 183px;
- margin-left: 200px;
- }
+width: 42%; 
+ margin-top: 51%; 
+ margin-left: 53%;
+ } 
  .mbbtn5{
  background-color: rgb(255,192,0);
- width: 358px; 
- margin-top: 350px;  
- margin-left: 10px;
+ width: 89%;  
+ margin-top: 98%;  
+ margin-left: 5%;
  }
  body{											/* 바탕을 검은색으로 바꿈 */
    background-color: black;
@@ -72,62 +72,62 @@ position:absolute;
 font-weight: bold;
 color:white;
 text-decoration: none;
-font-size: 23px;  
+font-size: 20px;  
 }
 #mbintro{
 margin-top:35px;
- margin-left: -25px; 
+ margin-left: -23px;   
 }
 #mbedu{
 margin-top: 35px; 
-  margin-left: -23px; 
+  margin-left: -18px; 
  }
 #mbservice{
  margin-top: 35px; 
- margin-left: -42px; 
+ margin-left: -36px; 
  }
 #mbdept{
  margin-top: 35px;
-  margin-left: -27px; 
+  margin-left: -22px; 
  }
 #mbcustomer{
-  margin-top: 35px;  
-  margin-left: -53px; 
+  margin-top: 33px;  
+  margin-left: -45px; 
  }
 #mbimg1{										/* 픽토그램 이미지 */
 position:absolute;
-margin-top:-55px;
-margin-left:-39px; 
-width:80px; 
-height:80px;
- }
+margin-top:-33%; 
+margin-left:-25%;   
+width:50%;       
+height:50%;      
+ }     
  #mbimg2{
-position:absolute;
-margin-top:-44px;
-margin-left:-32px; 
-width:65px;
-height:70px;
+position:absolute; 
+margin-top:-30%; 
+margin-left:-21%;  
+width:42%;       
+height:47%;             
  }
- #mbimg3{
+ #mbimg3{ 
 position:absolute;
-margin-top:-50px;
-margin-left:-40px; 
-width:80px;
-height:70px;
+margin-top:-32%; 
+margin-left:-25%;      
+width:50%;      
+height:47%; 
  }
  #mbimg4{
 position:absolute;
-margin-top:-46px;
-margin-left:-35px; 
-width:70px;
-height:70px;
+margin-top:-28%; 
+margin-left:-21%; 
+width:42%;      
+height:45%;   
  }
  #mbimg5{
 position:absolute;
-margin-top:-45px;
-margin-left:-35px; 
-width:70px;
-height:70px;
+margin-top:-14%;
+margin-left:-10%; 
+width:22%;      
+height:45%;
  }
  .nav,.nav2,.nav3,.nav4,.nav5,.nav6{			/* nav를 없앰 */
 display:none;
@@ -135,10 +135,11 @@ display:none;
  #mobileblock{  								/* 없앤 nav자리를 비움 */
 margin-top:90px;
  }
- #Hblogo{										/* 한빛로고 */
+ #Hblogo{			 							/* 한빛로고 */
 position:absolute;
-margin-top:-68px;
-margin-left:93px; 
+margin-top:-18%; 
+margin-left:25%;
+width:50%;
  }
  .mbform:hover{									
  opacity:0.5;
@@ -149,20 +150,18 @@ margin-left:93px;
  }
  #lay,#lay2,#lay3,#lay4,#lay5 {				/* 팝업창 */
  position:absolute; 
- top:305px; 
- left:100px; 
- height:460px; 
- width:255px; 
- margin-top:-180px; 
- text-align:left; 
+ height:50%; 
+ width:100%; 
+ margin-top:1%; 
+ text-align:center; 
  z-index:160; 
  color:white;
  }
  #lay span, #lay2 span ,#lay3 span ,#lay4 span ,#lay5 span{ /* 닫기 */
  display:block; 
  position:absolute; 
- right:5px; 
- bottom:5px; 
+ right:3%; 
+ bottom:-50%; 
  cursor:pointer;
  }
  #blind_box { 												/* 팝업창 이외의 박스 */

@@ -40,16 +40,17 @@
 	 }
 	 #intro_gae{									/* intro img  */
 	 position:absolute;
-	 width:380px;
-	 margin-top:-78px;
+	 width:100%;
+	 margin-top:-88px;
 	 }
 	 p{
 	 display: none;
 	 }
 	 #Hblogo{										/* 한빛로고 */
 	position:absolute;
-	margin-top:-105px;
-	margin-left:53px; 
+	margin-top:-28%; 
+	margin-left:14%;
+	width:50%;
 	 }
  }
  @media only screen and (min-width:400px){
