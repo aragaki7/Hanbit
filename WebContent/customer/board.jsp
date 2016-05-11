@@ -294,7 +294,7 @@ input[type=submit] {
                <select id="keyword" name="keyword">
                   <option value="title">제목</option>
                   <option value="content">내용</option>
-                  <option value="name">글쓴이</option>
+                  <option value="id">작성자</option>
                </select> 
                <input type="text" name="search" value=""> 
                <input type="submit" value="검색">
