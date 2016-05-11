@@ -20,7 +20,7 @@
    .container_12{
       width: 100%;
    }
-  
+   
    .grid3{
    	display: none;
    }

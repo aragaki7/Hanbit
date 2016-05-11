@@ -15,7 +15,7 @@
         /*mobile*********************************************/
     *{
       margin: 0px;
-      padding: 0px; 
+      padding: 0px;  
    }
    .container_12{
       width: 100%;

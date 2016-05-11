@@ -22,7 +22,7 @@
    }
    .grid3{
    	display: none;
-   }
+   } 
     .footer{
     	display: none;
     }

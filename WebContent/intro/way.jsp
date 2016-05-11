@@ -21,7 +21,7 @@
       width: 100%;
    }
   
-   .grid3{
+   .grid3{ 
    	display: none;
    }
     .footer{
