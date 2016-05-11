@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="bean.AttData"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Calendar"%>
@@ -150,6 +151,15 @@ label {
 #attendChart td{
 	width:20px;
 }
+#attInfo{
+	font-size:12px;
+	background-color: #EAEAEA;
+	width: 600px;
+	border-top: 2px solid #D5D5D5;
+	border-bottom: 2px solid #D5D5D5;
+	margin:5px 0px;
+	padding: 10px;
+}
 
 </style>
 <script type="text/javascript">
@@ -190,12 +200,26 @@ label {
 				  String mobile = request.getParameter("mobile");
 				  String attDate = request.getParameter("attDate");
 				  int attNum =  Integer.parseInt(request.getParameter("attNum"));
+// 					System.out.println(attDate);
 				%>	
+				<%
+				    Calendar cal = Calendar.getInstance(); // Calendar Instance 생성
+				    int year = cal.get(Calendar.YEAR); //현재 연도를 가져옴
+				    int month = cal.get(Calendar.MONTH); // 현재 달을 가져옴
+				    
+				    cal.set(year, month, 1); // - Calendar MONTH는 0-11까지이므로 1을 더해준다. 
+				    int bgnWeek = cal.get(Calendar.DAY_OF_WEEK);  // 시작요일 확인 1~7 1 = 일요일
+				    int lastDay = cal.getActualMaximum(Calendar.DATE);
+				    SimpleDateFormat transFormat = new SimpleDateFormat("yyyyMMdd");
+				    Date tempDate = transFormat.parse(attDate); //String attDate -> date type 으로 변환
+				    SimpleDateFormat dateFormat = new SimpleDateFormat("yy년 MM월 dd일 E요일");
+				    
+				%>
 					<tr class="hid">
 						<th>아이디</th>
 						<td colspan="3"><span id="name" name="name">
 											<input type="hidden" value="<%=id%>" name="id"/>
-											<input type="hidden" value="<%=attDate %>" name="attDate"/>
+											<input type="hidden" value="<%=attDate%>" name="attDate"/>
 										</span>
 						</td>
 					</tr>
@@ -207,8 +231,8 @@ label {
 					<td colspan="3"><span id="tel4" name="mobile" size="3"><%=mobile%></span></td>
 					</tr>
 					<tr>
-						<th>강의실</th>
-						<td colspan="3"><span name="classroom">이날 출결 상황 : 
+						<th>출결수정</th>
+						<td colspan="3"><span name="classroom"><%=dateFormat.format(tempDate)%> 출결 상황 : 
 						<%if(attNum==0) {%>
 						 <span>출석</span>
 						<%}%>
@@ -235,16 +259,7 @@ label {
 					</tr>
 				</table>
 			</form>
-<%
-    Calendar cal = Calendar.getInstance(); // Calendar Instance 생성
-    int year = cal.get(Calendar.YEAR); //현재 연도를 가져옴
-    int month = cal.get(Calendar.MONTH); // 현재 달을 가져옴
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-    
-    cal.set(year, month, 1); // - Calendar MONTH는 0-11까지이므로 1을 더해준다. 
-    int bgnWeek = cal.get(Calendar.DAY_OF_WEEK);  // 시작요일 확인 1~7 1 = 일요일
-    int lastDay = cal.getActualMaximum(Calendar.DATE);
-%>
+
  <h2><%=name%>님의 <%=year%>년 <%=month+1%>월 출결 상황</h2><p/>
  
  <%
@@ -287,104 +302,14 @@ label {
 		}%>
 	</tr>
 	</table>
- 
- 
-<!-- <table> -->
-<!-- <tr> -->
-<!--     <td align="center"></td> -->
-<!-- </tr> -->
-<!-- <tr> -->
-<!--     <td> -->
-
-<!--         <table id="attendChart"> -->
-<!--         	<tr>   -->
-<%-- <%  --%>
-
-<!--  	int cnt = 1; -->
-<!--  	while(true){ -->
-<!--  		if((bgnWeek+lastDay)==cnt)break; -->
-<!--  		out.print("<td class=\"sunday\">일</td>"); -->
-<!--  		cnt++; -->
-<!--  		if((bgnWeek+lastDay)==cnt)break; -->
-<!--  		out.print("<td>월</td>"); -->
-<!--  		cnt++; -->
-<!--  		if((bgnWeek+lastDay)==cnt)break; -->
-<!--  		out.print("<td>화</td>"); -->
-<!--  		cnt++; -->
-<!--  		if((bgnWeek+lastDay)==cnt)break; -->
-<!--  		out.print("<td>수</td>"); -->
-<!--  		cnt++; -->
-<!--  		if((bgnWeek+lastDay)==cnt)break; -->
-<!--  		out.print("<td>목</td>"); -->
-<!--  		cnt++; -->
-<!--  		if((bgnWeek+lastDay)==cnt)break; -->
-<!--  		out.print("<td>금</td>"); -->
-<!--  		cnt++; -->
-<!--  		if((bgnWeek+lastDay)==cnt)break; -->
-<!--  		out.print("<td class=\"saturday\">토</td>"); -->
-<!--  		if((bgnWeek+lastDay)==cnt)break; -->
-<!--  		cnt++; -->
-<!--  	} -->
-<%-- %>		 --%>
-<!-- 			</tr> -->
-<%-- <% --%>
-     <!-- // 시작요일까지 이동 -->
-<%--     for (int i=1; i<bgnWeek; i++){%> --%>
-<!--     	<td class="space"></td> -->
-<%-- <% }%> --%>
-<%-- <%        while (cal.get(Calendar.MONTH) == month) { //변수 month 의 값과, 현재달이 같을때까지 (즉 현재달의 날짜 만큼) --%>
-<%-- %>    	 --%>
-        
-<%--         <td><%=cal.get(Calendar.DATE)%></td> --%>
-<%-- <% 		//날짜를 가져온다. --%>
-       
-<!--  		// 날짜를 1씩 증가시킨다. -->
-		
-<!--           cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH),  cal.get(Calendar.DATE)+1); -->
-		
-<!--      } -->
-
-<%--     	%> --%>
-<!--          </tr> -->
-         
-<!--          <tr> -->
-<%--          <% ArrayList<UserData> attendDetailList = (ArrayList<UserData>)request.getAttribute("attendDetailList"); %> --%>
-        
-<%--          <% for (int i=1; i<bgnWeek; i++){%> --%>
-<!--     		<td class="space"></td> -->
-<%-- 		<%}%> --%>
-		
-<%-- 		<%	for (int i = 0; i < attendDetailList.size(); i++) {%> --%>
-<%-- 			<td><%=attendDetailList.get(i).getAtt()%></td> --%>
-<%-- 			<td><%=attendDetailList.get(i).getAttDate()%></td> --%>
-<%-- 			<td><%String nalja = attendDetailList.get(i).getAttDate().substring(6); --%>
-<!--  			System.out.println(nalja); -->
-<%-- 			%></td> --%>
-<%--        <%}%> --%>
-       
-    
-<%--        <% while (cal.get(Calendar.MONTH) == month) { //변수 month 의 값과, 현재달이 같을때까지 (즉 현재달의 날짜 만큼) --%>
-<%-- %>    	 --%>
-        
-<%--         <td><%=cal.get(Calendar.DATE)%></td> --%>
-<%-- <% 		//날짜를 가져온다. --%>
-       
-<!--  		// 날짜를 1씩 증가시킨다. -->
-<!--  		cal.set(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DATE)+1); -->
-		
-<!--      } -->
-
-<%--     	%> --%>
-		
-
-<!-- 		</tr> -->
-<!--         </table> -->
-        
-
-<!--     </td> -->
-<!-- </tr> -->
-<!-- </table> -->
-
+	<br/>
+	<div id="attInfo">
+	* 화면상태 표시 설명 => 출석:[<img src="../imgs/att0.png"/>]&nbsp;지각:[<img src="../imgs/att1.png"/>]
+							조퇴:[<img src="../imgs/att2.png"/>]&nbsp;결석:[<img src="../imgs/att3.png"/>]
+							&nbsp;입력 없음:[<img src="../imgs/att4.png"/>]<br/>
+	* 지각, 조퇴, 외출 3회 마다 1일 결석으로 처리됩니다.<br/> 
+	* 출결유무는 교육진에서 출결자료를 입력한 후에 반영됩니다.
+	</div>
 		</div>
 		<!-- content end -->
 

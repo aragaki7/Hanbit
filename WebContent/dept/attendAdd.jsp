@@ -162,10 +162,18 @@ $(document).ready(function(){
 	    	
 		<%
 		String flag = (String)request.getParameter("flag");
-		if(flag!=null)
+		if(flag!=null){
 			if("false".equals(flag)){%>
 				alert('이미 출결 처리가 완료되었습니다.');
-		<%}%> 	
+		<%}}%> 	
+		
+		<%
+		String week = (String)request.getParameter("week");
+		if(week!=null){
+			if("false".equals(week)){%>
+				alert('주말은 출석 처리가 불가합니다.');
+		<%}}%> 	
+		
 }); // document ready end
 </script>
 </head>
