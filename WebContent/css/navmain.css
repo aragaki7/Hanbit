@@ -1,5 +1,9 @@
-@media only screen and (max-width:399px){
-        /*mobile*/
+/* @media only screen and (min-device-width : 1px) and (max-device-width:399px) */
+/* @media only screen and (min-device-width : 320px) and (max-device-width : 480px) { */
+/* @media only screen and (max-device-width : 400px) { */
+@media only screen and  (max-width: 399px) {
+/* { */
+   /*mobile*/
     *{
       margin: 0px;
       padding: 0px; 
