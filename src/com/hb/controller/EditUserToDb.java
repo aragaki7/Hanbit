@@ -12,6 +12,7 @@ import com.hb.model.UserDao;
 
 import bean.UserData;
 import bean.UserDataPw;
+import net.sf.json.JSONObject;
 
 //@WebServlet("/memberedit.do")
 public class EditUserToDb extends HttpServlet{
@@ -55,7 +56,8 @@ public class EditUserToDb extends HttpServlet{
 		UserDataPw bean = new UserDataPw(id, name, post, main_address, sub_address, null, phone, mobile, email, pm, cl);
 		
 		result = dao.EditMember(bean,pw);
-		
+		JSONObject jsonObject = dao.loginJson(id, pw);
+		req.getSession().setAttribute("jsonObj", jsonObject);
 		
 		if(result>0){
 			resp.sendRedirect("/Hanbit/main.jsp?editresult=success");

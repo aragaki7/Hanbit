@@ -47,12 +47,12 @@
 		if (loginre != null) { 
 			if (loginre.getString("result").equals("success")) {
 	%>
-    <div id="hh"><a href="/Hanbit/useredit.do" >개인정보</a>
+    <div id="hh"><a href="/Hanbit/useredit.do" >개인정보 </a>
 	<a href="/Hanbit/logout.do" >/ 로그아웃</a></div>
 	<%}else{%>
-	<div id="hh1"><a href="/Hanbit/login/join.jsp" >회원가입</a></div>
+	<div id="hh"><a href="/Hanbit/login/join.jsp" >회원가입</a></div>
 	<%}}else{%>
-	<div id="hh1"><a href="/Hanbit/login/join.jsp" >회원가입</a></div>	
+	<div id="hh"><a href="/Hanbit/login/join.jsp" >회원가입</a></div>	
 	<%}%>
 	</div>
 
