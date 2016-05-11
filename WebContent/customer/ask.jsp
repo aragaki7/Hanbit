@@ -154,8 +154,8 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 JSONObject jsonObject2 = new JSONObject();
 jsonObject2 = (JSONObject) session.getAttribute("jsonObj");
 if (jsonObject2 != null) {%>
-	var pm = "<%=jsonObject2.getString("pm")%>";
-	if (!("관리자" == pm)) {
+	var pm = "<%=jsonObject2.getString("result")%>";
+	if (!("success" == pm)) {
 		alert('로그인이 필요합니다.');
 		location.href="/Hanbit/main.do";
 	}else{

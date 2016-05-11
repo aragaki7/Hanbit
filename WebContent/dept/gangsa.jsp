@@ -201,6 +201,20 @@ background-color:firebrick;
 	height: 20px;
 	border: 0px;
 }
+.endBtn{
+	position: relative;
+	left : 350px;
+	top : 50px;
+	
+ 	padding: 15px;
+	font-size: 11pt;
+	font-weight: bold;
+	color: white;  
+	background-color: firebrick;
+	border: none;
+}
+
+
 </style>
 <script type="text/javascript">
 <%
@@ -232,9 +246,8 @@ background-color:firebrick;
 		var rowIndex = rowValue.rowIndex;
 		return rowIndex;
 	}
-	
 	$(document).ready(function() {
-		
+		$('.rbtn').show();
 		// css_tab input(우리현재 메뉴탭) 을 클릭했을때 이벤트 발생
 		$("#css_tabs input").click(function () {
 			//클릭한 input(메뉴탭)의 index 번호를 가져와 쿠키에 저장함. expires : 쿠키 저장기간
@@ -262,19 +275,30 @@ background-color:firebrick;
 			location.href="egradeser.do?id="+id;
 			});
 		
-		$('.stuListRow').on('click', function() {
+		$('.stuListRow').on('click', function(event) {
+			if (event.target.type == 'checkbox') return;
 			var ridx=getRow(this);
 			var id=$('.stuListRow:eq('+(ridx-1)+')>td:eq(0)').text();
 			location.href="studetail.do?id="+id;
 		});
-		
+		$(".chkAll").click(function(){
+	        //클릭되었으면
+	        if($(".chkAll").prop("checked")){
+	            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 true로 정의
+	            $("input[name=chkId]").prop("checked",true);
+	            //클릭이 안되있으면
+	        }else{
+	            //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 false로 정의
+	            $("input[name=chkId]").prop("checked",false);
+	        }
+	    })
+
 		$('.attendListRow').on('click', function(){
 			var ridx=getRow(this);
 			var id=$('.attendListRow:eq('+(ridx-1)+')>td:eq(0)').text();
 			var name=$('.attendListRow:eq('+(ridx-1)+')>td:eq(1)').text();
 			var mobile=$('.attendListRow:eq('+(ridx-1)+')>td:eq(2)').text();
 			
-<%-- 		location.href="stuedit.jsp?id="+id+"&name="+name+"&mobile="+mobile+"&attNum="+<%=attNum%>+"&attDate="+<%=dateEdit%>; --%>
 			location.href="attenddetail.do?id="+id+"&name="+name+"&mobile="+mobile+"&attNum="+<%=attNum%>+"&attDate="+<%=dateEdit%>;
 		});
 		
@@ -332,11 +356,13 @@ background-color:firebrick;
 					<div class="table">
 						<table>
 							<tr>
+								<td class="rarea"><input type="checkbox" class="chkAll rbtn"/></td>
 								<td>이름</td>
 								<td>휴대폰번호</td>
 								<td>이메일</td>
 								<td>강의실</td>
 								</tr>
+								<form action="delstulist.do" method="post">
 								<%
 								String tmp ="없음";
 								String loginclass = jsonObject1.getString("classs");
@@ -348,7 +374,6 @@ background-color:firebrick;
 								if("4".equals(loginclass))
 									tmp = "3강의장";
 								
-								
 								for (int i = 0; i < stulist.size(); i++) {
 // 										System.out.println(stulist.get(i).getClasss());
 									if(jsonObject1.getString("pm").equals("관리자")){
@@ -356,15 +381,12 @@ background-color:firebrick;
 										continue;
 								%>
 							<tr class="stuListRow" style="cursor: hand;">
-								
+<%-- 								<input type="hidden" readonly="readonly" name="id" value="<%=stulist.get(i).getId()%>"/> --%>
 								<td class="hid"><%=stulist.get(i).getId()%></td>
-								
+								<td class="rarea"><input type="checkbox" name="chkId" class="rbtn"value="<%=stulist.get(i).getId()%>"/></td>
 								<td><%=stulist.get(i).getName()%></td>
-					
 								<td><%=stulist.get(i).getMobile()%></td>
-						
 								<td><%=stulist.get(i).getEmail()%></td>
-
 								<td><%=stulist.get(i).getClasss() %></td>
 								</tr>
 							<%
@@ -372,6 +394,8 @@ background-color:firebrick;
 							%>	
 							</table>
 					</div>
+							<button class="endBtn" type="submit">수강 종료</button>
+							</form>
 				</div>
 
 				<div class="tab1_content"> <!-- 출결관리 -->

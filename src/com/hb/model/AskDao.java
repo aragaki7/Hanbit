@@ -167,5 +167,31 @@ public int deleteOne(int idx) {
 	}
 	return result;
 }
+
+public ArrayList<AskData> AskList(String id) {
+	ArrayList<AskData> list=new ArrayList<AskData>();
+    sql="select TB_INQ.idx, TB_USER.name, title, days, time from TB_INQ join TB_USER on TB_INQ.id_fk = TB_USER.id where TB_USER.id = ? order by TB_INQ.idx desc";
+
+ try {
+    pstmt = DBConnect.get().prepareStatement(sql);
+    pstmt.setString(1, id);
+    rs = pstmt.executeQuery();
+    list.clear();
+    while (rs.next()) {
+       list.add(new AskData(rs.getInt("idx"), rs.getString("TB_USER.name"), rs.getString("title"),
+             rs.getDate("days"), rs.getTimestamp("time")));
+    }
+ } catch (Exception e) {
+    e.getStackTrace();
+ } finally {
+       try {
+          if (rs != null) rs.close();
+          if (pstmt != null)   pstmt.close();
+       } catch (SQLException e) {
+          e.printStackTrace();
+       }
+    }
+ return list;
+}
 }
 
