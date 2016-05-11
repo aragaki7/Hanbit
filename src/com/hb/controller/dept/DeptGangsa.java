@@ -39,8 +39,8 @@ import bean.UserDataGrade;
 			
 			
 			
-//			request.setAttribute("stulist", stulistgrade); //학생리스트 보냄
-			request.setAttribute("stulist", stulist); //학생리스트 보냄
+			request.setAttribute("stulist", stulistgrade); //학생리스트 보냄
+//			request.setAttribute("stulist", stulist); //학생리스트 보냄
 			request.setAttribute("dateSearch",daySearchlist); //출결리스트 보냄		
 			request.setAttribute("list", list); //성적리스트 보냄
 			request.getRequestDispatcher("/dept/gangsa.jsp").forward(request, response);

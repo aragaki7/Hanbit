@@ -804,10 +804,10 @@ public class UserDao {
 
 	public ArrayList<UserDataGrade> UserlistGrade() {
 		ArrayList<UserDataGrade> list = new ArrayList<UserDataGrade>();
-			sql = "select TB_USER.id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room, java, web, fw"
+			sql = "select TB_USER.id, name, post, main_address, sub_address, sex, phone, mobile, email,  TB_CLASS.class_room, java, web, fw, (java+web+fw) as sum"
 				+" from TB_USER join TB_CLASS on class_fk = class_pk join TB_GRADE on TB_USER.id = TB_GRADE.id "
 				+" where pm_fk = (select num from TB_PM where pm = '학생') and class_fk in (select class_pk from TB_CLASS where class_room not in ('없음'))"
-				+" order by class_fk";
+				+" order by sum desc";
 		
 		try {
 			
@@ -817,7 +817,7 @@ public class UserDao {
 				list.add(new UserDataGrade(rs.getString(1), rs.getString(2), 
 						rs.getString(3), rs.getString(4), rs.getString(5),
 						rs.getString(6), rs.getString(7), rs.getString(8), 
-						rs.getString(9), rs.getString(10), rs.getInt(11),rs.getInt(12),rs.getInt(13)));
+						rs.getString(9), rs.getString(10), rs.getInt(11),rs.getInt(12),rs.getInt(13),rs.getInt(14)));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

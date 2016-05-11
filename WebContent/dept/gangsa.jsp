@@ -309,7 +309,8 @@ background-color:firebrick;
 		<%@ include file="../template/nav.jsp"%>
 
 	<%
-		ArrayList<UserData> stulist = (ArrayList<UserData>)request.getAttribute("stulist"); 
+// 		ArrayList<UserData> stulist = (ArrayList<UserData>)request.getAttribute("stulist"); 
+		ArrayList<UserDataGrade> stulist = (ArrayList<UserDataGrade>)request.getAttribute("stulist"); 
 	%>
 
 		<!-- content start -->
@@ -428,11 +429,8 @@ background-color:firebrick;
 							<td class="hid">아이디</td>
 							<td>이름</td>
 							<td>강의장</td>
-<!-- 							<td class="hid">java</td> -->
-<!-- 							<td class="hid">web</td> -->
-<!-- 							<td class="hid">fw</td> -->
-<!-- 							<td>총 점</td> -->
-<!-- 							<td>평 균</td> -->
+							<td>총 점</td>
+							<td>평 균</td>
 						</tr>
 							<%
 // 							ArrayList<GreadeData> list = (ArrayList<GreadeData>)request.getAttribute("list");
@@ -449,11 +447,14 @@ background-color:firebrick;
 							<td class="hid"><%=stulist.get(i).getId()%></td>
 							<td><%=stulist.get(i).getName()%></td>
 							<td><%=stulist.get(i).getClasss()%></td>
-<%-- 							<td class="hid"><%=stulist.get(i).getJava()%></td> --%>
-<%-- 							<td class="hid"><%=stulist.get(i).getWeb()%></td> --%>
-<%-- 							<td class="hid"><%=stulist.get(i).getFw()%></td> --%>
-<%-- 							<td><%=sum %></td> --%>
-<%-- 							<td><%=avg %></td> --%>
+							<td><%=stulist.get(i).getSum() %></td>
+							<td><%=stulist.get(i).getSum()/3%>
+							<%-- <%
+							int sum = stulist.get(i).getJava()+stulist.get(i).getWeb()+stulist.get(i).getFw();
+							int avg = sum/3;
+							%>
+							<td><%=sum %></td>
+							<td><%=avg %></td> --%>
 							</tr>
 							<%}%>
 					</table>

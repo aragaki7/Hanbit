@@ -15,6 +15,8 @@ public class UserDataGrade {
 	private int java;
 	private int web;
 	private int fw;
+	private int sum;
+	
 	public String getId() {
 		return id;
 	}
@@ -53,6 +55,9 @@ public class UserDataGrade {
 	}
 	public int getFw() {
 		return fw;
+	}
+	public int getSum() {
+		return sum;
 	}
 	public void setId(String id) {
 		this.id = id;
@@ -93,8 +98,11 @@ public class UserDataGrade {
 	public void setFw(int fw) {
 		this.fw = fw;
 	}
+	public void setSum(int sum) {
+		this.sum = sum;
+	}
 	public UserDataGrade(String id, String name, String post, String main_address, String sub_address, String sex,
-			String phone, String mobile, String email, String classs, int java, int web, int fw) {
+			String phone, String mobile, String email, String classs, int java, int web, int fw, int sum) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -109,6 +117,7 @@ public class UserDataGrade {
 		this.java = java;
 		this.web = web;
 		this.fw = fw;
+		this.sum = sum;
 	}
 	public UserDataGrade(){
 		
