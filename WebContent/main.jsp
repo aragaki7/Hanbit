@@ -104,15 +104,6 @@ span>a>img {
 <script type="text/javascript" src="js/menuLoad.js"></script>
 <script type="text/javascript" src="js/login.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		
-		$('.bxslider').bxSlider({
-			auto : true,
-			autoControls : true,
-			controls : true,
-			pager : true
-		});
-		
 		<%
 			String joinResult = (String)request.getParameter("joinresult");
 			if(joinResult!=null)
@@ -131,6 +122,13 @@ span>a>img {
 				if("success".equals(appresult)){%>
 					alert('신청이 완료되었습니다.');
 				<%}%>
+	$(document).ready(function() {
+		$('.bxslider').bxSlider({
+			auto : true,
+			autoControls : true,
+			controls : true,
+			pager : true
+		});
 	});
 </script>
 </head>
