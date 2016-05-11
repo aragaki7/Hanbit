@@ -25,7 +25,7 @@ public class NoticeSearch extends HttpServlet {
 		ArrayList<NoticeData> bean = dao.GetSearchList(search, keyword);
 		NoticeData tmp;
 		
-		//페이징때 필요한 것들
+		/*//페이징때 필요한 것들
 		int pageTotal;//전체 페이지 
 		String pageNum = request.getParameter("page");//현재 페이지?
 		int pStart;//시작 페이지
@@ -60,12 +60,12 @@ public class NoticeSearch extends HttpServlet {
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("fpage", fpage);
 		request.setAttribute("lpage", lpage);
-		request.setAttribute("pageTotal", pageTotal);
+		request.setAttribute("pageTotal", pageTotal);*/
 	
-		/*for (int i = 0; i < bean.size(); i++) {
+		for (int i = 0; i < bean.size(); i++) {
 		tmp = bean.get(i);
 		System.out.println(tmp.toString());
-		}*/
+		}
 		request.setAttribute("list", bean);
 		request.getRequestDispatcher("/customer/notice.jsp").forward(request, response);
 	}

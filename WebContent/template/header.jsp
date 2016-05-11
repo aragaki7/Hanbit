@@ -39,7 +39,7 @@
 	<div class="grid3 header"><div id="hh">
 	<%
 		JSONObject loginre = (JSONObject) session.getAttribute("jsonObj");
-		if (loginre != null) {
+		if (loginre != null) { 
 			if (loginre.getString("result").equals("success")) {
 	%>
     <a href="/Hanbit/useredit.do" >개인정보</a>
