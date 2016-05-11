@@ -212,7 +212,7 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 	return rowIndex;
 }
 	$(document).ready(function(){
-		 
+		
 		$('.applist').on('click', function() {
 			var ridx=getRow(this);
 			// 해당 row 칼럼 순서대로 n ('.row:eq('+(ridx-1)+')>td:eq(n)')
@@ -255,11 +255,10 @@ function getRow(rowValue) {//테이블 클릭시 row num 넘겨주는 함수
 // 		     ch(num);
 		});
 		
-		 if($.cookie("index")) { index = $.cookie("index"); } 
-		 $("#css_tabs input").hide().eq(index).show().css("display","");
-		 alert(index);
-		
-		
+		 if($.cookie("index")) {
+			 index = $.cookie("index"); 
+			 $("#css_tabs input:eq("+index+")").attr('checked','checked');
+		 } 
 // 		function setcookie(num) {  // 쿠키생성함수
 // 		    document.cookie = num;
 //  		    alert(document.cookie);
