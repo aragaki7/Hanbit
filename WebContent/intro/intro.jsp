@@ -42,6 +42,7 @@
 	 position:absolute;
 	 width:100%;
 	 margin-top:-88px;
+	 height:80%;
 	 }
 	 p{
 	 display: none;

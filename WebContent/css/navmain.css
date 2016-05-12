@@ -12,27 +12,27 @@
       width: 100%;
    }
    .grid9{
-   	width:100%;
-   	display: none;
+      width:100%;
+      display: none;
    }
    .grid3{
-   	display: none;
+      display: none;
    }
     .footer{
-    	display: none;
+       display: none;
     }
     .header>.img1{
-    	display:none;
+       display:none;
     }
      
-  .mbbtn1,.mbbtn2,.mbbtn3,.mbbtn4,.mbbtn5{ /* 네모난 색배경 */
+  .mbbtn1,.mbbtn2,.mbbtn3,.mbbtn4,.mbbtn5{ /* �ㅻえ���됰같寃�*/
     position:absolute;
-	height: 23%;
-	font-size: 10pt;
-	font-weight: bold;  
-	color: white;
-	border: none;	  
-	
+   height: 23%;
+   font-size: 10pt;
+   font-weight: bold;  
+   color: white;
+   border: none;     
+   
  } 
  .mbbtn1{ 
  background-color: rgb(184,95,219);
@@ -49,25 +49,25 @@
  .mbbtn3{
  background-color: rgb(29,144,163);    
  width: 42%; 
- margin-top: 51%;    
+ margin-top: 43%;    
  margin-left: 5%;
  }    
  .mbbtn4{ 
  background-color: rgb(227,53,132);
 width: 42%; 
- margin-top: 51%; 
+ margin-top: 43%; 
  margin-left: 53%;
  } 
  .mbbtn5{
  background-color: rgb(255,192,0);
  width: 89%;  
- margin-top: 98%;  
+ margin-top: 82%;  
  margin-left: 5%;
  }
- body{											/* 바탕을 검은색으로 바꿈 */
+ body{                                 /* 諛뷀깢��寃���됱쑝濡�諛붽퓞 */
    background-color: black;
  }
-#mbintro,#mbedu,#mbservice,#mbdept,#mbcustomer{ /* 하얀 글씨 */
+#mbintro,#mbedu,#mbservice,#mbdept,#mbcustomer{ /* �섏� 湲�뵪 */
 position:absolute;
 font-weight: bold;
 color:white;
@@ -75,80 +75,80 @@ text-decoration: none;
 font-size: 20px;  
 }
 #mbintro{
-margin-top:35px;
+margin-top:30px;
  margin-left: -23px;   
 }
 #mbedu{
-margin-top: 35px; 
+margin-top: 30px; 
   margin-left: -18px; 
  }
 #mbservice{
- margin-top: 35px; 
+ margin-top: 30px; 
  margin-left: -36px; 
  }
 #mbdept{
- margin-top: 35px;
+ margin-top: 30px;
   margin-left: -22px; 
  }
 #mbcustomer{
-  margin-top: 33px;  
+  margin-top: 29px;  
   margin-left: -45px; 
  }
-#mbimg1{										/* 픽토그램 이미지 */
+#mbimg1{                              /* �쏀넗洹몃옩 �대�吏�*/
 position:absolute;
-margin-top:-33%; 
+margin-top:-30%; 
 margin-left:-25%;   
 width:50%;       
 height:50%;      
  }     
  #mbimg2{
 position:absolute; 
-margin-top:-30%; 
+margin-top:-27%; 
 margin-left:-21%;  
 width:42%;       
 height:47%;             
  }
  #mbimg3{ 
 position:absolute;
-margin-top:-32%; 
+margin-top:-29%; 
 margin-left:-25%;      
 width:50%;      
 height:47%; 
  }
  #mbimg4{
 position:absolute;
-margin-top:-28%; 
+margin-top:-25%; 
 margin-left:-21%; 
 width:42%;      
 height:45%;   
  }
  #mbimg5{
 position:absolute;
-margin-top:-14%;
+margin-top:-11%;
 margin-left:-10%; 
 width:22%;      
 height:45%;
  }
- .nav,.nav2,.nav3,.nav4,.nav5,.nav6{			/* nav를 없앰 */
+ .nav,.nav2,.nav3,.nav4,.nav5,.nav6{         /* nav瑜��놁빊 */
 display:none;
  }
- #mobileblock{  								/* 없앤 nav자리를 비움 */
-margin-top:90px;
+ #mobileblock{                          /* �놁븻 nav�먮━瑜�鍮꾩� */
+margin-top:20%;
  }
- #Hblogo{			 							/* 한빛로고 */
+ #Hblogo{                               /* �쒕튆濡쒓퀬 */
 position:absolute;
 margin-top:-18%; 
 margin-left:25%;
 width:50%;
  }
- .mbform:hover{									
+ .mbform:hover{                           
  opacity:0.5;
  }
 
- #layerBtn,#layerBtn2,#layerBtn3,#layerBtn4,#layerBtn5 { /* 각각의 폼 */
+ #layerBtn,#layerBtn2,#layerBtn3,#layerBtn4,#layerBtn5 { /* 媛곴컖����*/
  cursor:pointer;
  }
- #lay,#lay2,#lay3,#lay4,#lay5 {				/* 팝업창 */
+ #lay,#lay2,#lay3,#lay4,#lay5 {            /* �앹뾽李�*/
  position:absolute; 
  height:50%; 
  width:100%; 
@@ -157,14 +157,14 @@ width:50%;
  z-index:160; 
  color:white;
  }
- #lay span, #lay2 span ,#lay3 span ,#lay4 span ,#lay5 span{ /* 닫기 */
+ #lay span, #lay2 span ,#lay3 span ,#lay4 span ,#lay5 span{ /* �リ린 */
  display:block; 
  position:absolute; 
  right:3%; 
  bottom:-50%; 
  cursor:pointer;
  }
- #blind_box { 												/* 팝업창 이외의 박스 */
+ #blind_box {                                     /* �앹뾽李��댁쇅��諛뺤뒪 */
  position:absolute; 
  top:0; 
  left:0; 
@@ -173,7 +173,7 @@ width:50%;
  background:#000; 
  z-index:50;
  } 
- .mbt{														/* 팝업창 버튼 */
+ .mbt{                                          /* �앹뾽李�踰꾪듉 */
    margin-top:15px;
    width: 185px;
    height: 30px;
@@ -187,10 +187,10 @@ width:50%;
 
 
 @media only screen and (min-width:400px){
-	/*pc  **********************************************************************/
+   /*pc  **********************************************************************/
 .mbbtn1,.mbbtn2,.mbbtn3,.mbbtn4,.mbbtn5, #Hblogo{
-	display: none;
-} 	
+   display: none;
+}    
  *{
       margin: 0px;
       padding: 0px;
@@ -230,9 +230,9 @@ width:50%;
       width: 240px;
       height: 280px;
       box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.1);
-	  position:absolute;
+     position:absolute;
       z-index: 1;
-	  margin-top:150px;
+     margin-top:150px;
    }
    .nav2>ul{
       margin-top: 10px;
@@ -264,10 +264,10 @@ width:50%;
       height: 280px;
       margin-left: 0px;
       box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.1);
-  	  position:absolute;
+       position:absolute;
       z-index: 1;
-	  margin-left:240px;
-	  margin-top:150px;
+     margin-left:240px;
+     margin-top:150px;
    }
    .nav3>ul{
       margin-top: 10px;
@@ -296,10 +296,10 @@ width:50%;
       height: 280px;
       margin-left: 0px;
       box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.1);
-	  position:absolute;
+     position:absolute;
       z-index: 1;
-	  margin-left:480px;
-	  margin-top:150px;
+     margin-left:480px;
+     margin-top:150px;
    }
    .nav4>ul{
         margin-top: 10px;
@@ -326,10 +326,10 @@ width:50%;
       height: 280px;
       margin-left: 0px;
       box-shadow: 0px 5px 0px 0px rgba(0,0,0,0.1);
-	  position:absolute;
+     position:absolute;
       z-index: 1;
-  	  margin-left:720px;
-	  margin-top:150px;
+       margin-left:720px;
+     margin-top:150px;
    }
    .nav5>ul{
         margin-top: 10px;
@@ -356,10 +356,10 @@ width:50%;
       height: 280px;
       margin-left: 0px;
       box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.1);
-	  z-index: 1;
-	  position:absolute;
-	  margin-left:960px;
-	  margin-top:150px;
+     z-index: 1;
+     position:absolute;
+     margin-left:960px;
+     margin-top:150px;
    }
    .nav6>ul{
         margin-top: 10px;

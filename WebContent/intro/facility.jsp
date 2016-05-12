@@ -42,7 +42,7 @@
 	 #intro_facility{									/* facility img */
 	 position:absolute;
 	 width:100%;
-	 height:500px;
+	 height:80%;
 	 margin-top:-78px;
 	 }
 	 p{
