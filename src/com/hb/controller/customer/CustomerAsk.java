@@ -17,10 +17,12 @@ public class CustomerAsk extends HttpServlet {
       AskDao dao = new AskDao();
       JSONObject jobj = (JSONObject) request.getSession().getAttribute("jsonObj");
       
-
-      if(jobj.isEmpty() || jobj.isNullObject()){
+      if(jobj==null){
 //    	  request.getRequestDispatcher("/customer/ask.jsp").forward(request, response);
-    	  response.sendRedirect("/customer/ask.jsp");
+    	  System.out.println("이거 널임");
+    	  request.getRequestDispatcher("/customer/ask.jsp").forward(request, response);
+      }else{
+    	  System.out.println("널 아님");
       }
       //현재 로긴된 아이디를 받아옴
       String id = jobj.getString("id");
